@@ -29,7 +29,6 @@ class DictationFactory extends Factory
             'date' => $this->faker->randomElement(['2021-05-10','2021-05-30','2021-05-17','2021-05-24']),
             'time' => $this->faker->randomElement(['09:00:00']),
             'stock' => $this->faker->randomElement(['25','30','20', '35']),
-            'duration' => $this->faker->randomElement(['8','7','6', '10']),
 
             'course_id' => Course::all()->random()->id,
             'place_id' => Place::all()->random()->id,

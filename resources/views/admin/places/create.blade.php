@@ -26,7 +26,7 @@
             </div>    
             <div class="form-group">
                 {!! Form::label('address_number', 'Numero' ) !!}
-                {!! Form::number('address_number', null, ['class'=> 'form-control']) !!}
+                {!! Form::text('address_number', null, ['class'=> 'form-control']) !!}
                 @error('address_number')
                 <span class="text-danger">{{$message}}</span>
             @enderror

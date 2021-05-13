@@ -11,8 +11,8 @@ class Dictation extends Model
 
     protected $fillable = [
 
-        'date',        'time',        'stock',        'duration',
-        'place_id',        'course_id',        'user_id'
+        'date',        'time',        'stock',
+              'place_id',        'course_id',        'user_id'
 
     ];
 

@@ -19,7 +19,6 @@ class CreateDictationsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('stock');
-            $table->integer('duration');
             
             
             $table->unsignedBigInteger('place_id');

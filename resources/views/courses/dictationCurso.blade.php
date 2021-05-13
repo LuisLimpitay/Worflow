@@ -9,7 +9,7 @@
             <div class="flex flex-col justify-center">
                       <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 1 </p>
     
-              <p class="text-black dark:text-gray-100 text-justify font-semibold">Completado</p>
+              <p class="text-black dark:text-gray-100 text-justify font-semibold">Seleccionar Fecha</p>
             </div>
         </div>
           <!-- END SMALL CARD ROUNDED -->

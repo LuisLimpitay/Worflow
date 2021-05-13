@@ -41,14 +41,15 @@ class PlaceController extends Controller
         /* return $request->all(); me retorna el array envidado */
 
         $request->validate([
-            'city' => 'required|unique:places' ,
-            'direction' => 'required|unique:places' 
+            'city' => 'required' ,
+            'address_street' => 'required|unique:places',
+            'address_number' => 'required' 
 
         ]);
         
         $place = Place::create($request->all());
 
-        return redirect()->route('admin.places.create', $place)
+        return redirect()->route('admin.places.index', $place)
                          ->with('info', 'Categoria creada con Exito !');
 
     }

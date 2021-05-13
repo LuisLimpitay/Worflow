@@ -1,21 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Inscripciones')
 
 @section('content_header')
     <h1>Panel de Inscripciones</h1>
 @stop
 
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+@endsection
 
 @section('content')
 <div class="card">
-
-    <div class="card-header">
-        <a class="btn btn-primary" href="#">Crear</a>
-    </div>
     
     <div class="body">
-        <table class="table table-striped">
+        <table id="example" class="table table-striped">
                 <thead class="thead-dark">
                     <th>ID</th>
                     <th>Fecha del Curso</th>
@@ -32,7 +33,7 @@
                         <tr>
 
                             <td>{{$enrollment->id}}</td>
-                            <td>{{$enrollment->dictations->date}}</td>
+                            <td> {{ \Carbon\Carbon::parse($enrollment->dictations->date)->format('d/m/Y')}} </td>
 
                             <td>{{$enrollment->dictations->users->last_name}}, {{$enrollment->dictations->users->name}} </t>
                             <td>{{$enrollment->dictations->users->number_license}}</td>
@@ -50,3 +51,20 @@
 
 
 @stop
+
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+<script>
+    
+    $('#example').DataTable({
+        responsive:true,
+        autoWidth:false
+    });
+
+</script>
+@endsection

@@ -27,7 +27,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
+        $users = User::all();
+        return view ('admin.users.create', compact('users'));
+
     }
 
     /**
@@ -38,8 +41,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'number_license' => 'required',
+            'expire_license' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+            'level' => ''
+
+        ]);
+        $users = User::create($request->all());
+
+        return redirect()->route('admin.users.index', $users)->with('info', 'Usuario agregado con exito !!!');;
     }
+    
 
     /**
      * Display the specified resource.

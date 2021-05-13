@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
 
         Dictation::factory(4)->create();
 
-        Enrollment::factory(10)->create();
+        Enrollment::factory(50)->create();
 
 
 

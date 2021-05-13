@@ -15,7 +15,7 @@
                 <div class="form-group">
 
                     {!! Form::label('date', 'Fecha' ) !!}
-                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-03-25' ]) !!}
+                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-05-31' ]) !!}
                     @error('date')
                         <small class="text-danger">{{$message}}</small>
                     @enderror
@@ -56,7 +56,7 @@
 
                 <div class="form-group">
                     {!! Form::label('place_id', 'Lugar de Dictado' ) !!}
-                    {!! Form::select('place_id', $places    , null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Ciudad' ]) !!}
+                    {!! Form::select('place_id', $places->    , null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Ciudad' ]) !!}
                     @error('place_id')
                         <small class="text-danger">{{$message}}</small>
                     @enderror

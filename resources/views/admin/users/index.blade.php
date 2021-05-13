@@ -1,32 +1,32 @@
 @extends('adminlte::page')
 
-@section('title', 'Instructores')
+@section('title', 'Clientes')
+
+@section('content_header')
+    <h1>Panel de Clientes</h1>
+@stop
 
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
-@section('content_header')
-    <h1>Lista de Clientes</h1>
-@stop
-
 @section('content')
-<div class="card">
 
-    <div class="card-header">
-        <a class="btn btn-primary" href="{{route('register')}}">Crear</a>
-    </div>
+<div class="card">
     
     <div class="body">
-        <table class="table table-striped">
+        <table id=example class="table table-striped">
                 <thead class="thead-dark">
                     <th>ID</th>
                     <th>Apellido y Nombre</th>
                     <th>Email</th>
-                    <th>N° Lic de Conducir</th>
 
-                    <th>Lic Nac de Conducir</th>
-                    <th colspan="2">Acciones</th>
+                    <th>N° L.N.C.</th>
+                    <th>Venc. L.N.C.</th>
+
+                    
                 </thead>
 
                 <tbody>
@@ -34,27 +34,40 @@
                         <tr>
 
                             <td>{{$user->id}}</td>
-                            <td>{{$user->last_name}}, {{$user->name}} </td>
+                            <td>{{$user->last_name}}, {{$user->name}}</td>
                             <td>{{$user->email}}</td>
+
                             <td>{{$user->number_license}}</td>
+                            <td>{{$user->expire_license}}</td>
+                            
 
-                            <td>{{ \Carbon\Carbon::parse($user->expire_license)->format('d/m/Y')}}</td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}">Editar</a>
-                            </td>
-
-                            <td width="10px">
-                                <form action="{{route('admin.users.destroy', $user)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
         </table>
+        
     </div>
+    
 </div>
 
+
+
 @stop
+
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+<script>
+    
+    $('#example').DataTable({
+        responsive:true,
+        autoWidth:false
+    });
+
+</script>
+@endsection
