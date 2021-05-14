@@ -51,7 +51,6 @@
 
                 <th class=" py-2"><span class="text-gray-300">Ciudad</span></th>
                 <th class=" py-2"><span class="text-gray-300">Hora</span></th>
-                <th class=" py-2"><span class="text-gray-300">Duracion</span></th>
                 <th class=" py-2"><span class="text-gray-300">Cupos</span></th>
                 <th class=" py-2"><span class="text-gray-300">Acciones</span></th>
             </tr>
@@ -66,8 +65,6 @@
                     <td class="px-6 py-2">{{$dictation->places->city}}</td>
 
                     <td class="px-2 py-2">{{$dictation->time}}</td>
-
-                    <td class="px-3 py-2">{{$dictation->duration}} hs</td>
 
                     <td class="px-4">
                         <p class="text-xl px-4  container mx-auto bg-red-200 text-black py-2 border rounded-full ">

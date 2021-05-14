@@ -3,7 +3,7 @@
 @section('title', 'Admin')
 
 @section('content_header')
-    <h1>Administrador</h1>
+    <h1>Editar Dictado</h1>
 @stop
 
 @section('content')
@@ -15,18 +15,18 @@
               
                 <div class="form-group">
                     {!! Form::label('date', 'Fecha' ) !!}
-                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-03-06' ]) !!}
+                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-05-31' ]) !!}
                 </div>
   
                     <div class="form-group">
                     {!! Form::label('time', 'Hora') !!}
-                    {!! Form::time('time', null, ['class'=> 'form-control','min' => '06:00', 'max' =>'18:00' ]) !!}
+                    {!! Form::time('time', null, ['class'=> 'form-control','min' => '08:00', 'max' =>'10' ]) !!}
 
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('stock', 'Cupos' ) !!}
-                    {!! Form::number('stock', null, ['class'=> 'form-control', 'min' => '1', 'max' => '50' ]) !!}
+                    {!! Form::number('stock', null, ['class'=> 'form-control', 'min' => '1', 'max' => '35' ]) !!}
                 </div>
 
                 <div class="form-group">

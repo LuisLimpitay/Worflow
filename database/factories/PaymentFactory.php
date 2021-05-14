@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Model;
+use App\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PaymentFactory extends Factory
@@ -12,7 +12,7 @@ class PaymentFactory extends Factory
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Payment::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'hola'
+            'name'=>$this->faker->randomElement(['efectivo', 'tarjeta','transferencia'])
         ];
     }
 }

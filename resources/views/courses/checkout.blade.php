@@ -1,5 +1,6 @@
 <x-app-layout>
     <br>
+
     <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
     
       
@@ -32,8 +33,8 @@
           
     </div>
 
-{{--GRID 1 ******** SI NO ESTA REGISTRADO *********************************************************--}}
-{{--GRID 1 ******** SI NO ESTA REGISTRADO *********************************************************--}}
+{{--GRID 1 ******** SI NO ESTA REGISTRADO ************      ***************       ***********************--}}
+{{--GRID 1 ********     **************************************   ****************       ***************************--}}
 
 <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
 
@@ -42,7 +43,7 @@
 
                 <div class="container mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2"><br>
 
-{{--                     FORMULARIO DE REGISTRO  --}}                    
+                {{-- FORMULARIO DE REGISTRO  --}}                    
                     <h1 class="bg-red-300 text-2xl font-bold">Formulario de Registro</h1><br>
                     <x-guest-layout>
                         <x-jet-authentication-card>
@@ -144,8 +145,9 @@
 
             </div>
 
-{{--FIN GRID 1 *****************************************************************--}}
-{{--FIN GRID 1 *****************************************************************--}}
+
+            {{--FIN GRID 1 *****************************************************************--}}
+{{-- ***********    *******************  FIN GRID 1 *********************     ********************************************--}}
 
 {{-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
 {{-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////--}}
@@ -169,56 +171,62 @@
 
                         <p class="px-4 py-2"><strong>Ciudad: </strong>{{$dictation->places->city}}</p>
 
-                        <p class="px-4 py-2"><strong>Duracion: </strong>{{$dictation->duration}} hs</p>
-
                         <p class="px-4 py-2"><strong>Instructor: </strong>{{$dictation->courses->teachers->name}}</p>
-                        <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}},00</p><br>
-
+                        <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p><br>
 
                     </div>
 
                 </div>
-                @elseif(Auth::check())
 
-                   
+                si esta LOGUEADO 
+                @elseif(Auth::check())
 
                         <div class="container mx-auto items-center"><br>
 
                             <div class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
-                                <form>
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <label for="male">Efectivo</label><br>
-                                    <input type="radio" id="female" name="gender" value="female">
-                                    <label for="female">Transferencia Bancaria</label><br>
-                                    <input type="radio" id="other" name="gender" value="other">
-                                    <label for="other">Tarjeta de Debito</label>
-                                </form><br>
                                 
-                                <h1 class="bg-red-300 text-2xl font-bold">Resumen de tu Inscripción L</h1>
+                                <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1><br><br>
+                                <br>
 
-                                <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{$dictation->courses->name}}</p>
-                                <p class="px-4 py-2"><strong>Fecha: </strong> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</p>
-                                <p class="px-4 py-2"><strong>Hora: </strong>{{$dictation->time}}</p>
-                                <p class="px-4 py-2"><strong>Direccion: </strong>{{$dictation->places->address_street}} numero {{$dictation->places->address_number}}</p>
+      
+                                <form method="post" action="{{route('courses.payment')}}" >
 
-                                <p class="px-4 py-2"><strong>Ciudad: </strong>{{$dictation->places->city}}</p>
+                                    <input type="radio" id="efectivo" required name="payment_method" value="efectivo">
+                                    <label for="efectivo">Efectivo</label><br>
 
-                                <p class="px-4 py-2"><strong>Duracion: </strong>{{$dictation->duration}} hs</p>
+                                    <input type="radio" id="transferencia" required name="payment_method" value="transferencia">
+                                    <label for="transferencia">Transferencia Bancaria</label><br>
+                                    
+                                    <input type="radio" id="tarjeta" required name="payment_method" value="tarjeta">
+                                    <label for="tarjeta">Tarjeta de Debito</label><BR></BR>
+                                    <input type="submit" name="submit" value="CONTINUAR">  
 
-                                <p class="px-4 py-2"><strong>Instructor: </strong>{{$dictation->courses->teachers->name}}</p>
+                                </form><br>
+
+
                                 <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p><br>
 
-                                {{-- Boton de Inscripcion --}}
-                                <div class="flex justify-center">
-                                    <a href="{{ route('courses.payment', $dictation) }}"
-                                       class="inline-block text-xl px-6 py-3 bg-yellow-500 text-white rounded-full ">
-                                        PAGAR
-                                    </a><br>
-                                </div>
+                                
+
+                                <div class="container mx-auto">
+                                    <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de Inscripción</h1><br>
+
+                                    <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{$dictation->courses->name}}</p>
+                                    <p class="px-4 py-2"><strong>Fecha: </strong> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</p>
+                                    <p class="px-4 py-2"><strong>Hora: </strong>{{$dictation->time}}</p>
+                                    <p class="px-4 py-2"><strong>Direccion: </strong>{{$dictation->places->address_street}} {{$dictation->places->address_number}}</p>
+
+                                    <p class="px-4 py-2"><strong>Ciudad: </strong>{{$dictation->places->city}}</p>
+
+                                    <p class="px-4 py-2"><strong>Instructor: </strong>{{$dictation->courses->teachers->name}}</p>
+{{--                                     <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p>
+ 
+                                </div>  
+                                
 
                             </div>
 
-                        </div>
+                        </div> --}}
                         @endif
                         
 

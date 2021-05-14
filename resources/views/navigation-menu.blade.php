@@ -1,4 +1,4 @@
-<<nav class="bg-gray-800" x-data="{ open:false }">
+<nav class="bg-gray-800" x-data="{ open:false }">
 
     <style>
         .active{
@@ -64,11 +64,13 @@
             {{--///////////END LOGOTIPO Y MENU //////////////--}}
 
 
+
+
+
             {{--/////////MENU DERECHO //////////--}}
             @auth
 
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
 
                     <!-- Profile dropdown -->
                     <div class="ml-3 relative" x-data="{open:false}">
@@ -108,6 +110,7 @@
                 </div>
 
             @else
+
                 <div>
                     <a href="{{route('login')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesion</a>
                     <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrarse</a>

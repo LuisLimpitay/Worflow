@@ -25,7 +25,7 @@ class PlaceFactory extends Factory
 
             'address_street' => $this->faker->randomElement(['Juan B. Justo','Av. Libertador','San Martin']),
             'address_number' => '2100',
-            'city' => $this->faker->randomElement(['Las Heras','Caleta Olivia','PicoTruncado'])
+            'city' => $this->faker->unique()->cityPrefix
 
         ];
     }

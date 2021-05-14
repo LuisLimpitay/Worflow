@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 Route::get('/pruebas', function () {
 
-    $date = auth()->user();
+    $date = auth()->user()->level;
     dump($date);
 });
 
@@ -34,8 +34,7 @@ Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name
 
 
 //******************************  PAYMENT MERCADO PAGO  ************************************->
-Route::get('payment/{dictation}', [PaymentController:: class, 'payment'])->name('courses.payment');
-
+Route::post('payment', [PaymentController:: class, 'payment'])->name('courses.payment');
 
 
 

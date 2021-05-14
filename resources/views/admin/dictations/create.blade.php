@@ -38,14 +38,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    {!! Form::label('duration', 'Duracion en horas' ) !!}
-                    {!! Form::number('duration', null, ['class'=> 'form-control' , 'placeholder' => 'EJ: 8']) !!}
-                    @error('duration')
-                        <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
-
+            
                 <div class="form-group">
                     {!! Form::label('course_id', 'Curso' ) !!}
                     {!! Form::select('course_id', $courses, null, ['class' => 'form-control','placeholder' => 'Seleccione un Curso' ]) !!}
@@ -56,7 +49,7 @@
 
                 <div class="form-group">
                     {!! Form::label('place_id', 'Lugar de Dictado' ) !!}
-                    {!! Form::select('place_id', $places->    , null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Ciudad' ]) !!}
+                    {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Ciudad' ]) !!}
                     @error('place_id')
                         <small class="text-danger">{{$message}}</small>
                     @enderror

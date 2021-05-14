@@ -65,10 +65,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //Relacion UNO A MUCHOS //
-    public function dictations(){
+    
+    //Relacion UNO A UNO //
+    public function enrollments(){
 
-        return $this->hasMany(Dictation::class);
+        return $this->hasOne(Enrollment::class);
 
     }
+    
 }

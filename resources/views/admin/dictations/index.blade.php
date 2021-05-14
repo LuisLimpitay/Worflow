@@ -34,10 +34,11 @@
         <table id="example3" class="table table-striped table-responsive-sm">
                 <thead class="thead-dark">
                     <th>Fecha</th>
-                    <th>Hora</th>
                     <th>Lugar</th>
+
+                    <th>Hora</th>
+                    <th>i</th>
                     <th>Cupos</th>
-                    <th>Users</th>
 
                     <th colspan="2">Acciones</th>
                 </thead>
@@ -47,6 +48,7 @@
 
                         <tr>
                             <td> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}} </td>
+                            <td>{{$dictation->places->address_street}} {{$dictation->places->address_number}}, {{$dictation->places->city}}</td>
                             <td> {{$dictation->time}} </td>
                             
                             <td> {{$dictation->courses->categories->name}}</td>

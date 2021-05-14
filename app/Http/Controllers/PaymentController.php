@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     
-    public function payment(Dictation $dictation)
+    public function payment()
     {
-        return view('courses.payment', compact('dictation'));
+        return view('courses.payment');
     }
 
     public function transaction(Dictation $dictation)

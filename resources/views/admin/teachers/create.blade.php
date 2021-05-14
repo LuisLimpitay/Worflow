@@ -18,8 +18,8 @@
             {!! Form::open(['route' => 'admin.teachers.store']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('name', 'Nombre y Apellido' ) !!}
-                    {!! Form::text('name', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el nombre de la Ciudad']) !!}
+                    {!! Form::label('name', 'Apellido y Nombre' ) !!}
+                    {!! Form::text('name', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el Apellido y Nombre del Instructor']) !!}
 
                     @error('name')
                         <span class="text-danger">{{$message}}</span>
@@ -36,24 +36,12 @@
 
               </div>
             <div class="form-group">
-                {!! Form::label('direction', 'Direccion' ) !!}
-                {!! Form::text('direction', null, ['class'=> 'form-control', 'placeholder' => 'Ej. Av. Jujuy 322']) !!}
+                {!! Form::label('email', 'Email' ) !!}
+                {!! Form::email('email', null, ['class'=> 'form-control', 'placeholder' => 'Ej. ejemplo@gmail.com']) !!}
 
-                @error('direction')
+                @error('email')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
-
-            </div>
-              <div class="form-group">
-                  {!! Form::label('city', 'Ciudad' ) !!}
-                  {!! Form::text('city', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el nombre de la Ciudad']) !!}
-
-                  @error('city')
-                      <span class="text-danger">{{$message}}</span>
-                  @enderror
-
-              </div>
-
 
 
                 {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}

@@ -12,11 +12,10 @@ class Payment extends Model
     protected $fillable = [
         'name'
     ];
-    protected $table = 'payments';
 
-    //Relacion UNO A MUCHOS
+    // Relacion UNO A MUCHOS
     public function enrollments(){
         return $this->hasMany(Enrollment::class);
-    
+
     }
 }

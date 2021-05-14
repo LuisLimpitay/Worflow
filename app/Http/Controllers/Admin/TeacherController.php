@@ -41,9 +41,7 @@ class TeacherController extends Controller
         $request->validate([
             'name' => 'required',
             'about' => 'required',
-            'direction' => 'required',
-            'city' => 'required',
-
+            'email' => 'required'   
         ]);
         $teacher = Teacher::create($request->all());
 

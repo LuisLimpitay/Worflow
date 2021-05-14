@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
@@ -13,13 +12,12 @@ class EnrollmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
-    public function index (){
-        
+    public function index()
+    {
         $enrollments = Enrollment::all();
-        return view ('admin.enrollments.index', compact('enrollments'));
+
+        return view('admin.enrollments.index', compact('enrollments'));
     }
-    
 
     /**
      * Show the form for creating a new resource.

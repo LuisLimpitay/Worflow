@@ -26,13 +26,12 @@ class DictationFactory extends Factory
     {
         return [
      
-            'date' => $this->faker->randomElement(['2021-05-10','2021-05-30','2021-05-17','2021-05-24']),
+            'date' => $this->faker->unique()->date($format = 'Y-m-d', $max = 'now'),
             'time' => $this->faker->randomElement(['09:00:00']),
             'stock' => $this->faker->randomElement(['25','30','20', '35']),
 
             'course_id' => Course::all()->random()->id,
             'place_id' => Place::all()->random()->id,
-            'user_id' => User::all()->random()->id,
 
 
         ];

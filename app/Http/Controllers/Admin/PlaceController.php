@@ -41,8 +41,8 @@ class PlaceController extends Controller
         /* return $request->all(); me retorna el array envidado */
 
         $request->validate([
-            'city' => 'required' ,
-            'address_street' => 'required|unique:places',
+            'city' => 'required|unique:places' ,
+            'address_street' => 'required',
             'address_number' => 'required' 
 
         ]);
@@ -89,13 +89,15 @@ class PlaceController extends Controller
     public function update(Request $request,Place $place)
     {
         $request->validate([
-            'city' => 'required|unique:places' ,
-            'direction' => 'required|unique:places' 
+            'city' => 'required' ,
+            'address_street' => 'required',
+            'address_number' => 'required' 
+
         ]);
 
         $place->update($request->all());
 
-        return redirect()->route('admin.places.edit', $place)
+        return redirect()->route('admin.places.index', $place)
                          ->with('info', 'Ciudad actualizada con exito !!!');
     }
 

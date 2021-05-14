@@ -16,7 +16,7 @@ class CreateDictationsTable extends Migration
         Schema::create('dictations', function (Blueprint $table) {
             $table->id();
 
-            $table->date('date');
+            $table->date('date')->unique();
             $table->time('time');
             $table->integer('stock');
             
@@ -27,9 +27,7 @@ class CreateDictationsTable extends Migration
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
  
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
- 
+            
             $table->timestamps();
         });
     }

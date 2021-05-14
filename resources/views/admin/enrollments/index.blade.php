@@ -27,7 +27,6 @@
                     
                     <th>Estado del pago</th>
                 </thead>
-
                 <tbody>
                     @foreach ($enrollments as $enrollment)
                         <tr>
@@ -35,9 +34,11 @@
                             <td>{{$enrollment->id}}</td>
                             <td> {{ \Carbon\Carbon::parse($enrollment->dictations->date)->format('d/m/Y')}} </td>
 
-                            <td>{{$enrollment->dictations->users->last_name}}, {{$enrollment->dictations->users->name}} </t>
-                            <td>{{$enrollment->dictations->users->number_license}}</td>
-                            <td>{{$enrollment->payment_method}}</td>
+                            <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>
+                            <td>{{$enrollment->users->number_license}}</td>
+
+{{--                             aca deberia hacer para algo para poder cambiar el estado del pago
+ --}}                            <td>{{$enrollment->payment_method}}</td>
 
                             <td>{{$enrollment->status}}</td>
                      
@@ -65,6 +66,5 @@
         responsive:true,
         autoWidth:false
     });
-
 </script>
 @endsection

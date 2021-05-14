@@ -33,21 +33,15 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
-                {!! Form::label('direction', 'Calle y numero') !!}
-                {!! Form::text('direction', null, ['class' => 'form-control']) !!}
-                @error('direction')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
 
-            </div>
             <div class="form-group">
-                {!! Form::label('city', 'Ciudad') !!}
-                {!! Form::text('city', null, ['class' => 'form-control']) !!}
-                @error('city')
+                {!! Form::label('email', 'Email') !!}
+                {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            
             {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
 

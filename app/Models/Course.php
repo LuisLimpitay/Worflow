@@ -35,6 +35,7 @@ class Course extends Model
     
     }
 
+    
     //Relacion UNO A UNO INVERSA
     public function categories(){
         return $this->belongsTo(Category::class, "category_id" , "id");

@@ -19,10 +19,10 @@
 @endif
 
 <div class="card">
-
+{{-- 
     <div class="card-header">
         <a class="btn btn-primary" href="{{route('admin.courses.create')}}">Crear</a>
-    </div>
+    </div> --}}
 
     <div class="body">
         <table class="table table-striped table-responsive">
@@ -34,7 +34,7 @@
                     <th>Precio </th>
                     <th>Instructor</th>
                     <th>Categoria</th>
-                    <th colspan="2">Acciones</th>
+                    <th colspan="1">Acciones</th>
                 </thead>
 
                 <tbody>
@@ -52,13 +52,13 @@
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.courses.edit', $course)}}">Editar</a>
                             </td>
 
-                            <td width="10px">
+                            {{-- <td width="10px">
                                 <form action="{{route('admin.courses.destroy', $course)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
-                            </td>
+                            </td> --}}
                         </tr>
 
 

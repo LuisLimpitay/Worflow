@@ -58,12 +58,11 @@ class DictationController extends Controller
             'date' => 'required',
             'time' => 'required',
             'stock' => 'required',
-            'duration' => 'required',
             'course_id' => 'required',
             'place_id' => 'required',
 
         ]);
-        dump($request);
+        //dump($request);
         $dictations = Dictation::create($request->all());
 
         return redirect()->route('admin.dictations.index', $dictations)
@@ -76,6 +75,8 @@ class DictationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // CREE ESTA FUNCION PARA MANDARSELA COMO PARAMETRO A MI CREATE DICTATION
     public function dictation(Dictation $dictations)
     {
         $courses = Course::pluck('name', 'id');
@@ -87,6 +88,8 @@ class DictationController extends Controller
             'places',
             'courses'));
     }
+    // ************************************************************************
+
 
     /**
      * Show the form for editing the specified resource.
@@ -115,7 +118,8 @@ class DictationController extends Controller
     public function update(Request $request, Dictation $dictation)
     {
         $dictation->update($request->all());
-        return redirect()->route('admin.dictations.index', $dictation)->with('info', 'Dictado actualizado con Exito !');
+        return redirect()->route('admin.dictations.index', $dictation)
+                            ->with('info', 'Dictado actualizado con Exito !');
     }
 
     /**
