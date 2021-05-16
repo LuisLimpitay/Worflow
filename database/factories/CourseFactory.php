@@ -37,7 +37,6 @@ class CourseFactory extends Factory
             'price' => '7000',
 
             'teacher_id' => Teacher::all()->random()->id,
-            'category_id' => Category::all()->random()->id
 
         ];
     }

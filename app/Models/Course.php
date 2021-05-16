@@ -16,7 +16,7 @@ class Course extends Model
         'description',
         'content',
         'price',
-        'category_id',
+
         'teacher_id'  
 
     ];
@@ -35,12 +35,6 @@ class Course extends Model
     
     }
 
-    
-    //Relacion UNO A UNO INVERSA
-    public function categories(){
-        return $this->belongsTo(Category::class, "category_id" , "id");
-    
-    }
     //Relacion UNO A UNO INVERSA
     public function teachers(){
         return $this->belongsTo(Teacher::class, "teacher_id" , "id");

@@ -51,7 +51,7 @@
                 <div class="container mx-auto flex flex-col max-w-md bg-gray-300  px-8 py-6 rounded-xl space-y-5 items-center">
 
                     <p class="inline-block px-3 h-6 bg-red-500 text-gray-200 rounded-full ">
-                        {{$course->categories->name}}
+                        Modalidad Presencial
                     </p>
 
                     <h3 class="font-serif font-bold text-gray-900 text-xl">{{$course->name}}</h3>

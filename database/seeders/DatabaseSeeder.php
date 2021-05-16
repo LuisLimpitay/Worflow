@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
 
         Teacher::factory(1)->create();
         Place::factory(3)->create();
-        Category::factory(1)->create();
 
         Course::factory(1)->create();
 

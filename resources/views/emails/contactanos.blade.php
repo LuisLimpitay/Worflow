@@ -9,10 +9,11 @@
 <body>
     <h1>Correo Electronico</h1>
      
-    <strong>De: {{$contacto['name']}}</strong>
-    <strong>Correo: {{$contacto['email']}}</strong>
+    <p><strong>De: {{$contacto['name']}}</strong></p>
+    
+    <p><strong>Correo: {{$contacto['email']}}</strong></p>
 
-    <strong>Mensaje: {{$contacto['mensaje']}}</strong>
+    <p><strong>Mensaje: {{$contacto['mensaje']}}</strong></p>
 
 
 </body>

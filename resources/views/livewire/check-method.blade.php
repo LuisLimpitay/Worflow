@@ -79,7 +79,7 @@
                             Continuar
                         </button>
                     </div>
-                </div>
+                </div><br>
               
     
 
@@ -119,7 +119,7 @@
                                     Continuar
                                 </button>
                             </div>
-                        </div>
+                        </div><br>
                     
                     
                     
@@ -147,7 +147,7 @@
                                         Continuar
                                     </button>
                                 </div>
-                            </div>
+                            </div><br>
                         
                     
         @endif

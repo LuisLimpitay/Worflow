@@ -24,11 +24,7 @@ class CreateCoursesTable extends Migration
                         
             
             $table->unsignedBigInteger('teacher_id');
-            $table->unsignedBigInteger('category_id');
-
-
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('category_id')->references('id')->on('categories');
              
 
             $table->timestamps();

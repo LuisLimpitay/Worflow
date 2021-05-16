@@ -173,7 +173,7 @@
 
                         <p class="px-4 py-2"><strong>Instructor: </strong>{{$dictation->courses->teachers->name}}</p>
                         <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p><br>
-
+<br>
                     </div>
 
                 </div>
@@ -192,10 +192,9 @@
                                      
                                 @livewire('check-method')
                                 <br>
-                                <p class="px-4 py-2 bg-red-500 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p>
-                            <br>
+                                <p class="px-4 py-2 bg-red-500 text-lg font-bold"><strong>A Pagar 195: </strong> ARS $ {{$dictation->courses->price}}</p>
 
-                                <div class="container mx-auto">
+                                <div class="container mx-auto"><br>
                                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de Inscripción</h1><br>
 
                                     <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{$dictation->courses->name}}</p>
