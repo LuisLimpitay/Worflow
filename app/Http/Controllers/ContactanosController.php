@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactanosMailable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactanosController extends Controller
 {
@@ -15,14 +17,15 @@ class ContactanosController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'correo' => 'required|email',
+            'email' => 'required|email',
             'mensaje' => 'required'
         ]);
 
-        $correo = new ContactanosMailable($request->all());
+        $email = new ContactanosMailable($request->all());
 
-        Mail::to('luchinaje@gmail.com')->send($correo);
-        return redirect()->route('contactanos.index')->with('info','Mensa Enviado EXITO');
+        Mail::to('luchinaje@gmail.com')->send($email);
+        return redirect()->route('contactanos.index')->with('info','Mensaje Enviado con EXITO!');
     }
+
 }
 

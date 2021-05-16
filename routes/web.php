@@ -6,6 +6,10 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\PaymentController;
+
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
+
 use Carbon\Carbon;
 
 Route::get('/pruebas', function () {
@@ -13,6 +17,8 @@ Route::get('/pruebas', function () {
     $date = auth()->user()->level;
     dump($date);
 });
+
+
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
@@ -25,11 +31,7 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.show');
 
 
-//*****************************  FECHAS DE DICTADO esto deberia swer un POST  ***************
-Route::get('dictado/{course}', [CourseController:: class, 'dictados'])->name('courses.dictationCurso');
-
-
-// *********************************   CHECKOUT -> me genera la orden
+// *********************************  CHECKOUT -> me genera la orden ********************************************
 Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
 
 

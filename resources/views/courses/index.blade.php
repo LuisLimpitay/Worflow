@@ -46,7 +46,6 @@
     <div class="container mx-auto py-8 ">
 
 
-
             @foreach ($courses as $course)
 
                 <div class="container mx-auto flex flex-col max-w-md bg-gray-300  px-8 py-6 rounded-xl space-y-5 items-center">
@@ -64,7 +63,7 @@
 
                     <p class=" leading-relaxed">Por : {{$course->teachers->name}}</p>
 
-                    <p class=" leading-relaxed font-bold text-xl ">ARS ${{$course->price}},00</p>
+                    <p class=" leading-relaxed font-bold text-xl ">ARS ${{$course->price}}</p>
 
                     <a href="{{route('courses.show', $course)}}" type="submit" class="text-xl inline-block px-6 py-4 bg-yellow-500 text-white rounded-full ">
                         Mas información

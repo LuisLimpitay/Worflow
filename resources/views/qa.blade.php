@@ -106,11 +106,9 @@
             <div class="shadow-md">
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">Label One</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">Como puedo cancelar mi inscripción</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">Si ya te inscribiste y realizaste el pago por cualquier medio deberas dirigirte a las oficinas de Workflow con un maximo de 72hs antes de la fecha del curso al cual se inscribio.</del>.</p>
                     </div>
                 </div>
                 <div class="tab w-full overflow-hidden border-t">

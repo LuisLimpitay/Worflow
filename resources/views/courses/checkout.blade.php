@@ -178,35 +178,22 @@
 
                 </div>
 
-                si esta LOGUEADO 
-                @elseif(Auth::check())
+{{--                 si esta LOGUEADO 
+ --}}                @elseif(Auth::check())
 
                         <div class="container mx-auto items-center"><br>
 
                             <div class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
                                 
-                                <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1><br><br>
+                                <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1><br>
+                              
+                                <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p>
+
+                                     
+                                @livewire('check-method')
                                 <br>
-
-      
-                                <form method="post" action="{{route('courses.payment')}}" >
-
-                                    <input type="radio" id="efectivo" required name="payment_method" value="efectivo">
-                                    <label for="efectivo">Efectivo</label><br>
-
-                                    <input type="radio" id="transferencia" required name="payment_method" value="transferencia">
-                                    <label for="transferencia">Transferencia Bancaria</label><br>
-                                    
-                                    <input type="radio" id="tarjeta" required name="payment_method" value="tarjeta">
-                                    <label for="tarjeta">Tarjeta de Debito</label><BR></BR>
-                                    <input type="submit" name="submit" value="CONTINUAR">  
-
-                                </form><br>
-
-
-                                <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p><br>
-
-                                
+                                <p class="px-4 py-2 bg-red-500 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p>
+                            <br>
 
                                 <div class="container mx-auto">
                                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de Inscripción</h1><br>

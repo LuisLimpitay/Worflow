@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Dictation;
 use App\Models\Enrollment;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -25,7 +26,8 @@ class CourseController extends Controller
     //**************************************************************************** */
     public function show(Course $course)
     {
-        return view('courses.show', compact('course'));
+        $dictations = Dictation::with('courses')->orderby('date', 'DESC')->get();
+        return view('courses.show', compact('course', 'dictations'));
     }
     ///************************************************************************* */
     ///
@@ -41,15 +43,15 @@ class CourseController extends Controller
 
     public function checkout(Dictation $dictation)
     {
-        $userName = auth()->user()->name;
-        $usersLastName = auth()->user()->last_name;
-        $enrollment = Enrollment::pluck('payment_method', 'id');
+        /* $userName = auth()->user()->name;
+        $usersLastName = auth()->user()->last_name; */
+        $enrollment = Payment::pluck('name', 'id');
         dump($enrollment);
 
         //dd($userss);
         $dictations = Dictation::all();
         //ACA DEBO HACER LA CONSULTA PARA QUE SI ES VALIDA LA TARJETA PASE Y VAYA A LA VISTA O SINO QUE VAYA Y EL ESTADO SEA PENDIENTE
-        return view('courses.checkout', compact('dictation', 'userName', 'usersLastName', 'enrollment'));
+        return view('courses.checkout', compact('dictation','enrollment'));
     }
 
 

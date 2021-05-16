@@ -41,11 +41,14 @@
                         {{ __('Olvidaste la Contraseña?') }}
                     </a>
                 @endif
-
+                
                 <x-jet-button class="ml-4">
                     {{ __('ingresar') }}
                 </x-jet-button>
+
+                
             </div>
+            <a href="{{route('register')}}">Registrarse</a>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
