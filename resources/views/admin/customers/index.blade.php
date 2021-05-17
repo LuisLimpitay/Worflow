@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Inscripciones')
 
 @section('content_header')
-    <h1>Panel de Clientes</h1>
+    <h1>Panel de Inscripciones</h1>
 @stop
 
 @section('css')
@@ -13,7 +13,6 @@
 @endsection
 
 @section('content')
-
 <div class="card">
     
     <div class="body">
@@ -38,7 +37,7 @@
                             <td>{{$user->email}}</td>
 
                             <td>{{$user->number_license}}</td>
-                            <td>{{$user->expire_license}}</td>
+                            <td>{{ \Carbon\Carbon::parse($user->expire_license)->format('d/m/Y')}}</td>
                             
 
                             

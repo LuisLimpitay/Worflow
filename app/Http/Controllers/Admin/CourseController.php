@@ -18,7 +18,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::with(['teachers', 'categories'])->get();
+        $courses = Course::with(['teachers'])->get();
         //dump($courses);
         return view ('admin.courses.index', compact ('courses'));
     }
@@ -32,13 +32,9 @@ class CourseController extends Controller
     {
 
         $teachers = Teacher::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
         $courses = Course::all();
 
-        return view ('admin.courses.create', compact(
-            'courses',
-            'teachers',
-            'categories'));
+        return view ('admin.courses.create', compact('teachers', 'categories'));
 
     }
 
@@ -56,7 +52,6 @@ class CourseController extends Controller
             'description' => 'required',
             'content' => 'required',
             'price' => 'required',
-            'category_id' => 'required',
             'teacher_id' => 'required',
 
         ]);
@@ -87,12 +82,8 @@ class CourseController extends Controller
     {
 
         $teachers = Teacher::pluck('name', 'id');
-        $categories = Category::pluck('name', 'id');
 
-        return view ('admin.courses.edit', compact(
-                                                    'course',
-                                            'teachers',
-                                    'categories'));
+        return view ('admin.courses.edit', compact('course', 'teachers'));
 
     }
 

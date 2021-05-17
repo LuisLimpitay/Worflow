@@ -33,7 +33,6 @@
 
                     <th>Precio </th>
                     <th>Instructor</th>
-                    <th>Categoria</th>
                     <th colspan="1">Acciones</th>
                 </thead>
 
@@ -46,7 +45,6 @@
 
                             <td> {{$course->price}}</td>
                             <td> {{$course->teachers->name  }}</td>
-                            <td> {{$course->categories->name  }}</td>
 
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.courses.edit', $course)}}">Editar</a>

@@ -37,7 +37,6 @@
                     <th>Lugar</th>
 
                     <th>Hora</th>
-                    <th>i</th>
                     <th>Cupos</th>
 
                     <th colspan="2">Acciones</th>
@@ -51,7 +50,6 @@
                             <td>{{$dictation->places->address_street}} {{$dictation->places->address_number}}, {{$dictation->places->city}}</td>
                             <td> {{$dictation->time}} </td>
                             
-                            <td> {{$dictation->courses->categories->name}}</td>
                             <td> {{$dictation->stock}}</td>
                             
                                 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EnrollmentController extends Controller
 {
@@ -16,7 +17,9 @@ class EnrollmentController extends Controller
     
     public function index (){
         
-        $enrollments = Enrollment::all();
+        //$users = DB::table('users')->find(2);
+        $enrollments = DB::table('enrollments')->find(2);
+        dump($enrollments);
         return view ('admin.enrollments.index', compact('enrollments'));
     }
     

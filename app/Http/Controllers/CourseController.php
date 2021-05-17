@@ -7,6 +7,7 @@ use App\Models\Dictation;
 use App\Models\Enrollment;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -23,24 +24,23 @@ class CourseController extends Controller
         return view ('courses.index', compact('courses'));
     }
 
-    //**************************************************************************** */
+
+    /**************************************************************************** 
+     Este metodo me trae los detalles y las fechas de Dictado con sus CUPOS
+    -----------------------------------------------------------------------------*/
     public function show(Course $course)
     {
-        $dictations = Dictation::with('courses')->orderby('date', 'DESC')->get();
-        return view('courses.show', compact('course', 'dictations'));
+        //whith uso para relacionar mi tabla dictation con mi Tabla Courses       
+        $dictations = Dictation::with('courses')->where('stock', '>', 0)
+                                ->orderby('date', 'DESC')
+                                ->get();
+
+        return view('courses.show', compact( 'course', 'dictations'));
+
     }
     ///************************************************************************* */
-    ///
-
-    //ESTA FUNCION LO QUE ME HACE ES MOSTRARME TODOS LOS DICTADOS DISPONIBLES CON SUS CUPOS
-    public function dictados(Course $course)
-    {
-        $dictations = Dictation::with('courses')->orderby('date', 'DESC')->get();
-
-        return view('courses.dictationCurso', compact('dictations'));
-
-    }
-
+ 
+    
     public function checkout(Dictation $dictation)
     {
         /* $userName = auth()->user()->name;

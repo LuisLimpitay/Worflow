@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     {!! Form::label('description', 'Descripcion' ) !!}
-                    {!! Form::text('description', null, ['class'=> 'form-control' ]) !!}
+                    {!! Form::text('description', null, ['class'=> 'form-control', 'row' => '3' ]) !!}
                 </div>
 
                 <div class="form-group">
@@ -47,10 +47,10 @@
                     {!! Form::select('teacher_id', $teachers, null, ['class' => 'form-control' ]) !!}
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     {!! Form::label('category_id', 'Categoria' ) !!}
                     {!! Form::select('category_id', $categories, null, ['class' => 'form-control' ]) !!}
-                </div>
+                </div> --}}
 
                 {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
 

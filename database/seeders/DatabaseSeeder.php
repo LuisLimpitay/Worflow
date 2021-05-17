@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         Payment::factory(3)->create();
 
 
-        Enrollment::factory(10)->create();
+        Enrollment::factory(20)->create();
 
 
 

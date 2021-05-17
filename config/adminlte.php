@@ -236,7 +236,7 @@ return [
         ],
         [
             'text' => 'Clientes',
-            'route'  => 'admin.users.index',
+            'route'  => 'admin.customers.index',
             'icon' => 'fas fa-users fa-fw',
         ],
         [
@@ -271,12 +271,7 @@ return [
             'route'  => 'admin.teachers.index',
             'icon' => 'fas fa-user-tie fa-fw',
         ],
-        [
-            'text' => 'Categorias',
-            'route'  => 'admin.categories.index',
-            'icon' => 'fas fa-list-alt fa-fw',
-        ],
-
+        
 
         [
             'text'    => 'multilevel',

@@ -59,14 +59,14 @@
                 </div>
 
 
-                <div class="form-group">
+                {{-- <div class="form-group">
 
                     {!! Form::label('category_id', 'Categoria' ) !!}
                     {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Categoria' ]) !!}
                     @error('category_id')
                         <small class="text-danger">*{{$message}}</small>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="form-group">
                     {!! Form::label('teacher_id', 'Instructor' ) !!}

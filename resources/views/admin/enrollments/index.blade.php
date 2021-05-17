@@ -37,8 +37,8 @@
                             <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>
                             <td>{{$enrollment->users->number_license}}</td>
 
-{{--                             aca deberia hacer para algo para poder cambiar el estado del pago
- --}}                            <td>{{$enrollment->payment_method}}</td>
+{{--aca deberia hacer para algo para poder cambiar el estado del pago
+ --}}                       <td>{{$enrollment->payment_method}}</td>
 
                             <td>{{$enrollment->status}}</td>
                      

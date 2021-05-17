@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
 
             $table->string('name', 20)->unique();
             $table->string('slug');
-            $table->text('description');
+            $table->string('description');
             $table->longText('content');
             $table->decimal('price', 10,2);
                         
