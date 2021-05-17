@@ -23,20 +23,29 @@ Route::get('/pruebas', function () {
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
-// ******************  CURSOS  **************************************************
+
+//--------------------------------------------------------------------------------
+// -----------------   Controladores CourseController     -------------------------
+//--------------------------------------------------------------------------------
+
+// *****************************  CURSOS  **************************************************
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 
 
-// *********************  DETALLES del CURSO  *************************************
+// ***********************  DETALLES del CURSO  *************************************
 Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.show');
 
 
-// *********************************  CHECKOUT -> me genera la orden ********************************************
+// ********************  CHECKOUT -> me genera la orden ********************************************
 Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
+
+//--------------------------------------------------------------------------------
+// -----------------  FIN Controladores CourseController     -------------------------
+//--------------------------------------------------------------------------------
 
 
 //******************************  PAYMENT MERCADO PAGO  ************************************->
-Route::post('payment', [PaymentController:: class, 'payment'])->name('courses.payment');
+Route::get('payment', [PaymentController:: class, 'payment'])->name('courses.payment');
 
 
 

@@ -12,10 +12,12 @@ class CustomerController extends Controller
     {
         $users = DB::table('users')->get();
 
-foreach ($users as $user) {
-    $prueba = $user->name;
-    dump($prueba);
-}
+        foreach ($users as $user) 
+        {
+            $prueba = $user->name;
+            dump($prueba);
+        }
+        
         /* $users = User::where('level', 2)->get();
         return view('admin.customers.index', compact('users')); */
     }

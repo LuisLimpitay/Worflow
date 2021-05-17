@@ -11,14 +11,14 @@ class PaymentController extends Controller
     public function payment()
     {
         
-        return view('courses.payment');
+        return "hOLA";
     }
 
     public function transaction(Dictation $dictation)
     {
         dd($dictation);
     }
-    // ME INSCRIBE EN LA BASE DE DATOS
+    // ME INSCRIBE EN LA BASE DE DATOS CUANDO TENIA TABLA PIVOT
     public function enroll(Request $request, Dictation $dictation){
         auth()->user()->dictations()->attach($dictation,
             [
