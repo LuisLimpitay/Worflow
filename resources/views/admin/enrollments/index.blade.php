@@ -13,9 +13,12 @@
 @endsection
 
 @section('content')
+<a href="#">Fecha</a>
+
 <div class="card">
     
     <div class="body">
+
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
                     <th>ID</th>

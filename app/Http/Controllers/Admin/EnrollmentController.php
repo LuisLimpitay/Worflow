@@ -17,12 +17,42 @@ class EnrollmentController extends Controller
     
     public function index (){
         
-        //$users = DB::table('users')->find(2);
-        $enrollments = DB::table('enrollments')->find(2);
+        
+
+        $enrollments = DB::table('enrollments')
+        ->join('dictations', 'enrollments.dictation_id', '=', 'dictations.id' )
+        ->join('users', 'enrollments.user_id', '=', 'users.id' )
+        ->select('dictation_id as Id_Dictado', 'dictations.date as Fecha_Dictado', DB::raw('GROUP_CONCAT(users.name , users.number_license) as Nombre_Clientes'), DB::raw('count(user_id) as TotalInscriptos'))
+        
+        ->groupBy('dictation_id', 'dictations.date')
+        ->get();
+        return $enrollments;
+                
+             
+        /* $enrollments = Enrollment::all();
+        //$enrollments = Enrollment::where('user_id', 30)->get();
+        /* $enrollments = DB::table('enrollments')->find(2);
         dump($enrollments);
-        return view ('admin.enrollments.index', compact('enrollments'));
+        return view ('admin.enrollments.index', compact('enrollments'));*/
     }
+
+
+    /* -------------------------------------------------------------------------- 
     
+    SELECT dictation_id, dictations.date, COUNT(user_id) Nro_inscriptos
+        FROM ((enrollments 
+        
+        INNER JOIN dictations ON enrollments.dictation_id=dictations.id) 
+        INNER JOIN users ON enrollments.user_id=users.id) GROUP BY dictation_id
+
+    --------------------------------------------------------------------------------
+    
+    Esta consulta me trae la cantidad de inscriptos
+    SELECT COUNT(user_id), dictation_id FROM enrollments GROUP BY dictation_id
+
+    --------------------------------------------------------------------------------
+    
+    */
 
     /**
      * Show the form for creating a new resource.

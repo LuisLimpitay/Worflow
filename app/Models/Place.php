@@ -10,9 +10,10 @@ class Place extends Model
     use HasFactory;
 
     protected $fillable = [
+        'city',
         'address_street',
-        'address_number',
-        'city'
+        'address_number'
+        
     ];
 
     //Relacion UNO A MUCHOS 

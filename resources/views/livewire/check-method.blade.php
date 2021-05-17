@@ -102,7 +102,7 @@
                                         placeholder="perro.gato.cabra">
                                 </div>
                                 
-                                
+                                p
                                 
                             </div>
                             <div class="pt-4 flex items-center space-x-4">

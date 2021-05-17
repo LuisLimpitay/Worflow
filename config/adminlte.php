@@ -226,7 +226,7 @@ return [
     'menu' => [
         [
             'text' => 'Buscar',
-            'search' => true,
+            'search' => false,
             'topnav' => true,
         ],
         [

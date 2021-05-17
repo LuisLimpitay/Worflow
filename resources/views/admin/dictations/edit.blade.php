@@ -39,9 +39,6 @@
                     {!! Form::select('place_id', $places    , null, ['class' => 'form-control' ]) !!}
                 </div>
 
-             
-
-            
             
                 {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
 

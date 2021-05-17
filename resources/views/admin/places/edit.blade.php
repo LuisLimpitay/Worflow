@@ -18,28 +18,29 @@
 
         {!! Form::model($place, ['route' => ['admin.places.update', $place ], 'method' => 'put']) !!}
         
-            <div class="form-group">
-                {!! Form::label('city', 'Nombre de la Ciudad' ) !!}
-                {!! Form::text('city', null, ['class'=> 'form-control']) !!}
-                @error('city')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-        
-            </div>    
-            <div class="form-group">
-                {!! Form::label('address_street', 'Direccion' ) !!}
-                {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
-                @error('address_street')
+        <div class="form-group">
+            {!! Form::label('city', 'Nombre de la Ciudad' ) !!}
+            {!! Form::text('city', null, ['class'=> 'form-control']) !!}
+            @error('city')
                 <span class="text-danger">{{$message}}</span>
             @enderror
-            </div>    
-            <div class="form-group">
-                {!! Form::label('address_number', 'Numero' ) !!}
-                {!! Form::text('address_number', null, ['class'=> 'form-control']) !!}
-                @error('address_number')
-                <span class="text-danger">{{$message}}</span>
-            @enderror
-            </div>  
+    
+        </div>    
+        <div class="form-group">
+            {!! Form::label('address_street', 'Direccion' ) !!}
+            {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
+            @error('address_street')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
+        </div>    
+        <div class="form-group">
+            {!! Form::label('address_number', 'Numero' ) !!}
+            {!! Form::text('address_number', null, ['class'=> 'form-control']) !!}
+            @error('address_number')
+            <span class="text-danger">{{$message}}</span>
+        @enderror
+        </div>  
+
             {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
 

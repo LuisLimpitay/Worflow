@@ -33,8 +33,13 @@ class CourseController extends Controller
         //whith uso para relacionar mi tabla dictation con mi Tabla Courses       
         $dictations = Dictation::with('courses')->where('stock', '>', 0)
                                 ->orderby('date', 'DESC')
-                                ->get();
+                                ->get();   
 
+        $affected = DB::table('dictations')
+                                ->where('id', 1)
+                                ->update(['stock' => 0]);
+
+                                
         return view('courses.show', compact( 'course', 'dictations'));
 
     }
