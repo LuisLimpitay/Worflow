@@ -13,7 +13,6 @@
 @endsection
 
 @section('content')
-<a href="#">Fecha</a>
 
 <div class="card">
     
@@ -21,9 +20,8 @@
 
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
-                    <th>ID</th>
                     <th>Fecha del Curso</th>
-
+                    <th>Lugar</th>
                     <th>Apellido y Nombre Cliente</th>
                     <th>N° Lic de Conducir</th>
                     <th>Metodo de pago</th>
@@ -34,9 +32,8 @@
                     @foreach ($enrollments as $enrollment)
                         <tr>
 
-                            <td>#00{{$enrollment->id}}</td>
                             <td> {{ \Carbon\Carbon::parse($enrollment->dictations->date)->format('d/m/Y')}} </td>
-
+                            <td>{{$enrollment->dictations->places->city}}</td>
                             <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>
                             <td>{{$enrollment->users->number_license}}</td>
 

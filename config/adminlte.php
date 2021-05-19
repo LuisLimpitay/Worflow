@@ -224,24 +224,34 @@ return [
     */
 
     'menu' => [
+
         [
             'text' => 'Buscar',
             'search' => false,
             'topnav' => true,
         ],
+
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         [
             'text' => 'Clientes',
             'route'  => 'admin.customers.index',
             'icon' => 'fas fa-users fa-fw',
         ],
+
         [
-            'text'        => 'Inscripciones',
-            'route'         => 'admin.enrollments.index',
+            'text' => 'Planillas',
+            'route'  => 'admin.planillas.index',
+            'icon' => 'far fa-address-card fa-fw'
+        ],
+
+        [
+            'text'        => 'Ordenes',
+            'route'         => 'admin.orders.index',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
             
         ],

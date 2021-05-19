@@ -1,14 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DictationController;
 use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\CourseController;
-use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
-use App\Http\Controllers\Admin\EnrollmentController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\EnrollmentDictationController;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,9 +24,15 @@ Route::resource('places', PlaceController::class)->names('admin.places');
 
 Route::resource('teachers', TeacherController::class)->names('admin.teachers');
 
+Route::resource('customers', CustomerController::class)->names('admin.customers');
 
 
-Route::resource('inscriptos',EnrollmentController::class)->names('admin.enrollments');
+Route::resource('orders', OrderController::class)->names('admin.orders');
+
+
+
+Route::resource('planillas' ,EnrollmentDictationController::class)->names('admin.planillas');
+
 
 
 
