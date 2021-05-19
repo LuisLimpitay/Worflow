@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>WORFLOW</b>',
+    'logo' => '<b>WORKFLOW</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -253,6 +253,7 @@ return [
             'text'        => 'Ordenes',
             'route'         => 'admin.orders.index',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'active' => ['admin/orders*']
             
         ],
 
@@ -263,23 +264,27 @@ return [
             'text' => 'Cursos',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-layer-group fa-fw',
+            'active' => ['admin/courses*']
         ],
 
         [
             'text' => ' Dictados',
             'route'  => 'admin.dictations.index',
             'icon' => 'fas fa-align-left fa-fw',
+            'active' => ['admin/dictations*']
         ],
 
         [
             'text' => 'Ciudades',
             'route'  => 'admin.places.index',
             'icon' => 'fas fa-map-marked-alt fa-fw',
+            'active' => ['admin/places*']
         ],
         [
             'text' => 'Instructores',
             'route'  => 'admin.teachers.index',
             'icon' => 'fas fa-user-tie fa-fw',
+            'active' => ['admin/teachers*']
         ],
         
 
@@ -423,5 +428,5 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

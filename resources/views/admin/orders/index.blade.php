@@ -20,6 +20,7 @@
 
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
+                    <th>Nro Orden</th>
                     <th>Fecha del Curso</th>
                     <th>Lugar</th>
                     <th>Apellido y Nombre Cliente</th>
@@ -31,7 +32,7 @@
                 <tbody>
                     @foreach ($enrollments as $enrollment)
                         <tr>
-
+                <td>0{{$enrollment->id}}</td>
                             <td> {{ \Carbon\Carbon::parse($enrollment->dictations->date)->format('d/m/Y')}} </td>
                             <td>{{$enrollment->dictations->places->city}}</td>
                             <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>

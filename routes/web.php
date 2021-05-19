@@ -6,16 +6,19 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\PruebasController;
 use App\Mail\ContactanosMailable;
+use App\Models\Enrollment;
 use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 
 Route::get('/pruebas', function () {
 
-    $date = auth()->user()->level;
-    dump($date);
+    /* $date = auth()->user()->level;
+    dump($date); */
+    $inscrito = Enrollment::where('user_id', auth()->user()->id)->get();
+    dump($inscrito);
 });
 
 
@@ -61,8 +64,7 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 
 
 
-Route::get('/misinscripciones', [UserController::class, 'inscripto']);
+Route::get('/inscripciones', [PruebasController::class, 'index'])->name('inscripciones');
 
 
-Route::get('inscriptos', [UserController::class, 'inscriptos'])->name('user.inscriptos');
 

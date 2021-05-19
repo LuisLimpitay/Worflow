@@ -3,11 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
+use App\Models\User;
 class Navigation extends Component
 {
+    
     public function render()
     {
-        return view('livewire.navigation');
+        $level = User::where('level', 2)->get();
+        //dd($levelU);
+        return view ('livewire.navigation', compact('level'));
     }
 }

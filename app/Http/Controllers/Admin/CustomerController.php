@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
     public function index (){
         
-        $users = User::all();
+        $users = User::where('level', 2)->get();
         return view ('admin.customers.index', compact('users'));
     }
 }

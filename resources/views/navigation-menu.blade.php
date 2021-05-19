@@ -1,4 +1,4 @@
-<nav class="bg-gray-800" x-data="{ open:false }">
+{{-- <nav class="bg-gray-800" x-data="{ open:false }">
 
     <style>
         .active{
@@ -35,7 +35,7 @@
             {{-- /////////// END MOBILE MENU BOTON ////////////////--}}
 
 
-            {{--///////////LOGOTIPO Y MENU //////////////--}}
+            {{--///////////LOGOTIPO Y MENU //////////////
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <a href="/" class="flex-shrink-0 flex items-center">
                     <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
@@ -61,13 +61,13 @@
                     </div>
                 </div>
             </div>
-            {{--///////////END LOGOTIPO Y MENU //////////////--}}
+            {{--///////////END LOGOTIPO Y MENU ////////////
 
 
 
 
 
-            {{--/////////MENU DERECHO //////////--}}
+            {{--/////////MENU DERECHO //////////-
             @auth
 
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -92,9 +92,18 @@
                         -->
                         <div x-show="open" x-on:click.away=" open=false " class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
 
+
                             <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Perfil</a>
-                            <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Administrador</a>
-                            <a href="{{route('ins')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Inscripciones</a>
+                            
+                            
+                                <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Administrador</a>
+                        
+                            
+                            @if($level->level = 2)
+                                <a href="{{route('inscripciones')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Inscripciones</a>
+                            @endif
+
+
                             <hr>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -106,7 +115,7 @@
                         </div>
 
                     </div>
-                    <!-- End Profile dropdown -->
+                    <!-- End Profile dropdow
                 </div>
 
             @else
@@ -117,14 +126,14 @@
 
                 </div>
             @endauth
-            {{--//////END MENU DERECHO //////////--}}
+            {{--//////END MENU DERECHO //////////
 
 
 
         </div>
     </div>
 
-    {{-- /////////// MENU MOVIL ////////////// --}}
+    {{-- /////////// MENU MOVIL ////////////// 
     <div class="sm:hidden" x-show="open" x-on:click.away=" open=false ">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -143,6 +152,7 @@
 
         </div>
     </div>
-    {{-- /////////// END MENU MOVIL ////////////// --}}
+    {{-- /////////// END MENU MOVIL ////////////// 
 
 </nav>
+ --}}

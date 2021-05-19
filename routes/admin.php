@@ -27,6 +27,7 @@ Route::resource('teachers', TeacherController::class)->names('admin.teachers');
 Route::resource('customers', CustomerController::class)->names('admin.customers');
 
 
+
 Route::resource('orders', OrderController::class)->names('admin.orders');
 
 
