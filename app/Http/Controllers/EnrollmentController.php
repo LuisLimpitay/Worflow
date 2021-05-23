@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class EnrollmentController extends Controller
 {
@@ -14,30 +13,12 @@ class EnrollmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
-    public function index (){
-        
-        $enrollments = Enrollment::all();
-        return view ('admin.enrollments.index', compact('enrollments'));
+    public function index()
+    {
+        $misinscripciones = Enrollment::where('user_id', auth()->user()->id)->get();
+        //dump($inscrito);
+        return view('customers.enrollments', compact ('misinscripciones')) ;
     }
-
-
-    /* -------------------------------------------------------------------------- 
-    
-    SELECT dictation_id, dictations.date, COUNT(user_id) Nro_inscriptos
-        FROM ((enrollments 
-        
-        INNER JOIN dictations ON enrollments.dictation_id=dictations.id) 
-        INNER JOIN users ON enrollments.user_id=users.id) GROUP BY dictation_id
-
-    --------------------------------------------------------------------------------
-    
-    Esta consulta me trae la cantidad de inscriptos
-    SELECT COUNT(user_id), dictation_id FROM enrollments GROUP BY dictation_id
-
-    --------------------------------------------------------------------------------
-    
-    */
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +27,7 @@ class EnrollmentController extends Controller
      */
     public function create()
     {
-        //
+        //  
     }
 
     /**

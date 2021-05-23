@@ -1,10 +1,13 @@
 <x-guest-layout>
+    
     <x-jet-authentication-card>
         <x-slot name="logo">
+       
             <a href="/" class="flex-shrink-0 flex items-center">
                 <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Worflow">
                 <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
-            </a>
+            </a><br>
+            
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -24,7 +27,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('Contraseña') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
@@ -48,7 +51,12 @@
 
                 
             </div>
-            <a href="{{route('register')}}">Registrarse</a>
-        </form>
+            
+        </form><br><hr><br>
+        <div>
+            <a class="align-rigth float-right" href="{{route('register')}}">Registrarse</a>
+        </div>
+
     </x-jet-authentication-card>
+
 </x-guest-layout>

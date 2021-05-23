@@ -1,37 +1,39 @@
 <x-app-layout>
     <br>
+@if (Auth::check())
+<div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
+    
+      
+    <!-- SMALL CARD ROUNDED -->
+      <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
+      <div class="flex flex-col justify-center">
+                <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 1: </p>
 
-    <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
-    
-      
-          <!-- SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
-            <div class="flex flex-col justify-center">
-                      <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 1: </p>
-    
-              <p class="text-black dark:text-gray-100 text-justify font-semibold">Completado</p>
-            </div>
+        <p class="text-black dark:text-gray-100 text-justify font-semibold">Completado</p>
+      </div>
+  </div>
+    <!-- END SMALL CARD ROUNDED -->
+
+    <!-- SMALL CARD ROUNDED -->
+      <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
+          <div class="flex flex-col justify-center">
+            <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 2</p>
+            <p class="text-black dark:text-gray-100 text-justify font-semibold">Método de Pago </p>
+          </div>
         </div>
-          <!-- END SMALL CARD ROUNDED -->
-      
-          <!-- SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
-                <div class="flex flex-col justify-center">
-                  <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 2</p>
-                  <p class="text-black dark:text-gray-100 text-justify font-semibold">Método de Pago </p>
-                </div>
-              </div>
-                  <!-- END SMALL CARD ROUNDED -->
-            <!-- SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
-                <div class="flex flex-col justify-center">
-                  <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
-                  <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
-                </div>
-              </div>
-          <!-- END SMALL CARD ROUNDED --->
-          
-    </div>
+            <!-- END SMALL CARD ROUNDED -->
+      <!-- SMALL CARD ROUNDED -->
+      <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
+          <div class="flex flex-col justify-center">
+            <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
+            <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
+          </div>
+        </div>
+    <!-- END SMALL CARD ROUNDED --->
+    
+</div>
+@endif
+    
 
 {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------   GRID 1 SI NO ESTA REGISTRADO    --------------------------------------------------------------------
@@ -113,9 +115,9 @@
                                                     <x-jet-checkbox name="terms" id="terms"/>
 
                                                     <div class="ml-2">
-                                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                                        {!! __('Acepto los :terms_of_service and :privacy_policy', [
+                                                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terminos del Servicio').'</a>',
+                                                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Politica de Privacidad').'</a>',
                                                         ]) !!}
                                                     </div>
                                                 </div>
@@ -166,7 +168,7 @@
 
                     <div class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
 
-                        <h1 class="bg-red-300 text-2xl font-bold">Resumen de tu Inscrdipción SL</h1>
+                        <h1 class="bg-red-300 text-2xl font-bold">Detalle de Inscrdipción</h1>
 
                         <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{$dictation->courses->name}}</p>
                         <p class="px-4 py-2"><strong>Fecha: </strong> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</p>
@@ -176,7 +178,8 @@
                         <p class="px-4 py-2"><strong>Ciudad: </strong>{{$dictation->places->city}}</p>
 
                         <p class="px-4 py-2"><strong>Instructor: </strong>{{$dictation->courses->teachers->name}}</p>
-                        <p class="px-4 py-2 text-lg font-bold"><strong>A Pagar : </strong> ARS $ {{$dictation->courses->price}}</p><br>
+                        <br>
+                        <p class="text-xl inline-block px-6 py-4 bg-red-400 text-white rounded-full  "><strong></strong> ARS $ {{$dictation->courses->price}}</p><br>
                         <br>
                     </div>
 

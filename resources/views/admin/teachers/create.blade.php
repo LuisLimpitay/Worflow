@@ -15,7 +15,7 @@
     <div class="card">
         <div class="card-body">
 
-            {!! Form::open(['route' => 'admin.teachers.store']) !!}
+            {!! Form::open(['route' => 'admin.teachers.store', 'autocomplete' => 'off']) !!}
 
                 <div class="form-group">
                     {!! Form::label('name', 'Apellido y Nombre' ) !!}

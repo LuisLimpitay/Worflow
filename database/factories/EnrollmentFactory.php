@@ -28,7 +28,6 @@ class EnrollmentFactory extends Factory
 
             'quantity' => '1',
             'status' => $this->faker->randomElement(['pagado', 'pendiente']),
-            'payment_method' => $this->faker->randomElement(['debito', 'transferencia','efectivo']),
             
             'dictation_id' => Dictation::all()->random()->id,
             'user_id' => User::all()->random()->id,

@@ -19,7 +19,6 @@ class CreateEnrollmentsTable extends Migration
 
            
             $table->integer('quantity');
-            $table->enum('payment_method', ['debito', 'efectivo', 'transferencia'])->nullable();
             $table->enum('status', ['pagado', 'pendiente']);
             
             

@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactanosController;
+use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\Enrollments;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PruebasController;
 use App\Mail\ContactanosMailable;
@@ -12,7 +14,6 @@ use App\Models\Enrollment;
 use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
-
 Route::get('/pruebas', function () {
 
     /* $date = auth()->user()->level;
@@ -30,8 +31,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 //--------------------------------------------------------------------------------
 // -----------------   Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------
-
-// *****************************  CURSOS  **************************************************
+// ***********************  CURSOS  **************************************************
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 
 
@@ -39,9 +39,8 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.show');
 
 
-// ********************  CHECKOUT -> me genera la orden ********************************************
+// ***********************  CHECKOUT -> me genera la orden ********************************************
 Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
-
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------
@@ -62,9 +61,11 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 //  ******* ********* ********** ****** ********* ********* ********** ********** **********
 
 
+//  ************************  MIS INSCRIPCIONES  *****************************************
+Route::get('/mis-inscripciones', [EnrollmentController::class, 'index'])->name('customers.enrollments');
 
 
-Route::get('/inscripciones', [PruebasController::class, 'index'])->name('inscripciones');
 
-
+//  ************************  CREAR INSCRIPCION  *****************************************
+Route::resource('xxx', PruebasController::class)->names('enrollments');
 

@@ -170,7 +170,9 @@ return [
         'last_name' => 'Apellido',
         'zip_code' => 'Codigo Postal',
         'current_password' => 'Contraseña Actual',
-        'password' => 'Contraseña'
+        'password' => 'Contraseña',
+        'terms' => 'terminos y condiciones y la politica de privacidad',
+        
 
     ],
 

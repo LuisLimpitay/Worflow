@@ -6,12 +6,12 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" autocomplete="off" action="{{ route('register') }}">
             @csrf
 
             <div  class="mt-4">
                 <x-jet-label for="name" value="{{ __('Nombre') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus  />
             </div>
 
             <div  class="mt-4">
@@ -28,7 +28,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="expire_license" value="{{ __('Vencimiento Licencia de Conducir') }}" />
-                <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-05-12" type="date" name="expire_license  " :value="old('expire_license')" required />
+                <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date" name="expire_license  " :value="old('expire_license')" required />
             </div>
 
             <div class="mt-4">
@@ -47,21 +47,21 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
+            <div class="mt-4">
+                <x-jet-label for="terms">
+                    <div class="flex items-center">
+                        <x-jet-checkbox name="terms" id="terms"/>
 
-                            <div class="ml-2">
-                                {!! __('Acepto los términos del servicio y la politica de privacidad.', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                        <div class="ml-2">
+                            {!! __('Acepto los :terms_of_service and :privacy_policy', [
+                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terminos del Servicio').'</a>',
+                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Politica de Privacidad').'</a>',
+                            ]) !!}
                         </div>
-                    </x-jet-label>
-                </div>
-            @endif
+                    </div>
+                </x-jet-label>
+            </div>
+             @endif
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">

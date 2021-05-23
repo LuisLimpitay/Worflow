@@ -65,7 +65,7 @@
 
                     <p class=" leading-relaxed font-bold text-xl ">ARS ${{$course->price}}</p>
 
-                    <a href="{{route('courses.show', $course)}}" type="submit" class="text-xl inline-block px-6 py-4 bg-yellow-500 text-white rounded-full ">
+                    <a href="{{route('courses.show', $course)}}" type="submit" class="text-xl inline-block px-6 py-4 bg-yellow-500 text-white rounded-full">
                         Mas información
                     </a>
 

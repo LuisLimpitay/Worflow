@@ -60,11 +60,13 @@ class CourseController extends Controller
     }
 
 
+    
+    // retorna vista de QAs
     public function qa()
     {
         return view('qa');
     }
-
+    // retorna form de contacto
     public function contact()
     {
         return view('contact');

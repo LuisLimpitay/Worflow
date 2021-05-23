@@ -92,7 +92,7 @@
                             @endif                            
                             
                             @if(auth()->user()-> level == 2)
-                                <a href="{{route('inscripciones')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Inscripciones</a>
+                                <a href="{{route('customers.enrollments')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Inscripciones</a>
                             @endif    
                             
                             <hr>

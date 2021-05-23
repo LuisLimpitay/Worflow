@@ -7,15 +7,17 @@
 @stop
 
 @section('content')
+
 @if (session('info'))
     <div class="alert alert-success">
         <strong>{{session('info')}}</strong>
     </div>
 @endif
-    <div class="card">
+
+<div class="card">
         <div class="card-body">
 
-            {!! Form::open(['route' => 'admin.places.store']) !!}
+            {!! Form::open(['route' => 'admin.places.store', 'autocomplete' => 'off']) !!}
 
             <div class="form-group">
                 {!! Form::label('address_street', 'Direccion' ) !!}
