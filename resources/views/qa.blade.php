@@ -104,81 +104,92 @@
         <div class="shadow-md">
 
             <div class="shadow-md">
-                <div class="tab w-full overflow-hidden border-t">
-                    <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">Como puedo cancelar mi inscripción</label>
-                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Si ya te inscribiste y realizaste el pago por cualquier medio deberas dirigirte a las oficinas de Workflow con un maximo de 72hs antes de la fecha del curso al cual se inscribio.</del>.</p>
-                    </div>
-                </div>
+                
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-two" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-two">Label Two</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-two">¿Quienes pueden asistir al curso?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">Podran asistir personas mayores de 18 años que tengan vigente la Licencia Nacional de Conducir.</p>
+                        <p class="p-5">No es necesario tener conocimientos previos propios del curso, puesto que todos los contenidos son abarcados el dia de la capacitacion.</p>
+
                     </div>
                 </div>
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-three" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-three">Label Three</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-three">¿Como me inscribo?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                            <p class="p-5">Deberas seguir los siguientes pasos
+
+                                <ul class="px-6">
+                                    
+                                    <li class="px-2">- Deberas estar registrado, para ello puedes dirigirte a la parte superior derecha donde tendras un enlace que te llevara al formulario de registro. Una vez completado los datos y aceptado los terminos y condiciones se creara tu cuenta.</li>
+                                    <li class="px-2">- Luego deberas iniciar sesion y seleccionar el curso de interes</li>
+                                    <li class="px-2">- Elegir una fecha de dictado</li>
+                                    <li class="px-2">- Y por ultimo realizar el pago</li><br>
+
+                                </ul>
+                            </p>
                     </div>
                 </div>
 
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-four" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-four">Label four</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-four">¿Como verifico si me inscribi correctamente?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">Una vez logueado en el sitio, deberas dirigirte a tu perfil en la parte superior derecha y acceder al enlace "Mis Inscripciones". Alli podras visualizar todos los detalles del curso al cual te inscribiste.</p>
                     </div>
                 </div>
 
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-five" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-five">Label five</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-five">¿Puedo realizar el pago el dia del curso?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">No, tu inscripcion se concretara una vez que hayas realizado el pago. Es por ello que debes realizar el pago con 48hs de anticipacion a la fecha de dictado del curso. <br>
+                        Los medios de pagos disponibles son: 
+                            <ul class="px-6">
+                                <li class="px-2">- Tarjeta de Credito / Debito</li>
+                                <li class="px-2">- Transferencia Bancaria</li>
+                                <li class="px-2">- Efectivo (se podra abonar en un pago facil o rapi pago)</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tab w-full overflow-hidden border-t">
+                    <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">¿Como puedo cancelar mi inscripción?</label>
+                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                        
+                        <p class="p-5">Por supuesto, si ya realizaste el pago, deberas comunicarte con Workflow con un maximo de 48hs antes de la fecha del curso. De esta forma se podra reintegrar el 100% de lo abonado. <br>
+                        Si no es asi se reintegrara el 50% del valor del curso. <br>
+                        Nuestras vias de contacto para la cancelacion son:</p>
+                            <ul class="px-6">
+                                <li class="px-2">- admin@workflow.com</li>
+                                <li class="px-2">- Tel: (0297) 4672312</li>
+                            </ul>    
+                      
                     </div>
                 </div>
 
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-six" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-six">Label six</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-six">¿Obtendre algun certificado?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">En caso de aprobar se le otorgara en el plazo de 7 dias el carnet de manejo defensivo avalado por la NSF (National Safety Council). <br>
+                        De lo contrario podra inscribirse a otra instancia de un curso.
+                        </p>
                     </div>
                 </div>
 
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-seven" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-seven">Label seven</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-seven">¿Cual es el cupo maximo de Participantes?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+                        <p class="p-5">Como maximo por cada curso habran 35 participantes.</p>
                     </div>
                 </div>
 
-                <div class="tab w-full overflow-hidden border-t">
-                    <input class="absolute opacity-0" id="tab-single-eigth" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-eigth">Label eigth</label>
-                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto,
-                            explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta
-                            molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-                    </div>
-                </div>
+                
 
             </div>
 
