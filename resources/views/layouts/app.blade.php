@@ -27,19 +27,21 @@
         <div class="min-h-screen bg-gray-100">
             <!-- Me renderiza lo que tengo en mi navigation-blade -->
             @livewire('navigation')
-
-            @livewire('admin.show-category')
-
+            
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+
+            @livewire('footer')
+    
         </div>
 
         @stack('modals')
 
         @livewireScripts
+        
 
     </body>
 </html>

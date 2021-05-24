@@ -1,83 +1,88 @@
 <x-app-layout>
 
-    <br>
+    
+    <section>
+        <div class="bg-gray-100 py-20">
+            <div class="container mx-auto flex flex-col md:flex-row">
+                <div class="flex flex-col w-full lg:w-1/3 p-8">
+                    <p class="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Déjenos tu consulta!</p>
+                    <p class="text-sm md:text-base leading-snug text-black text-opacity-100">
+                        Por favor proporcionenos su valiosa opinion o consultas, nos contactaremos a la
+                        brevedad.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col w-full lg:w-2/3 justify-center">
+                    <div class="container w-full px-2">
+                        <div class="flex flex-wrap justify-center">
+                            <div class="w-full lg:w-6/12 px-2">
+                                <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
+                                    <div class="flex-auto p-5 lg:p-10">
+                                        <h4 class="text-2xl mb-4 text-black font-semibold">Formulario de Contacto</h4>
 
-    <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
+                                            <form action="{{ route('contactanos.store') }}" method="POST">
 
-        <div class="grid grid-cols-1 md:col-span-2 lg:col-span-2 bg-yellow-200 ">
+                                                @csrf
 
-            <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-                <div class="container mx-auto">
-                    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-                        <div class="text-center">
-                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Contactanos</h1>
-                            <p class="text-gray-400 dark:text-gray-400">Rellene el siguiente formulario para enviarnos un mensaje.</p>
-                        </div>
-                        
-                        <div class="m-7">
+                                                <div class="mb-6">
+                                                    <label for="name"
+                                                        class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Apellido
+                                                        y Nombre
+                                                    </label>
+                                                    <input type="text" name="name" id="name" placeholder="Cruz Jacinto"
+                                                        required
+                                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
+                                                    
+                                                </div>
+                                                
+                                                <div class="mb-6">
+                                                    <label for="email"
+                                                        class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
+                                                    <input type="email" name="email" id="email"
+                                                        placeholder="algo@gmail.com" required
+                                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
 
-                            <form action="{{route('contactanos.store')}}" method="POST">
+                                                </div>
 
-                                @csrf
+                                                <div class="mb-6">
+                                                    <label for="mensaje"
+                                                        class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu
+                                                        mensaje</label>
 
-                                <div class="mb-6">
-                                    <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Apellido y Nombre</label>
-                                    <input type="text" name="name" id="name" placeholder="Cruz Jacinto" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                                    
+                                                    <textarea rows="3" name="mensaje" id="mensaje" placeholder="Tu mensaje"
+                                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                                                        required></textarea>
+
+                                                </div>
+
+                                                <div class="mb-6">
+                                                    <button type="submit"
+                                                        class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Enviar
+                                                        Mensaje</button>
+                                                </div>
+
+                                            </form>
+
+                                            @if (session('info'))
+                                                <script>
+                                                    alert("{{session('info')}}");
+                                                </script>
+                                            @endif
+                                    </div>
                                 </div>
-
-                                <div class="mb-6">
-                                    <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
-                                    <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
-                                    
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <label for="mensaje" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu mensaje</label>
-
-                                    <textarea rows="3" name="mensaje" id="mensaje" placeholder="Tu mensaje" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" required></textarea>
-                                    
-                                </div>
-
-                                <div class="mb-6">
-                                    <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">Enviar Mensaje</button>
-                                </div>
-                                
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-                    
-
-
-            @if (session('info'))
-                <script>
-                    alert("{{session('info')}}");
-                </script>
-            @endif
-            
         </div>
-
-        <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1 px-12 py-12 bg-blue-500">
-            <p>MAPA</p>
-        </div>
-
-    </div>
-
-
-    <div class="card grid grid-cols-1 px-3 py-3 gap-4 container mx-auto ">
-        <div class="bg-red-500">FOOTER</div>
-    </div>
-
-
-
-
+    </section>
+    
 
     <script>
         const form = document.getElementById('form');
         const result = document.getElementById('result');
-        
+
         form.addEventListener('submit', function(e) {
             const formData = new FormData(form);
             e.preventDefault();
@@ -87,7 +92,7 @@
             });
             var json = JSON.stringify(object);
             result.innerHTML = "Please wait..."
-        
+
             fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: {
@@ -100,13 +105,13 @@
                     let json = await response.json();
                     if (response.status == 200) {
                         result.innerHTML = json.message;
-                         result.classList.remove('text-gray-500');
+                        result.classList.remove('text-gray-500');
                         result.classList.add('text-green-500');
                     } else {
                         console.log(response);
                         result.innerHTML = json.message;
-                         result.classList.remove('text-gray-500');
-                         result.classList.add('text-red-500');
+                        result.classList.remove('text-gray-500');
+                        result.classList.add('text-red-500');
                     }
                 })
                 .catch(error => {
@@ -116,12 +121,14 @@
                 .then(function() {
                     form.reset();
                     setTimeout(() => {
-                        result.style.display = "none"; 
+                        result.style.display = "none";
                     }, 5000);
                 });
         })
 
-        
-    </script>   
-     
+    </script>
 </x-app-layout>
+
+
+
+
