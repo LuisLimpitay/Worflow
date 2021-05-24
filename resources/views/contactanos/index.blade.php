@@ -16,7 +16,7 @@
                     <div class="container w-full px-2">
                         <div class="flex flex-wrap justify-center">
                             <div class="w-full lg:w-6/12 px-2">
-                                <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
+                                <div class="flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
                                     <div class="flex-auto p-5 lg:p-10">
                                         <h4 class="text-2xl mb-4 text-black font-semibold">Formulario de Contacto</h4>
 

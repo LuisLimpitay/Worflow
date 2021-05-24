@@ -1,4 +1,5 @@
-<nav class="bg-gray-800" x-data="{ open:false }">
+<div class="py-6">
+<nav class="bg-gray-800 fixed top-0 inset-x-0" x-data="{ open:false }">
 
     <style>
         .active{
@@ -145,3 +146,4 @@
     {{-- /////////// END MENU MOVIL //////////////--}}
 
 </nav>
+</div>
