@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Course;
 use App\Models\Dictation;
 use App\Models\Enrollment;
@@ -23,14 +22,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserSeeder::class);
 
-        Teacher::factory(1)->create();
-        Place::factory(3)->create();
+        $this->call(PlaceSeeder::class);
 
+        Teacher::factory(1)->create();
         Course::factory(1)->create();
 
-        Dictation::factory(4)->create(); 
-        Payment::factory(3)->create();
+        $this->call(DictationSeeder::class);
 
+        Payment::factory(3)->create();
 
         Enrollment::factory(20)->create();
 

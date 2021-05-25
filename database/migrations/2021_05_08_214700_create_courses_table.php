@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name', 20)->unique();
+            $table->string('name', 20);
             $table->string('slug');
             $table->string('description');
             $table->longText('content');

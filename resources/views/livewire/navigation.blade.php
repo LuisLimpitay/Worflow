@@ -1,4 +1,4 @@
-<div class="py-6">
+<div class="py-8">
 <nav class="bg-gray-800 fixed top-0 inset-x-0" x-data="{ open:false }">
 
     <style>

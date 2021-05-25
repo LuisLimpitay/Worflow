@@ -15,7 +15,7 @@ class EnrollmentController extends Controller
      */
     public function index()
     {
-        $misinscripciones = Enrollment::where('user_id', auth()->user()->id)->get();
+        $misinscripciones = Enrollment::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
         //dump($inscrito);
         return view('customers.enrollments', compact ('misinscripciones')) ;
     }

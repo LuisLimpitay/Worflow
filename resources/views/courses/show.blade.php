@@ -1,11 +1,9 @@
 <x-app-layout>
 
-    <a href="{{route('courses.index')}}">Volver</a>
-    
+    <br>
 {{--     MIGAS DE PAN --}}    
     <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
-    
-      
+          
         <!-- SMALL CARD ROUNDED -->
           <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
           <div class="flex flex-col justify-center">
@@ -104,7 +102,7 @@
             </div>
 
 
-                <div class="relative py-12">
+                <div class="py-12">
                     <dt>
                         <p class="ml-16 text-3xl leading-6 font-medium text-red-500">Requisitos</p>
                     </dt>

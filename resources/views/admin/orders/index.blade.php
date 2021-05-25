@@ -3,7 +3,7 @@
 @section('title', 'Inscripciones')
 
 @section('content_header')
-    <h1>Panel de Inscripciones</h1>
+    <h1>Ordenes de Compra  </h1>
 @stop
 
 @section('css')
@@ -20,28 +20,28 @@
 
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
-                    <th>Nro Orden</th>
-                    <th>Fecha del Curso</th>
-                    <th>Lugar</th>
-                    <th>Apellido y Nombre Cliente</th>
-                    <th>N° Lic de Conducir</th>
-                    <th>Metodo de pago</th>
+                    <th>Orden</th>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Curso</th>
+                    <th>Cupos</th>
+                    <th>Precio</th>
+                
                     
-                    <th>Estado del pago</th>
                 </thead>
                 <tbody>
                     @foreach ($enrollments as $enrollment)
                         <tr>
-                <td>0{{$enrollment->id}}</td>
-                            <td> {{ \Carbon\Carbon::parse($enrollment->dictations->date)->format('d/m/Y')}} </td>
-                            <td>{{$enrollment->dictations->places->city}}</td>
+                            <td>00{{$enrollment->id}}</td>
+                            <td> {{ \Carbon\Carbon::parse($enrollment->created_at)->format('d/m/Y H:i')}} </td>
                             <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>
-                            <td>{{$enrollment->users->number_license}}</td>
-
+                            <td>{{$enrollment->dictations->courses->name}}</td>
+                            <td>{{$enrollment->quantity}}</td>
+                            <td><b>$</b>{{$enrollment->dictations->courses->price}}</td>
 {{--aca deberia hacer para algo para poder cambiar el estado del pago
- --}}                       <td>{{$enrollment->payment_method}}</td>
+ --}}                       
 
-                            <td>{{$enrollment->status}}</td>
+                            
                      
                         </tr>
                     @endforeach

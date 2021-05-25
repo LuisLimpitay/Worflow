@@ -22,9 +22,9 @@ class TeacherFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Ruperto Hermoso',
-            'about' => 'Capacitador de flota liviana durante mas de 5 años avalado por la SFW',
 
+            'name' => 'Ruperto Carmona',
+            'about' => 'Capacitador de flota liviana durante mas de 5 años avalado por la SFW',
             'email' => $this->faker->freeEmail(),
           
         ];

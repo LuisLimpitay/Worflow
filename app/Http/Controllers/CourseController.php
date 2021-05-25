@@ -51,7 +51,7 @@ class CourseController extends Controller
         /* $userName = auth()->user()->name;
         $usersLastName = auth()->user()->last_name; */
         $enrollment = Payment::pluck('name', 'id');
-        dump($enrollment);
+        //dump($enrollment);
 
         //dd($userss);
         $dictations = Dictation::all();
