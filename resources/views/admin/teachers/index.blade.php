@@ -21,7 +21,7 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-primary" href="{{route('admin.teachers.create')}}">Crear</a>
+        <a class="btn btn-success" href="{{route('admin.teachers.create')}}">Crear</a>
     </div>
     
     <div class="body">

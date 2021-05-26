@@ -41,7 +41,9 @@ class PlaceController extends Controller
         /* return $request->all(); me retorna el array envidado */
 
         $request->validate([
-            'city' => 'required|unique:places' ,
+
+            'name' => 'required',
+            'city' => 'required|unique:places',
             'address_street' => 'required',
             'address_number' => 'required' 
 
@@ -50,7 +52,7 @@ class PlaceController extends Controller
         $place = Place::create($request->all());
 
         return redirect()->route('admin.places.index', $place)
-                         ->with('info', 'Categoria creada con Exito !');
+                         ->with('info', 'Sede creada con Exito !');
 
     }
 
@@ -89,7 +91,9 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         $request->validate([
-            'city' => 'required' ,
+
+            'name' => 'required',
+            'city' => 'required',
             'address_street' => 'required',
             'address_number' => 'required' 
 
@@ -98,7 +102,7 @@ class PlaceController extends Controller
         $place->update($request->all());
 
         return redirect()->route('admin.places.index', $place)
-                         ->with('info', 'Ciudad actualizada con exito !!!');
+                         ->with('info', 'Sede actualizada con exito !!!');
     }
 
     /**
@@ -112,6 +116,7 @@ class PlaceController extends Controller
         $place->delete();
 
         return redirect()->route('admin.places.index')
-                         ->with('info', 'Categoria eliminada con exito !!!');
+                         ->with('info', 'Sede eliminada con exito !!!');
     }
+    
 }

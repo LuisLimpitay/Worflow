@@ -43,11 +43,19 @@
 
                     <div class="form-group">
                     {!! Form::label('content', 'Contenido') !!}
-                    {!! Form::textarea('content', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese la el contenido del curso' ]) !!}
+                    {!! Form::textarea('content', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el contenido del curso' ]) !!}
                     @error('content')
                         <small class="text-danger">*{{$message}}</small>
                     @enderror
 
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('mode', 'Modalidad' ) !!}
+                    {!! Form::text('mode', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese la Modalidad del Curso' ]) !!}
+                    @error('mode')
+                        <small class="text-danger">*{{$message}}</small>
+                    @enderror
                 </div>
 
                 <div class="form-group">
@@ -57,16 +65,6 @@
                         <small class="text-danger">*{{$message}}</small>
                     @enderror
                 </div>
-
-
-                {{-- <div class="form-group">
-
-                    {!! Form::label('category_id', 'Categoria' ) !!}
-                    {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Categoria' ]) !!}
-                    @error('category_id')
-                        <small class="text-danger">*{{$message}}</small>
-                    @enderror
-                </div> --}}
 
                 <div class="form-group">
                     {!! Form::label('teacher_id', 'Instructor' ) !!}
@@ -78,7 +76,9 @@
 
 
 
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                <a href="{{route('admin.courses.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
+
 
             {!! Form::close() !!}
 

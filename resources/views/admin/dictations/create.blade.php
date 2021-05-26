@@ -48,15 +48,16 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('place_id', 'Lugar de Dictado' ) !!}
-                    {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Ciudad' ]) !!}
+                    {!! Form::label('place_id', 'Sede' ) !!}
+                    {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Sede' ]) !!}
                     @error('place_id')
                         <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
 
 
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                <a href="{{route('admin.dictations.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
             {!! Form::close() !!}
 

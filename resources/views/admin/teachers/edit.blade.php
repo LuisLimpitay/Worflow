@@ -42,7 +42,9 @@
                 @enderror
             </div>
             
-            {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
+            <a href="{{route('admin.teachers.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
+
             {!! Form::close() !!}
 
 

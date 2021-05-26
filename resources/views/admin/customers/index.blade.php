@@ -3,7 +3,7 @@
 @section('title', 'Inscripciones')
 
 @section('content_header')
-    <h1>Panel de Inscripciones</h1>
+    <h1>Clientes</h1>
 @stop
 
 @section('css')
@@ -16,6 +16,7 @@
 <div class="card">
     
     <div class="body">
+        
         <table id=example class="table table-striped">
                 <thead class="thead-dark">
                     <th>ID</th>
@@ -38,9 +39,7 @@
 
                             <td>{{$user->number_license}}</td>
                             <td>{{ \Carbon\Carbon::parse($user->expire_license)->format('d/m/Y')}}</td>
-                            
-
-                            
+                                                        
                         </tr>
                     @endforeach
                 </tbody>

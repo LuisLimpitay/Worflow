@@ -30,9 +30,10 @@ class DatabaseSeeder extends Seeder
         $this->call(DictationSeeder::class);
 
         Payment::factory(3)->create();
-
-        Enrollment::factory(20)->create();
-
+        
+        $this->call(EnrollmentSeeder::class);
+        
+        //Enrollment::factory(20)->create();
 
 
     }

@@ -40,7 +40,8 @@
                 </div>
 
             
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                <a href="{{route('admin.dictations.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
             {!! Form::close() !!}
 

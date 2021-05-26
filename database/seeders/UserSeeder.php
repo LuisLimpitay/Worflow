@@ -38,16 +38,52 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Valeriana',
-            'last_name' => 'Alba',
-            'number_license' => '33118222',
-            'expire_license' => '2023-08-25',
+            'name' => 'Alba',
+            'last_name' => 'Valeriana',
+            'number_license' => '33118247',
+            'expire_license' => '2023-08-26',
 
 
             'email' => 'user2@gmail.com',
             'password' => bcrypt('55555555'),
             'level' => '2'
         ]);
-        User::factory(23)->create();
+
+        User::create([
+            'name' => 'Agustina',
+            'last_name' => 'Gaite',
+            'number_license' => '33118262',
+            'expire_license' => '2023-08-23',
+
+
+            'email' => 'user3@gmail.com',
+            'password' => bcrypt('55555555'),
+            'level' => '2'
+        ]);
+
+        User::create([
+            'name' => 'Lucrecia',
+            'last_name' => 'Cruz',
+            'number_license' => '33113222',
+            'expire_license' => '2023-08-22',
+
+
+            'email' => 'user4@gmail.com',
+            'password' => bcrypt('55555555'),
+            'level' => '2'
+        ]);
+
+        User::create([
+            'name' => 'Patricia',
+            'last_name' => 'Sandoval',
+            'number_license' => '32118222',
+            'expire_license' => '2023-08-21',
+
+
+            'email' => 'user5@gmail.com',
+            'password' => bcrypt('55555555'),
+            'level' => '2'
+        ]);
+        
     }
 }

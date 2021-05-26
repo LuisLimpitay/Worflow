@@ -30,7 +30,7 @@ class EnrollmentFactory extends Factory
             'status' => $this->faker->randomElement(['pagado', 'pendiente']),
             
             'dictation_id' => Dictation::all()->random()->id,
-            'user_id' => User::where('level', 2)->get()->random()->id,
+            'user_id' => User::where('level', 2)->distinct()->get()->random()->id,
             'payment_id' => Payment::all()->random()->id,
 
         ];

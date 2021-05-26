@@ -15,22 +15,15 @@ class PlaceSeeder extends Seeder
     public function run()
     {
         Place::create([
-
+            'name' => 'Sindicato de Petroleros Jerarquico',
             'city' => 'Caleta Olivia',
             'address_street' => 'Moreno',
             'address_number' => '1290',
 
         ]);
+        
         Place::create([
-
-            'city' => 'Pico Truncado',
-            'address_street' => 'Alvear',
-            'address_number' => '1390',
- 
-        ]);
-
-        Place::create([
-
+            'name' => 'Centro Integrador Comunitario',
             'city' => 'Las Heras',
             'address_street' => 'Belgrano',
             'address_number' => '2390',

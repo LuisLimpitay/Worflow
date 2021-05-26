@@ -34,7 +34,7 @@ class CourseController extends Controller
         $teachers = Teacher::pluck('name', 'id');
         $courses = Course::all();
 
-        return view ('admin.courses.create', compact('teachers', 'categories'));
+        return view ('admin.courses.create', compact('teachers', 'courses'));
 
     }
 
@@ -51,6 +51,7 @@ class CourseController extends Controller
             'slug' => '',
             'description' => 'required',
             'content' => 'required',
+            'mode' => 'required',
             'price' => 'required',
             'teacher_id' => 'required',
 
@@ -98,6 +99,18 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'slug' => '',
+            'description' => 'required',
+            'content' => 'required',
+            'mode' => 'required',
+            'price' => 'required',
+            'teacher_id' => 'required',
+
+        ]);
+
         $course->update($request->all());
         return redirect()->route('admin.courses.index', $course)->with('info', 'Curso actualizado con exito !!!');
     }

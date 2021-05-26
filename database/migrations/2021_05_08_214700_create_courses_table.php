@@ -18,15 +18,15 @@ class CreateCoursesTable extends Migration
 
             $table->string('name', 20);
             $table->string('slug');
-            $table->string('description');
+            $table->text('description');
             $table->longText('content');
+            $table->string('mode', 12);
             $table->decimal('price', 10,2);
                         
             
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('teachers');
              
-
             $table->timestamps();
         });
     }

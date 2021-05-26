@@ -55,16 +55,19 @@
 
                     <P class="text-4xl px-3 text-red-400">Cronograma de Dictado de Cursos</P><br>
                         
-                    <table class="table-responsive">
+                    <table class="table table-responsive">
                         <thead class="justify-between">
                         <tr class="bg-gray-800 container mx-auto text-xl">
-                            <th class=""><span class="text-gray-300">Fecha</span></th>
                             
-                            <th class=""><span class="text-gray-300">Ciudad</span></th>
-                            <th class=""><span class="text-gray-300">Dirección</span></th>
+                            <th class="text-gray-300">Fecha</th>
 
-                            <th class=" py-2"><span class="text-gray-300">Hora</span></th>
-                            <th class=" py-2"><span class="text-gray-300">Cupos</span></th>
+                            <th class="text-gray-300">Ciudad</th>
+                            <th class="text-gray-300">Sede</th>
+
+                            <th class="text-gray-300">Dirección</th>
+
+                            <th class="text-gray-300">Hora</</th>
+                            <th class="text-gray-300">Cupos</th>
                             
                         </tr>
                         </thead>
@@ -73,10 +76,13 @@
             
                         @foreach ($dictations as $dictation)
                             <tr>
-                                <td class="px-3 py-2">{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</td>
-                                <td class="px-6 py-2">{{$dictation->places->city}}</td>
-                                <td class="px-6 py-2">{{$dictation->places->address_street}} N° {{$dictation->places->address_number}}</td>
-                                <td class="px-2 py-2">{{$dictation->time}}</td>
+                                <td class="px-3">{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</td>
+
+                                <td class="px-3 py-2">{{$dictation->places->city}}</td>
+                                <td class="px-3">{{$dictation->places->name}}</td>
+
+                                <td class="px-3">{{$dictation->places->address_street}} {{$dictation->places->address_number}}</td>
+                                <td class="px-3">{{$dictation->time}}</td>
             
                                 <td class="px-4">
                                     <p class="text-xl px-4  container mx-auto bg-red-200 text-black py-2 border rounded-full ">

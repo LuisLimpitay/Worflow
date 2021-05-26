@@ -51,7 +51,7 @@
                 <div class="container mx-auto flex flex-col max-w-md bg-gray-300  px-8 py-6 rounded-xl space-y-5 items-center">
 
                     <p class="inline-block px-3 h-6 bg-red-500 text-gray-200 rounded-full ">
-                        Modalidad Presencial
+                        Modalidad {{$course->mode}}
                     </p>
 
                     <h3 class="font-serif font-bold text-gray-900 text-xl">{{$course->name}}</h3>
@@ -61,7 +61,7 @@
                     <img class="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
 
 
-                    <p class=" leading-relaxed">Por : {{$course->teachers->name}}</p>
+                    <p class=" leading-relaxed"><b>Instructor :</b> {{$course->teachers->name}}</p>
 
                     <p class=" leading-relaxed font-bold text-xl ">ARS ${{$course->price}}</p>
 

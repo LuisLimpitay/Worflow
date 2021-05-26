@@ -275,7 +275,7 @@ return [
         ],
 
         [
-            'text' => 'Ciudades',
+            'text' => 'Sedes',
             'route'  => 'admin.places.index',
             'icon' => 'fas fa-map-marked-alt fa-fw',
             'active' => ['admin/places*']

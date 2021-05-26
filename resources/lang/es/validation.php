@@ -155,7 +155,7 @@ return [
         'content' => 'Contenido',
         'category_id' => 'Categoria',
         'teacher_id' => 'Instructor',
-        'place_id' => 'Ciudad',
+        'place_id' => 'Sede',
         'course_id' => 'Curso',
         'date' => 'Fecha',
         'time' => 'Hora',
@@ -172,6 +172,7 @@ return [
         'current_password' => 'Contraseña Actual',
         'password' => 'Contraseña',
         'terms' => 'terminos y condiciones y la politica de privacidad',
+        'mode' => 'Modalidad'
         
 
     ],

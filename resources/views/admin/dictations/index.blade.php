@@ -27,7 +27,7 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-primary" href="{{route('admin.dictations.create')}}">Crear</a>
+        <a class="btn btn-success" href="{{route('admin.dictations.create')}}">Crear</a>
     </div>
     
     <div class="body">

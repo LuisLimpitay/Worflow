@@ -16,10 +16,11 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
 
-            $table->string('city')->unique();
+            $table->string('name');
+           
             $table->string('address_street', 20);
             $table->string('address_number', 10);
-            
+            $table->string('city');
 
             $table->timestamps();
         });

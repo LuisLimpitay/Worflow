@@ -19,13 +19,13 @@
         {!! Form::model($place, ['route' => ['admin.places.update', $place ], 'method' => 'put']) !!}
         
         <div class="form-group">
-            {!! Form::label('city', 'Nombre de la Ciudad' ) !!}
-            {!! Form::text('city', null, ['class'=> 'form-control']) !!}
-            @error('city')
+            {!! Form::label('name', 'Nombre de la Sede' ) !!}
+            {!! Form::text('name', null, ['class'=> 'form-control']) !!}
+            @error('name')
                 <span class="text-danger">{{$message}}</span>
             @enderror
-    
-        </div>    
+        </div> 
+           
         <div class="form-group">
             {!! Form::label('address_street', 'Direccion' ) !!}
             {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
@@ -40,8 +40,19 @@
             <span class="text-danger">{{$message}}</span>
         @enderror
         </div>  
+        
+        <div class="form-group">
+            {!! Form::label('city', 'Nombre de la Ciudad' ) !!}
+            {!! Form::text('city', null, ['class'=> 'form-control']) !!}
+            @error('city')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+    
+        </div> 
 
             {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+            <a href="{{route('admin.places.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
+
         {!! Form::close() !!}
 
 

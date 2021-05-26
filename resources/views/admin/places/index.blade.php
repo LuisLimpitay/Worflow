@@ -7,7 +7,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Lista de Ciudades donde se dictan Cursos</h1>
+    <h1>Sedes se dictan Cursos</h1>
 @endsection
 
 @section('content')
@@ -21,15 +21,15 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-primary" href="{{route('admin.places.create')}}">Crear</a>
+        <a class="btn btn-success" href="{{route('admin.places.create')}}">Crear</a>
     </div>
     
     <div class="body">
         <table class="table table-striped">
                 <thead class="thead-dark">
-                    <th>ID</th>
-                    <th>Ciudad</th>
+                    <th>Nombre de la Sede</th>
                     <th>Direccion</th>
+                    <th>Ciudad</th>
                     <th colspan="2">Acciones</th>
                 </thead>
 
@@ -37,9 +37,9 @@
                     @foreach ($places as $place)
                         <tr>
 
-                            <td>{{$place->id}}</td>
-                            <td>{{$place->city}}</td>
+                            <td>{{$place->name}}</td>
                             <td>{{$place->address_street}} N° {{$place->address_number}}</td>
+                            <td>{{$place->city}}</td>
 
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.places.edit', $place)}}">Editar</a>

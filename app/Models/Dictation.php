@@ -34,7 +34,6 @@ class Dictation extends Model
 
     }
     
-
     
     //Relacion UNO A MUCHOS
     public function enrollments(){

@@ -40,7 +40,7 @@ class DictationSeeder extends Seeder
             'stock' => '25',
 
             'course_id' => 1,
-            'place_id' => 3,
+            'place_id' => 2,
 
 
         ]);
@@ -52,7 +52,6 @@ class DictationSeeder extends Seeder
 
             'course_id' => 1,
             'place_id' => 1,
-
 
         ]);
     }

@@ -37,7 +37,7 @@ class DictationController extends Controller
     public function create()
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('city', 'id');
+        $places = Place::pluck('name', 'id');
         $dictations = Dictation::all();
 
         return view ('admin.dictations.create', compact(

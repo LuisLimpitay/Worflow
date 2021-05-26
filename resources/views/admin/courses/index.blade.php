@@ -19,21 +19,21 @@
 @endif
 
 <div class="card">
-{{-- 
+
     <div class="card-header">
-        <a class="btn btn-primary" href="{{route('admin.courses.create')}}">Crear</a>
-    </div> --}}
+        <a class="btn btn-success" href="{{route('admin.courses.create')}}"><i class="fas fa-plus-square"></i></a>
+    </div>
 
     <div class="body">
         <table class="table table-striped table-responsive">
                 <thead class="thead-dark">
                     <th>Nombre</th>
-
                     <th>Descripcion</th>
-
-                    <th>Precio </th>
                     <th>Instructor</th>
-                    <th colspan="1">Acciones</th>
+                    <th>Modalidad</th>
+                    <th>Precio </th>
+
+                    <th colspan="2">Acciones</th>
                 </thead>
 
                 <tbody>
@@ -43,20 +43,22 @@
                             <td> {{$course->name}} </td>
                             <td> {{$course->description}} </td>
 
-                            <td> {{$course->price}}</td>
                             <td> {{$course->teachers->name  }}</td>
+                            <td> {{$course->mode }}</td>
+                            <td> {{$course->price}}</td>
+
 
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.courses.edit', $course)}}">Editar</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.courses.edit', $course)}}"><i class="fas fa-edit"></i></a>
                             </td>
 
-                            {{-- <td width="10px">
+                            <td width="10px">
                                 <form action="{{route('admin.courses.destroy', $course)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
-                            </td> --}}
+                            </td>
                         </tr>
 
 

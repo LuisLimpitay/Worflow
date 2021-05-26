@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('about', 'Acerca de' ) !!}
-                  {!! Form::text('about', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese el nombre de la Ciudad']) !!}
+                  {!! Form::text('about', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese descripcion del Instructor']) !!}
 
                   @error('about')
                       <span class="text-danger">{{$message}}</span>
@@ -37,16 +37,17 @@
               </div>
             <div class="form-group">
                 {!! Form::label('email', 'Email' ) !!}
-                {!! Form::email('email', null, ['class'=> 'form-control', 'placeholder' => 'Ej. ejemplo@gmail.com']) !!}
+                {!! Form::email('email', null, ['class'=> 'form-control', 'placeholder' => 'Ej: ejemplo@gmail.com']) !!}
 
                 @error('email')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
+            </div>
 
+                {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
+                <a href="{{route('admin.teachers.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
-                {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
-
 
         </div>
     </div>

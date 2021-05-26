@@ -20,6 +20,14 @@
             {!! Form::open(['route' => 'admin.places.store', 'autocomplete' => 'off']) !!}
 
             <div class="form-group">
+                {!! Form::label('name', 'Nombre de la Sede' ) !!}
+                {!! Form::text('name', null, ['class'=> 'form-control']) !!}
+                @error('name')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div> 
+
+            <div class="form-group">
                 {!! Form::label('address_street', 'Direccion' ) !!}
                 {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
                 @error('address_street')
@@ -46,7 +54,9 @@
 
 
 
-                {!! Form::submit('Crear', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
+                <a href="{{route('admin.places.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
+
             {!! Form::close() !!}
 
 
