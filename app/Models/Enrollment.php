@@ -20,9 +20,7 @@ class Enrollment extends Model
         'payment_method',
 
         'dictation_id',
-        'user_id',
-
-        
+                
     ];
 
     protected $table = 'enrollments';
@@ -30,12 +28,6 @@ class Enrollment extends Model
     //Relacion A UNO INVERSA
     public function dictations(){
         return $this->belongsTo(Dictation::class, "dictation_id" , "id");
-
-    }
-
-    //Relacion A UNO INVERSA
-    public function users(){
-        return $this->belongsTo(User::class, "user_id" , "id");
 
     }
 

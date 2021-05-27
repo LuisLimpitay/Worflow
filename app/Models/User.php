@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable  
 {
     use HasApiTokens;
     use HasFactory;
@@ -67,9 +67,9 @@ class User extends Authenticatable
 
     
     //Relacion UNO A UNO //
-    public function enrollments(){
+    public function dictations(){
 
-        return $this->hasOne(Enrollment::class);
+        return $this->belongsToMany(Dictation::class);
 
     }
     

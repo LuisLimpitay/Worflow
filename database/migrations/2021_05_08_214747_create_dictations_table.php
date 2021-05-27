@@ -19,15 +19,15 @@ class CreateDictationsTable extends Migration
             $table->date('date')->unique();
             $table->time('time');
             $table->integer('stock');
-            
+            //$table->enum('status', ['activo', 'inactivo']);
             
             $table->unsignedBigInteger('place_id');
             $table->foreign('place_id')->references('id')->on('places');
 
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
- 
-            
+
+             
             $table->timestamps();
         });
     }

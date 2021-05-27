@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('admin.index');
 
 
-
-
 Route::resource('clientes', AdminCustomerController::class)->names('admin.customers');
 
 Route::resource('dictations', DictationController::class)->names('admin.dictations');

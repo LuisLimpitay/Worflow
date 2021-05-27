@@ -40,6 +40,7 @@ class UserFactory extends Factory
             'level' => '2'
 
         ];
+        
     }
 
 }

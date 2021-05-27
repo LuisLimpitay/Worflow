@@ -15,7 +15,7 @@ class Dictation extends Model
         'time',        
         'stock',
         'place_id',        
-        'course_id'
+        'course_id',
 
     ];
 
@@ -36,8 +36,8 @@ class Dictation extends Model
     
     
     //Relacion UNO A MUCHOS
-    public function enrollments(){
-        return $this->hasMany(Enrollment::class);
+    public function users(){
+        return $this->belongsToMany(User::class);
 
     }
 }

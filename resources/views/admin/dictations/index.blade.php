@@ -7,7 +7,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Lista de Dictados de Cursos</h1>
+    <h1>Dictado de Cursos</h1>
 @stop
 
 @section('css')
@@ -27,17 +27,19 @@
 <div class="card">
 
     <div class="card-header">
-        <a class="btn btn-success" href="{{route('admin.dictations.create')}}">Crear</a>
+        <a class="btn btn-success" href="{{route('admin.dictations.create')}}"><i class="fas fa-plus-square"></i></a>
     </div>
     
     <div class="body">
         <table id="example3" class="table table-striped table-responsive-sm">
                 <thead class="thead-dark">
                     <th>Fecha</th>
-                    <th>Lugar</th>
-
+                    <th>Sede</th>
+                    <th>Direccion</th>
+                    <th>Ciudad</th>
                     <th>Hora</th>
                     <th>Cupos</th>
+                    <th>Estado</th>
 
                     <th colspan="2">Acciones</th>
                 </thead>
@@ -47,21 +49,24 @@
 
                         <tr>
                             <td> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}} </td>
-                            <td>{{$dictation->places->address_street}} {{$dictation->places->address_number}}, {{$dictation->places->city}}</td>
+                            <td>{{$dictation->places->name}}</td>
+                            <td>{{$dictation->places->address_street}} {{$dictation->places->address_number}}</td>
+                            <td> {{$dictation->places->city}}</td>
                             <td> {{$dictation->time}} </td>
                             
                             <td> {{$dictation->stock}}</td>
+                            <td></td>
                             
                                 
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.dictations.edit', $dictation)}}">Editar</a>
+                            <td width="5px">
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.dictations.edit', $dictation)}}"><i class="fas fa-edit"></i></a>
                             </td>
 
-                            <td width="10px">
+                            <td width="5px">
                                 <form action="{{route('admin.dictations.destroy', $dictation)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

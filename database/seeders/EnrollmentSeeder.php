@@ -21,7 +21,6 @@ class EnrollmentSeeder extends Seeder
             'status' => 'pendiente',
             
             'dictation_id' => 1,
-            'user_id' => 2,
             'payment_id' => Payment::all()->random()->id,
 
         ]);
@@ -31,7 +30,6 @@ class EnrollmentSeeder extends Seeder
             'status' => 'pendiente',
             
             'dictation_id' => 2,
-            'user_id' => 3,
             'payment_id' => Payment::all()->random()->id,
 
         ]);
@@ -40,7 +38,6 @@ class EnrollmentSeeder extends Seeder
             'status' => 'pagado',
             
             'dictation_id' => 3,
-            'user_id' => 4,
             'payment_id' => Payment::all()->random()->id,
 
         ]);
@@ -49,7 +46,6 @@ class EnrollmentSeeder extends Seeder
             'status' => 'pendiente',
             
             'dictation_id' => 4,
-            'user_id' => 5,
             'payment_id' => Payment::all()->random()->id,
 
         ]);

@@ -20,8 +20,8 @@ class EnrollmentDictationController extends Controller
         
         ->groupBy('dictation_id', 'dictations.date')
         ->get();
-
-        return view('admin.planillas.index', compact('enrollments'));
+        return $enrollments;
+        //return view('admin.planillas.index', compact('enrollments'));
     }
     
 }

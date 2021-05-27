@@ -38,12 +38,15 @@ class DictationController extends Controller
     {
         $courses = Course::pluck('name', 'id');
         $places = Place::pluck('name', 'id');
+        $users = User::pluck('number_license', 'id');
+
         $dictations = Dictation::all();
 
         return view ('admin.dictations.create', compact(
-            'dictations',
-            'places',
-            'courses'));
+                                                            'dictations',
+                                                            'places',
+                                                            'courses',
+                                                            'users'));
     }
 
     /**
@@ -81,12 +84,15 @@ class DictationController extends Controller
     {
         $courses = Course::pluck('name', 'id');
         $places = Place::pluck('city', 'id');
+        $users = User::pluck('number_license', 'id');
+
         $dictations = Dictation::all();
 
         return view ('courses.dictation', compact(
             'dictations',
             'places',
-            'courses'));
+            'courses',
+            'users'));
     }
     // ************************************************************************
 
@@ -100,15 +106,16 @@ class DictationController extends Controller
     public function edit(Dictation $dictation)
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('city', 'id');
-
+        $places = Place::pluck('name', 'id');
+        $users = User::pluck('number_license', 'id');
         return view ('admin.dictations.edit', compact(
-            'dictation',
-            'places',
-            'courses'));
+                                                        'dictation',
+                                                        'places',
+                                                        'courses',
+                                                        'users'));
     }
 
-    /**
+    /** 
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

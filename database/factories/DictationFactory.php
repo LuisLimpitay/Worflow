@@ -32,7 +32,6 @@ class DictationFactory extends Factory
 
             'course_id' => Course::all()->random()->id,
             'place_id' => Place::all()->random()->id,
-
         ];
     }
 }

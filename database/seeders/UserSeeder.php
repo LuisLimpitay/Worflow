@@ -84,6 +84,10 @@ class UserSeeder extends Seeder
             'password' => bcrypt('55555555'),
             'level' => '2'
         ]);
+
+        User::factory(16)->create();
+
+        
         
     }
 }
