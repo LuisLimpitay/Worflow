@@ -46,6 +46,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        //dump($request);
         $request->validate([
             'name' => 'required',
             'slug' => '',
@@ -58,7 +59,8 @@ class CourseController extends Controller
         ]);
         $courses = Course::create($request->all());
 
-        return redirect()->route('admin.courses.index', $courses)->with('info', 'Curso agregado con exito !!!');;
+        return redirect()->route('admin.courses.index', $courses)
+                            ->with('info', 'Curso agregado con exito !!!');;
     }
 
     /**

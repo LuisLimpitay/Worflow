@@ -87,13 +87,18 @@
                         <div x-show="open" x-on:click.away=" open=false " class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
 
                             <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Perfil</a>
-                                @if(auth()->user()-> level == 1)
-                            <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Administrador</a>
+                            
+                            {{-- SI EL USUARIO ES ADMIN --}}
+                            @if(auth()->user()->level == 1)
+                                <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Administrador</a>
 
                             @endif                            
                             
-                            @if(auth()->user()-> level == 2)
-                                <a href="{{route('customers.enrollments')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Mis Inscripciones</a>
+                            @if(auth()->user()->level == 2)
+                                {{-- aca como parametro mando algo que parece raro pero es el ID del user
+                                mi controlador lo recibe como {user} --}}
+                                <a href="{{route('customers.enrollments', auth()->user()->id)}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                                    Mis Inscripciones</a>
                             @endif    
                             
                             <hr>

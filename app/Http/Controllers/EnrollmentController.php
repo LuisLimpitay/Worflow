@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enrollment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -13,12 +14,19 @@ class EnrollmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        $misinscripciones = Enrollment::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
-        //dump($inscrito);
-        return view('customers.enrollments', compact ('misinscripciones')) ;
+        
+        $users = User::find($user->id);
+        //dump($users);
+        return view('customers.enrollments', compact('users'));
+       
+
     }
+        //$misinscripciones = Enrollment::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        //dump($inscrito);
+        //return view('customers.enrollments', compact ('misinscripciones')) ;
+    
 
     /**
      * Show the form for creating a new resource.

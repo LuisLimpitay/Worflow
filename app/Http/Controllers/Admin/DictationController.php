@@ -38,7 +38,6 @@ class DictationController extends Controller
     {
         $courses = Course::pluck('name', 'id');
         $places = Place::pluck('name', 'id');
-        $users = User::pluck('number_license', 'id');
 
         $dictations = Dictation::all();
 
@@ -46,7 +45,7 @@ class DictationController extends Controller
                                                             'dictations',
                                                             'places',
                                                             'courses',
-                                                            'users'));
+                                                        ));
     }
 
     /**
@@ -89,10 +88,10 @@ class DictationController extends Controller
         $dictations = Dictation::all();
 
         return view ('courses.dictation', compact(
-            'dictations',
-            'places',
-            'courses',
-            'users'));
+                                                    'dictations',
+                                                    'places',
+                                                    'courses'
+                                                ));
     }
     // ************************************************************************
 
@@ -112,7 +111,7 @@ class DictationController extends Controller
                                                         'dictation',
                                                         'places',
                                                         'courses',
-                                                        'users'));
+                                                    ));
     }
 
     /** 

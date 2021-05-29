@@ -14,6 +14,7 @@ class Dictation extends Model
         'date',
         'time',        
         'stock',
+        'status',
         'place_id',        
         'course_id',
 
@@ -37,7 +38,9 @@ class Dictation extends Model
     
     //Relacion UNO A MUCHOS
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'dictation_user')
+                    ->withPivot('status', 'payment_method', 'ammount');
 
     }
+
 }

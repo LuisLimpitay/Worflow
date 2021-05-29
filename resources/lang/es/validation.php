@@ -148,6 +148,7 @@ return [
 
     'attributes' => [
         'name' => 'Nombre',
+        'email' => 'Email',
         'price' => 'Precio',
         'description' => 'Descripcion',
         'direction' => 'Direccion',
@@ -165,14 +166,13 @@ return [
         'city' => 'Ciudad',
         'address_street' => 'Direccion',
         'address_number' => 'Numero',
-        'dni' => 'DNI',
-        'phone' => 'Telefono',
         'last_name' => 'Apellido',
-        'zip_code' => 'Codigo Postal',
         'current_password' => 'Contraseña Actual',
         'password' => 'Contraseña',
-        'terms' => 'terminos y condiciones y la politica de privacidad',
-        'mode' => 'Modalidad'
+        'terms' => 'Términos y Politica',
+        'mode' => 'Modalidad',
+        'number_license' => 'Número de Licencia de Conducir',
+        'expire_license' => 'Vencimiento Licencia de Conducir',
         
 
     ],

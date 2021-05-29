@@ -10,7 +10,9 @@ class Navigation extends Component
     public function render()
     {
         $level = User::where('level', 2)->get();
+        $user = User::all();
+        //dd($user); */
         //dd($levelU);
-        return view ('livewire.navigation', compact('level'));
+        return view ('livewire.navigation', compact('level', 'user'));
     }
 }

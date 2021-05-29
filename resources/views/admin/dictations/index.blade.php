@@ -55,10 +55,10 @@
                             <td> {{$dictation->time}} </td>
                             
                             <td> {{$dictation->stock}}</td>
-                            <td></td>
+                            <td class="bg-red-100"> {{$dictation->status}}</td>
                             
                                 
-                            <td width="5px">
+                            <td width="5px ">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.dictations.edit', $dictation)}}"><i class="fas fa-edit"></i></a>
                             </td>
 

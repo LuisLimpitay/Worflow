@@ -2,12 +2,7 @@
     
     <x-jet-authentication-card>
         <x-slot name="logo">
-       
-            <a href="/" class="flex-shrink-0 flex items-center">
-                <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Worflow">
-                <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
-            </a><br>
-            
+            <x-jet-authentication-card-logo />
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -17,18 +12,19 @@
                 {{ session('status') }}
             </div>
         @endif
+        <h1 class="text-2xl text-center mb-4 text-black font-semibold">Iniciar Sesion</h1><hr><br>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"  />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Contraseña') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -44,8 +40,11 @@
                         {{ __('Olvidaste la Contraseña?') }}
                     </a>
                 @endif
-                
-                <x-jet-button class="ml-4">
+                <a class="inline-flex items-center ml-4 px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
+                    type="submit" href="{{ route('home') }}">
+                    cancelar
+                </a>
+                <x-jet-button class="ml-2">
                     {{ __('ingresar') }}
                 </x-jet-button>
 

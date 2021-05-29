@@ -17,7 +17,7 @@ class Teacher extends Model
     ];
     //Relacion UNO A MUCHOS
     public function courses(){
-        return $this->hasMany(Course::class);
+        return $this->hasOne(Course::class);
     
     }
 }

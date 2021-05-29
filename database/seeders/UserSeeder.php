@@ -25,6 +25,8 @@ class UserSeeder extends Seeder
             'level' => '1'
         ]);
 
+        
+
         User::create([
             'name' => 'Ruben',
             'last_name' => 'Zamora',

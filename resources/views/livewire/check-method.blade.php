@@ -1,6 +1,6 @@
 <div>
 
-    <form action="´{{route('courses.payment')}}">
+    <form action="´{{route('courses.payment', $dictation)}}">
 
         <input type="checkbox" name="payment_method" wire:model="tarjeta">
         <label for="tarjeta">Tarjeta</label><br>
@@ -17,7 +17,7 @@
     <div>
 
         @if ($tarjeta)
-            <form action="{{route('courses.payment')}}">
+            <form action="{{route('courses.payment', $dictation)}}">
                 <div class="divide-y divide-gray-200">
                     <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         
@@ -102,7 +102,7 @@
                                         placeholder="perro.gato.cabra">
                                 </div>
                                 
-                                p
+                                
                                 
                             </div>
                             <div class="pt-4 flex items-center space-x-4">

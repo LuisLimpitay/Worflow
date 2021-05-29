@@ -7,19 +7,24 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\Enrollments;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PruebasController;
 use App\Mail\ContactanosMailable;
 use App\Models\Enrollment;
 use Illuminate\Support\Facades\Mail;
-
 use Carbon\Carbon;
+
+
 Route::get('/pruebas', function () {
 
     /* $date = auth()->user()->level;
-    dump($date); */
+    dump($date); 
     $inscrito = Enrollment::where('user_id', auth()->user()->id)->get();
-    dump($inscrito);
+    dump($inscrito);*/
+    $fecha= Carbon::now();
+    dd($fecha);
+
 });
 
 
@@ -27,6 +32,9 @@ Route::get('/pruebas', function () {
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
+
+// ****************************  QA  ******************************************
+Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
 
 //--------------------------------------------------------------------------------
 // -----------------   Controladores CourseController     -------------------------
@@ -40,19 +48,21 @@ Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
+Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->middleware('auth')->name('courses.checkout');
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------
-
-
-//******************************  PAYMENT MERCADO PAGO  ************************************->
-Route::get('payment', [PaymentController:: class, 'payment'])->name('courses.payment');
+//******************************  me inserta en mio DB   ************************************->
+//Route::post('payment/{dictation}', [PaymentController:: class, 'payment'])->name('courses.payment');
 
 
 
-// ****************************  QA  ******************************************
-Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
+//******************************  me inserta en mio DB   ************************************->
+Route::post('form/{dictation}', [FormController:: class, 'store'])->name('form');
+
+
+
+
 
 
 //  ************************  CONTACTO  *****************************************
@@ -61,11 +71,18 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 //  ******* ********* ********** ****** ********* ********* ********** ********** **********
 
 
+
+
+
+
+
+
+
 //  ************************  MIS INSCRIPCIONES  *****************************************
-Route::get('/mis-inscripciones', [EnrollmentController::class, 'index'])->name('customers.enrollments');
+Route::get('/mis-inscripciones/{user}', [EnrollmentController::class, 'index'])->middleware('auth')->name('customers.enrollments');
 
 
 
 //  ************************  CREAR INSCRIPCION  *****************************************
-Route::resource('xxx', PruebasController::class)->names('enrollments');
+//Route::resource('xxx', PruebasController::class)->names('enrollments');
 

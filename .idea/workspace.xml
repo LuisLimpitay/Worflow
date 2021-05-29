@@ -19,7 +19,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="" />
+    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/worflow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/worflow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Dictation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Dictation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214747_create_dictations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214747_create_dictations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_26_204512_create_dictation_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_26_204512_create_dictation_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contactanos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contactanos/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/check-method.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/check-method.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,6 +182,7 @@
       <path value="$PROJECT_DIR$/vendor/jeroennoten/laravel-adminlte" />
       <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sLXjcZ3zLhBtiFX7keqP0445Sr" />
@@ -171,7 +194,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -197,6 +220,7 @@
       <workItem from="1620652981506" duration="4898000" />
       <workItem from="1620659141402" duration="17096000" />
       <workItem from="1620746020829" duration="31691000" />
+      <workItem from="1622171963454" duration="1835000" />
     </task>
     <servers />
   </component>
@@ -220,13 +244,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1620675363691" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1620677503660">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1622172138337">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1620677503660" />
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1620786083195">
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1622172138337" />
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1622172005940">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1620786083195" />
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1622172005940" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 <x-app-layout>
 
-adsfasdasa
+pago exitoso
 
 
 </x-app-layout>

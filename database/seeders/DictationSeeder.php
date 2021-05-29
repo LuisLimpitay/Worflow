@@ -14,42 +14,44 @@ class DictationSeeder extends Seeder
      */
     public function run()
     {
-        $dictations = Dictation::factory(10)->create();
+        /* $dictations = Dictation::factory(5)->create();
         foreach($dictations as $dictation){
             $dictation->users()->attach([
-                2,3,4,5,6,7,8,9
+                rand(2,5),
+                rand(5,6),
+                rand(6,8)
             ]);
-        }
+        } */
 
-        /* Dictation::create([
+        Dictation::create([
             'date' => '2021-06-03',
             'time' => '09:00',
             'stock' => 30,
+            'status' => 'activo',
 
             'course_id' => 1,
             'place_id' => 1,
-            'user_id' => 1
 
 
         ]);
         Dictation::create([
             'date' => '2021-06-10',
             'time' => '09:00',
-            'stock' => 30,
+            'stock' => 0,
+            'status' => 'completo',
 
             'course_id' => 1,
-            'place_id' => 2,
-            'user_id' => 1
+            'place_id' => 2
 
         ]);
         Dictation::create([
             'date' => '2021-06-17',
             'time' => '09:00',
             'stock' => '25',
+            'status' => 'activo',
 
             'course_id' => 1,
-            'place_id' => 2,
-            'user_id' => 2
+            'place_id' => 2
 
         ]);
 
@@ -57,12 +59,12 @@ class DictationSeeder extends Seeder
             'date' => '2021-06-24',
             'time' => '09:00',
             'stock' => '25',
+            'status' => 'activo',
 
             'course_id' => 1,
-            'place_id' => 1,
-            'user_id' => 3
+            'place_id' => 1
         ]);
- */
+ 
 
     }
 }
