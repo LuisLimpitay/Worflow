@@ -69,3 +69,16 @@
     </div>
 </div>
 @stop
+
+@section('js')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  Swal.fire
+    ({
+        icon: 'warning',
+        title: 'Atencion',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+    })
+</script>
+@stop

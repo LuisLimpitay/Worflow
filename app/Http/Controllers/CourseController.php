@@ -35,8 +35,12 @@ class CourseController extends Controller
         $dictations = Dictation::with('courses')
                                 ->where('stock', '>', '0')
                                 ->orderby('date', 'DESC')
-                                ->get();   
+                                ->get();  
+        
+        /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
+        $dictations = $course->dictations;*/
 
+        return view('courses.dictationCurso', compact('dictations'));
         
        /*  $affected = DB::table('dictations')
                                 ->where('id', 1)

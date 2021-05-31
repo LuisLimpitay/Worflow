@@ -48,7 +48,7 @@
                                 <tr class="bg-white border-4 border-gray-200">
 
                                     <td class="text-black px-8 py-2">
-                                        {{ \Carbon\Carbon::parse($user->pivot->created_at)->format('d/m/Y')}}    
+                                        {{ \Carbon\Carbon::parse($user->pivot->created_at)}}    
                                     </td>
                                     <td class="text-black px-8 py-2">
                                         {{ \Carbon\Carbon::parse($user->date)->format('d/m/Y')}}    

@@ -7,6 +7,10 @@
 @stop
 
 @section('content')
+<script type="text/javascript">
+    alert("Atencion recuerde que todos los campos (excepto la hora de inicio del curso) se podran ingresar solo una vez y no se podra editar");
+</script>
+
     <div class="card">
         <div class="card-body">
 

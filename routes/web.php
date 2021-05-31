@@ -48,7 +48,7 @@ Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->middleware('auth')->name('courses.checkout');
+Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------

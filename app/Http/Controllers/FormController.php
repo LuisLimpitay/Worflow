@@ -53,8 +53,8 @@ class FormController extends Controller
 
             //'status' => $status1
 
-                            echo"Inscripto"; 
-        return redirect()->route('courses.index');
+        echo"Inscripto"; 
+        return redirect()->route('home');
 
         
         

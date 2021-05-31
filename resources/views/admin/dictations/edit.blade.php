@@ -7,6 +7,10 @@
 @stop
 
 @section('content')
+<script type="text/javascript">
+    alert("Solo podra editar el horario de inicio del curso");
+</script>
+
     <div class="card">
         <div class="card-body">
 
@@ -15,7 +19,7 @@
               
                 <div class="form-group">
                     {!! Form::label('date', 'Fecha' ) !!}
-                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-05-31' ]) !!}
+                    {!! Form::date('date', null, ['class'=> 'form-control', 'readonly',  'min' => '2021-05-31' ]) !!}
                 </div>
   
                     <div class="form-group">
@@ -26,17 +30,17 @@
 
                 <div class="form-group">
                     {!! Form::label('stock', 'Cupos' ) !!}
-                    {!! Form::number('stock', null, ['class'=> 'form-control', 'min' => '1', 'max' => '35' ]) !!}
+                    {!! Form::number('stock', null, ['class'=> 'form-control', 'readonly', 'min' => '1', 'max' => '35' ]) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('course_id', 'Nombre del Curso' ) !!}
-                    {!! Form::select('course_id', $courses, null, ['class' => 'form-control' ]) !!}
+                    {!! Form::select('course_id', $courses, null, ['class' => 'form-control', 'readonly' ]) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('place_id', 'Lugar' ) !!}
-                    {!! Form::select('place_id', $places    , null, ['class' => 'form-control' ]) !!}
+                    {!! Form::select('place_id', $places    , null, ['class' => 'form-control', 'readonly' ]) !!}
                 </div>
 
             
