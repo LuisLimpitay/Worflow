@@ -54,10 +54,10 @@
                             <td> {{$dictation->places->city}}</td>
                             <td> {{$dictation->time}} </td>
                             
-                            <td> {{$dictation->stock}}</td>
-                            <td class="bg-red-100"> {{$dictation->status}}</td>
+                            <td class="text-center"> {{$dictation->stock}}</td>
                             
-                                
+                            <td class="text-center"><span class="badge badge-secondary">{{$dictation->status}}</span> </td>
+                                                            
                             <td width="5px ">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.dictations.edit', $dictation)}}"><i class="fas fa-edit"></i></a>
                             </td>

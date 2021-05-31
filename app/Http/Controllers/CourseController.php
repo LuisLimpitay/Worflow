@@ -32,7 +32,8 @@ class CourseController extends Controller
     {
         //whith uso para relacionar mi tabla dictation con mi Tabla Courses
                
-        $dictations = Dictation::with('courses')->where('status', 'activo')
+        $dictations = Dictation::with('courses')
+                                ->where('stock', '>', '0')
                                 ->orderby('date', 'DESC')
                                 ->get();   
 

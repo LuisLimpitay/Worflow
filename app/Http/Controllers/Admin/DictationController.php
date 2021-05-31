@@ -24,7 +24,10 @@ class DictationController extends Controller
     public function index()
     {
 
-        $dictations = Dictation::with('places', 'courses')->orderBy('date','DESC')->get();
+        $dictations = Dictation::with('places', 'courses')
+                                ->orderBy('date','DESC')
+                                ->get();
+                                
         return view('admin.dictations.index', compact('dictations'));
         
     }

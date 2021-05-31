@@ -37,7 +37,7 @@ class DictationSeeder extends Seeder
         Dictation::create([
             'date' => '2021-06-10',
             'time' => '09:00',
-            'stock' => 0,
+            'stock' => 1,
             'status' => 'completo',
 
             'course_id' => 1,

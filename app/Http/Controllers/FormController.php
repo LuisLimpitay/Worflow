@@ -37,15 +37,21 @@ class FormController extends Controller
             ]);
            
         $stock = $dictation->stock;
-        $status = $dictation->status;
+        $status1 = $dictation->status;
+
 
         $affected = DB::table('dictations')
                             ->where('id', $dictation->id)
                             ->update(['stock' => $dictation->stock - 1]);
+                                
+        if($stock == 1)
+            $status1 = 'completo';
+        $affected2 = DB::table('dictations')
+                            ->where('id', $dictation->id)
+                            ->update(['status' => $status1]);
+            //dd($status1);
 
-        if($stock == 0)
-                $status = 'completo';   
-
+            //'status' => $status1
 
                             echo"Inscripto"; 
         return redirect()->route('courses.index');
