@@ -1,10 +1,26 @@
 <x-app-layout>
 
-    <br>
-{{--     MIGAS DE PAN --}}    
+    
+    {{-- MIGAS DE PAN --}}
+    <nav>
+        <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
+
+            <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
+            <li>/</li>
+
+            <li class="px-2"><a href="{{route('courses.index')}}" class="no-underline text-indigo">Cursos</a></li>
+            <li>/</li>
+
+            <li class="px-2 text-gray-500">Manejo Defensivo</li>
+
+        </ol>
+    </nav>
+    {{-- FIN MIGAS DE PAN --}}
+
+{{-- {{--     MIGAS DE PAN    
     <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
           
-        <!-- SMALL CARD ROUNDED -->
+        <!-- SMALL CARD ROUNDED
           <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
           <div class="flex flex-col justify-center">
                     <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 1 </p>
@@ -12,9 +28,9 @@
             <p class="text-black dark:text-gray-100 text-justify font-semibold">Seleccionar Fecha</p>
           </div>
       </div>
-        <!-- END SMALL CARD ROUNDED -->
+        <!-- END SMALL CARD ROUNDED
     
-        <!-- SMALL CARD ROUNDED -->
+        SMALL CARD ROUNDED
           <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
               <div class="flex flex-col justify-center">
                 <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 2</p>
@@ -22,7 +38,7 @@
               </div>
             </div>
                 <!-- END SMALL CARD ROUNDED -->
-          <!-- SMALL CARD ROUNDED -->
+          <!-- SMALL CARD ROUNDED
           <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
               <div class="flex flex-col justify-center">
                 <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
@@ -31,7 +47,7 @@
             </div>
         <!-- END SMALL CARD ROUNDED --->
         
-    </div>
+    </div> --}}
 
 
 
@@ -59,6 +75,8 @@
                         <thead class="justify-between">
                         <tr class="bg-gray-800 container mx-auto text-xl">
                             
+                            <th class="text-gray-300">ID</th>
+
                             <th class="text-gray-300">Fecha</th>
 
                             <th class="text-gray-300">Ciudad</th>
@@ -76,6 +94,8 @@
             
                         @foreach ($dictations as $dictation)
                             <tr>
+                                <td class="px-3">{{$dictation->id}}</td>
+
                                 <td class="px-3">{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</td>
 
                                 <td class="px-3 py-2">{{$dictation->places->city}}</td>

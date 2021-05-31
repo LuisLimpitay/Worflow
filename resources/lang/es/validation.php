@@ -173,6 +173,7 @@ return [
         'mode' => 'Modalidad',
         'number_license' => 'Número de Licencia de Conducir',
         'expire_license' => 'Vencimiento Licencia de Conducir',
+        'payment_method' => 'Medio de pago'
         
 
     ],

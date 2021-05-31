@@ -1,5 +1,14 @@
 <x-app-layout>
-
+{{-- MIGAS DE PAN --}}
+<nav>
+    <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
+    <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
+    <li>/</li>
+    
+    <li class="px-2 text-gray-500">Contacto</li>
+    </ol>
+</nav>
+{{-- FIN MIGAS DE PAN --}}
     <section>
         <div class="bg-gray-100 py-20">
             <div class="container mx-auto flex flex-col md:flex-row">
@@ -70,12 +79,7 @@
 
                                         </form>
 
-                                        @if (session('info'))
-                                            <script>
-                                                alert("{{ session('info') }}");
-
-                                            </script>
-                                        @endif
+                                       
                                     </div>
                                 </div>
                             </div>

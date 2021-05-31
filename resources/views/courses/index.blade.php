@@ -1,6 +1,16 @@
 <x-app-layout>
 
-    <br>
+    {{-- MIGAS DE PAN --}}
+    <nav>
+        <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
+        <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
+        <li>/</li>
+        
+        <li class="px-2 text-gray-500">Cursos</li>
+        </ol>
+    </nav>
+    {{-- FIN MIGAS DE PAN --}}
+
     <!-- SLIDER ESTATICO -->
     <div class="sliderAx h-auto">
         <div id="slider-1" class="container mx-auto">

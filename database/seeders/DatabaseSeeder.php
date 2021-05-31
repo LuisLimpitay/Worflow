@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(PlaceSeeder::class);
-        Teacher::factory(1)->create();
+        Teacher::factory(5)->create();
         Course::factory(1)->create();
 
         $this->call(UserSeeder::class);

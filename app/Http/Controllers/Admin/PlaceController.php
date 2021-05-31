@@ -116,7 +116,7 @@ class PlaceController extends Controller
         $place->delete();
 
         return redirect()->route('admin.places.index')
-                         ->with('info', 'Sede eliminada con exito !!!');
+                         ->with('info', 'Sede eliminada con éxito !!!');
     }
     
 }

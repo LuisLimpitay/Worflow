@@ -18,11 +18,11 @@
 
 @section('content')
 
-    @if (session('info'))
+    {{-- @if (session('info'))
         <div class="alert alert-success">
             <strong>{{ session('info') }}</strong>
         </div>
-    @endif
+    @endif --}}
 
     <div class="card">
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="body">
-            <table id="example3" class="table table-striped table-responsive-sm">
+            <table id="example3" class="table table-responsive">
                 <thead class="thead-dark">
                     <th>Fecha</th>
                     <th>Sede</th>
@@ -101,13 +101,12 @@
     $('#example3').DataTable({
         responsive:true
     });
-
 </script> --}}
 
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    @if (session('eliminar') == 'Dictado eliminado con Exito !')
+    @if (session('info') == 'Dictado eliminado con Exito !')
         <script>
             Swal.fire(
                 'Eliminado!',
@@ -136,17 +135,13 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si, eliminar!',
                 cancelButtonText: 'Cancelar',
-
             }).then((result) => {
                 if (result.isConfirmed) {
-
                     this.submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
                 }
             })
-
         });
-
     </script>
 @stop
-sda
+
 @endsection

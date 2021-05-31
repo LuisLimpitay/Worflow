@@ -1,5 +1,9 @@
 <x-app-layout>
-
+    {{-- @if (session('info'))
+    <div class="alert alert-success">
+        <script>alert("Inscripcion Exitosa !!! No te olvides que podes consultar tus inscripciones en tu perfil>mis inscripciones");</script>
+    </div> 
+    @endif --}}
     <br>
 
     <!-- SLIDER ESTATICO -->
@@ -16,7 +20,6 @@
     </div>
     <!-- SLIDER ESTATICO -->
 
-
     <!-- CUERPO -->
     <div class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,14 +33,9 @@
                     Somos un equipo interdisciplinario de profesionales dedicados a la salud ocupacional y a la
                     promoción del trabajo seguro; buscando disminuir las condiciones de riesgo y aumentar las conductas
                     seguras del personal de las Empresas y/o Instituciones.
-
                 </p>
 
-
-
             </div>
-
-
         </div>
     </div>
     <!-- FIN DEL CUERPO  -->
@@ -165,4 +163,21 @@
         </div>
     </div>
 
+
+    @section('js')
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        {@if (session('info') == 'inscripcion exitosa')
+            <script>
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Inscripcion Exitosa',
+                    text: 'Somos Workflow, somos Manejo Defensivo',
+                    footer: '<p>Deseas descargar tu comprobante? haz clic  <a href="{{route('customers.enrollments', auth()->user()->id)}}"> AQUI</a></p>'
+                })
+
+            </script>
+        @endif
+    @endsection
 </x-app-layout>

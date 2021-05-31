@@ -104,7 +104,7 @@ class TeacherController extends Controller
         $teacher->delete();
 
         return redirect()->route('admin.teachers.index')
-            ->with('info', 'Instructor eliminado con exito !!!');
+            ->with('info', 'Instructor eliminado con éxito!');
     }
 
 }

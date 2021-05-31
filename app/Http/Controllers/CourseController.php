@@ -39,14 +39,7 @@ class CourseController extends Controller
         
         /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
         $dictations = $course->dictations;*/
-
-        return view('courses.dictationCurso', compact('dictations'));
-        
-       /*  $affected = DB::table('dictations')
-                                ->where('id', 1)
-                                ->update(['stock' => 0]); */
-
-                                
+                  
         return view('courses.show', compact( 'course', 'dictations'));
 
     }

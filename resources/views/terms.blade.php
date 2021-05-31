@@ -6,8 +6,8 @@
             </div>
 
             <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
-                <h1>Términos y Condiciones</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, tenetur perspiciatis excepturi eius aspernatur obcaecati unde, culpa reprehenderit, alias ducimus inventore ipsam in itaque repellat quas ea natus ullam voluptas.</p>
+                <h1>Términos del Servicio</h1>
+                <p>Las prestaciones de nuestros servicios consideran lo siguiente</p>
                 
                 <h2>Formas de Pago</h2>
                 <p>Se podra realizar el pago mediante: </p>
@@ -20,6 +20,14 @@
                 <p>Cuenta  Corriente  en  Pesos  N°  317-3581-0594/0.  Sucursal  Calle  Tucumán  (Cod. Suc. N° 317). CBU: 0340317200031010594003</p>
                 <p>El pago en efectivo mediante un ente de cobro, se debera realizar como maximo 48 horas antes del dictado del curso. De lo contrario no podra asistir al curso y perdera su vacante.</p>
                 
+                <h2>Asistencia al Curso sin la Licencia Nacional de Conducir</h2>
+                
+                <ul>
+                    <li>
+                        Las personas que asistan al curso en esta excepcion podran realizar solo la parte teorica y una vez presentado una constancia de Licencia en tramite o la Licencia Nacional de Conducir podra realizar la prueba practica.
+                    </li>
+                </ul>
+
                 <h2>Politica de Cancelación</h2>
                 
                 <ul>

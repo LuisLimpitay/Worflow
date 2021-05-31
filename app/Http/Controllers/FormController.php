@@ -15,6 +15,10 @@ class FormController extends Controller
         //acceder a un campo especifico return $request->get('payment_method');
         //return $request->get('payment_method');        
         //dump($request);
+        $request->validate([
+            'payment_method' => 'required'
+        ]);
+        
         $payment_method = $request->get('payment_method');
         if($payment_method == 'tarjeta')
             $status = 'aprobado';
@@ -53,8 +57,8 @@ class FormController extends Controller
 
             //'status' => $status1
 
-        echo"Inscripto"; 
-        return redirect()->route('home');
+        
+        return redirect()->route('home')->with('info', 'inscripcion exitosa');
 
         
         

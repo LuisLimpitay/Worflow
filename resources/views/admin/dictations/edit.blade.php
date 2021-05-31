@@ -7,9 +7,9 @@
 @stop
 
 @section('content')
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     alert("Solo podra editar el horario de inicio del curso");
-</script>
+</script> --}}
 
     <div class="card">
         <div class="card-body">
@@ -19,7 +19,7 @@
               
                 <div class="form-group">
                     {!! Form::label('date', 'Fecha' ) !!}
-                    {!! Form::date('date', null, ['class'=> 'form-control', 'readonly',  'min' => '2021-05-31' ]) !!}
+                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-07-12' ]) !!}
                 </div>
   
                     <div class="form-group">
@@ -59,5 +59,14 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire(
+            'Atención!',
+            'Solo podras editar la fecha y hora del dictado del curso',
+            'warning'
+        )
+
+    </script>
+
 @stop

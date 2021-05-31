@@ -1,10 +1,7 @@
 
 <x-app-layout>
 
-    <br>
-
     <head>
-        <title>QA</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
@@ -99,9 +96,19 @@
 
         </style>
     </head>
+    {{-- MIGAS DE PAN --}}
+    <nav>
+        <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
+        <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
+        <li>/</li>
+        
+        <li class="px-2 text-gray-500">Preguntas Frecuentes</li>
+        </ol>
+    </nav>
+    {{-- FIN MIGAS DE PAN --}}
 
     <div class="w-full md:w-3/5 mx-auto p-8">
-        <p class="bg-gray-100 text-2xl fx-2 fy-2">Temas Globales</p>
+        <p class="bg-gray-100 text-2xl fx-2 fy-2">General</p>
         <br>
         <div class="shadow-md">
 
@@ -148,6 +155,27 @@
                     </div>
                 </div>
 
+                <div class="tab w-full overflow-hidden border-t">
+                    <input class="absolute opacity-0" id="tab-single-five" type="radio" name="tabs2">
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-five">¿Si no asisto al curso me devuelven el dinero?</label>
+                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                        <p class="p-5">
+                            Lamentablemente NO!, cuando se reserva un cupo se tomara como tal cuando se registre el pago, como nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a> asi lo especifican.
+                        <br>De todos modos puedes solicitar el reintegro de tu inscripcion 48 hs antes que se sustancie el curso.</p>
+
+                    </div>
+                </div>
+
+                <div class="tab w-full overflow-hidden border-t">
+                    <input class="absolute opacity-0" id="tab-single-six" type="radio" name="tabs2">
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-six">¿Puedo asistir al curso sin mi Licencia de Conducir?</label>
+                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                        <p class="p-5">
+                            Lamentablemente NO!, Si podras asistir al curso de manera parcial, puesto que no se te podra evaluar la parte practica y quedara pendiente de acuerdo nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>.
+                        <br>De todos modos puedes solicitar el reintegro de tu inscripcion 48 hs antes que se sustancie el curso.</p>
+
+                    </div>
+                </div>
                 
 
             </div>
