@@ -27,10 +27,7 @@
 
                                 <th class="px-8 py-2">
                                     <span class="text-gray-300">Fecha Inscripcion</span>
-                                </th>
-                                <th class=" py-2">
-                                    <span class="text-gray-300">ID dictation</span>
-                                </th>
+                                </th>                           
                                 <th class="px-8 py-2">
                                     <span class="text-gray-300">Fecha del Curso</span>
                                 </th>
@@ -40,7 +37,6 @@
                                 <th class="px-8 py-2">
                                     <span class="text-gray-300">Ciudad</span>
                                 </th>
-
                                 <th class="px-10 py-2">
                                     <span class="text-gray-300">Direccion</span>
                                 </th>
@@ -53,6 +49,7 @@
                                 <th class="px-8 py-2">
                                     <span class="text-gray-300">Accion</span>
                                 </th>
+
                             </tr>
                         </thead>
 
@@ -64,11 +61,9 @@
                                 <tr class="bg-white border-4 border-gray-200">
 
                                     <td class="text-black px-8 py-2">
-                                        {{ \Carbon\Carbon::parse($user->pivot->created_at)/*->format('d/m/Y')*/}}    
+                                        {{ \Carbon\Carbon::parse($user->pivot->created_at)->format('d/m/Y')}}    
                                     </td>
-                                    <td class="text-black px-6 py-2">
-                                        {{$user->id}}    
-                                    </td>
+
                                     <td class="text-black px-8 py-2">
                                         {{ \Carbon\Carbon::parse($user->date)->format('d/m/Y')}}    
                                     </td>
@@ -80,7 +75,6 @@
                                     </td>
                                     <td class="text-black px-4 py-2">
                                         {{$user->places->address_street}} {{$user->places->address_number}}    
-    
                                     </td>
                                     <td class="text-black px-4 py-2">
                                         ${{$user->pivot->ammount}}    
@@ -88,13 +82,12 @@
                                     <td class="text-black px-8 py-2">
                                         {{$user->pivot->status}}    
                                     </td>
-
                                     
                                     <td>
                                         <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                                             <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
                                             <span>Comprobante</span>
-                                          </button>
+                                        </button>
                                     </td>
 
                                 </tr>

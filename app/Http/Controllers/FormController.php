@@ -56,7 +56,6 @@ class FormController extends Controller
             //dd($status1);
 
             //'status' => $status1
-
         
         return redirect()->route('home')->with('info', 'inscripcion exitosa');
 

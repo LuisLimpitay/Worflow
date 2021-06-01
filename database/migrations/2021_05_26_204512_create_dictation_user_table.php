@@ -16,11 +16,11 @@ class CreateDictationUserTable extends Migration
         Schema::create('dictation_user', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('quantity');
-            $table->decimal('ammount', 10,2 );
+            $table->integer('quantity')->default(1);
+            $table->decimal('ammount', 10,2 )->default(7000);
 
-            $table->enum('payment_method', ['tarjeta', 'transferencia', 'efectivo']);
-            $table->enum('status', ['aprobado', 'pendiente']);
+            $table->enum('payment_method', ['tarjeta', 'transferencia', 'efectivo'])->default('tarjeta');
+            $table->enum('status', ['aprobado', 'pendiente'])->default('aprobado');
              
             $table->unsignedBigInteger('dictation_id');
             $table->foreign('dictation_id')->references('id')->on('dictations');

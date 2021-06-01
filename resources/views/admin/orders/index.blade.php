@@ -20,29 +20,29 @@
 
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
-                    <th>Orden</th>
-                    <th>Fecha</th>
-                    <th>Cliente</th>
-                    <th>Curso</th>
-                    <th>Cupos</th>
-                    <th>Precio</th>
+                    <th class="text-center">N° Orden</th>
+                    <th class="text-center">Fecha de Inscripcion</th>
+                    <th class="text-center">Cantidad</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Metodo de Pago</th>
+                    <th class="text-center">Estado del Pago</th>
                 
                     
                 </thead>
                 <tbody>
                     @foreach ($enrollments as $enrollment)
                         <tr>
-                            <td>00{{$enrollment->id}}</td>
-                            <td> {{ \Carbon\Carbon::parse($enrollment->created_at)->format('d/m/Y H:i')}} </td>
-                            <td>{{$enrollment->users->last_name}}, {{$enrollment->users->name}}</td>
-                            <td>{{$enrollment->dictations->courses->name}}</td>
-                            <td>{{$enrollment->quantity}}</td>
-                            <td><b>$</b>{{$enrollment->dictations->courses->price}}</td>
-{{--aca deberia hacer para algo para poder cambiar el estado del pago
- --}}                       
+                            <td class="text-center">{{$enrollment->id}}</td>
+                            <td class="text-center"> {{ \Carbon\Carbon::parse($enrollment->created_at)->format('d/m/Y H:i')}} </td>
+                            <td class="text-center">{{$enrollment->quantity}}</td>
+                            <td class="text-center">{{$enrollment->ammount}}</td>
+                            <td class="text-center">{{$enrollment->payment_method}}</td>
+                            <td class="text-center">{{$enrollment->status}}</td>
 
-                            
-                     
+
+{{--aca deberia hacer para algo para poder cambiar el estado del pago--}}                       
+
+
                         </tr>
                     @endforeach
                 </tbody>

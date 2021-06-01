@@ -14,15 +14,15 @@ class DictationSeeder extends Seeder
      */
     public function run()
     {
-        /* $dictations = Dictation::factory(5)->create();
+        $dictations = Dictation::factory(15)->create();
         foreach($dictations as $dictation){
             $dictation->users()->attach([
                 rand(2,5),
                 rand(5,6),
                 rand(6,8)
             ]);
-        } */
-
+        } 
+/*
         Dictation::create([
             'date' => '2021-06-03',
             'time' => '09:00',
@@ -66,5 +66,6 @@ class DictationSeeder extends Seeder
         ]);
  
 
-    }
+    }*/
+}
 }

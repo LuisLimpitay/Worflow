@@ -31,9 +31,12 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //whith uso para relacionar mi tabla dictation con mi Tabla Courses
-               
+        
+        //DEBERIA HACER UNA CONDICION PARA QUE SI UN USUARIO ESTA INSCRIPTO EN UN DICTADO DE UN CURSO
+        //NO ME MUESTRE ESE DICTADO AL CUAL SE INSCRIBIO
         $dictations = Dictation::with('courses')
                                 ->where('stock', '>', '0')
+                                ->where('course_id', '<>', '2')
                                 ->orderby('date', 'DESC')
                                 ->get();  
         
