@@ -9,10 +9,13 @@ use App\Http\Controllers\Admin\EnrollmentDictationController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
-
+/* $pdf = App::make('customers.enrollments');
+$pdf->loadView('welcome');
+return $pdf->stream(); */
 
 Route::get('/', [HomeController::class, 'index'])->name('admin.index');
 
+Route::get('/changeStatus', [OrderController::class, 'changeStatus'])->name('changeStatus');
 
 Route::resource('clientes', AdminCustomerController::class)->names('admin.customers');
 
@@ -32,6 +35,8 @@ Route::resource('customers', CustomerController::class)->names('admin.customers'
 Route::resource('planillas' ,EnrollmentDictationController::class)->names('admin.planillas');
 
 Route::resource('orders', OrderController::class)->names('admin.orders');
+
+
 
 
 

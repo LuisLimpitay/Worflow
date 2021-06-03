@@ -22,6 +22,9 @@ class EnrollmentDictationController extends Controller
         ->get();
         return $enrollments;
         //return view('admin.planillas.index', compact('enrollments'));
+
+        //2 consulta pasarle el id del dictado y los users del mismo
+        
     }
     
 }

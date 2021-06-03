@@ -14,7 +14,7 @@ use App\Mail\ContactanosMailable;
 use App\Models\Enrollment;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\App;
 
 Route::get('/pruebas', function () {
 
@@ -22,9 +22,10 @@ Route::get('/pruebas', function () {
     dump($date); 
     $inscrito = Enrollment::where('user_id', auth()->user()->id)->get();
     dump($inscrito);*/
-    $fecha= Carbon::now();
-    dd($fecha);
-
+    /* $fecha= Carbon::now();
+    dd($fecha); */
+    /* $a = auth()->user()->dictations(1);
+    dd($a); */
 });
 
 
@@ -44,11 +45,11 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 
 
 // ***********************  DETALLES del CURSO  *************************************
-Route::get('curso/{course}', [CourseController:: class, 'show'])->name('courses.show');
+Route::get('curso/{course}', [CourseController::class, 'show'])->name('courses.show');
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name('courses.checkout');
+Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name('courses.checkout');
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------
@@ -58,7 +59,7 @@ Route::get('checkout/{dictation}', [CourseController:: class, 'checkout'])->name
 
 
 //******************************  me inserta en mio DB   ************************************->
-Route::post('form/{dictation}', [FormController:: class, 'store'])->name('form');
+Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
 
 
 
@@ -81,8 +82,6 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 //  ************************  MIS INSCRIPCIONES  *****************************************
 Route::get('/mis-inscripciones/{user}', [EnrollmentController::class, 'index'])->middleware('auth')->name('customers.enrollments');
 
-
-
+Route::get('descargas/{user}', [EnrollmentController::class, 'pdf'])->name('inscripcion');
 //  ************************  CREAR INSCRIPCION  *****************************************
 //Route::resource('xxx', PruebasController::class)->names('enrollments');
-

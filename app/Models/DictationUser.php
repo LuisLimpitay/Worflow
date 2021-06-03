@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Dictation;
 
 class DictationUser extends Model
 {
@@ -14,11 +15,12 @@ class DictationUser extends Model
         'guarded'
     ];
 
-    public function dictations1(){
+    public function dictations(){
         return $this->belongsTo(Dictation::class, 'dictation_id', 'id');
         
     }
-    public function users1(){
-        return $this->belongsTo(User::class);
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
 }

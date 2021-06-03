@@ -1,129 +1,120 @@
 <x-app-layout>
 
-    
+
     {{-- MIGAS DE PAN --}}
     <nav>
         <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
-          <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
-          <li>/</li>
-          <li class="px-2 text-gray-900"><a href="{{route('profile.show')}}" class="no-underline text-indigo">Perfil</a></li>
-          <li>/</li>
-          <li class="px-2 text-gray-500">Mis Inscripciones</li>
+            <li class="px-2"><a href="{{ route('home') }}" class="no-underline text-indigo">Inicio</a></li>
+            <li>/</li>
+            <li class="px-2 text-gray-900"><a href="{{ route('profile.show') }}"
+                    class="no-underline text-indigo">Perfil</a></li>
+            <li>/</li>
+            <li class="px-2 text-gray-500">Mis Inscripciones</li>
         </ol>
     </nav>
+
+
+
+
+    {{-- $dictation->pivot->status == 'aprobado' --}}
+    <h1 class="px-3 text-4xl text-center">Tus Inscripciones</h1><br>
+    <hr>
     {{-- FIN MIGAS DE PAN --}}
 
 
-    <!-- component -->
-    <div class="container mx-auto py-6 items-center ">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="container mx-auto col-span-2">
-                <div class="container mx-auto">
-                    <h1 class="px-3 text-4xl text-center">Tus Inscripciones</h1><br><br>
-                    @if (($users->dictations->count()))
-                    <table class="container mx-auto table-auto">
-                        <thead class="justify-between">
-                            <tr class="bg-gray-800">
 
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Fecha Inscripcion</span>
-                                </th>                           
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Fecha del Curso</span>
-                                </th>
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Hora</span>
-                                </th>
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Ciudad</span>
-                                </th>
-                                <th class="px-10 py-2">
-                                    <span class="text-gray-300">Direccion</span>
-                                </th>
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Precio</span>
-                                </th>
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Estado del Pago</span>
-                                </th>
-                                <th class="px-8 py-2">
-                                    <span class="text-gray-300">Accion</span>
-                                </th>
+    {{-- CARD DE MIS INSCRIPCIONES --}}
+    @if ($users->dictations->count())
 
-                            </tr>
-                        </thead>
+        @foreach ($users->dictations as $dictation)
 
-                        <tbody class="bg-gray-200">
+            @if ($dictation->pivot->status == 'aprobado')
 
-                            @foreach ($users->dictations as $user)
-                            {{-- CON MI $user ACCEDO A LOS DATOS DEL DICTADO DONDE ESTA INSCRIPTO EL NEGRO --}}
+                <div class="max-w-md mt-8  bg-white mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
-                                <tr class="bg-white border-4 border-gray-200">
+                    <div class=" text-right px-3 pt-3 py-2 text-white bg-gray-500">
+                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
+                    </div>
 
-                                    <td class="text-black px-8 py-2">
-                                        {{ \Carbon\Carbon::parse($user->pivot->created_at)->format('d/m/Y')}}    
-                                    </td>
-
-                                    <td class="text-black px-8 py-2">
-                                        {{ \Carbon\Carbon::parse($user->date)->format('d/m/Y')}}    
-                                    </td>
-                                    <td class="text-black px-8 py-2">
-                                        {{$user->time}}    
-                                    </td>
-                                    <td class="text-black px-3 py-2">
-                                        {{$user->places->city}}    
-                                    </td>
-                                    <td class="text-black px-4 py-2">
-                                        {{$user->places->address_street}} {{$user->places->address_number}}    
-                                    </td>
-                                    <td class="text-black px-4 py-2">
-                                        ${{$user->pivot->ammount}}    
-                                    </td>
-                                    <td class="text-black px-8 py-2">
-                                        {{$user->pivot->status}}    
-                                    </td>
-                                    
-                                    <td>
-                                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                                            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                                            <span>Comprobante</span>
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                            @endforeach
-                        </tbody>
-                    </table>
-                                            
-                    @else
-                        <div class="max-w-lg w-full text-center rounded-lg shadow-lg p-4">
-                            <h3 class="font-semibold text-lg tracking-wide">No estas inscripto a ningun curso</h3>
-                            <p class="text-gray-500 my-1">
-                                Puedes ingresar al siguiente link para inscribirte a     un curso.
-                            </p>
-                            <div class="mt-2">
-                                <a href="{{route('courses.index')}}" 
-                                    class="text-blue-700  inline-flex items-center font-semibold tracking-wide">
-                                    <span class="hover:underline">
-                                        Inscribirme
-                                    </span>
-                                    <span class="text-xl ml-2">&#8594;</span>
-                                </a>
-                            </div>
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0">
+                            <img class="h-48 w-full object-cover md:h-full md:w-48"
+                                src="https://images.pexels.com/photos/1203768/pexels-photo-1203768.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="Man looking at item at a store">
                         </div>
-                
-                
-                
-                    <!-- support me by buying a coffee -->
-                    <a href="https://www.buymeacoffee.com/danimai" target="_blank" class="bg-purple-600 p-2 rounded-lg text-white fixed right-0 bottom-0">
-                        Support me
-                    </a>
-                    @endif
+                        <div class="p-8">
+
+                            <div class="uppercase tracking-wide text-2xl text-indigo-500 font-semibold">
+                                {{ $dictation->courses->name }}
+                            </div>
+
+                            <p class="mt-2 text-xl text-xl text-gray-500"><b>Cliente : </b>{{ $users->last_name }},
+                                {{ $users->name }} </p>
+                            <p class="mt-2 text-xl text-gray-500"><b>Fecha :
+                                </b>{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }} <b>Hora</b>
+                                {{ $dictation->time }}a.m </p>
+
+                            <p class="mt-2 text-xl text-gray-500"><b>Lugar : </b>{{ $dictation->places->name }} </p>
+                            <p class="mt-2 text-xl text-gray-500"><b>Direccion :
+                                </b>{{ $dictation->places->address_street }}
+                                {{ $dictation->places->address_number }} </p>
+                            <p class="mt-2 text-xl text-gray-500"><b>Ciudad: </b>{{ $dictation->places->city }} </p>
+                            <p class="mt-2 text-xl text-gray-500"><b>Cupos: </b>{{ $dictation->pivot->quantity }}
+                                Lugar </p>
+                            <br>
+                            <p class="mt-2 text-gray-900"><i>- Recuerde asistir con su Licencia Nacional de Conducir</i>
+                            </p>
+                            <hr><br>
+                            <p class="text-gray-500 my-1">
+                        Somos Workflow, Somos Manejo Defensivo.
+                    </p>
+                        </div>
+
+                    </div>
+
+
+                @else
+                <div class="max-w-lg w-full container mx-auto text-center rounded-lg shadow-lg p-4">
+                    <h3 class="font-semibold bg-red-200 text-2xl tracking-wide">Tu pago esta pendiente
+                    </h3><br>
+                    <p class="text-gray-500 text-left my-1">
+                        Deberas realizar el pago en cualquier sucursal de rapi pago o pago facil para poder visualizar el comprobante de tu inscripcion
+                    </p><br><br>
+                    <hr>
+                    <p class="text-gray-500 my-1">
+                        Somos Workflow, Somos Manejo Defensivo.
+                    </p>
+        
                 </div>
-            </div>
+
+
+
+                
+            @endif
+
+        @endforeach
+
+
+    @else
+        <br>
+        <div class="max-w-lg w-full container mx-auto text-center rounded-lg shadow-lg p-4">
+            <h3 class="font-semibold bg-red-200 text-2xl tracking-wide">No tienes inscripciones!
+            </h3><br>
+            <p class="text-gray-500 text-left my-1">
+                Uno de los motivos por lo que todavia no puedes visualizar tu inscripcion puede ser por que
+                seleccionaste como medio de pago "Pago en efectivo". Una vez que lo realices podras visualizar los
+                detalles de tu inscripcion.
+            </p><br>
+            <hr>
+            <p class="text-gray-500 my-1">
+                Somos Workflow, Somos Manejo Defensivo.
+            </p>
+
         </div>
+
+    @endif
     </div>
-<br><br><br><br><br><br><br><br><br><br>
+
+
+
 </x-app-layout>

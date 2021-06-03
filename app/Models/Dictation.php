@@ -33,13 +33,12 @@ class Dictation extends Model
     public function places(){
         return $this->belongsTo(Place::class, "place_id" , "id");
 
-    }
-    
+    }   
     
     //Relacion UNO A MUCHOS
     public function users(){
         return $this->belongsToMany(User::class, 'dictation_user')
-                    ->withPivot('status', 'payment_method', 'ammount');
+                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id');
 
     }
 

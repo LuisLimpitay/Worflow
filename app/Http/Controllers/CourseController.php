@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Dictation;
+use App\Models\DictationUser;
 use App\Models\Enrollment;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Scalar\MagicConst\Dir;
 
 class CourseController extends Controller
 {
@@ -28,22 +31,26 @@ class CourseController extends Controller
     /**************************************************************************** 
      Este metodo me trae los detalles y las fechas de Dictado con sus CUPOS
     -----------------------------------------------------------------------------*/
-    public function show(Course $course)
+    public function show(Course $course, DictationUser $dicuser)
     {
-        //whith uso para relacionar mi tabla dictation con mi Tabla Courses
+
+        $users = auth()->user();
+        //dd($id); 
+        //aca deberia traer el ID del dictado al cual se inscribio el usuario
         
-        //DEBERIA HACER UNA CONDICION PARA QUE SI UN USUARIO ESTA INSCRIPTO EN UN DICTADO DE UN CURSO
-        //NO ME MUESTRE ESE DICTADO AL CUAL SE INSCRIBIO
-        $dictations = Dictation::with('courses')
+        /* $x = DictationUser::with('dictations', 'users' )
+                            ->where('user_id', '=', 'id' )->get(); */
+        
+        $dictations = Dictation::with('courses', 'users' )
                                 ->where('stock', '>', '0')
-                                ->where('course_id', '<>', '2')
+                                ->where('id', '<>', 1)
                                 ->orderby('date', 'DESC')
                                 ->get();  
         
         /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
         $dictations = $course->dictations;*/
                   
-        return view('courses.show', compact( 'course', 'dictations'));
+        return view('courses.show', compact( 'course', 'dictations', 'users'));
 
     }
     ///************************************************************************* */
