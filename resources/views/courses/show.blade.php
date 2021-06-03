@@ -16,7 +16,6 @@
         </ol>
     </nav>
     {{-- FIN MIGAS DE PAN --}}
-
       
     <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
           
@@ -59,13 +58,13 @@
             <div class="container mx-auto col-span-2">
                 <p class="text-4xl px-3 text-red-400">Fechas Disponibles</p><br>
                 <div class="container mx-auto py-2 ">
+                    
                     @if ($dictations->count())
                         <table class="table table-responsive">
                             <thead class="justify-between">
                                 <tr class="bg-gray-800 container mx-auto text-xl">
 
                                     <th class="text-gray-300">ID</th>
-                                    <th class="text-gray-300">user</th>
                                     <th class="text-gray-300">Fecha</th>
 
                                     <th class="text-gray-300">Ciudad</th>
@@ -83,8 +82,9 @@
 
                                 @foreach ($dictations as $dictation)
                                     <tr>
+                                        
                                         <td class="px-3">{{ $dictation->id }}</td>
-                                        <td class="px-3">{{ $users->name }}</td>
+                                                     
                                         <td class="px-3">
                                             {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
                                         </td>

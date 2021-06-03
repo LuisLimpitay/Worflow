@@ -75,6 +75,9 @@
 
                 @else
                 <div class="max-w-lg w-full container mx-auto text-center rounded-lg shadow-lg p-4">
+                    <div class=" text-right px-3 pt-3 py-2 text-white bg-gray-500">
+                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
+                    </div>
                     <h3 class="font-semibold bg-red-200 text-2xl tracking-wide">Tu pago esta pendiente
                     </h3><br>
                     <p class="text-gray-500 text-left my-1">

@@ -10,7 +10,7 @@ class Dictation extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'id',
         'date',
         'time',        
         'stock',

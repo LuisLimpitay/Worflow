@@ -31,30 +31,27 @@ class CourseController extends Controller
     /**************************************************************************** 
      Este metodo me trae los detalles y las fechas de Dictado con sus CUPOS
     -----------------------------------------------------------------------------*/
-    public function show(Course $course, DictationUser $dicuser)
+    public function show(Course $course)
     {
-
-        $users = auth()->user();
-        //dd($id); 
-        //aca deberia traer el ID del dictado al cual se inscribio el usuario
-        
-        /* $x = DictationUser::with('dictations', 'users' )
-                            ->where('user_id', '=', 'id' )->get(); */
-        
+        //Con esto muestro los dictados donde esta inscripto un usuario determinado
+        $dictado = auth()->user()->dictations;
+  
+        $ids = $dictado->pluck('id');
+       
         $dictations = Dictation::with('courses', 'users' )
                                 ->where('stock', '>', '0')
-                                ->where('id', '<>', 1)
+                                ->whereNotIn('id', $ids)
                                 ->orderby('date', 'DESC')
                                 ->get();  
-        
-        /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
-        $dictations = $course->dictations;*/
-                  
-        return view('courses.show', compact( 'course', 'dictations', 'users'));
+        //dd($dictations);
+
+        return view('courses.show', compact( 'course', 'dictations', 'dictado'));
 
     }
     ///************************************************************************* */
- 
+   /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
+        $dictations = $course->dictations;*/
+                  
     
     public function checkout(Dictation $dictation)
     {
