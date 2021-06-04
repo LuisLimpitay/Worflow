@@ -57,6 +57,7 @@
 
             <div class="container mx-auto col-span-2">
                 <p class="text-4xl px-3 text-red-400">Fechas Disponibles</p><br>
+                
                 <div class="container mx-auto py-2 ">
                     
                     @if ($dictations->count())
@@ -84,7 +85,7 @@
                                     <tr>
                                         
                                         <td class="px-3">{{ $dictation->id }}</td>
-                                                     
+                                    
                                         <td class="px-3">
                                             {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
                                         </td>

@@ -9,6 +9,7 @@ use App\Models\Enrollment;
 use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Scalar\MagicConst\Dir;
 
@@ -21,10 +22,11 @@ class CourseController extends Controller
     }
 
 
-    public function index(){
+    public function index()
+    {
 
         $courses = Course::all();
-        return view ('courses.index', compact('courses'));
+        return view('courses.index', compact('courses'));
     }
 
 
@@ -34,25 +36,33 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //Con esto muestro los dictados donde esta inscripto un usuario determinado
-        $dictado = auth()->user()->dictations;
-  
-        $ids = $dictado->pluck('id');
-       
-        $dictations = Dictation::with('courses', 'users' )
-                                ->where('stock', '>', '0')
-                                ->whereNotIn('id', $ids)
-                                ->orderby('date', 'DESC')
-                                ->get();  
-        //dd($dictations);
 
-        return view('courses.show', compact( 'course', 'dictations', 'dictado'));
+        if (Auth::check()) 
+        {
+            $dictado = auth()->user()->dictations;
 
+            $ids = $dictado->pluck('id');
+            $dictations = Dictation::with('courses')
+                ->where('stock', '>', '0')
+                ->whereNotIn('id', $ids)
+                ->orderby('date', 'DESC')
+                ->get();
+        } else 
+        {
+            $dictations = Dictation::with('courses')
+                ->where('stock', '>', '0')
+                ->orderby('date', 'DESC')
+                ->get();
+            //dd($dictations);
+            
+        }
+        return view('courses.show', compact('course', 'dictations'));
     }
     ///************************************************************************* */
-   /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
+    /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
         $dictations = $course->dictations;*/
-                  
-    
+
+
     public function checkout(Dictation $dictation)
     {
         /* $userName = auth()->user()->name;
@@ -63,11 +73,11 @@ class CourseController extends Controller
         //dd($userss);
         $dictations = Dictation::all();
         //ACA DEBO HACER LA CONSULTA PARA QUE SI ES VALIDA LA TARJETA PASE Y VAYA A LA VISTA O SINO QUE VAYA Y EL ESTADO SEA PENDIENTE
-        return view('courses.checkout', compact('dictation','enrollment'));
+        return view('courses.checkout', compact('dictation', 'enrollment'));
     }
 
 
-    
+
     // retorna vista de QAs
     public function qa()
     {
@@ -78,6 +88,4 @@ class CourseController extends Controller
     {
         return view('contact');
     }
-
-
 }

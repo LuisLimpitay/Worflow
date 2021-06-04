@@ -1,5 +1,5 @@
 <x-app-layout>
-    <br>
+    <br><br><br>
     @if (!Auth::check())
         {{-- MIGAS DE PAN --}}
         {{-- <script>
@@ -26,12 +26,19 @@
 
 
     {{-- //-------------------------------------------------------------------------------------------------------------
-// -----------------   GRID 1 SI NO ESTA REGISTRADO    --------------------------------------------------------------------
+// -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------- --}}
+
+    {{-- //-------------------------------------------------------------------------------------------------------------
+// -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------- --}}
+
+
     @if (!Auth::check())
 
         <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
 
+            {{-- COL 1 --}}
             <div class="grid grid-cols-1 md:col-span-2 lg:col-span-2">
 
                 <div class="container mx-auto shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2"><br>
@@ -108,9 +115,9 @@
 
                                                 <div class="ml-2">
                                                     {!! __('Acepto los :terms_of_service y :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
-]) !!}
+                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
+                        'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
+                    ]) !!}
                                                 </div>
                                             </div>
                                         </x-jet-label>
@@ -141,11 +148,53 @@
                 </div>
 
             </div>
+
+            {{-- COL 2 --}}
+            <div class="grid grid-cols-1 md:col-span-2 lg:col-span-1">
+
+                <div class="container mx-auto shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2"><br>
+
+                    {{-- CARD DETALLES DE INSCRIPCION --}}
+                    <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
+                        <div class="container mx-auto">
+                            <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
+                            </h1><br>
+                            <hr><br>
+        
+                            <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{ $dictation->courses->name }}
+                            </p>
+                            <p class="px-4 py-2"><strong>Fecha: </strong>
+                                {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
+                            <p class="px-4 py-2"><strong>Hora: </strong>{{ $dictation->time }}</p>
+                            <p class="px-4 py-2"><strong>Direccion:
+                                </strong>{{ $dictation->places->address_street }}
+                                {{ $dictation->places->address_number }}</p>
+        
+                            <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city }}</p>
+        
+                            <p class="px-4 py-2"><strong>Instructor:
+                                </strong>{{ $dictation->courses->teachers->name }}
+                            </p>
+                            <br><br>
+        
+                            <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
+                                ARS ${{ $dictation->courses->price }}
+                            </p><br>
+        
+                            {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
+        
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     @elseif(Auth::check())
     
-        <br><br>
+        
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
 
@@ -162,9 +211,58 @@
         </nav>
 
         
-        <div class="grid grid-cols-3 sm:col-span-1 md:col-span-1 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
+        <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
             
             {{--************* COL 1 --}}
+            <div class="grid grid-cols-1 md:col-span-3 lg:col-span-2">
+                <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
+
+                    {{-- CARD MEDIO DE PAGO --}}
+                    <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
+                    <br><br>
+                    @if ($errors->any())
+
+                        @foreach ($errors->all() as $error)
+                            <br>
+                            <p class=" text-red-500">* {{ $error, '<br>' }}</p>
+                        @endforeach
+
+                    @endif
+                    
+                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id porro dolor deserunt quia laudantium.</p>
+                    
+                    <form action="{{ route('form', $dictation) }}" method="POST">
+                        @csrf
+                        <br>
+                        <hr><br>
+                        {{-- @livewire('check-method')<br> --}}
+
+
+                        {{-- MEDIO DE PAGO --}}
+                        <input type="radio" name="payment_method" value="tarjeta">
+                        <label for="tarjeta" class="text-xl">Tarjeta de Debito / Credito</label><br>
+
+                        <input type="radio" name="payment_method" value="transferencia">
+                        <label for="transferencia" class="text-xl">Transferencia Bancaria</label><br>
+
+                        <input type="radio" name="payment_method" value="efectivo">
+                        <label for="efectivo" class="text-xl">Efectivo</label><br><br>
+
+
+
+                        <div class="flex justify-center">
+                            <button
+                                class="bg-blue-500 pagar form-exit hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                                PAGAR
+                            </button>
+                        </div>
+
+                    </form>
+                    {{-- FIN CARD MEDIO DE PAGO --}}
+
+                </div>
+            </div>
+            {{--************* COL 2 --}}
             <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
                     <div class="container mx-auto">
@@ -195,74 +293,6 @@
                         {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
     
                     </div>
-                </div>
-            </div>
-
-            {{--************* COL 2 --}}
-            <div class="grid grid-cols-1  md:col-span-3 lg:col-span-1">
-                <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-
-                    {{-- CARD MEDIO DE PAGO --}}
-                    <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-                    <br><br>
-                    @if ($errors->any())
-
-                        @foreach ($errors->all() as $error)
-                            <br>
-                            <p class=" text-red-500">* {{ $error, '<br>' }}</p>
-                        @endforeach
-
-                    @endif
-
-                    <form action="{{ route('form', $dictation) }}" method="POST">
-                        @csrf
-                        <br>
-                        <hr><br>
-                        {{-- @livewire('check-method')<br> --}}
-
-
-                        {{-- MEDIO DE PAGO --}}
-                        <input type="radio" name="payment_method" value="tarjeta">
-                        <label for="tarjeta" class="text-xl">Tarjeta de Debito / Credito</label><br>
-
-                        <input type="radio" name="payment_method" value="transferencia">
-                        <label for="transferencia" class="text-xl">Transferencia Bancaria</label><br>
-
-                        <input type="radio" name="payment_method" value="efectivo">
-                        <label for="efectivo" class="text-xl">Efectivo</label><br><br>
-
-
-
-                        <div class="flex justify-center">
-                            <button
-                                class="bg-blue-500 pagar form-exit hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                                PAGAR
-                            </button>
-                        </div>
-
-                    </form>
-                    {{-- FIN CARD MEDIO DE PAGO --}}
-
-
-
-
-
-                </div>
-            </div>
-
-            {{--************* COL 3 --}}
-            <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1">
-                <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-
-                    {{-- CARD MIGAS --}}
-                    <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">RELLENAR</h1>
-                    
-                    {{-- FIN CARD MIGAS --}}
-
-
-
-
-
                 </div>
             </div>
 
