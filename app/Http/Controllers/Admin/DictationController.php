@@ -139,11 +139,10 @@ class DictationController extends Controller
      */
     public function destroy(Dictation $dictation)
     {
-        {
+            dd($dictation);
             $dictation->delete();
             return redirect()->route('admin.dictations.index')
-                            ->with('info', 'Dictado eliminado con Exito !');
-        }
+                            ->with('info', 'Dictado eliminado con Exito !');      
     }
 
 

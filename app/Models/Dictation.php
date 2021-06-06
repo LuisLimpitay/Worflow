@@ -38,7 +38,8 @@ class Dictation extends Model
     //Relacion UNO A MUCHOS
     public function users(){
         return $this->belongsToMany(User::class, 'dictation_user')
-                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id');
+                    ->withTimestamps()
+                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
 
     }
 

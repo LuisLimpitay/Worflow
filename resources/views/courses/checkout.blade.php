@@ -1,5 +1,5 @@
 <x-app-layout>
-    <br><br><br>
+    <br>
     @if (!Auth::check())
         {{-- MIGAS DE PAN --}}
         {{-- <script>
@@ -219,24 +219,29 @@
 
                     {{-- CARD MEDIO DE PAGO --}}
                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-                    <br><br>
-                    @if ($errors->any())
+                    
+                    
+                    
+                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id porro dolor deserunt quia laudantium.</p>
+                    <br>
+                   
+                    <form action="{{ route('form', $dictation) }}" method="POST">
+                        @csrf
+                        
+                        <hr>
+                        <p class="mt-1">Seleccione un metodo de pago por favor para poder completar la transaccion</p>
+                        <p>En el caso de seleccionar Efectivo recuerda que podras descargar la factura en tu perfil > mis inscripciones</p><br>
+
+                        @if ($errors->any())
 
                         @foreach ($errors->all() as $error)
-                            <br>
+                            
                             <p class=" text-red-500">* {{ $error, '<br>' }}</p>
                         @endforeach
 
                     @endif
-                    
-                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id porro dolor deserunt quia laudantium.</p>
-                    
-                    <form action="{{ route('form', $dictation) }}" method="POST">
-                        @csrf
-                        <br>
-                        <hr><br>
                         {{-- @livewire('check-method')<br> --}}
-
+<br>
 
                         {{-- MEDIO DE PAGO --}}
                         <input type="radio" name="payment_method" value="tarjeta">
@@ -300,20 +305,5 @@
 
         </div>
 
-
-
-    @section('js')
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-        @if (session('info') == 'Sede eliminada con Exito !')
-            <script>
-                Swal.fire(
-                    'Eliminado!',
-                    'La sede se eliminó con éxito.',
-                    'success'
-                )
-
-            </script>
-        @endif
 
     </x-app-layout>

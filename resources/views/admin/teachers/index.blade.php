@@ -26,7 +26,7 @@
     </div>
     
     <div class="body">
-        <table class="table table-striped table-responsive">
+        <table class="table table-striped table-responsive-lg">
                 <thead class="thead-dark">
                     <th>ID</th>
                     <th>Nombre</th>

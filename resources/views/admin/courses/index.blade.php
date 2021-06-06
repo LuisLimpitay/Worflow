@@ -20,9 +20,8 @@
 
     <div class="card">
 
-        {{-- <div class="card-header">
-            <a class="btn btn-success" href="{{ route('admin.courses.create') }}"><i class="fas fa-plus-square"></i></a>
-        </div> --}}
+        <div class="card-header">
+        </div>
 
         <div class="body">
             {{-- ACA PREGUNTO SI HAY UN REGISTRO DE CURSO MUESTRO TABLA SINO UN MSJ --}}

@@ -14,39 +14,42 @@
 
 @section('content')
 
-<input type="search"> Buscar
-    <br><br>
     <div class="card">
 
         <div class="body">
 
-            <table id="example2" class="table table-striped table-responsive-lg">
+            <table id="example2" class="table table-striped">
                 <thead class="thead-dark">
 
-                    <th>#</th>
-                    <th>Fecha de Inscripcion</th>
-                    <th>Clientes</th>
-                    <th>Email</th>
+                    <th>ID Dic</th>
+                    <th>Cliente</th>
+                    <th>Direccion</th>
+                    <th>Ciudad</th>
 
-                    <th>Fecha del Curso</th>
-
-                    <th>Metodo de Pago</th>
                     <th>Estado del Pago</th>
+
                     <th colspan="2">Accion</th>
 
                 </thead>
                 <tbody>
                     {{-- $enrollment es como si seria mi dictation --}}
 
-                    @foreach ($pivots as $pivot)
+                    @foreach ($dictations as $dictation)
 
                         <tr>
-                            <td>{{ $pivot->id }}</td>
-                            <td class="text-center">{{ \Carbon\Carbon::parse($pivot->created_at)->format('d/m/Y H:i') }}</td>
-                            <td>{{ $pivot->users->name }}, {{ $pivot->users->name }}</td>
-                            <td>{{ $pivot->users->email }}</td>
+                            <td>{{ $dictation->id }}</td>
+                            <td>
+                                <ul>
+                                    @foreach ($dictation->users as $user)
+                                        <li>{{$user->name}}, {{$user->last_name}}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            {{-- <td>{{ $pivot->users->last_name }}, {{ $pivot->users->name }}</td>
+                            <td>{{ $pivot->users->number_license }}</td>
 
-                            
+                            <td class="text-center">{{ \Carbon\Carbon::parse($pivot->created_at)->format('d/m/Y H:i') }}
+                            </td>
                             <td class="text-center">{{ \Carbon\Carbon::parse($pivot->dictations->date)->format('d/m/Y') }}
                             </td>
 
@@ -60,19 +63,18 @@
                             </td>
 
                             <td>
-                                <a href="">Cambiar</a>
+                                <a href="">cambiar</a>
                             </td>
                             <td width="5px">
-                                <form action="{{ route('admin.orders.destroy', $pivot->id) }}" class="form-eliminar"
+                                <form action="{{ route('admin.orders.destroy', $pivot->dictations->id) }}" class="form-eliminar"
                                     method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm"><i
                                             class="fas fa-trash-alt"></i></button>
                                 </form>
-                            </td>
+                            </td> --}}
 
-                            {{-- aca deberia hacer para algo para poder cambiar el estado del pago --}}
 
                         </tr>
                     @endforeach

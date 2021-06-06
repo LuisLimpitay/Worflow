@@ -37,25 +37,24 @@ class CourseController extends Controller
     {
         //Con esto muestro los dictados donde esta inscripto un usuario determinado
 
-        if (Auth::check()) 
-        {
+        if (Auth::check()) {
             $dictado = auth()->user()->dictations;
-
             $ids = $dictado->pluck('id');
+
             $dictations = Dictation::with('courses')
                 ->where('stock', '>', '0')
                 ->whereNotIn('id', $ids)
                 ->orderby('date', 'DESC')
                 ->get();
-        } else 
-        {
+        } else {
             $dictations = Dictation::with('courses')
                 ->where('stock', '>', '0')
                 ->orderby('date', 'DESC')
                 ->get();
             //dd($dictations);
-            
+
         }
+
         return view('courses.show', compact('course', 'dictations'));
     }
     ///************************************************************************* */

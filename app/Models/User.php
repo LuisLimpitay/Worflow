@@ -69,7 +69,8 @@ class User extends Authenticatable
     //Relacion UNO A UNO //
     public function dictations(){
         return $this->belongsToMany(Dictation::class, 'dictation_user')
-                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id');
+                    ->withTimestamps()
+                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
     }
     
 }

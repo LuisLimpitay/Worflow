@@ -30,14 +30,15 @@ class FormController extends Controller
 
         $fecha= Carbon::now();
     
+        //******************************************** */
+        //------------------------------------------------ */
         auth()->user()->dictations()->attach($dictation,
             [
                 'quantity' => '1',
                 'ammount' => $dictation->courses->price,
                 'payment_method' => $payment_method,
                 'status' => $status,
-                'user_id' => auth()->id(),
-                'created_at' => $fecha
+                'user_id' => auth()->id()
             ]);
            
         $stock = $dictation->stock;
@@ -62,4 +63,6 @@ class FormController extends Controller
         
         
     }
+
+    
 }

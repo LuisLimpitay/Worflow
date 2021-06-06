@@ -32,8 +32,9 @@
         </div>
 
         <div class="body">
-            <table id="example3" class="table table-responsive">
+            <table id="example3" class="table table-striped table-responsive-lg">
                 <thead class="thead-dark">
+                    <th>ID</th>
                     <th>Fecha</th>
                     <th>Sede</th>
                     <th>Direccion</th>
@@ -49,6 +50,7 @@
                     @foreach ($dictations as $dictation)
 
                         <tr>
+                            <td>{{$dictation->id}}</td>
                             <td> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }} </td>
                             <td>{{ $dictation->places->name }}</td>
                             <td>{{ $dictation->places->address_street }} {{ $dictation->places->address_number }}</td>
@@ -57,7 +59,13 @@
 
                             <td class="text-center"> {{ $dictation->stock }}</td>
 
-                            <td class="text-center"><span class="badge badge-secondary">{{ $dictation->status }}</span>
+                            <td>
+                                @if ($dictation->status == 'activo')
+                                    <p class="badge badge-success">Activo</p>
+                                @else
+                                    <p class="badge badge-danger"><b>Completo</b></p>
+                                @endif
+                            </td>
                             </td>
 
                             <td width="5px ">

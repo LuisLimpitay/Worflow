@@ -16,23 +16,26 @@ class EnrollmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
-    {
+        public function index(User $user)
+        {
 
-        $users = User::find($user->id);
-        //dump($users);
-        return view('customers.enrollments', compact('users'));
-    }
-    //$misinscripciones = Enrollment::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
-    //dump($inscrito);
-    //return view('customers.enrollments', compact ('misinscripciones')) ;
-    public function pdf(User $user)
-    {
-        $users = User::find($user->id);
-         
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('inscripcion', compact('users'));
-        return $pdf->stream();
-    }
-    
+            $users = User::find($user->id);
+            //dump($users);
+            return view('customers.enrollments', compact('users'));
+        }
+        //$misinscripciones = Enrollment::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        //dump($inscrito);
+        //return view('customers.enrollments', compact ('misinscripciones')) ;
+
+
+        public function pdf(User $user)
+        {
+            $users = User::find($user->id);
+
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadView('inscripcion', compact('users'));
+            return $pdf->stream();
+        }
+
+        
 }

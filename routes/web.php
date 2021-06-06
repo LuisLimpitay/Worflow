@@ -49,7 +49,7 @@ Route::get('curso/{course}', [CourseController::class, 'show'])->name('courses.s
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name('courses.checkout');
+Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->middleware('auth')->name('courses.checkout');
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------
@@ -60,7 +60,6 @@ Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name(
 
 //******************************  me inserta en mio DB   ************************************->
 Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
-
 
 
 

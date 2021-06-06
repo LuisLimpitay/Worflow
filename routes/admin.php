@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\EnrollmentDictationController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ListController;
 use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 /* $pdf = App::make('customers.enrollments');
@@ -15,26 +15,27 @@ return $pdf->stream(); */
 
 Route::get('/', [HomeController::class, 'index'])->name('admin.index');
 
-Route::get('/changeStatus', [OrderController::class, 'changeStatus'])->name('changeStatus');
 
-Route::resource('clientes', AdminCustomerController::class)->names('admin.customers');
+Route::resource('cusotmers', CustomerController::class)->names('admin.customers');
+Route::resource('planillas' ,ListController::class)->names('admin.planillas');
+Route::resource('ordenes', OrderController::class)->names('admin.orders');
 
-Route::resource('dictations', DictationController::class)->names('admin.dictations');
+Route::get('planillas/detalles/{dictation}', [ListController::class, 'show'])->name('admin.planillas.details');
+
+
 
 Route::resource('courses', CourseController::class)->names('admin.courses');
-
+Route::resource('dictations', DictationController::class)->names('admin.dictations');
 Route::resource('places', PlaceController::class)->names('admin.places');
-
 Route::resource('teachers', TeacherController::class)->names('admin.teachers');
 
 
 
 
-Route::resource('customers', CustomerController::class)->names('admin.customers');
 
-Route::resource('planillas' ,EnrollmentDictationController::class)->names('admin.planillas');
 
-Route::resource('orders', OrderController::class)->names('admin.orders');
+
+//Route::get('/changeStatus', [OrderController::class, 'changeStatus'])->name('changeStatus');
 
 
 

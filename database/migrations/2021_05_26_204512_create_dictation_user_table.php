@@ -22,11 +22,14 @@ class CreateDictationUserTable extends Migration
             $table->enum('status', ['aprobado', 'pendiente'])->default('aprobado');
              
             $table->unsignedBigInteger('dictation_id');
-            $table->foreign('dictation_id')->references('id')->on('dictations');
+            $table->foreign('dictation_id')->references('id')->on('dictations')
+                                                            ->onDelete('cascade')
+                                                            ->onUpdate('cascade');
 
             $table->unsignedBigInteger('user_id');
-            //SI ELIMINO UN USER QUE SE ELIMINE EL REGISTRO QUE TENGO EN ESTA TABLA
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                                                        ->onDelete('cascade')
+                                                        ->onUpdate('cascade');
 
             $table->timestamps();
         });

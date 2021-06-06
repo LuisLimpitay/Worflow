@@ -15,22 +15,30 @@ class OrderController extends Controller
         public function index (Dictation $dictations){
             //$enrollments = Enrollment::with('dictations', 'users')->orderBy('id')->get();
             $users = auth()->user();
-            $enrollments = DictationUser::with('dictations', 'users')->get();
+            $pivots = DictationUser::with('dictations', 'users')->get();
             //dd($enrollments);
 
-            return view ('admin.orders.index', compact('enrollments', 'dictations', 'users'));
+            return view ('admin.orders.index', compact('pivots', 'users'));
         }
-
-        
-       
-        
         // $enrollments = Enrollment::all();
         //return view ('admin.orders.index', compact('enrollments'));
+
+
 
 
         public function changeStatus(Request $request){
             
             return "hola";
+        }
+
+        public function destroy(DictationUser $pivot){
+            dd($pivot);
+            
+            $id = DictationUser::findOrFail($pivot);
+            dd($id);
+            //auth()->user()->dictations()->attach($dictation,
+            auth()->user()->dictations()->detach(4);
+            echo "listo";
         }
     
 }

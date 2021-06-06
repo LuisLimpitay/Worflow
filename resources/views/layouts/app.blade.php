@@ -43,6 +43,7 @@
         @livewireScripts
         
         @yield('js')
-
+        
+        
     </body>
 </html>

@@ -3,7 +3,7 @@
 @section('title', 'Inscripciones')
 
 @section('content_header')
-    <h1>Panel de Inscripciones</h1>
+    <h1>Planilla de Inscirptos</h1>
 @stop
 
 @section('css')
@@ -17,20 +17,39 @@
 <div class="card">
     
     <div class="body">
-
         <table id="example" class="table table-striped">
                 <thead class="thead-dark">
                     <th>Id Dictado</th>
-                    <th>Fecha del Dictado</th>
-                    <th>Lugar</th>
-                    <th>Nombre de Clientes</th>
+                    <th>Fecha del Curso</th>
+                    <th>Ciudad</th>
+                    <th>N° Inscriptos</th>
+                   
                     <th>Total Inscriptos</th>
              
                 </thead>
                 <tbody>
+                    @foreach ($dictations as $dictation)
                     <tr>
-                        {{$enrollments}}
+                        <td>{{$dictation->id}}</td>
+                        <td>{{\Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</td>
+                        <td>{{$dictation->places->city}}</td>
+                        <td>X
+                            {{-- <ul>
+                                @foreach ($dictation->users as $user)
+                                    <li>{{$user->count()}}</b></li>
+                                @endforeach
+                            </ul> --}}
+                        </td> 
+                        
+                        <td width="5px ">
+                            <a class="btn btn-primary btn-sm"
+                                href="{{ route('admin.planillas.details', $dictation->id) }}"><i
+                                    class="fas fa-edit"></i></a>
+                        </td>
+                        
+                        
                     </tr>
+                    @endforeach
                 </tbody>
         </table>
     </div>
@@ -54,4 +73,5 @@
         autoWidth:false
     });
 </script>
+
 @endsection

@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dictation;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class EnrollmentDictationController extends Controller
+class ListController extends Controller
 {
-
     public function index()
     {
         /* $enrollments = DB::table('enrollments')
@@ -27,10 +26,17 @@ class EnrollmentDictationController extends Controller
         //2 consulta pasarle el id del dictado y los users del mismo
 
         $dictations = Dictation::with('users')->get();
-       
 
         return view('admin.planillas.index', compact('dictations'));
         
     }
-    
+
+    public function show(Dictation $dictation){
+        
+        $dictations = Dictation::find($dictation->id)->get();
+        //dd($dictations);
+        return view('admin.planillas.details', compact('dictations'));
+    }
+
+
 }

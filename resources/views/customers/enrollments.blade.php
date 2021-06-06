@@ -32,7 +32,7 @@
 
                 <div class="max-w-md mt-8  bg-white mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
-                    <div class=" text-right px-3 pt-3 py-2 text-white bg-gray-500">
+                    <div class=" text-right px-3 pt-3 py-2 text-white bg-green-600">
                         <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
                     </div>
 
@@ -47,8 +47,10 @@
                             <div class="uppercase tracking-wide text-2xl text-indigo-500 font-semibold">
                                 {{ $dictation->courses->name }}
                             </div>
-
-                            <p class="mt-2 text-xl text-xl text-gray-500"><b>Cliente : </b>{{ $users->last_name }},
+                            <div class="uppercase tracking-wide text-2xl text-indigo-500 font-semibold">
+                                Dictado{{ $dictation->id }}
+                            </div>
+                            <p class="mt-2 text-xl text-gray-500"><b>Cliente : </b>{{ $users->last_name }},
                                 {{ $users->name }} </p>
                             <p class="mt-2 text-xl text-gray-500"><b>Fecha :
                                 </b>{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }} <b>Hora</b>
@@ -59,40 +61,40 @@
                                 </b>{{ $dictation->places->address_street }}
                                 {{ $dictation->places->address_number }} </p>
                             <p class="mt-2 text-xl text-gray-500"><b>Ciudad: </b>{{ $dictation->places->city }} </p>
-                            <p class="mt-2 text-xl text-gray-500"><b>Cupos: </b>{{ $dictation->pivot->quantity }}
-                                Lugar </p>
+                            <p class="mt-2 text-xl text-gray-500"><b>Cupos: </b>{{ $dictation->pivot->quantity }}</p>
+                            <p>Fecha de Inscripcion {{$dictation->pivot->created_at}}</p>
                             <br>
                             <p class="mt-2 text-gray-900"><i>- Recuerde asistir con su Licencia Nacional de Conducir</i>
                             </p>
                             <hr><br>
                             <p class="text-gray-500 my-1">
-                        Somos Workflow, Somos Manejo Defensivo.
-                    </p>
+                                Somos Workflow, Somos Manejo Defensivo.
+                            </p>
                         </div>
 
                     </div>
 
+                </div>
+            @else
+                <div class="max-w-md mt-8  bg-white mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
-                @else
-                <div class="max-w-lg w-full container mx-auto text-center rounded-lg shadow-lg p-4">
-                    <div class=" text-right px-3 pt-3 py-2 text-white bg-gray-500">
+                    <div class=" text-right px-3 pt-3 py-2 text-white bg-red-400">
                         <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
                     </div>
-                    <h3 class="font-semibold bg-red-200 text-2xl tracking-wide">Tu pago esta pendiente
-                    </h3><br>
-                    <p class="text-gray-500 text-left my-1">
-                        Deberas realizar el pago en cualquier sucursal de rapi pago o pago facil para poder visualizar el comprobante de tu inscripcion
-                    </p><br><br>
+                    <h3 class="font-semibold mt-2 text-center text-2xl tracking-wide">Tu pago esta pendiente
+                    </h3>
+                    <p class="text-gray-500 container p-4 text-left my-1">
+                        Deberas realizar el pago en cualquier sucursal de rapi pago o pago facil para poder
+                        visualizar el comprobante de tu inscripcion
+                    </p><br>
                     <hr>
-                    <p class="text-gray-500 my-1">
+                    <p class="text-gray-500 text-center p-4 my-1">
                         Somos Workflow, Somos Manejo Defensivo.
                     </p>
-        
+
                 </div>
 
 
-
-                
             @endif
 
         @endforeach
@@ -104,15 +106,17 @@
             <h3 class="font-semibold bg-red-200 text-2xl tracking-wide">No tienes inscripciones!
             </h3><br>
             <p class="text-gray-500 text-left my-1">
-                Uno de los motivos por lo que todavia no puedes visualizar tu inscripcion puede ser por que
-                seleccionaste como medio de pago "Pago en efectivo". Una vez que lo realices podras visualizar los
-                detalles de tu inscripcion.
+                Consulta nuestros cursos e inscribite cuando quieras !
             </p><br>
             <hr>
-            <p class="text-gray-500 my-1">
-                Somos Workflow, Somos Manejo Defensivo.
-            </p>
-
+            <div class="mt-2">
+                <a href="{{route('courses.index')}}" class="text-blue-700  inline-flex items-center font-semibold tracking-wide">
+                    <span class="hover:underline">
+                        Ver Curso
+                    </span>
+                    <span class="text-xl ml-2">&#8594;</span>
+                </a>
+            </div>
         </div>
 
     @endif
