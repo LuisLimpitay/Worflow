@@ -21,9 +21,8 @@
                 <thead class="thead-dark">
                     <th>ID</th>
                     <th>Apellido y Nombre</th>
+                    <th>Telefono Celular</th>
                     <th>Email</th>
-
-                    <th>N° L.N.C.</th>
                     <th>Venc. L.N.C.</th>
 
                     
@@ -35,9 +34,8 @@
 
                             <td>{{$user->id}}</td>
                             <td>{{$user->last_name}}, {{$user->name}}</td>
+                            <td>{{$user->phone}}</td>
                             <td>{{$user->email}}</td>
-
-                            <td>{{$user->number_license}}</td>
                             <td>{{ \Carbon\Carbon::parse($user->expire_license)->format('d/m/Y')}}</td>
                                                         
                         </tr>

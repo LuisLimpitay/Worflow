@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'last_name',
         'number_license',
+        'phone',
 
         'expire_license',
         'email',
@@ -72,5 +73,6 @@ class User extends Authenticatable
                     ->withTimestamps()
                     ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
     }
+
     
 }

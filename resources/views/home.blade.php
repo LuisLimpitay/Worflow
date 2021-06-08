@@ -43,7 +43,6 @@
     <!-- FIN SOBRE NOSOTROS  -->
 
 
-
     <!-- RELLENO -->
     <div class="bg-gray-100">
 
@@ -146,7 +145,8 @@
 
 
     </div>
-    <!-- fin component -->
+    
+    <!-- FIN RELLENO -->
 
     <!-- RELLENO CAPACITACIONES-->
     <div class="py-12 bg-white">

@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name', 20);
             $table->string('last_name', 20);
-            $table->char('number_license', 8)->unique();
+            
+            $table->char('phone')->unique();
             $table->date('expire_license');
             
 

@@ -115,9 +115,9 @@
 
                                                 <div class="ml-2">
                                                     {!! __('Acepto los :terms_of_service y :privacy_policy', [
-                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
-                        'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
-                    ]) !!}
+    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
+    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
+]) !!}
                                                 </div>
                                             </div>
                                         </x-jet-label>
@@ -160,7 +160,7 @@
                             <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
                             </h1><br>
                             <hr><br>
-        
+
                             <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{ $dictation->courses->name }}
                             </p>
                             <p class="px-4 py-2"><strong>Fecha: </strong>
@@ -169,20 +169,20 @@
                             <p class="px-4 py-2"><strong>Direccion:
                                 </strong>{{ $dictation->places->address_street }}
                                 {{ $dictation->places->address_number }}</p>
-        
+
                             <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city }}</p>
-        
+
                             <p class="px-4 py-2"><strong>Instructor:
                                 </strong>{{ $dictation->courses->teachers->name }}
                             </p>
                             <br><br>
-        
+
                             <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
                                 ARS ${{ $dictation->courses->price }}
                             </p><br>
-        
+
                             {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
-        
+
                         </div>
                     </div>
 
@@ -193,8 +193,8 @@
         </div>
 
     @elseif(Auth::check())
-    
-        
+
+
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
 
@@ -210,38 +210,78 @@
             </ol>
         </nav>
 
-        
-        <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
+        {{-- PROCESO DE INSCRIPCION TIPO MIGAS --}}
+        <div
+            class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
+
             
-            {{--************* COL 1 --}}
+
+            <!-- END SMALL CARD ROUNDED -->
+            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
+            
+                <div class="inline justify-center">
+                    <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 1</p>
+                    <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Completado </p>
+                </div>
+            </div>
+            <!-- END SMALL CARD ROUNDED -->
+
+            <!-- END SMALL CARD ROUNDED -->
+            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
+                <div class="flex flex-col justify-center">
+                    <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 2 </p>
+
+                    <p class="text-black dark:text-gray-100 text-justify font-semibold">Medio de Pago</p>
+                </div>
+            </div>
+            <!-- END SMALL CARD ROUNDED -->
+            <!-- END SMALL CARD ROUNDED -->
+            <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
+                <div class="flex flex-col justify-center">
+                    <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
+                    <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
+                </div>
+            </div>
+            <!-- END SMALL CARD ROUNDED --->
+
+        </div>
+        {{-- FIN PROCESO DE INSCRIPCION TIPO MIGAS --}}
+
+
+        <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
+
+            {{-- ************* COL 1 --}}
             <div class="grid grid-cols-1 md:col-span-3 lg:col-span-2">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
 
                     {{-- CARD MEDIO DE PAGO --}}
                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-                    
-                    
-                    
-                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id porro dolor deserunt quia laudantium.</p>
+
+
+
+                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae
+                        optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id
+                        porro dolor deserunt quia laudantium.</p>
                     <br>
-                   
+
                     <form action="{{ route('form', $dictation) }}" method="POST">
                         @csrf
-                        
+
                         <hr>
                         <p class="mt-1">Seleccione un metodo de pago por favor para poder completar la transaccion</p>
-                        <p>En el caso de seleccionar Efectivo recuerda que podras descargar la factura en tu perfil > mis inscripciones</p><br>
+                        <p>En el caso de seleccionar Efectivo recuerda que podras descargar la factura en tu perfil >
+                            mis inscripciones</p><br>
 
                         @if ($errors->any())
 
-                        @foreach ($errors->all() as $error)
-                            
-                            <p class=" text-red-500">* {{ $error, '<br>' }}</p>
-                        @endforeach
+                            @foreach ($errors->all() as $error)
 
-                    @endif
+                                <p class=" text-red-500">* {{ $error, '<br>' }}</p>
+                            @endforeach
+
+                        @endif
                         {{-- @livewire('check-method')<br> --}}
-<br>
+                        <br>
 
                         {{-- MEDIO DE PAGO --}}
                         <input type="radio" name="payment_method" value="tarjeta">
@@ -267,14 +307,14 @@
 
                 </div>
             </div>
-            {{--************* COL 2 --}}
+            {{-- ************* COL 2 --}}
             <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
                     <div class="container mx-auto">
                         <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
                         </h1><br>
                         <hr><br>
-    
+
                         <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{ $dictation->courses->name }}
                         </p>
                         <p class="px-4 py-2"><strong>Fecha: </strong>
@@ -283,27 +323,27 @@
                         <p class="px-4 py-2"><strong>Direccion:
                             </strong>{{ $dictation->places->address_street }}
                             {{ $dictation->places->address_number }}</p>
-    
+
                         <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city }}</p>
-    
+
                         <p class="px-4 py-2"><strong>Instructor:
                             </strong>{{ $dictation->courses->teachers->name }}
                         </p>
                         <br><br>
-    
+
                         <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
                             ARS ${{ $dictation->courses->price }}
                         </p><br>
-    
+
                         {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
-    
+
                     </div>
                 </div>
             </div>
 
-        @endif
+    @endif
 
-        </div>
+    </div>
 
 
-    </x-app-layout>
+</x-app-layout>

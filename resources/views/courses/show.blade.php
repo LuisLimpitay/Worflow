@@ -17,6 +17,8 @@
     </nav>
     {{-- FIN MIGAS DE PAN --}}
       
+
+    {{-- PROCESO DE INSCRIPCION TIPO MIGAS --}}
     <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
           
         <!-- END SMALL CARD ROUNDED -->
@@ -41,12 +43,13 @@
           <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
               <div class="flex flex-col justify-center">
                 <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
-                <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Terminado</p>
+                <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
               </div>
             </div>
         <!-- END SMALL CARD ROUNDED --->
         
     </div>
+    {{-- FIN PROCESO DE INSCRIPCION TIPO MIGAS --}}
 
 
 

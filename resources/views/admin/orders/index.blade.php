@@ -14,7 +14,7 @@
 
 @section('content')
 
-<input type="search"> Buscar
+    <input type="search"> Buscar
     <br><br>
     <div class="card">
 
@@ -24,8 +24,8 @@
                 <thead class="thead-dark">
 
                     <th>#</th>
-                    <th>Fecha de Inscripcion</th>
-                    <th>Clientes</th>
+                    <th>ID DIC</th>
+                    <th>ID USER</th>
                     <th>Email</th>
 
                     <th>Fecha del Curso</th>
@@ -42,8 +42,12 @@
 
                         <tr>
                             <td>{{ $pivot->id }}</td>
-                            <td class="text-center">{{ \Carbon\Carbon::parse($pivot->created_at)->format('d/m/Y H:i') }}</td>
-                            <td>{{ $pivot->users->name }}, {{ $pivot->users->name }}</td>
+                            <td>{{ $pivot->dictations->id }}</td>
+                            <td>{{ $pivot->users->id }}</td>
+
+
+{{--                             <td class="text-center">{{ \Carbon\Carbon::parse($pivot->created_at)->format('d/m/Y H:i') }}</td>
+                        <td>{{ $pivot->users->name }}, {{ $pivot->users->name }}</td> --}}    
                             <td>{{ $pivot->users->email }}</td>
 
                             
@@ -63,7 +67,7 @@
                                 <a href="">Cambiar</a>
                             </td>
                             <td width="5px">
-                                <form action="{{ route('admin.orders.destroy', $pivot->id) }}" class="form-eliminar"
+                                <form action="{{ route('admin.orders.destroy', $pivot) }}" class="form-eliminar"
                                     method="POST">
                                     @csrf
                                     @method('delete')

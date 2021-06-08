@@ -21,6 +21,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+
+            'phone' => ['required'],
             'expire_license' => ['required'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
@@ -37,7 +39,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'last_name' => $input['last_name'],
-                'expire_license' => $input['expire_license'],
+    
+                'phone' => $input['phone'],
                 'email' => $input['email'],
             ])->save();
         }
@@ -55,8 +58,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'last_name' => $input['last_name'],
-            'expire_license' => $input['expire_license'],
-
+            'area' => $input['area'],
+            'phone' => $input['phone'],
             'email' => $input['email'],
             'email_verified_at' => null,
         ])->save();

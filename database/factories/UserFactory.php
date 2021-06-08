@@ -27,8 +27,7 @@ class UserFactory extends Factory
 
             'name' => $this->faker->firstNameMale(),
             'last_name' => $this->faker->lastName(),
-            'number_license' => $this->faker->unique()->ean8(),
-
+            'phone' => $this->faker->ean8(),
             'expire_license' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
 
 

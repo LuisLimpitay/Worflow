@@ -13,21 +13,20 @@ use Illuminate\Support\Facades\Route;
 $pdf->loadView('welcome');
 return $pdf->stream(); */
 
-Route::get('/', [HomeController::class, 'index'])->name('admin.index');
+Route::get('/', [HomeController::class, 'index'])->name('admin.index')->middleware('level');
 
 
-Route::resource('cusotmers', CustomerController::class)->names('admin.customers');
-Route::resource('planillas' ,ListController::class)->names('admin.planillas');
-Route::resource('ordenes', OrderController::class)->names('admin.orders');
+Route::resource('cusotmers', CustomerController::class)->middleware('level')->names('admin.customers');
+Route::resource('planillas' ,ListController::class)->middleware('level')->names('admin.planillas');
+Route::resource('ordenes', OrderController::class)->middleware('level')->names('admin.orders');
 
 Route::get('planillas/detalles/{dictation}', [ListController::class, 'show'])->name('admin.planillas.details');
 
 
-
-Route::resource('courses', CourseController::class)->names('admin.courses');
-Route::resource('dictations', DictationController::class)->names('admin.dictations');
-Route::resource('places', PlaceController::class)->names('admin.places');
-Route::resource('teachers', TeacherController::class)->names('admin.teachers');
+Route::resource('courses', CourseController::class)->middleware('level')->names('admin.courses');
+Route::resource('dictations', DictationController::class)->middleware('level')->names('admin.dictations');
+Route::resource('places', PlaceController::class)->middleware('level')->names('admin.places');
+Route::resource('teachers', TeacherController::class)->middleware('level')->names('admin.teachers');
 
 
 
