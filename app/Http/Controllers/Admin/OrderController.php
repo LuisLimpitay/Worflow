@@ -15,18 +15,37 @@ class OrderController extends Controller
 
     public function index(Dictation $dictations)
     {
-        //$enrollments = Enrollment::with('dictations', 'users')->orderBy('id')->get();
-        $users = auth()->user();
-        $pivots = DictationUser::with('dictations', 'users')->get();
+        $pivots = DictationUser::all();
         //dd($enrollments);
 
-        return view('admin.orders.index', compact('pivots', 'users'));
+        return view('admin.orders.index', compact('pivots'));
     }
-    // $enrollments = Enrollment::all();
-    //return view ('admin.orders.index', compact('enrollments'));
+
+    public function edit(DictationUser $pivot) {
+        //
+        $dictations = Dictation::pluck('date', 'id');
+
+        return view('admin.orders.edit', compact('pivot', 'dictations'));
+    }
+
+    public function  update(Request $request, DictationUser $pivot){
+        $pivot->update($request->all());
+        return redirect()->route('admin.orders.index', compact('pivot'))
+            ->with('info', 'Estado de Pago actualizado');
+    }
+
+    public function destroy(DictationUser $pivot)
+    {
+        dd($pivot);
+
+        $pivot->delete();
 
 
-    
+        //AUMENTAR EN UNO EL STOCK DEL DICTADO
+        return redirect()->route('admin.orders.index', compact('pivot'))
+            ->with('info', 'Orden eliminada correctamente !');
+    }
 
-    
+
+
 }

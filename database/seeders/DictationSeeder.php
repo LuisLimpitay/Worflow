@@ -14,10 +14,10 @@ class DictationSeeder extends Seeder
      */
     public function run()
     {
-        $dictations = Dictation::factory(3)->create();
+        $dictations = Dictation::factory(5)->create();
         foreach($dictations as $dictation){
-            $dictation->users()->attach([4,5]);
-        } 
+            $dictation->users()->attach([4,5,6]);
+        }
  /*
         Dictation::create([
             'date' => '2021-06-03',
@@ -60,7 +60,7 @@ class DictationSeeder extends Seeder
             'course_id' => 1,
             'place_id' => 1
         ]);
- 
+
 */
     }
 }

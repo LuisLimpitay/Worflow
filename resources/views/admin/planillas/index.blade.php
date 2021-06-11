@@ -3,7 +3,7 @@
 @section('title', 'Inscripciones')
 
 @section('content_header')
-    <h1>Planilla de Inscirptos</h1>
+
 @stop
 
 @section('css')
@@ -13,65 +13,97 @@
 @endsection
 
 @section('content')
-
-<div class="card">
-    
-    <div class="body">
-        <table id="example" class="table table-striped">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Planillas Managment</h3>
+                            <div class="card-tools">
+                                <a class="btn btn-success" href="#"><i
+                                        class="fas fa-plus-square"></i></a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+        <table id="table-planilla" class="table table-striped">
                 <thead class="thead-dark">
                     <th>Id Dictado</th>
                     <th>Fecha del Curso</th>
                     <th>Ciudad</th>
                     <th>N° Inscriptos</th>
-                   
-                    <th>Total Inscriptos</th>
-             
+                    <th width="80px">Action</th>
+
                 </thead>
                 <tbody>
                     @foreach ($dictations as $dictation)
                     <tr>
                         <td>{{$dictation->id}}</td>
-                        <td>{{\Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}}</td>
+                        <td>{{$dictation->date->format('d M Y')}}</td>
                         <td>{{$dictation->places->city}}</td>
-                        <td>X
-                            {{-- <ul>
-                                @foreach ($dictation->users as $user)
-                                    <li>{{$user->count()}}</b></li>
-                                @endforeach
-                            </ul> --}}
-                        </td> 
-                        
-                        <td width="5px ">
-                            <a class="btn btn-primary btn-sm"
-                                href="{{ route('admin.planillas.details', $dictation->id) }}"><i
-                                    class="fas fa-edit"></i></a>
+                        <td>
+                            <h3 class="badge badge-secondary">
+                            Usuarios <span class="badge badge-light">{{$dictation->users->count()}}</span>
+                            </h3>
                         </td>
-                        
-                        
+                        {{-- <td>
+                            <ul>
+                                @foreach ($dictation->users as $user)
+                                    <li>{{$loop->count}}</b></li>
+                                @endforeach
+                            </ul>
+                        </td> --}}
+
+                        <td>
+                            <a class="btn btn-primary"
+                                href="{{ route('admin.dictations.show', $dictation) }}">
+                                <i class="far fa-eye"></i></a>
+                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
+                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                            {!! Form::close() !!}
+                        </td>
+
+
                     </tr>
                     @endforeach
                 </tbody>
         </table>
-    </div>
-</div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 
 
 
 @stop
 
 
-@section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
-<script>
-    
-    $('#example').DataTable({
-        responsive:true,
-        autoWidth:false
-    });
-</script>
 
-@endsection
+@section('js')
+    <script>
+        $(function () {
+
+            $('#table-planilla').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+@stop

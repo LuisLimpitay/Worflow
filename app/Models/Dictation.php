@@ -12,29 +12,46 @@ class Dictation extends Model
     protected $fillable = [
         'id',
         'date',
-        'time',        
+        'time',
         'stock',
         'status',
-        'place_id',        
+        'place_id',
         'course_id',
 
     ];
 
     protected $table = 'dictations';
+    //REVISAR ESTO EN LA DOC DE CARBON
+    protected $dates = ['date'];
 
-    
+    //relaciona mis trablas
+    public function scopePublished($query)
+    {
+        $query->with('places', 'courses')
+            ->orderBy('date','DESC');
+    }
+
+    protected static function boot()
+    {
+        parent::boot(); // padre
+
+        static::deleting(function($pivot){
+
+            $pivot->dict()->detach();
+            //dict ponlo por el tuyo
+        });
+    }
+
     //Relacion A UNO INVERSA
     public function courses(){
         return $this->belongsTo(Course::class, "course_id" , "id" );
 
     }
-
     //Relacion A UNO INVERSA
     public function places(){
         return $this->belongsTo(Place::class, "place_id" , "id");
 
-    }   
-    
+    }
     //Relacion UNO A MUCHOS
     public function users(){
         return $this->belongsToMany(User::class, 'dictation_user')
@@ -42,5 +59,7 @@ class Dictation extends Model
                     ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
 
     }
+
+
 
 }

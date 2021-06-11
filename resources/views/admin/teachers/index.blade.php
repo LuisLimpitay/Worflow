@@ -3,95 +3,116 @@
 @section('title', 'Instructores')
 
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content_header')
-    <h1>Lista de Instructores</h1>
-@stop
+@endsection
 
 @section('content')
-
-{{-- @if (session('info'))
-    <div class="alert alert-success">
-        <strong>{{session('info')}}</strong>
-    </div>
-@endif 
- --}}
-<div class="card">
-
-    <div class="card-header">
-        <a class="btn btn-success" href="{{route('admin.teachers.create')}}"><i
-            class="fas fa-plus-square"></i></a>
-    </div>
-    
-    <div class="body">
-        <table class="table table-striped table-responsive-lg">
-                <thead class="thead-dark">
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Acerca de</th>
-                    <th colspan="2">Acciones</th>
-                </thead>
-
-                <tbody>
-                    @foreach ($teachers as $teacher)
-                        <tr>
-
-                            <td>{{$teacher->id}}</td>
-                            <td>{{$teacher->name}}</td>
-                            <td>{{$teacher->email}}</td>
-                            <td>{{$teacher->about}}</td>
-                            <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.teachers.edit', $teacher)}}"><i
-                                    class="fas fa-edit"></i></a>
-                            </td>
-
-                            <td width="10px">
-                                <form action="{{route('admin.teachers.destroy', $teacher)}}"
-                                class="form-eliminar"
-                                method="POST">
-                                    @csrf
-                                    @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                            class="fas fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-        </table>
-    </div>
-</div>
+     <!-- Main content -->
+     <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
 
 
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Gestor de Sedes</h3>
+                            <div class="card-tools">
+                                <a class="btn btn-success" href="{{ route('admin.teachers.create') }}"><i
+                                        class="fas fa-plus-square"></i></a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="table-teacher" class="table table-striped">
+                                <thead class="thead-dark">
+                                    <th>ID</th>
+                                    <th>Nombre deL Instructor</th>
+                                    <th>Email</th>
+                                    <th>Sobre el</th>
+                                    <th width="80px">Action</th>
+                                </thead>
 
-@section('js')
+                                <tbody>
+                                    @foreach ($teachers as $teacher)
+                                        <tr>
+                                            <td>{{ $teacher->id }}</td>
+                                            <td>{{ $teacher->name }}</td>
+                                            <td>{{ $teacher->email }}</td>
+                                            <td>{{ $teacher->about }}</td>
+
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                    href="{{ route('admin.teachers.edit', $teacher) }}"><i
+                                                        class="fas fa-edit"></i></a>
+                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                                {!! Form::close() !!}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    @section('js')
+    <script>
+        $(function() {
+
+            $('#table-teacher').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+
+    </script>
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    @if (session('info') == 'Instructor eliminado con éxito!')
+    @if (session('info') == 'Sede eliminada con éxito !')
         <script>
             Swal.fire(
                 'Eliminado!',
-                'El Instructor se eliminó con éxito.',
+                'Sede eliminada con éxito.',
                 'success'
             )
+
         </script>
     @endif
-    
+
     <script>
         /*lo que hago es seleccionar esa clase $('.form-eliminar')  y le digo que cuando traten de enviar el form
-                haga la siguiente accion .submit(function(e){
-                    lo primero que se necesita es capturar el evento y lo hace con la letra e
-                    e.preventDefault();
-                })
-                y logro detener el envio del form*/
+                        haga la siguiente accion .submit(function(e){
+                            lo primero que se necesita es capturar el evento y lo hace con la letra e
+                            e.preventDefault();
+                        })
+                        y logro detener el envio del form*/
         $('.form-eliminar').submit(function(e) {
             e.preventDefault();
             //luego le paso el alert
             Swal.fire({
-                title: 'Estas seguro que deseas eliminar un Instructor?',
+                title: 'Estas seguro que deseas eliminar el dictado del curso ?',
                 text: "No podras revertirlo",
                 icon: 'warning',
                 showCancelButton: true,
@@ -101,13 +122,11 @@
                 cancelButtonText: 'Cancelar',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
+                    this
+                        .submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
                 }
             })
         });
+
     </script>
-
 @stop
-
-@endsection
-

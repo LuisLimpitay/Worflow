@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable  
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -35,6 +35,8 @@ class User extends Authenticatable
         'level'
     ];
     protected $table = 'users';
+
+    protected $dates = ['expire_license'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -66,7 +68,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    
+
     //Relacion UNO A UNO //
     public function dictations(){
         return $this->belongsToMany(Dictation::class, 'dictation_user')
@@ -74,5 +76,5 @@ class User extends Authenticatable
                     ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
     }
 
-    
+
 }

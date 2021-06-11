@@ -15,21 +15,14 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class DictationController extends Controller
+
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-
-        $dictations = Dictation::with('places', 'courses')
-                                ->orderBy('date','DESC')
-                                ->get();
-                                
+        $dictations = Dictation::published()->get();
         return view('admin.dictations.index', compact('dictations'));
-        
+
     }
 
     /**
@@ -86,8 +79,6 @@ class DictationController extends Controller
     {
         $courses = Course::pluck('name', 'id');
         $places = Place::pluck('city', 'id');
-        $users = User::pluck('number_license', 'id');
-
         $dictations = Dictation::all();
 
         return view ('courses.dictation', compact(
@@ -109,7 +100,7 @@ class DictationController extends Controller
     {
         $courses = Course::pluck('name', 'id');
         $places = Place::pluck('name', 'id');
-        $users = User::pluck('number_license', 'id');
+        //$users = User::pluck('number_license', 'id');
         return view ('admin.dictations.edit', compact(
                                                         'dictation',
                                                         'places',
@@ -117,7 +108,7 @@ class DictationController extends Controller
                                                     ));
     }
 
-    /** 
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -139,12 +130,11 @@ class DictationController extends Controller
      */
     public function destroy(Dictation $dictation)
     {
-            dd($dictation);
+            //dd($dictation);
             $dictation->delete();
             return redirect()->route('admin.dictations.index')
-                            ->with('info', 'Dictado eliminado con Exito !');      
+                                ->with('info', 'Dictado eliminado con Exito !');
     }
 
 
-    /* */
 }

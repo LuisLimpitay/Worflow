@@ -7,49 +7,65 @@
 @stop
 
 @section('content')
-{{-- <script type="text/javascript">
-    alert("Solo podra editar el horario de inicio del curso");
-</script> --}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary card-outline">
+                <div class="card-body">
 
-    <div class="card">
-        <div class="card-body">
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            <p class="text-danger">* {{ $error }}</p>
+                        @endforeach
+                    @endif
 
-            {!! Form::model($dictation, ['route' => [ 'admin.dictations.update', $dictation], 'method' => 'put' ]) !!}
-            
-              
-                <div class="form-group">
-                    {!! Form::label('date', 'Fecha' ) !!}
-                    {!! Form::date('date', null, ['class'=> 'form-control', 'min' => '2021-07-12' ]) !!}
-                </div>
-  
+                    {!! Form::model($dictation, ['route' => ['admin.dictations.update', $dictation], 'method' => 'put']) !!}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('date', 'Fecha') !!}
+                                {!! Form::date('date', $dictation->date, ['class' => 'form-control', 'min' => '2021-07-12']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('time', 'Hora') !!}
+                                {!! Form::time('time', null, ['class' => 'form-control', 'min' => '08:00', 'max' => '10']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('stock', 'Cupos') !!}
+                                {!! Form::number('stock', null, ['class' => 'form-control', 'readonly', 'min' => '1', 'max' => '35']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                {!! Form::label('course_id', 'Nombre del Curso') !!}
+                                {!! Form::select('course_id', $courses, null, ['class' => 'form-control', 'readonly']) !!}
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div class="form-group">
-                    {!! Form::label('time', 'Hora') !!}
-                    {!! Form::time('time', null, ['class'=> 'form-control','min' => '08:00', 'max' =>'10' ]) !!}
+                        {!! Form::label('place_id', 'Lugar') !!}
+                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'readonly']) !!}
+                    </div>
+
+
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                    <a href="{{ route('admin.dictations.index') }}" class="btn btn-danger" type="submit">Cancelar</a>
+
+                    {!! Form::close() !!}
 
                 </div>
-
-                <div class="form-group">
-                    {!! Form::label('stock', 'Cupos' ) !!}
-                    {!! Form::number('stock', null, ['class'=> 'form-control', 'readonly', 'min' => '1', 'max' => '35' ]) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('course_id', 'Nombre del Curso' ) !!}
-                    {!! Form::select('course_id', $courses, null, ['class' => 'form-control', 'readonly' ]) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('place_id', 'Lugar' ) !!}
-                    {!! Form::select('place_id', $places    , null, ['class' => 'form-control', 'readonly' ]) !!}
-                </div>
-
-            
-                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
-                <a href="{{route('admin.dictations.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
-
-            {!! Form::close() !!}
-
-
+            </div>
         </div>
     </div>
 @stop

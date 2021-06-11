@@ -45,10 +45,10 @@ class PlaceController extends Controller
             'name' => 'required',
             'city' => 'required|unique:places',
             'address_street' => 'required',
-            'address_number' => 'required' 
+            'address_number' => 'required'
 
         ]);
-        
+
         $place = Place::create($request->all());
 
         return redirect()->route('admin.places.index', $place)
@@ -95,7 +95,7 @@ class PlaceController extends Controller
             'name' => 'required',
             'city' => 'required',
             'address_street' => 'required',
-            'address_number' => 'required' 
+            'address_number' => 'required'
 
         ]);
 
@@ -113,10 +113,10 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        $x =$place->delete();
-        dd($x);
+        $place->delete();
+        //dd($x);
         return redirect()->route('admin.places.index')
-                         ->with('info', 'Sede eliminada con éxito !!!');
+                         ->with('info', 'Sede eliminada con éxito !');
     }
-    
+
 }

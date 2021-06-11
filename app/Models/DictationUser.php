@@ -9,9 +9,9 @@ use App\Models\Dictation;
 class DictationUser extends Model
 {
     use HasFactory;
-    
 
-    protected $guarded = [
+
+    protected $fillable = [
         'quantity',
         'ammount',
         'payment_method',
@@ -25,12 +25,12 @@ class DictationUser extends Model
     protected $table = "dictation_user";
 
 
-    public function dictations(){
-        return $this->belongsTo(Dictation::class, 'dictation_id', 'id');
-        
+    public function dictation(){
+        return $this->belongsTo(Dictation::class);
+
     }
-    public function users(){
-        return $this->belongsTo(User::class, 'user_id', 'id');
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }
