@@ -16,38 +16,66 @@
         </ol>
     </nav>
     {{-- FIN MIGAS DE PAN --}}
-      
+
 
     {{-- PROCESO DE INSCRIPCION TIPO MIGAS --}}
-    <div class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
-          
-        <!-- END SMALL CARD ROUNDED -->
-          <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
-          <div class="flex flex-col justify-center">
-                    <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 1 </p>
-  
-            <p class="text-black dark:text-gray-100 text-justify font-semibold">Seleccionar Fecha</p>
-          </div>
-      </div>
-        <!-- END SMALL CARD ROUNDED -->
-    
-        <!-- END SMALL CARD ROUNDED -->
-          <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
-              <div class="flex flex-col justify-center">
-                <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 2</p>
-                <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Método de Pago </p>
-              </div>
+<!-- component -->
+    <div class="max-w-xl mx-auto my-4 border-b-2 pb-4">
+        <div class="flex pb-3">
+            <div class="flex-1">
             </div>
-        <!-- END SMALL CARD ROUNDED -->
-          <!-- END SMALL CARD ROUNDED -->
-          <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
-              <div class="flex flex-col justify-center">
-                <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
-                <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
-              </div>
+
+            <div class="flex-1">
+                <div class="w-10 h-10 bg-green-400 mx-auto rounded-full text-lg text-white flex items-center">
+                    <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">1</i></span>
+                </div>
             </div>
-        <!-- END SMALL CARD ROUNDED --->
-        
+
+
+            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                <div class="w-full bg-gray-400 rounded items-center align-middle align-center flex-1">
+                    <div class="bg-green-400 text-xs leading-none py-1 text-center text-gray-400 rounded " style="width: 25%"></div>
+                </div>
+            </div>
+
+
+            <div class="flex-1">
+                <div class="w-10 h-10 bg-gray-400 mx-auto rounded-full text-lg text-white flex items-center">
+                    <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">2</i></span>
+                </div>
+            </div>
+
+            <div class="w-1/6 align-center items-center align-middle content-center flex">
+                <div class="w-full bg-gray-400 rounded items-center align-middle align-center flex-1">
+                    <div class="bg-gray-400 text-xs leading-none py-1 text-center text-gray-400 rounded "></div>
+                </div>
+            </div>
+
+            <div class="flex-1">
+                <div class="w-10 h-10 bg-gray-400 mx-auto rounded-full text-lg text-white flex items-center">
+                    <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">3</i></span>
+                </div>
+            </div>
+
+            <div class="flex-1">
+            </div>
+        </div>
+
+        <div class="flex text-xs content-center text-center">
+
+
+            <div class="w-1/3">
+                Seleccionar Fecha
+            </div>
+
+            <div class="w-1/3">
+                Medio de Pago
+            </div>
+
+            <div class="w-1/3">
+                Confirmar Pago
+            </div>
+        </div>
     </div>
     {{-- FIN PROCESO DE INSCRIPCION TIPO MIGAS --}}
 
@@ -60,9 +88,9 @@
 
             <div class="container mx-auto col-span-2">
                 <p class="text-4xl px-3 text-red-400">Fechas Disponibles</p><br>
-                
+
                 <div class="container mx-auto py-2 ">
-                    
+
                     @if ($dictations->count())
                         <table class="table table-responsive">
                             <thead class="justify-between">
@@ -86,9 +114,9 @@
 
                                 @foreach ($dictations as $dictation)
                                     <tr>
-                                        
+
                                         <td class="px-3">{{ $dictation->id }}</td>
-                                    
+
                                         <td class="px-3">
                                             {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
                                         </td>
@@ -136,7 +164,7 @@
                         </div>
                     @endif
                 </div>
-                
+
                     <div class="text-lg">
                         <h1 class="text-4xl pt-4 px-3 text-red-400">Contenido </h1> <br>
                         <p class="px-5 bg-gray-200">{{ $course->content }}</p> <hr><br>
@@ -150,7 +178,7 @@
                         <p class="px-5 bg-gray-200"><i>Recuerde que debera realizar el pago de su inscripcion como maximo 48 hs antes del dia del curso.</i></p>
 
                     </div>
-                
+
 
             </div>
 

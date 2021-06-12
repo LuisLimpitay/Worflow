@@ -31,16 +31,7 @@ class Dictation extends Model
             ->orderBy('date','DESC');
     }
 
-    protected static function boot()
-    {
-        parent::boot(); // padre
 
-        static::deleting(function($pivot){
-
-            $pivot->dict()->detach();
-            //dict ponlo por el tuyo
-        });
-    }
 
     //Relacion A UNO INVERSA
     public function courses(){

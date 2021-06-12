@@ -122,16 +122,12 @@ class DictationController extends Controller
                             ->with('info', 'Dictado actualizado con Exito !');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Dictation $dictation)
     {
             //dd($dictation);
             $dictation->delete();
+            //luego de hacer esto va a mi modelo y suma uno al dictation
             return redirect()->route('admin.dictations.index')
                                 ->with('info', 'Dictado eliminado con Exito !');
     }

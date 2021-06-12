@@ -1,5 +1,5 @@
 <x-app-layout>
-    <br>
+
     @if (!Auth::check())
         {{-- MIGAS DE PAN --}}
         {{-- <script>
@@ -211,39 +211,62 @@
         </nav>
 
         {{-- PROCESO DE INSCRIPCION TIPO MIGAS --}}
-        <div
-            class="container mx-auto justify-items-center grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-4">
+        <div class="max-w-xl mx-auto my-4 border-b-2 pb-4">
+            <div class="flex pb-3">
+                <div class="flex-1">
+                </div>
 
-            
+                <div class="flex-1">
+                    <div class="w-10 h-10 bg-green-400 mx-auto rounded-full text-lg text-white flex items-center">
+                        <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">1</i></span>
+                    </div>
+                </div>
 
-            <!-- END SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
-            
-                <div class="inline justify-center">
-                    <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 1</p>
-                    <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Completado </p>
+
+                <div class="w-1/6 align-center items-center align-middle content-center flex">
+                    <div class="w-full bg-  red-400 rounded items-center align-middle align-center flex-1">
+                        <div class="bg-green-400 text-xs leading-none py-1 text-center text-gray-400 rounded"></div>
+                    </div>
+                </div>
+
+
+                <div class="flex-1">
+                    <div class="w-10 h-10 bg-green-400 mx-auto rounded-full text-lg text-white flex items-center">
+                        <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">2</i></span>
+                    </div>
+                </div>
+
+                <div class="w-1/6 align-center items-center align-middle content-center flex">
+                    <div class="w-full bg-gray-400 rounded items-center align-middle align-center flex-1">
+                        <div id="barra" class="bg-green-400 text-xs leading-none py-1 text-center text-gray-400 rounded " style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <div id="circulo" class="w-10 h-10 bg-gray-400 mx-auto rounded-full text-lg text-white flex items-center">
+                        <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">3</i></span>
+                    </div>
+                </div>
+
+                <div class="flex-1">
                 </div>
             </div>
-            <!-- END SMALL CARD ROUNDED -->
 
-            <!-- END SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-green-300 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-4">
-                <div class="flex flex-col justify-center">
-                    <p class="text-gray-900 dark:text-gray-300 font-semibold">Paso 2 </p>
+            <div class="flex text-xs content-center text-center">
 
-                    <p class="text-black dark:text-gray-100 text-justify font-semibold">Medio de Pago</p>
+
+                <div class="w-1/3">
+                    Seleccionar Fecha
+                </div>
+
+                <div class="w-1/3">
+                    Medio de Pago
+                </div>
+
+                <div class="w-1/3">
+                    Confirmar Pago
                 </div>
             </div>
-            <!-- END SMALL CARD ROUNDED -->
-            <!-- END SMALL CARD ROUNDED -->
-            <div class="bg-gray-100 border-red-800 dark:bg-gray-800 | p-4 border-solid rounded-3xl border-2">
-                <div class="flex flex-col justify-center">
-                    <p class="text-gray-400 dark:text-gray-300 font-semibold">Paso 3</p>
-                    <p class="text-gray-400 dark:text-gray-100 text-justify font-semibold">Confirmar Pago</p>
-                </div>
-            </div>
-            <!-- END SMALL CARD ROUNDED --->
-
         </div>
         {{-- FIN PROCESO DE INSCRIPCION TIPO MIGAS --}}
 
@@ -256,8 +279,6 @@
 
                     {{-- CARD MEDIO DE PAGO --}}
                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-
-
 
                     <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae
                         optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id

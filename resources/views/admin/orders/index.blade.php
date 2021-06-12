@@ -27,8 +27,8 @@
                 <thead class="thead-dark">
 
                     <th>#</th>
-                    <th>Fecha de Inscripcion</th>
-                    <th>Stock</th>
+                    <th>Fecha </th>
+
                     <th>Cliente</th>
                     <th>Precio</th>
 
@@ -46,9 +46,7 @@
 
                         <tr>
                             <td>{{ $pivot->id }}</td>
-
                             <td class="text-center">{{ $pivot->created_at->format('d M Y H:i') }}</td>
-                            <td>{{ $pivot->dictation->stock }}</td>
                             <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
                             <td>{{ $pivot->dictation->courses->price }}</td>
                             <td class="text-center">{{ $pivot->dictation->date->format('d M Y') }}</td>
@@ -68,7 +66,7 @@
                                         class="fas fa-edit"></i></a>
                                 @endif
                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.orders.destroy', $pivot],'style'=>'display:inline']) !!}
-                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                                 {!! Form::close() !!}
                             </td>
 

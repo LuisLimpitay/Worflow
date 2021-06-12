@@ -36,16 +36,15 @@ class OrderController extends Controller
 
     public function destroy(DictationUser $pivot)
     {
-        dd($pivot);
+        /*$a = $pivot->dictation();
+        dd($a);*/
 
         $pivot->delete();
-
 
         //AUMENTAR EN UNO EL STOCK DEL DICTADO
         return redirect()->route('admin.orders.index', compact('pivot'))
             ->with('info', 'Orden eliminada correctamente !');
     }
-
 
 
 }

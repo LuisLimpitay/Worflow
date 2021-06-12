@@ -28,48 +28,49 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-        <table id="table-planilla" class="table table-striped">
-                <thead class="thead-dark">
-                    <th>Id Dictado</th>
-                    <th>Fecha del Curso</th>
-                    <th>Ciudad</th>
-                    <th>N° Inscriptos</th>
-                    <th width="80px">Action</th>
+                            <table id="table-planilla" class="table table-striped">
+                                <thead class="thead-dark">
+                                <th>Id Dictado</th>
+                                <th>Fecha del Curso</th>
+                                <th>Ciudad</th>
+                                <th>N° Inscriptos</th>
+                                <th width="80px">Action</th>
 
-                </thead>
-                <tbody>
-                    @foreach ($dictations as $dictation)
-                    <tr>
-                        <td>{{$dictation->id}}</td>
-                        <td>{{$dictation->date->format('d M Y')}}</td>
-                        <td>{{$dictation->places->city}}</td>
-                        <td>
-                            <h3 class="badge badge-secondary">
-                            Usuarios <span class="badge badge-light">{{$dictation->users->count()}}</span>
-                            </h3>
-                        </td>
-                        {{-- <td>
-                            <ul>
-                                @foreach ($dictation->users as $user)
-                                    <li>{{$loop->count}}</b></li>
+                                </thead>
+                                <tbody>
+                                @foreach ($dictations as $dictation)
+                                    <tr>
+                                        <td>{{$dictation->id}}</td>
+                                        <td>{{$dictation->date->format('d M Y')}}</td>
+                                        <td>{{$dictation->places->city}}</td>
+                                        <td>
+                                            <h3 class="badge badge-secondary">
+                                                Usuarios <span class="badge badge-light">{{$dictation->users->count()}}</span>
+                                            </h3>
+                                        </td>
+
+                                        {{-- <td>
+                                            <ul>
+                                                @foreach ($dictation->users as $user)
+                                                    <li>{{$loop->count}}</b></li>
+                                                @endforeach
+                                            </ul>
+                                        </td> --}}
+
+                                        <td>
+                                            <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="far fa-eye"></i></a>
+
+                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
+                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                            {!! Form::close() !!}
+                                        </td>
+
+
+                                    </tr>
                                 @endforeach
-                            </ul>
-                        </td> --}}
-
-                        <td>
-                            <a class="btn btn-primary"
-                                href="{{ route('admin.dictations.show', $dictation) }}">
-                                <i class="far fa-eye"></i></a>
-                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
-                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
-                            {!! Form::close() !!}
-                        </td>
-
-
-                    </tr>
-                    @endforeach
-                </tbody>
-        </table>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -105,5 +106,7 @@
             });
         });
     </script>
+
+    @include('admin.planillas.show')
 
 @stop

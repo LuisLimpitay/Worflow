@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Dictation;
+use Illuminate\Support\Facades\DB;
 
 class DictationUser extends Model
 {
@@ -23,6 +24,19 @@ class DictationUser extends Model
     ];
 
     protected $table = "dictation_user";
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($pivot){
+
+            DB::table('dictations')
+                ->where('id', $pivot->dictation->id)
+                ->update(['stock' => $pivot->dictation->stock + 1]);
+
+        });
+    }
 
 
     public function dictation(){

@@ -18,10 +18,9 @@
         <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-body">
+
                     <div class="alert alert-warning" role="alert">
-                        <h4 class="alert-heading">Atencion!</h4>
                         <p>Aqui podras cambiar el estado de un pago del Cliente</p>
-                        <hr>
                     </div>
                     {!! Form::model($pivot, ['method' => 'PATCH','route' => ['admin.orders.update', $pivot]]) !!}
 

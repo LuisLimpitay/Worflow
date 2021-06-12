@@ -12,8 +12,8 @@
 @endsection
 
 @section('content')
-     <!-- Main content -->
-     <section class="content">
+    <!-- Main content -->
+    <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -21,7 +21,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gestor de Sedes</h3>
+                            <h3 class="card-title">Gestor de Instructores</h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="{{ route('admin.teachers.create') }}"><i
                                         class="fas fa-plus-square"></i></a>
@@ -29,33 +29,33 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-teacher" class="table table-striped">
+                            <table id="table-place" class="table table-striped">
                                 <thead class="thead-dark">
-                                    <th>ID</th>
-                                    <th>Nombre deL Instructor</th>
-                                    <th>Email</th>
-                                    <th>Sobre el</th>
-                                    <th width="80px">Action</th>
+                                <th>ID</th>
+                                <th>Nombre del Instructor</th>
+                                <th>Email</th>
+                                <th>Sobre el</th>
+                                <th width="80px">Action</th>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($teachers as $teacher)
-                                        <tr>
-                                            <td>{{ $teacher->id }}</td>
-                                            <td>{{ $teacher->name }}</td>
-                                            <td>{{ $teacher->email }}</td>
-                                            <td>{{ $teacher->about }}</td>
+                                @foreach ($teachers as $teacher)
+                                    <tr>
+                                        <td>{{ $teacher->id }}</td>
+                                        <td>{{ $teacher->name }}</td>
+                                        <td>{{ $teacher->email }}</td>
+                                        <td>{{ $teacher->about }}</td>
 
-                                            <td>
-                                                <a class="btn btn-primary"
-                                                    href="{{ route('admin.teachers.edit', $teacher) }}"><i
-                                                        class="fas fa-edit"></i></a>
-                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
-                                                {!! Form::close() !!}
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                        <td>
+                                            <a class="btn btn-primary"
+                                               href="{{ route('admin.teachers.edit', $teacher) }}"><i
+                                                    class="fas fa-edit"></i></a>
+                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
+                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
 
@@ -72,11 +72,16 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @section('js')
+
+
+
+@stop
+
+@section('js')
     <script>
         $(function() {
 
-            $('#table-teacher').DataTable({
+            $('#table-place').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
@@ -130,3 +135,4 @@
 
     </script>
 @stop
+
