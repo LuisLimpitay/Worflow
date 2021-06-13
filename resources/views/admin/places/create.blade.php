@@ -14,8 +14,10 @@
     </div>
 @endif
 
-<div class="card">
-        <div class="card-body">
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-primary card-outline">
+            <div class="card-body">
 
             {!! Form::open(['route' => 'admin.places.store', 'autocomplete' => 'off']) !!}
 
@@ -23,43 +25,49 @@
                 {!! Form::label('name', 'Nombre de la Sede' ) !!}
                 {!! Form::text('name', null, ['class'=> 'form-control']) !!}
                 @error('name')
-                    <span class="text-danger">{{$message}}</span>
+                    <small class="text-danger">{{$message}}</small>
                 @enderror
-            </div> 
+            </div>
 
-            <div class="form-group">
-                {!! Form::label('address_street', 'Direccion' ) !!}
-                {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
-                @error('address_street')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>    
-            <div class="form-group">
-                {!! Form::label('address_number', 'Numero' ) !!}
-                {!! Form::text('address_number', null, ['class'=> 'form-control']) !!}
-                @error('address_number')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>  
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('address_street', 'Direccion' ) !!}
+                        {!! Form::text('address_street', null, ['class'=> 'form-control']) !!}
+                        @error('address_street')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('address_number', 'Numero' ) !!}
+                        {!! Form::text('address_number', null, ['class'=> 'form-control']) !!}
+                        @error('address_number')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                </div>
+            </div>
 
                 <div class="form-group">
                     {!! Form::label('city', 'Ciudad' ) !!}
                     {!! Form::text('city', null, ['class'=> 'form-control', 'placeholder' => 'Nombre de la Ciudad']) !!}
 
                     @error('city')
-                        <span class="text-danger">{{$message}}</span>
+                    <span class="text-danger">{{$message}}</span>
                     @enderror
 
                 </div>
-
-
 
                 {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
                 <a href="{{route('admin.places.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
             {!! Form::close() !!}
 
-
+            </div>
+        </div>
         </div>
     </div>
 @stop

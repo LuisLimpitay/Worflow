@@ -54,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('mode', 'Modalidad') !!}
-                                {!! Form::text('mode', null, ['class' => 'form-control']) !!}
+                                {!! Form::select('mode', ['presencial' => 'Presencial' ], null, ['class' => 'form-control' ]) !!}
                                 @error('mode')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

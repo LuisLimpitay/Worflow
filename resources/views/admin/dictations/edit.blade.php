@@ -12,12 +12,6 @@
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <p class="text-danger">* {{ $error }}</p>
-                        @endforeach
-                    @endif
-
                     {!! Form::model($dictation, ['route' => ['admin.dictations.update', $dictation], 'method' => 'put']) !!}
 
                     <div class="row">
@@ -51,13 +45,11 @@
                         </div>
                     </div>
 
-
-
                     <div class="form-group">
-                        {!! Form::label('place_id', 'Lugar') !!}
+                        {!! Form::label('place_id', 'Ciudad') !!}
                         {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'readonly']) !!}
-                    </div>
 
+                    </div>
 
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
                     <a href="{{ route('admin.dictations.index') }}" class="btn btn-danger" type="submit">Cancelar</a>

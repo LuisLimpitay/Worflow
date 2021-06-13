@@ -1,6 +1,6 @@
 
 <x-app-layout>
-    
+
     <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -101,7 +101,7 @@
         <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
         <li class="px-2"><a href="{{route('home')}}" class="no-underline text-indigo">Inicio</a></li>
         <li>/</li>
-        
+
         <li class="px-2 text-gray-500">Preguntas Frecuentes</li>
         </ol>
     </nav>
@@ -113,7 +113,7 @@
         <div class="shadow-md">
 
             <div class="shadow-md">
-                
+
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
                     <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">¿Quienes pueden asistir al curso?</label>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
 
-            
+
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-two" type="radio" name="tabs2">
                     <label class="block p-5 leading-normal cursor-pointer" for="tab-single-two">¿Obtendre algun certificado?</label>
@@ -176,7 +176,7 @@
 
                     </div>
                 </div>
-                
+
 
             </div>
 
@@ -194,7 +194,7 @@
                 <input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">¿Como me inscribo?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                        
+
                         <p class="p-5">Deberas dirigirte a la parte superior derecha del sitio e <b>"Iniciar Sesion".</b> </p>
                             <ul class="px-6" >
                                 <li class="px-3">- Ingresar tu correo y contraseña</li>
@@ -248,11 +248,11 @@
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-fivesix">¿Puedo realizar el pago el dia del curso?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                     <p class="p-5">
-                        <b>No</b>, tu inscripcion se concretara una vez que hayas realizado el pago. Es por ello que debes realizar el pago con 48hs de anticipacion a la fecha de dictado del curso. <br>                           
+                        <b>No</b>, puesto que asi lo establece nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>. <br>
                     </p>
                 </div>
             </div>
-            
+
             <div class="tab w-full overflow-hidden border-t">
                 <input class="absolute opacity-0" id="tab-multi-six" type="checkbox" name="tabs">
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-six">¿Puedo cancelar mi inscripción?
@@ -261,11 +261,11 @@
                     <p class="p-5">Por supuesto si ya realizaste el pago, deberas comunicarte con Workflow mediante nuestro formulario de contacto que lo encontraras en la barra de navegacion. Deberas hacerlo con un maximo de 48hs antes de la fecha del curso. De esta forma se te reintegrarara el 100% de lo abonado. <br>
                         Caso solo se reintegrara el 50% del valor del curso. <br>
                         </p>
-                           
+
                 </div>
             </div>
 
-            
+
 
         </div>
     </div>

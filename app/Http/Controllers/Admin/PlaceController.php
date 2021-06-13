@@ -8,34 +8,19 @@ use App\Models\Place;
 
 class PlaceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $places = Place::all();
         return view('admin.places.index', compact('places'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view ('admin.places.create');
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         /* return $request->all(); me retorna el array envidado */
@@ -77,6 +62,7 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
+
         return view ('admin.places.edit', compact('place'));
 
     }
@@ -92,10 +78,10 @@ class PlaceController extends Controller
     {
         $request->validate([
 
-            'name' => 'required',
-            'city' => 'required',
-            'address_street' => 'required',
-            'address_number' => 'required'
+            'name' => '',
+            'city' => '',
+            'address_street' => '',
+            'address_number' => ''
 
         ]);
 

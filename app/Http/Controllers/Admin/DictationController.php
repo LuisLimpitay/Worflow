@@ -25,15 +25,10 @@ class DictationController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('name', 'id');
+        $places = Place::pluck('city', 'id');
 
         $dictations = Dictation::all();
 
@@ -44,12 +39,6 @@ class DictationController extends Controller
                                                         ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -67,12 +56,6 @@ class DictationController extends Controller
                             ->with('info', 'Dictado creado con Exito !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     // CREE ESTA FUNCION PARA MANDARSELA COMO PARAMETRO A MI CREATE DICTATION
     public function dictation(Dictation $dictations)
@@ -89,17 +72,10 @@ class DictationController extends Controller
     }
     // ************************************************************************
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Dictation $dictation)
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('name', 'id');
+        $places = Place::pluck('city', 'id');
         //$users = User::pluck('number_license', 'id');
         return view ('admin.dictations.edit', compact(
                                                         'dictation',
@@ -108,13 +84,6 @@ class DictationController extends Controller
                                                     ));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Dictation $dictation)
     {
         $dictation->update($request->all());

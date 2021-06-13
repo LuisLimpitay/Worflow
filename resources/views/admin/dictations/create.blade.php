@@ -13,12 +13,6 @@
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <p class="text-danger">* {{ $error }}</p>
-                        @endforeach
-                    @endif
-
                     {!! Form::open(['route' => 'admin.dictations.store']) !!}
 
                     <div class="row">
@@ -68,8 +62,8 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('place_id', 'Sede') !!}
-                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Sede']) !!}
+                        {!! Form::label('place_id', 'Ciudad') !!}
+                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Ciudad']) !!}
                         @error('place_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -91,12 +85,4 @@
 
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        Swal.fire(
-            'Atención!',
-            'Una vez creado el dictado no podras editar el numero de cupos, el nombre del curso y la sede',
-            'warning'
-        )
-
-    </script>
-@stop
+    @stop

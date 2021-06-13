@@ -36,7 +36,7 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         //Con esto muestro los dictados donde esta inscripto un usuario determinado
-
+        
         if (Auth::check()) {
             $dictado = auth()->user()->dictations;
             $ids = $dictado->pluck('id');

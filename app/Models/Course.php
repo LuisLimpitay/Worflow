@@ -17,7 +17,6 @@ class Course extends Model
         'content',
         'mode',
         'price',
-
         'teacher_id'  
 
     ];

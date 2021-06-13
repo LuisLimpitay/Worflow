@@ -13,8 +13,10 @@
         </div>
     @endif
 
-    <div class="card">
-        <div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary card-outline">
+                <div class="card-body">
 
             {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
 
@@ -41,7 +43,7 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            
+
             {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
             <a href="{{route('admin.teachers.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
@@ -50,7 +52,8 @@
 
         </div>
     </div>
-
+        </div>
+    </div>
 @stop
 
 @section('css')

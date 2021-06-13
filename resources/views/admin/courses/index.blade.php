@@ -13,6 +13,7 @@
 
 @section('content')
     <!-- Main content -->
+    <a href="{{route('admin.courses.create')}}">Crear</a>
     <section class="content">
         <div class="container-fluid">
             <div class="row">

@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     {!! Form::label('mode', 'Modalidad' ) !!}
-                    {!! Form::text('mode', null, ['class'=> 'form-control', 'placeholder' => 'Ingrese la Modalidad del Curso' ]) !!}
+                    {!! Form::select('mode', ['presencial' => 'presencial','online' => 'online', 'mixta' => 'mixta' ], null, ['class' => 'form-control' ]) !!}
                     @error('mode')
                         <small class="text-danger">*{{$message}}</small>
                     @enderror

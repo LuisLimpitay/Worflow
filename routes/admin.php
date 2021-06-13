@@ -14,15 +14,14 @@ $pdf->loadView('welcome');
 return $pdf->stream(); */
 
 
-Route::get('/', [HomeController::class, 'index'])->name('admin.index')->middleware('level');
+Route::get('/', [HomeController::class, 'index'])->middleware('level')->name('admin.index');
 
 
 Route::resource('customers', CustomerController::class)->middleware('level')->names('admin.customers');
-Route::resource('planillas' ,ListController::class)->except('show')->middleware('level')->names('admin.planillas');
+Route::resource('planillas' ,ListController::class)->middleware('level')->names('admin.planillas');
 
 //mando orders como parametros,
 Route::resource('orders', OrderController::class)->parameters(['orders' => 'pivot'])->middleware('level')->names('admin.orders');
-Route::get('/{dictation}/{pivot:id}', [ListController::class, 'show'])->name('show');
 
 Route::resource('courses', CourseController::class)->middleware('level')->names('admin.courses');
 Route::resource('dictations', DictationController::class)->middleware('level')->names('admin.dictations');

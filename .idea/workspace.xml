@@ -22,23 +22,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="eliminar orden">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/planillas/show.blade.php" afterDir="false" />
+    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="12.06.21">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserProfileInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserProfileInformation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DictationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DictationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrdersController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Dictation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Dictation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DictationUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DictationUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/planillas/details.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/planillas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/planillas/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlaceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PlaceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PlaceFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PlaceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PlaceSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/places/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/places/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/places/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/places/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/qa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/qa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +246,7 @@
       <workItem from="1622171963454" duration="1835000" />
       <workItem from="1623362595528" duration="722000" />
       <workItem from="1623363483816" duration="21047000" />
-      <workItem from="1623429192620" duration="44846000" />
+      <workItem from="1623429192620" duration="57613000" />
     </task>
     <task id="LOCAL-00001" summary="eliminar orden">
       <created>1623448401499</created>
@@ -243,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623448401499</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="12.06.21">
+      <created>1623533453377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623533453377</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +282,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="eliminar orden" />
-    <option name="LAST_COMMIT_MESSAGE" value="eliminar orden" />
+    <MESSAGE value="12.06.21" />
+    <option name="LAST_COMMIT_MESSAGE" value="12.06.21" />
   </component>
   <component name="WindowStateProjectService">
     <state x="431" y="184" key="#Notifications" timestamp="1623363544279">
@@ -286,10 +306,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="222" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1623435904978" />
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1623448416840">
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1623533470165">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1623448416840" />
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1623533470165" />
     <state x="92" y="92" width="1182" height="544" key="dock-window-1" timestamp="1623498350049">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -298,10 +318,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1622172138337" />
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1623532143605">
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1623594292802">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1623532143605" />
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1623594292802" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -323,18 +343,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>276</line>
+          <line>286</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>36</line>
+          <line>39</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>213</line>
+          <line>223</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/auth/register.blade.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
+          <line>50</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

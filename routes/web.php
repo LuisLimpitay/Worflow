@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\App;
 Route::get('/pruebas', function () {
 
     /* $date = auth()->user()->level;
-    dump($date); 
+    dump($date);
     $inscrito = Enrollment::where('user_id', auth()->user()->id)->get();
     dump($inscrito);*/
     /* $fecha= Carbon::now();
@@ -49,7 +49,7 @@ Route::get('curso/{course}', [CourseController::class, 'show'])->name('courses.s
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->middleware('auth')->name('courses.checkout');
+Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name('courses.checkout');
 //--------------------------------------------------------------------------------
 // -----------------  FIN Controladores CourseController     -------------------------
 //--------------------------------------------------------------------------------

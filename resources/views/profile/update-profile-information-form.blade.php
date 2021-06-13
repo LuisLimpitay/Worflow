@@ -67,13 +67,13 @@
         </div>
         <!-- Vencimiento Licencias -->
         <div class="col-span-6 md: sm:col-span-3">
-            <x-jet-label for="expire_license" />Vencimiento Licencia de Conducir
-            <x-jet-input id="expire_license" type="date" min="2021-05-11" readonly class="mt-1 block w-full"
-                wire:model.defer="state.expire_license" />
+            <x-jet-label for="expire_license" />Vencimiento L.N.C.
+            <x-jet-input id="expire_license" type="text" readonly class="mt-1 block w-full" wire:model.defer="state.expire_license"
+                autocomplete="expire_license" />
             <x-jet-input-error for="expire_license" class="mt-2" />
         </div>
 
-        <!-- APELLIDO -->
+        <!-- TELEFONO CELULAR -->
         <div class="col-span-6 md: sm:col-span-3">
             <x-jet-label for="phone" /> Telefono celular
             <x-jet-input id="phone" type="text" class="mt-1 block w-full" readonly wire:model.defer="state.phone"

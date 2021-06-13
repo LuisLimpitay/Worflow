@@ -21,13 +21,13 @@ class PlaceSeeder extends Seeder
             'address_number' => '1290',
 
         ]);
-        
+
         Place::create([
             'name' => 'Centro Integrador Comunitario',
             'city' => 'Las Heras',
             'address_street' => 'Belgrano',
             'address_number' => '2390',
- 
+
         ]);
     }
 }

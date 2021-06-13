@@ -2,10 +2,10 @@
 
     @if (!Auth::check())
         {{-- MIGAS DE PAN --}}
-        {{-- <script>
+         {{--<script>
             alert("Deberas registrarte para poder inscribirte al Curso");
 
-        </script> --}}
+        </script>--}}
 
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
@@ -15,6 +15,9 @@
 
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
                 </li>
+                <li>/</li>
+
+
                 <li>/</li>
 
                 <li class="px-2 text-gray-500">Formulario de Registro</li>
@@ -47,7 +50,14 @@
                     <div class="bg-black">
                         <x-jet-authentication-card>
                             <x-slot name="logo">
-
+                                <div class="-m-2 text-center">
+                                    <div class="p-2">
+                                        <div class="inline-flex items-center bg-white leading-none text-pink-600 rounded-full p-2 shadow text-teal text-sm">
+                                            <span class="inline-flex bg-pink-600 text-white rounded-full h-6 px-3 justify-center items-center">Atencion !</span>
+                                            <span class="inline-flex px-2">Deberas tener una cuenta en el sitio para poder inscribirte a un curso.</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </x-slot>
                             <h1 class="text-2xl mb-4 text-black text-center font-semibold">Formulario de Registro</h1>
                             <hr><br>
@@ -58,53 +68,50 @@
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="name" />Nombre
-                                        <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                            :value="old('name')" />
+                                        <x-jet-label for="name" /><small class="text-red-500 text-xl font-bold">* </small> Nombre /s
+                                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"
+                                        />
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="last_name" />Apellido
-                                        <x-jet-input id="last_name" class="block mt-1 w-full" type="text"
-                                            name="last_name" :value="old('last_name')" />
+                                        <x-jet-label for="last_name" /><small class="text-red-500 text-xl font-bold">* </small> Apellido /s
+                                        <x-jet-input id="last_name" class="block mt-1 w-full" placeholder="Lamonte" type="text" name="last_name"
+                                                     :value="old('last_name')" />
                                     </div>
                                 </div>
 
-
-
                                 <div class="mt-4">
-                                    <x-jet-label for="number_license" />Numero de Licencia Nacional de Conducir
-                                    <x-jet-input id="number_license" class="block mt-1 w-full"
-                                        placeholder="Ej: 33111222" pattern="[0-9]{8}" type="tel" name="number_license  "
-                                        :value="old('number_license')" />
-                                    <small class="text-gray-400"><i>El formato debe ser de 8 digitos.</i></small><br>
+
+                                    <x-jet-label for="phone" /><small class="text-red-500 text-xl font-bold">* </small>Telefono Celular
+                                    <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
+                                                 pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
+                                                 :value="old('phone')" /><small>Formato: 10 digitos</small><br>
 
                                 </div>
+
+
                                 <div class="mt-4">
-                                    <x-jet-label for="expire_license" />Fecha de Vencimiento Licencia Nacional de
-                                    Conducir
-                                    <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30"
-                                        type="date" name="expire_license  " :value="old('expire_license')" />
+                                    <x-jet-label for="expire_license" /><small class="text-red-500 text-xl font-bold">* </small>Vencimiento de Licencia Nacional de Conducir
+                                    <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date" name="expire_license  " :value="old('expire_license')"  />
                                 </div>
                                 <br>
 
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="email" />Email
-                                        <x-jet-input id="email" placeholder="example@gmail.com"
-                                            class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
+                                        <x-jet-label for="email"/><small class="text-red-500 text-xl font-bold">* </small> Email
+                                        <x-jet-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="password" />Contraseña
-                                        <x-jet-input id="password" class="block mt-1 w-full" type="password"
-                                            name="password" autocomplete="new-password" />
+                                        <x-jet-label for="password" /><small class="text-red-500 text-xl font-bold">* </small> Contraseña
+                                        <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
+                                                     autocomplete="new-password" />
                                     </div>
                                 </div>
 
                                 <div class="mt-4">
-                                    <x-jet-label for="password_confirmation" />Confirmar Contraseña
+                                    <x-jet-label for="password_confirmation" /><small class="text-red-500 text-xl font-bold">* </small> Confirmar Contraseña
                                     <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                                        name="password_confirmation" autocomplete="new-password" />
+                                                 name="password_confirmation" autocomplete="new-password" />
                                 </div>
 
                                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -115,9 +122,9 @@
 
                                                 <div class="ml-2">
                                                     {!! __('Acepto los :terms_of_service y :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
-]) !!}
+                                                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
+                                                        'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
+                                                    ]) !!}
                                                 </div>
                                             </div>
                                         </x-jet-label>
@@ -125,13 +132,12 @@
                                 @endif
 
                                 <div class="flex items-center justify-end mt-4">
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                        href="{{ route('login') }}">
+                                    <a class="underline text-sm text-gray-600 hover:text-blue-600" href="{{ route('login') }}">
                                         {{ __('Ya estas registrado ?') }}
                                     </a>
 
-                                    <a class="inline-flex items-center ml-4 px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-                                        type="submit" href="{{ route('courses.index') }}">
+                                    <a class="inline-flex items-center ml-2 px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
+                                       type="submit" href="{{ route('home') }}">
                                         cancelar
                                     </a>
                                     <x-jet-button class="ml-2">
@@ -202,6 +208,10 @@
                 <li>/</li>
 
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
+                </li>
+                <li>/</li>
+
+                <li class="px-2"><a href="#" class="no-underline text-indigo">Dictados</a>
                 </li>
                 <li>/</li>
 
@@ -280,11 +290,6 @@
                     {{-- CARD MEDIO DE PAGO --}}
                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
 
-                    <p class="mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit quo molestiae quae
-                        optio, nam qui nobis perspiciatis consequatur, ipsam provident minus voluptate et adipisci id
-                        porro dolor deserunt quia laudantium.</p>
-                    <br>
-
                     <form action="{{ route('form', $dictation) }}" method="POST">
                         @csrf
 
@@ -341,16 +346,7 @@
                         <p class="px-4 py-2"><strong>Fecha: </strong>
                             {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
                         <p class="px-4 py-2"><strong>Hora: </strong>{{ $dictation->time }}</p>
-                        <p class="px-4 py-2"><strong>Direccion:
-                            </strong>{{ $dictation->places->address_street }}
-                            {{ $dictation->places->address_number }}</p>
-
-                        <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city }}</p>
-
-                        <p class="px-4 py-2"><strong>Instructor:
-                            </strong>{{ $dictation->courses->teachers->name }}
-                        </p>
-                        <br><br>
+                        <br>
 
                         <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
                             ARS ${{ $dictation->courses->price }}

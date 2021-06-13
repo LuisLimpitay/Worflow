@@ -58,17 +58,17 @@ class CustomerController extends Controller
             'last_name' => '',
             //'phone' => '',
             //'email' => 'required|email|users,email,'.$customer->id,
-            'password' => 'required|same:confirm-password'
+            //'password' => 'required|same:confirm-password'
 
         ]);
         $input = $request->all();
 
-        if(!empty($input['password'])){
+        /*if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }
         else{
             $input = Arr::except($input,['password']);
-        }
+        }*/
         $customer->update($input);
         return redirect()->route('admin.customers.index')
                             ->with('info', 'Dictado creado con Exito !');
