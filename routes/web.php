@@ -45,7 +45,7 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 
 
 // ***********************  DETALLES del CURSO  *************************************
-Route::get('curso/{course}', [CourseController::class, 'show'])->name('courses.show');
+Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
 
 
 // ***********************  CHECKOUT -> me genera la orden ********************************************

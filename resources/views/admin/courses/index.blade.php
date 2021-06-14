@@ -36,35 +36,24 @@
                                     <th>Instructor</th>
                                     <th>Modalidad</th>
                                     <th>Precio </th>
-
                                     <th width="80px">Action</th>
                                 </thead>
 
                                 <tbody>
-
                                     @foreach ($courses as $course)
-
                                         <tr>
                                             <td> {{ $course->name }} </td>
                                             <td> {{ $course->description }} </td>
                                             <td> {{ $course->teachers->name }}</td>
                                             <td> {{ $course->mode }}</td>
                                             <td> {{ $course->price }}</td>
-
-
                                             <td width="10px">
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.courses.edit', $course) }}"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
-
-
-
                                         </tr>
-
-
                                     @endforeach
-
                                 </tbody>
                             </table>
 

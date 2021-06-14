@@ -21,22 +21,18 @@ class CourseController extends Controller
         return view('home', compact('courses'));
     }
 
-
     public function index()
     {
-
         $courses = Course::all();
         return view('courses.index', compact('courses'));
     }
-
-
-    /**************************************************************************** 
+    /****************************************************************************
      Este metodo me trae los detalles y las fechas de Dictado con sus CUPOS
     -----------------------------------------------------------------------------*/
     public function show(Course $course)
     {
         //Con esto muestro los dictados donde esta inscripto un usuario determinado
-        
+
         if (Auth::check()) {
             $dictado = auth()->user()->dictations;
             $ids = $dictado->pluck('id');
@@ -45,16 +41,15 @@ class CourseController extends Controller
                 ->where('stock', '>', '0')
                 ->whereNotIn('id', $ids)
                 ->orderby('date', 'DESC')
-                ->get();
+                ->paginate(4);
         } else {
             $dictations = Dictation::with('courses')
                 ->where('stock', '>', '0')
                 ->orderby('date', 'DESC')
-                ->get();
+                ->paginate(4);
             //dd($dictations);
 
         }
-
         return view('courses.show', compact('course', 'dictations'));
     }
     ///************************************************************************* */
@@ -64,17 +59,10 @@ class CourseController extends Controller
 
     public function checkout(Dictation $dictation)
     {
-        /* $userName = auth()->user()->name;
-        $usersLastName = auth()->user()->last_name; */
-        $enrollment = Payment::pluck('name', 'id');
-        //dump($enrollment);
+        $dictations = Dictation::with('courses')->get();
 
-        //dd($userss);
-        $dictations = Dictation::all();
-        //ACA DEBO HACER LA CONSULTA PARA QUE SI ES VALIDA LA TARJETA PASE Y VAYA A LA VISTA O SINO QUE VAYA Y EL ESTADO SEA PENDIENTE
-        return view('courses.checkout', compact('dictation', 'enrollment'));
+        return view('courses.checkout', compact('dictation','courses'));
     }
-
 
 
     // retorna vista de QAs

@@ -16,6 +16,7 @@
                         <x-jet-label for="name" /><small class="text-red-500 text-xl font-bold">* </small> Nombre /s
                         <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"
                          />
+
                     </div>
                     <div class="md:w-1/2 px-3">
                         <x-jet-label for="last_name" /><small class="text-red-500 text-xl font-bold">* </small> Apellido /s

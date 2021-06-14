@@ -16,9 +16,10 @@
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
                 </li>
                 <li>/</li>
-
-
+                <li class="px-2"><a href="{{ route('courses.show', $courses) }}" class="no-underline text-indigo">Detalles</a>
+                </li>
                 <li>/</li>
+
 
                 <li class="px-2 text-gray-500">Formulario de Registro</li>
 
@@ -68,12 +69,12 @@
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="name" /><small class="text-red-500 text-xl font-bold">* </small> Nombre /s
+                                        <x-jet-label for="name" /> Nombre /s
                                         <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"
                                         />
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="last_name" /><small class="text-red-500 text-xl font-bold">* </small> Apellido /s
+                                        <x-jet-label for="last_name" /> Apellido /s
                                         <x-jet-input id="last_name" class="block mt-1 w-full" placeholder="Lamonte" type="text" name="last_name"
                                                      :value="old('last_name')" />
                                     </div>
@@ -81,7 +82,7 @@
 
                                 <div class="mt-4">
 
-                                    <x-jet-label for="phone" /><small class="text-red-500 text-xl font-bold">* </small>Telefono Celular
+                                    <x-jet-label for="phone" />Telefono Celular
                                     <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
                                                  pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
                                                  :value="old('phone')" /><small>Formato: 10 digitos</small><br>
@@ -90,7 +91,7 @@
 
 
                                 <div class="mt-4">
-                                    <x-jet-label for="expire_license" /><small class="text-red-500 text-xl font-bold">* </small>Vencimiento de Licencia Nacional de Conducir
+                                    <x-jet-label for="expire_license" />Vencimiento de Licencia Nacional de Conducir
                                     <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date" name="expire_license  " :value="old('expire_license')"  />
                                 </div>
                                 <br>
@@ -98,18 +99,18 @@
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="email"/><small class="text-red-500 text-xl font-bold">* </small> Email
+                                        <x-jet-label for="email"/> Email
                                         <x-jet-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="password" /><small class="text-red-500 text-xl font-bold">* </small> Contraseña
+                                        <x-jet-label for="password" /> Contraseña
                                         <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
                                                      autocomplete="new-password" />
                                     </div>
                                 </div>
 
                                 <div class="mt-4">
-                                    <x-jet-label for="password_confirmation" /><small class="text-red-500 text-xl font-bold">* </small> Confirmar Contraseña
+                                    <x-jet-label for="password_confirmation" /> Confirmar Contraseña
                                     <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
                                                  name="password_confirmation" autocomplete="new-password" />
                                 </div>
@@ -130,7 +131,7 @@
                                         </x-jet-label>
                                     </div>
                                 @endif
-
+                                <br>
                                 <div class="flex items-center justify-end mt-4">
                                     <a class="underline text-sm text-gray-600 hover:text-blue-600" href="{{ route('login') }}">
                                         {{ __('Ya estas registrado ?') }}

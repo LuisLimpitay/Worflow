@@ -85,9 +85,13 @@
                         <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">ARS
                             ${{ $course->price }}</p><br>
                         <br>
-                        <a href="{{ route('courses.show', $course) }}"
-                            class="inline-flex text-center px-4 py-2 text-sm bg-blue-600 border border-transparent rounded-md font-semibold text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                            Mas Informacion</a>
+                        <div class="flex justify-center">
+                            <a href="{{ route('courses.show', $course) }}"
+                               class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+                               role="button" aria-pressed="true">
+                                INSCRIBIRME
+                            </a>
+                        </div>
 
                     </div>
             </div>
@@ -135,7 +139,7 @@
     </div>
     <!-- FIN TARJETA DEL CURSO  --> --}}
 
-   
+
     <!-- ************************************************************************************************************-->
 
 

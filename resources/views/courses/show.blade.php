@@ -92,63 +92,78 @@
                 <div class="container mx-auto py-2 ">
 
                     @if ($dictations->count())
-                        <table class="table table-responsive">
-                            <thead class="justify-between">
-                                <tr class="bg-gray-800 container mx-auto text-xl">
+                        <!-- component -->
 
-                                    <th class="text-gray-300">ID</th>
-                                    <th class="text-gray-300">Fecha</th>
+                            <div class="container mx-auto px-4 sm:px-8">
+                                <div class="">
 
-                                    <th class="text-gray-300">Ciudad</th>
-                                    <th class="text-gray-300">Sede</th>
+                                    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                                        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                                            <table class="min-w-full leading-normal">
+                                                <thead>
+                                                <tr>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-center font-bold text-black uppercase tracking-wider">
+                                                        Fecha
+                                                    </th>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-left font-bold text-black uppercase tracking-wider">
+                                                        Ciudad
+                                                    </th>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-center font-bold text-black uppercase tracking-wider">
+                                                        Direccion
+                                                    </th>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 font-bold text-black uppercase tracking-wider">
+                                                        Cupos
+                                                    </th>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300  font-bold text-black uppercase tracking-wider">
+                                                        Accion
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach ($dictations as $dictation)
+                                                <tr>
 
-                                    <th class="text-gray-300">Dirección</th>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 text-center whitespace-no-wrap">{{ ($dictation->date)->format('d M Y') }}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$dictation->places->city}}</p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            {{$dictation->places->address_street}} {{$dictation->places->address_number}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-gray-200 bg-white text-sm">
+                                                        <p class="text-center  font-bold bg-green-200  rounded-full ">
+                                                            {{ $dictation->stock }}
+                                                        </p>
 
-                                    <th class="text-gray-300">Hora</< /th>
-                                    <th class="text-gray-300">Cupos</th>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex justify-center">
+                                                            <a href="{{ route('courses.checkout', $dictation) }}"
+                                                               class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+                                                               role="button" aria-pressed="true">
+                                                                Seleccionar
+                                                            </a><br>
+                                                        </div>
+                                                    </td>
 
-                                </tr>
-                            </thead>
-
-                            <tbody class="bg-gray-200 justify-between">
-
-                                @foreach ($dictations as $dictation)
-                                    <tr>
-
-                                        <td class="px-3">{{ $dictation->id }}</td>
-
-                                        <td class="px-3">
-                                            {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
-                                        </td>
-
-                                        <td class="px-3 py-2">{{ $dictation->places->city }}</td>
-                                        <td class="px-3">{{ $dictation->places->name }}</td>
-
-                                        <td class="px-3">{{ $dictation->places->address_street }}
-                                            {{ $dictation->places->address_number }}</td>
-                                        <td class="px-3">{{ $dictation->time }}</td>
-
-                                        <td class="px-4">
-                                            <p
-                                                class="text-xl px-4  container mx-auto bg-red-200 text-black py-2 border rounded-full ">
-                                                {{ $dictation->stock }}
-                                            </p>
-                                        </td>
-
-                                        <td class="px-4">
-                                            <div class="flex justify-center">
-                                                <a href="{{ route('courses.checkout', $dictation) }}"
-                                                    class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
-                                                    role="button" aria-pressed="true">
-                                                    Seleccionar
-                                                </a><br>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                            <div class="p-3 bg-gray-300">{{$dictations->links()}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </body>
 
                     @else
                         <div class="max-w-lg w-full text-center rounded-lg shadow-lg p-4">
@@ -167,15 +182,15 @@
 
                     <div class="text-lg">
                         <h1 class="text-4xl pt-4 px-3 text-red-400">Contenido </h1> <br>
-                        <p class="px-5 bg-gray-200">{{ $course->content }}</p> <hr><br>
+                        <p class="px-5 ">{{ $course->content }}</p> <hr><br>
 
-                        <p class="px-5 bg-gray-200">Instructor >> {{$course->teachers->name}}</p>
-                        <p class="px-5 bg-gray-200">Trayectoria >> {{ $course->teachers->about }}</p><hr><br>
+                        <p class="px-5 "><b>Instructor :</b> {{$course->teachers->name}}</p>
+                        <p class="px-5 ">{{ $course->teachers->about }}</p><hr><br>
 
-                        <p class="px-5 bg-gray-200">Precio >> ARS $ {{ $course->price }}</p>
-                        <p class="px-5 bg-gray-200">Duracion >> 8 horas</p><hr><br>
+                        <p class="px-5 "><b>Precio : </b> ARS $ {{ $course->price }}</p>
+                        <p class="px-5 "><b>Duracion :</b> 8 horas</p><hr><br>
 
-                        <p class="px-5 bg-gray-200"><i>Recuerde que debera realizar el pago de su inscripcion como maximo 48 hs antes del dia del curso.</i></p>
+                        <p class="px-5 "><i>Recuerde que debera realizar el pago de su inscripcion como maximo 48 hs antes del dia del curso.</i></p>
 
                     </div>
 
@@ -183,7 +198,7 @@
             </div>
 
             {{-- CARD LATERAL --}}
-            <div class="py-12">
+            <div class="mt-24">
                 <dt>
                     <p class="ml-16 text-3xl leading-6 font-medium text-red-500">Requisitos</p>
                 </dt>
