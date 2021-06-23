@@ -110,9 +110,14 @@
                                                         class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-left font-bold text-black uppercase tracking-wider">
                                                         Ciudad
                                                     </th>
+                                                    
                                                     <th
                                                         class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-center font-bold text-black uppercase tracking-wider">
                                                         Direccion
+                                                    </th>
+                                                    <th
+                                                        class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-left font-bold text-black uppercase tracking-wider">
+                                                        Hora
                                                     </th>
                                                     <th
                                                         class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 font-bold text-black uppercase tracking-wider">
@@ -129,15 +134,21 @@
                                                 <tr>
 
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                        <p class="text-gray-900 text-center whitespace-no-wrap">{{ ($dictation->date)->format('d M Y') }}</p>
+                                                        <p class="text-gray-900 text-center whitespace-no-wrap">{{\Carbon\Carbon::parse($dictation->date)->format('d M Y')}}</p>
                                                     </td>
+                                                    
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap">{{$dictation->places->city}}</p>
                                                     </td>
+                                                    
+
                                                     <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap">
                                                             {{$dictation->places->address_street}} {{$dictation->places->address_number}}
                                                         </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$dictation->time}}</p>
                                                     </td>
                                                     <td class="px-5 py-5 border-gray-200 bg-white text-sm">
                                                         <p class="text-center  font-bold bg-green-200  rounded-full ">

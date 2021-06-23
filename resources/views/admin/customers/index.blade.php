@@ -30,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-customer" class="table table-bordered table-striped">
+                            <table id="table-customer" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>Id</th>
@@ -47,7 +47,7 @@
                                         <td>{{$customer->id}}</td>
                                         <td>{{$customer->last_name}} , {{$customer->name}}</td>
                                         <td>{{$customer->phone}}</td>
-                                        <td>{{$customer->expire_license->format('d M Y')}}</td>
+                                        <td>{{$customer->expire_license}}</td>
                                         <td>{{$customer->email}}</td>
                                         <td>
                                             <a class="btn btn-primary" href="{{ route('admin.customers.edit',$customer) }}"><i
@@ -86,7 +86,7 @@
                 "searching": true,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
             });
         });

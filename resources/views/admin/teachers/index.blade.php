@@ -29,7 +29,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-place" class="table table-striped">
+                            <table id="table-place" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                 <th>ID</th>
                                 <th>Nombre del Instructor</th>

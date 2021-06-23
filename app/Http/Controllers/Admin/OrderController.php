@@ -13,22 +13,21 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
 
-    public function index(Dictation $dictations)
+    public function index()
     {
         $pivots = DictationUser::all();
         //dd($enrollments);
-
         return view('admin.orders.index', compact('pivots'));
     }
 
     public function edit(DictationUser $pivot) {
         //
         $dictations = Dictation::pluck('date', 'id');
-
         return view('admin.orders.edit', compact('pivot', 'dictations'));
     }
 
     public function  update(Request $request, DictationUser $pivot){
+        
         $pivot->update($request->all());
         return redirect()->route('admin.orders.index', compact('pivot'))
             ->with('info', 'Estado de Pago actualizado');
@@ -36,12 +35,8 @@ class OrderController extends Controller
 
     public function destroy(DictationUser $pivot)
     {
-        /*$a = $pivot->dictation();
-        dd($a);*/
-
         $pivot->delete();
-
-        //AUMENTAR EN UNO EL STOCK DEL DICTADO
+        //AUMENTA EN UNO EL STOCK DEL DICTADO y vuelve 
         return redirect()->route('admin.orders.index', compact('pivot'))
             ->with('info', 'Orden eliminada correctamente !');
     }

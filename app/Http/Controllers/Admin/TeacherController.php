@@ -83,9 +83,9 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        /*$request->validate([
-            'name' => 'required|unique:categories'
-        ]);*/
+        $request->validate([
+            'email' => 'required|unique:teachers',
+        ]);
 
         $teacher->update($request->all());
 

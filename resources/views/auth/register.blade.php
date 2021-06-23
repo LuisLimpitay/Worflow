@@ -29,7 +29,7 @@
 
                         <x-jet-label for="phone" /><small class="text-red-500 text-xl font-bold">* </small>Telefono Celular
                         <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
-                        pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
+                          type="number" name="phone"
                             :value="old('phone')" /><small>Formato: 10 digitos</small><br>
 
                 </div>

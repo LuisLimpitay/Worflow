@@ -18,24 +18,18 @@ use Illuminate\Support\Facades\App;
 
 Route::get('/pruebas', function () {
 
-    /* $date = auth()->user()->level;
-    dump($date);
-    $inscrito = Enrollment::where('user_id', auth()->user()->id)->get();
-    dump($inscrito);*/
     /* $fecha= Carbon::now();
     dd($fecha); */
     /* $a = auth()->user()->dictations(1);
     dd($a); */
+    $h = Carbon::today()->addDays(rand(1,365));
+    dd($h);
 });
 
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-
-
-// ****************************  QA  ******************************************
-Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
 
 //--------------------------------------------------------------------------------
 // -----------------   Controladores CourseController     -------------------------
@@ -62,6 +56,8 @@ Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name(
 Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
 
 
+// ****************************  QA  ******************************************
+Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
 
 
 

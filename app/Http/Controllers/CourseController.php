@@ -59,9 +59,9 @@ class CourseController extends Controller
 
     public function checkout(Dictation $dictation)
     {
-        $dictations = Dictation::with('courses')->get();
+        $dictations = Dictation::all();
 
-        return view('courses.checkout', compact('dictation','courses'));
+        return view('courses.checkout', compact('dictation'));
     }
 
 

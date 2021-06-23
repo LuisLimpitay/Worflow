@@ -16,7 +16,7 @@ class CreateDictationsTable extends Migration
         Schema::create('dictations', function (Blueprint $table) {
             $table->id();
 
-            $table->timestamp('date');
+            $table->date('date')->unique();
             $table->time('time');
             $table->integer('stock');
             $table->enum('status', ['activo', 'completo'])->default('activo');
@@ -25,7 +25,9 @@ class CreateDictationsTable extends Migration
             $table->foreign('place_id')->references('id')->on('places');
 
             $table->unsignedBigInteger('course_id');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');;
 
             $table->timestamps();
         });

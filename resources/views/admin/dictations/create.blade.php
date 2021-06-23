@@ -13,14 +13,14 @@
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
-                    {!! Form::open(['route' => 'admin.dictations.store']) !!}
+                    {!! Form::open(['route' => 'admin.dictations.store', 'autocomplete' => 'off']) !!}
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
 
                                 {!! Form::label('date', 'Fecha') !!}
-                                {!! Form::date('date', null, ['class' => 'form-control', 'min' => '2021-05-31']) !!}
+                                {!! Form::date('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
                                 @error('date')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -31,7 +31,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('time', 'Hora') !!}
-                                {!! Form::time('time', null, ['class' => 'form-control', 'min' => '08:00', 'max' => '18:00']) !!}
+                                {!! Form::time('time', null, ['class' => 'form-control', 'min' => '08:00', 'max' => '12:00']) !!}
                                 @error('time')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -44,7 +44,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('stock', 'Cupos') !!}
-                                {!! Form::number('stock', null, ['class' => 'form-control', 'min' => '1', 'max' => '50', 'placeholder' => 'Numero de cupos']) !!}
+                                {!! Form::number('stock', null, ['class' => 'form-control', 'placeholder' => 'Cupos disponibles']) !!}
                                 @error('stock')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('place_id', 'Ciudad') !!}
-                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Ciudad']) !!}
+                        {!! Form::label('place_id', 'Sede') !!}
+                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Sede']) !!}
                         @error('place_id')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -85,4 +85,21 @@
 
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @stop
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#date").datepicker({
+                minDate: 1,
+                changeMonth: true,
+                changeYear: true,
+                maxDate: "+5M +5D",
+                dateFormat: "yy-mm-dd"
+
+            });
+        });
+
+    </script>
+@stop

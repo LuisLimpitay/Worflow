@@ -18,7 +18,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Users Managment</h3>
+                            <h3 class="card-title">Gestor de Dictados</h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="{{ route('admin.dictations.create') }}"><i
                                         class="fas fa-plus-square"></i></a>
@@ -26,9 +26,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-order" class="table table-striped">
+                            <table id="table-order" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
-                                    <th>ID</th>
                                     <th>Fecha</th>
                                     <th>Sede</th>
                                     <th>Direccion</th>
@@ -44,13 +43,12 @@
                                     @foreach ($dictations as $dictation)
 
                                         <tr>
-                                            <td>{{ $dictation->id }}</td>
-                                            <td> {{ ($dictation->date)->format('d M Y') }} </td>
+                                            <td> {{\Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}} </td>
                                             <td>{{ $dictation->places->name }}</td>
                                             <td>{{ $dictation->places->address_street }}
                                                 {{ $dictation->places->address_number }}</td>
-                                            <td> {{ $dictation->places->city }}</td>
-                                            <td> {{ $dictation->time }} </td>
+                                            <td>{{ $dictation->places->city }}</td>
+                                            <td>{{ $dictation->time }} </td>
 
                                             <td class="text-center"> {{ $dictation->stock }}</td>
 
@@ -64,11 +62,11 @@
 
 
                                             <td>
-                                                <a class="btn btn-primary"
+                                                <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.dictations.edit', $dictation) }}"><i
                                                         class="fas fa-edit"></i></a>
                                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                                 {!! Form::close() !!}
                                             </td>
                                         </tr>
@@ -104,9 +102,9 @@
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": true,
                 "responsive": true,
             });
         });

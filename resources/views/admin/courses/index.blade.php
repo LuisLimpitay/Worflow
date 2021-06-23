@@ -13,7 +13,7 @@
 
 @section('content')
     <!-- Main content -->
-    <a href="{{route('admin.courses.create')}}">Crear</a>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -22,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Courses Managment</h3>
+                            <h3 class="card-title text-lg text-bold">Gestion de Cursos</h3>
                             <div class="card-tools">
                                 <br>
                             </div>

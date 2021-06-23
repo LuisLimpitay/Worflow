@@ -18,13 +18,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('date', 'Fecha') !!}
-                                {!! Form::date('date', $dictation->date, ['class' => 'form-control', 'min' => '2021-07-12']) !!}
+                                {!! Form::date('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('time', 'Hora') !!}
-                                {!! Form::time('time', null, ['class' => 'form-control', 'min' => '08:00', 'max' => '10']) !!}
+                                {!! Form::time('time', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('stock', 'Cupos') !!}
-                                {!! Form::number('stock', null, ['class' => 'form-control', 'readonly', 'min' => '1', 'max' => '35']) !!}
+                                {!! Form::number('stock', null, ['class' => 'form-control', 'readonly']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -62,18 +62,33 @@
     </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Swal.fire(
             'Atención!',
             'Solo podras editar la fecha y hora del dictado del curso',
             'warning'
         )
+
+    </script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#date").datepicker({
+                minDate: 1,
+                changeMonth: true,
+                changeYear: true,
+
+                maxDate: "+5M +5D",
+                dateFormat: "yy-mm-dd"
+
+            });
+        });
 
     </script>
 

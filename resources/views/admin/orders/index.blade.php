@@ -49,7 +49,7 @@
                             <td class="text-center">{{ $pivot->created_at->format('d M Y H:i') }}</td>
                             <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
                             <td>{{ $pivot->dictation->courses->price }}</td>
-                            <td class="text-center">{{ $pivot->dictation->date->format('d M Y') }}</td>
+                            <td class="text-center">{{ \Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y', 'H:i') }}</td>
                             <td>{{ $pivot->payment_method}}</td>
 
                             <td>|
@@ -62,7 +62,7 @@
 
                             <td>
                                 @if ($pivot->status == 'pendiente')
-                                <a class="btn btn-primary" href="{{ route('admin.orders.edit',$pivot) }}"><i
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.orders.edit',$pivot) }}"><i
                                         class="fas fa-edit"></i></a>
                                 @endif
                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.orders.destroy', $pivot],'style'=>'display:inline']) !!}

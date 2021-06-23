@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name', 20);
             $table->string('last_name', 20);
             
-            $table->char('phone')->unique();
+            $table->string('phone')->unique();
             $table->date('expire_license');
             
 

@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         {!! Form::label('teacher_id', 'Instructor') !!}
-                        {!! Form::select('teacher_id', $teachers, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('teacher_id', $teachers, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Instructor']) !!}
                         @error('teacher_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -90,3 +90,17 @@
                 </div>
             </div>
         @stop
+
+        @section('js')
+<script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+<script>
+    $(document).ready( function() {
+        $("#name").stringToSlug({
+        setEvents: 'keyup keydown blur',
+        getPut: '#slug',
+        space: '-'
+        });
+    });
+</script>
+
+@endsection

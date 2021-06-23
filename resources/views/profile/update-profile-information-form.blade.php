@@ -76,7 +76,7 @@
         <!-- TELEFONO CELULAR -->
         <div class="col-span-6 md: sm:col-span-3">
             <x-jet-label for="phone" /> Telefono celular
-            <x-jet-input id="phone" type="text" class="mt-1 block w-full" readonly wire:model.defer="state.phone"
+            <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="state.phone"
                 autocomplete="phone" />
             <x-jet-input-error for="phone" class="mt-2" />
         </div>

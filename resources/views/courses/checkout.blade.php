@@ -16,7 +16,7 @@
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
                 </li>
                 <li>/</li>
-                <li class="px-2"><a href="{{ route('courses.show', $courses) }}" class="no-underline text-indigo">Detalles</a>
+                <li class="px-2"><a href="#" class="no-underline text-indigo">Detalles</a>
                 </li>
                 <li>/</li>
 

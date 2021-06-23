@@ -20,7 +20,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Planillas Managment</h3>
+                            <h3 class="card-title">Lista de Planillas </h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="#"><i
                                         class="fas fa-plus-square"></i></a>
@@ -28,7 +28,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-planilla" class="table table-striped">
+                            <table id="table-sheet" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                 <th>Id Dictado</th>
                                 <th>Fecha del Curso</th>
@@ -41,7 +41,7 @@
                                 @foreach ($dictations as $dictation)
                                     <tr>
                                         <td>{{$dictation->id}}</td>
-                                        <td>{{$dictation->date->format('d M Y')}}</td>
+                                        <td>{{\Carbon\Carbon::parse($dictation->date)->format('d/M/Y')}}</td>
                                         <td>{{$dictation->places->city}}</td>
                                         <td>
                                             <h3 class="badge badge-secondary">
@@ -58,11 +58,11 @@
                                         </td> --}}
 
                                         <td>
-                                            <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal">
+                                            <a class="btn btn-primary btn-sm" href="{{route('admin.sheets.show', $dictation)}}"{{--  data-toggle="modal" data-target="#exampleModal" --}}>
                                                 <i class="far fa-eye"></i></a>
 
-                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
-                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.sheets.destroy', $dictation], 'style' => 'display:inline']) !!}
+                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                             {!! Form::close() !!}
                                         </td>
 
@@ -95,7 +95,7 @@
     <script>
         $(function () {
 
-            $('#table-planilla').DataTable({
+            $('#table-sheet').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
@@ -107,6 +107,6 @@
         });
     </script>
 
-    @include('admin.planillas.show')
+    {{-- @include('admin.sheets.show') --}}
 
 @stop

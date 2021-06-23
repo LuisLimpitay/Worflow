@@ -9,28 +9,19 @@ class Dictation extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'id',
-        'date',
-        'time',
-        'stock',
-        'status',
-        'place_id',
-        'course_id',
-
-    ];
+    protected $guarded = [];
 
     protected $table = 'dictations';
     //REVISAR ESTO EN LA DOC DE CARBON
-    protected $dates = ['date'];
+    //protected $dates = ['date'];
 
+    
     //relaciona mis trablas
     public function scopePublished($query)
     {
         $query->with('places', 'courses')
-            ->orderBy('date','DESC');
+            ->orderBy('date','desc');
     }
-
 
 
     //Relacion A UNO INVERSA

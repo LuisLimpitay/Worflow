@@ -28,32 +28,32 @@ class DictationController extends Controller
     public function create()
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('city', 'id');
+        $places = Place::pluck('name', 'id');
 
         $dictations = Dictation::all();
 
         return view ('admin.dictations.create', compact(
                                                             'dictations',
                                                             'places',
-                                                            'courses',
+                                                            'courses'
                                                         ));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'date' => 'required',
-            'time' => 'required',
-            'stock' => 'required',
+            'date' => 'required|date|unique:dictations',
+            'time' => 'required|time',
+            'stock' => 'numeric|required|min:5|max:35',
             'course_id' => 'required',
-            'place_id' => 'required',
+            'place_id' => 'required',       
 
         ]);
-        //dump($request);
+        //return($request->all());
         $dictations = Dictation::create($request->all());
 
         return redirect()->route('admin.dictations.index', $dictations)
-                            ->with('info', 'Dictado creado con Exito !');
+                            ->with('info', 'Dictado creado con Exito !'); 
     }
 
 
@@ -75,17 +75,25 @@ class DictationController extends Controller
     public function edit(Dictation $dictation)
     {
         $courses = Course::pluck('name', 'id');
-        $places = Place::pluck('city', 'id');
-        //$users = User::pluck('number_license', 'id');
+        $places = Place::pluck('name', 'id');
+        //dump($dates);
         return view ('admin.dictations.edit', compact(
                                                         'dictation',
                                                         'places',
-                                                        'courses',
-                                                    ));
+                                                        'courses'
+                                                     ));
     }
 
     public function update(Request $request, Dictation $dictation)
     {
+        $request->validate([
+            'date' => 'date|unique:dictations,date',
+            'time' => 'required',
+            'stock' => 'numeric|required|min:5|max:35',
+            'course_id' => 'required',
+            'place_id' => 'required',       
+
+        ]);
         $dictation->update($request->all());
         return redirect()->route('admin.dictations.index', $dictation)
                             ->with('info', 'Dictado actualizado con Exito !');

@@ -29,7 +29,7 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:users',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password'
 

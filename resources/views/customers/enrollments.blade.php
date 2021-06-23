@@ -33,7 +33,7 @@
                 <div class="max-w-md mt-8  bg-white mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
                     <div class=" text-right px-3 pt-3 py-2 text-white bg-green-600">
-                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
+                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar Comprobante</a>
                     </div>
 
                     <div class="md:flex">
@@ -79,7 +79,7 @@
                 <div class="max-w-md mt-8  bg-white mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
 
                     <div class=" text-right px-3 pt-3 py-2 text-white bg-red-400">
-                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar</a>
+                        <a href="{{ route('inscripcion', auth()->user()->id) }}" target="_blank">Descargar Factura</a>
                     </div>
                     <h3 class="font-semibold mt-2 text-center text-2xl tracking-wide">Tu pago esta pendiente
                     </h3>

@@ -36,7 +36,8 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
 
-    protected $dates = ['expire_license'];
+    //  
+    //protected $dates = ['expire_license'];
 
     /**
      * The attributes that should be hidden for arrays.

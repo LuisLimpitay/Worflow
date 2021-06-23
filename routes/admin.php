@@ -6,8 +6,8 @@ use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\ListController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\SheetController;
 use Illuminate\Support\Facades\Route;
 /* $pdf = App::make('customers.enrollments');
 $pdf->loadView('welcome');
@@ -18,7 +18,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('level')->name('ad
 
 
 Route::resource('customers', CustomerController::class)->middleware('level')->names('admin.customers');
-Route::resource('planillas' ,ListController::class)->middleware('level')->names('admin.planillas');
+Route::resource('planillas' ,SheetController::class)->middleware('level')->names('admin.sheets');
 
 //mando orders como parametros,
 Route::resource('orders', OrderController::class)->parameters(['orders' => 'pivot'])->middleware('level')->names('admin.orders');

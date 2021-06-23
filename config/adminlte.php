@@ -246,8 +246,8 @@ return [
 
         [
             'text' => 'Planillas',
-            'route'  => 'admin.planillas.index',
-            'icon' => 'far fa-address-card fa-fw'
+            'route'  => 'admin.sheets.index',
+            'icon' => 'fas fa-clipboard fa-fw'
         ],
 
         [
@@ -288,26 +288,6 @@ return [
             'active' => ['admin/teachers*']
         ],
         
-
-        [
-            'text'    => 'multilevel',
-            'icon'    => '',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
 
     ],
 
