@@ -9,9 +9,11 @@
 @endsection
 
 @section('content_header')
+    <p class="text-xl">Gestor de Sedes</p>
 @endsection
 
 @section('content')
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -21,9 +23,10 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gestor de Sedes</h3>
+                            <h3 class="card-title text-lg ">Sedes | Lista</h3>
                             <div class="card-tools">
-
+                                <a class="btn btn-success" href="{{ route('admin.places.create') }}"><i
+                                        class="fas fa-plus-square"></i></a>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -43,14 +46,14 @@
                                             <td>{{ $place->id }}</td>
                                             <td>{{ $place->name }}</td>
                                             <td>{{ $place->address_street }} N° {{ $place->address_number }}</td>
-                                            <td>{{ $place->city }}</td>
+                                            <td>{{ $place->city->name }}</td>
 
                                             <td>
-                                                <a class="btn btn-primary"
+                                                <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.places.edit', $place) }}"><i
                                                         class="fas fa-edit"></i></a>
                                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.places.destroy', $place], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                                 {!! Form::close() !!}
                                             </td>
                                         </tr>
@@ -79,7 +82,6 @@
 @section('js')
     <script>
         $(function() {
-
             $('#table-place').DataTable({
                 "paging": true,
                 "lengthChange": true,
@@ -90,7 +92,6 @@
                 "responsive": true,
             });
         });
-
     </script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -101,7 +102,25 @@
                 'Sede eliminada con éxito.',
                 'success'
             )
+        </script>
+    @elseif(session('info') == 'Sede actualizada con éxito !')
+        <script>
+            Swal.fire(
+                'Actualizado!',
+                'Sede actualizada con éxito.',
+                'success'
+            )
+        </script>
 
+    @endif
+    Instructor actualizado con exito !
+    @if(session('info') == 'Sede creada con éxito !')
+        <script>
+            Swal.fire(
+                'Exito!',
+                'Sede creada sastifactoriamente.',
+                'success'
+            )
         </script>
     @endif
 
@@ -116,7 +135,7 @@
             e.preventDefault();
             //luego le paso el alert
             Swal.fire({
-                title: 'Estas seguro que deseas eliminar el dictado del curso ?',
+                title: 'Estas seguro que deseas eliminar la Sede ?',
                 text: "No podras revertirlo",
                 icon: 'warning',
                 showCancelButton: true,
@@ -131,6 +150,5 @@
                 }
             })
         });
-
     </script>
 @stop

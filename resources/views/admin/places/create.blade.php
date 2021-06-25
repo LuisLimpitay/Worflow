@@ -51,16 +51,16 @@
                 </div>
             </div>
 
-                <div class="form-group">
-                    {!! Form::label('city', 'Ciudad' ) !!}
-                    {!! Form::text('city', null, ['class'=> 'form-control', 'placeholder' => 'Nombre de la Ciudad']) !!}
+                    <div class="form-group">
+                        {!! Form::label('city_id', 'Ciudad') !!}
+                        {!! Form::select('city_id', $cities, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una Ciudad']) !!}
+                        @error('city_id')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
 
-                    @error('city')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
+                <br>
+                <hr>
                 {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
                 <a href="{{route('admin.places.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 

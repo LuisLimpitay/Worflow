@@ -62,41 +62,34 @@
     <!-- ************************************************************************************************************-->
     <div class="container mx-auto py-8 ">
 
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="md:flex">
+            @foreach ($courses as $course)
 
-                @foreach ($courses as $course)
+                <div class="container mx-auto flex flex-col max-w-md bg-gray-300  px-8 py-2 rounded-xl space-y-5 items-center">
 
-                    <div class="md:flex-shrink-0">
-
-                        <img class="h-48 w-full object-cover md:h-full md:w-48"
-                            src="https://images.pexels.com/photos/1203768/pexels-photo-1203768.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="Man looking at item at a store">
+                    <p class="inline-block px-3 bg-red-500 text-gray-200 rounded-full">
+                        Modalidad {{ $course->mode }}
+                    </p>
+                    <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
+                    <p class="mt-2 text-gray-500">{{ $course->description }}</p>
+                    <p class="mt-2 text-gray-500"><b>Instructor: </b>{{ $course->teachers->name }}</p><br>
+                    <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">ARS
+                        ${{ number_format($course->price) }}</p>
+                    <hr>
+                    <div class="flex justify-center">
+                        <a href="{{ route('courses.show', $course) }}"
+                           class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+                           role="button" aria-pressed="true">
+                            INSCRIBIRME
+                        </a>
                     </div>
 
-                    <div class="p-8">
-                        <p class="inline-block px-3 bg-red-500 text-gray-200 rounded-full">
-                            Modalidad {{ $course->mode }}
-                        </p>
-                        <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
-                        <p class="mt-2 text-gray-500">{{ $course->description }}</p>
-                        <p class="mt-2 text-gray-500"><b>Instructor: </b>{{ $course->teachers->name }}</p><br>
-                        <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">ARS
-                            ${{ $course->price }}</p><br>
-                        <br>
-                        <div class="flex justify-center">
-                            <a href="{{ route('courses.show', $course) }}"
-                               class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
-                               role="button" aria-pressed="true">
-                                INSCRIBIRME
-                            </a>
-                        </div>
+                </div>
 
-                    </div>
-            </div>
+            @endforeach
+
         </div>
-        @endforeach
 
     </div>
     <!-- ************************************************************************************************************-->

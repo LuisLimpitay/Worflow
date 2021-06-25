@@ -11,14 +11,9 @@ use Illuminate\Support\Facades\App;
 
 class EnrollmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.       
-     *
-     * @return \Illuminate\Http\Response
-     */
+
         public function index(User $user)
         {
-
             $users = User::find($user->id);
             //dump($users);
             return view('customers.enrollments', compact('users'));
@@ -37,5 +32,5 @@ class EnrollmentController extends Controller
             return $pdf->stream();
         }
 
-        
+
 }

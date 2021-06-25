@@ -59,12 +59,12 @@ class DictationSeeder extends Seeder
 
 
         ]);
-        /* $dictations = Dictation::factory(2)->create();
+        $dictations = Dictation::all();
         foreach($dictations as $dictation){
             $dictation->users()->attach([4,5,6]);
-        } */
+        }
  /*
-        
+
         Dictation::create([
             'date' => '2021-06-10',
             'time' => '09:00',

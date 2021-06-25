@@ -16,7 +16,6 @@ class OrderController extends Controller
     public function index()
     {
         $pivots = DictationUser::all();
-        //dd($enrollments);
         return view('admin.orders.index', compact('pivots'));
     }
 
@@ -27,7 +26,7 @@ class OrderController extends Controller
     }
 
     public function  update(Request $request, DictationUser $pivot){
-        
+
         $pivot->update($request->all());
         return redirect()->route('admin.orders.index', compact('pivot'))
             ->with('info', 'Estado de Pago actualizado');
@@ -36,7 +35,7 @@ class OrderController extends Controller
     public function destroy(DictationUser $pivot)
     {
         $pivot->delete();
-        //AUMENTA EN UNO EL STOCK DEL DICTADO y vuelve 
+        //AUMENTA EN UNO EL STOCK DEL DICTADO y vuelve
         return redirect()->route('admin.orders.index', compact('pivot'))
             ->with('info', 'Orden eliminada correctamente !');
     }

@@ -7,30 +7,30 @@
 @stop
 
 @section('content')
-@if (session('info'))
-    <div class="alert alert-success">
-        <strong>{{session('info')}}</strong>
-    </div>
-@endif
-    <div class="card">
-        <div class="card-body">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary card-outline">
+                <div class="card-body">
 
             {!! Form::open(['route' => 'admin.courses.store']) !!}
 
-                <div class="form-group">
-
-                    {!! Form::label('name', 'Nombre del Curso' ) !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Curso' ]) !!}
-                    @error('name')
-                        <small class="text-danger">*{{$message}}</small>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-
-                    {!! Form::label('slug', 'Slug' ) !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'readonly']) !!}
-
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('name', 'Nombre del Curso' ) !!}
+                            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Curso' ]) !!}
+                            @error('name')
+                            <small class="text-danger">*{{$message}}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('slug', 'Slug' ) !!}
+                            {!! Form::text('slug', null, ['class' => 'form-control', 'readonly']) !!}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -50,27 +50,33 @@
 
                 </div>
 
-                <div class="form-group">
-                    {!! Form::label('mode', 'Modalidad' ) !!}
-                    {!! Form::select('mode', ['presencial' => 'presencial','online' => 'online', 'mixta' => 'mixta' ], null, ['class' => 'form-control' ]) !!}
-                    @error('mode')
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('mode', 'Modalidad' ) !!}
+                        {!! Form::select('mode', ['Presencial' => 'Presencial'], null, ['class' => 'form-control','placeholder' => 'Seleccionar Modalidad' ]) !!}
+                        @error('mode')
                         <small class="text-danger">*{{$message}}</small>
-                    @enderror
+                        @enderror
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('price', 'Precio en ARS $' ) !!}
+                        {!! Form::number('price', null, ['class'=> 'form-control', 'placeholder' => 'EJ: 2000']) !!}
+                        @error('price')
+                        <small class="text-danger">*{{$message}}</small>
+                        @enderror
+                    </div>
+                </div>
+            </div>
 
-                <div class="form-group">
-                    {!! Form::label('price', 'Precio en ARS $' ) !!}
-                    {!! Form::number('price', null, ['class'=> 'form-control', 'placeholder' => 'EJ: 2000']) !!}
-                    @error('price')
-                        <small class="text-danger">*{{$message}}</small>
-                    @enderror
-                </div>
 
                 <div class="form-group">
                     {!! Form::label('teacher_id', 'Instructor' ) !!}
-                    {!! Form::select('teacher_id', $teachers, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un Instructor' ]) !!}
+                    {!! Form::select('teacher_id', $teachers, null, ['class' => 'form-control', 'placeholder' => 'Seleccionar Instructor' ]) !!}
                     @error('teacher_id')
-                        <small class="text-danger">*{{$message}}</small>
+                        <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
 
@@ -82,6 +88,8 @@
 
             {!! Form::close() !!}
 
+                </div>
+            </div>
 
         </div>
     </div>

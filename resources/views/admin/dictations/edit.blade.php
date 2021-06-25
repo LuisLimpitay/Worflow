@@ -18,13 +18,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('date', 'Fecha') !!}
-                                {!! Form::date('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
+                                {!! Form::text('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
+                                @error('date')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('time', 'Hora') !!}
                                 {!! Form::time('time', null, ['class' => 'form-control']) !!}
+                                @error('time')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             </div>
                         </div>
                     </div>
@@ -40,14 +46,14 @@
 
                             <div class="form-group">
                                 {!! Form::label('course_id', 'Nombre del Curso') !!}
-                                {!! Form::select('course_id', $courses, null, ['class' => 'form-control', 'readonly']) !!}
+                                {!! Form::select('course_id', $courses, null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('place_id', 'Ciudad') !!}
-                        {!! Form::select('place_id', $places, null, ['class' => 'form-control', 'readonly']) !!}
+                        {!! Form::select('place_id', $places, null, ['class' => 'form-control']) !!}
 
                     </div>
 

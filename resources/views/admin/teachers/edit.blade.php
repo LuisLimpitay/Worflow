@@ -2,8 +2,9 @@
 
 @section('title', 'Admin')
 
+
 @section('content_header')
-    <h1>Editar Datos del Instructor</h1>
+    <h1>Instructor | Editar</h1>
 @stop
 
 @section('content')
@@ -21,28 +22,31 @@
             {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
 
             <div class="form-group">
-                {!! Form::label('name', 'Nombre del Instructor') !!}
+                {!! Form::label('name', 'Apellido y Nombre') !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 @error('name')
-                    <span class="text-danger">{{ $message }}</span>
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
 
             </div>
+                    <div class="form-group">
+                        {!! Form::label('email', 'Email') !!}
+                        {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                        @error('email')
+                        <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
             <div class="form-group">
                 {!! Form::label('about', 'Acerca de') !!}
                 {!! Form::text('about', null, ['class' => 'form-control']) !!}
+                <small>podra escribir un poco sobre la trayectorio profesional del Instructor</small>
                 @error('about')
-                    <span class="text-danger">{{ $message }}</span>
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
 
-            <div class="form-group">
-                {!! Form::label('email', 'Email') !!}
-                {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
+                    <br>
+                    <hr>
 
             {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
             <a href="{{route('admin.teachers.index')}}" class="btn btn-danger" type="submit">Cancelar</a>

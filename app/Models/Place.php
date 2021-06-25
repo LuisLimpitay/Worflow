@@ -11,15 +11,20 @@ class Place extends Model
 
     protected $fillable = [
         'name',
-        'city',
         'address_street',
-        'address_number'
-        
+        'address_number',
+        'city_id',
+
     ];
 
-    //Relacion UNO A MUCHOS 
+    //Relacion UNO A MUCHOS
     public function dictations(){
         return $this->hasMany(Dictation::class);
-    
+
+    }
+
+    public function city(){
+        return $this->belongsTo(City::class);
+
     }
 }

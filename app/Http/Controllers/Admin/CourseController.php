@@ -45,9 +45,8 @@ class CourseController extends Controller
 
         ]);
         $courses = Course::create($request->all());
-
         return redirect()->route('admin.courses.index', $courses)
-                            ->with('info', 'Curso agregado con exito !!!');;
+                            ->with('info', 'Curso agregado con exito !!!');
     }
 
 

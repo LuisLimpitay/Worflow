@@ -110,7 +110,7 @@
                                                         class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-left font-bold text-black uppercase tracking-wider">
                                                         Ciudad
                                                     </th>
-                                                    
+
                                                     <th
                                                         class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 text-center font-bold text-black uppercase tracking-wider">
                                                         Direccion
@@ -136,11 +136,11 @@
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 text-center whitespace-no-wrap">{{\Carbon\Carbon::parse($dictation->date)->format('d M Y')}}</p>
                                                     </td>
-                                                    
+
                                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                        <p class="text-gray-900 whitespace-no-wrap">{{$dictation->places->city}}</p>
+                                                        <p class="text-gray-900 whitespace-no-wrap">{{$dictation->places->city->name}}</p>
                                                     </td>
-                                                    
+
 
                                                     <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
                                                         <p class="text-gray-900 whitespace-no-wrap">

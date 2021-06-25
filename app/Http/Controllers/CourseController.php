@@ -31,10 +31,11 @@ class CourseController extends Controller
     -----------------------------------------------------------------------------*/
     public function show(Course $course)
     {
-        //Con esto muestro los dictados donde esta inscripto un usuario determinado
+
 
         if (Auth::check()) {
             $dictado = auth()->user()->dictations;
+
             $ids = $dictado->pluck('id');
 
             $dictations = Dictation::with('courses')
@@ -43,8 +44,10 @@ class CourseController extends Controller
                 ->orderby('date', 'DESC')
                 ->paginate(4);
         } else {
+            $course_id= $course->id;
             $dictations = Dictation::with('courses')
-                ->where('stock', '>', '0')
+                ->where('stock' ,'>', 0)
+                ->where('course_id', $course_id )
                 ->orderby('date', 'DESC')
                 ->paginate(4);
             //dd($dictations);
@@ -56,11 +59,9 @@ class CourseController extends Controller
     /*ESTO ME MUESTRA TODOS LOS DICTADOS DE UN CURSO SIN FILTROS
         $dictations = $course->dictations;*/
 
-
     public function checkout(Dictation $dictation)
     {
         $dictations = Dictation::all();
-
         return view('courses.checkout', compact('dictation'));
     }
 
@@ -70,6 +71,7 @@ class CourseController extends Controller
     {
         return view('qa');
     }
+
     // retorna form de contacto
     public function contact()
     {

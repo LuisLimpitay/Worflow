@@ -174,8 +174,9 @@ return [
         'number_license' => 'Número de Licencia de Conducir',
         'expire_license' => 'Vencimiento Licencia de Conducir',
         'payment_method' => 'Medio de pago',
-        'phone' => 'Telefono Celular'
-        
+        'phone' => 'Telefono Celular',
+        'city_id' => 'Ciudad'
+
 
     ],
 

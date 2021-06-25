@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        $this->call(CitySeeder::class);
+
         $this->call(PlaceSeeder::class);
         Teacher::factory(1)->create();
         Course::factory(1)->create();

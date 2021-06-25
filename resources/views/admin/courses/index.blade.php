@@ -9,7 +9,8 @@
 @endsection
 
 @section('content_header')
-@stop
+    <p class="text-xl">Gestor de Cursos</p>
+@endsection
 
 @section('content')
     <!-- Main content -->
@@ -22,21 +23,22 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title text-lg text-bold">Gestion de Cursos</h3>
+                            <h3 class="card-title text-lg">Cursos | Lista</h3>
                             <div class="card-tools">
-                                <br>
+                                <a class="btn btn-success" href="{{ route('admin.courses.create') }}"><i
+                                        class="fas fa-plus-square"></i></a>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-course" class="table table-striped table-responsive">
+                            <table id="table-course" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
                                     <th>Nombre</th>
                                     <th>Descripcion</th>
                                     <th>Instructor</th>
                                     <th>Modalidad</th>
                                     <th>Precio </th>
-                                    <th width="80px">Action</th>
+                                    <th width="80px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -46,11 +48,15 @@
                                             <td> {{ $course->description }} </td>
                                             <td> {{ $course->teachers->name }}</td>
                                             <td> {{ $course->mode }}</td>
-                                            <td> {{ $course->price }}</td>
-                                            <td width="10px">
+                                            <td class=""> $ {{ number_format($course->price)  }}</td>
+
+                                            <td>
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.courses.edit', $course) }}"><i
                                                         class="fas fa-edit"></i></a>
+                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.courses.destroy', $course], 'style' => 'display:inline']) !!}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                {!! Form::close() !!}
                                             </td>
                                         </tr>
                                     @endforeach
@@ -83,7 +89,7 @@
                 "searching": true,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
             });
         });
@@ -113,7 +119,7 @@
             e.preventDefault();
             //luego le paso el alert
             Swal.fire({
-                title: 'Estas seguro que deseas eliminar el dictado del curso ?',
+                title: 'Estas seguro que deseas eliminar el Curso ?',
                 text: "No podras revertirlo",
                 icon: 'warning',
                 showCancelButton: true,

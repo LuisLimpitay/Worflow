@@ -48,7 +48,7 @@
                             <td>{{ $pivot->id }}</td>
                             <td class="text-center">{{ $pivot->created_at->format('d M Y H:i') }}</td>
                             <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
-                            <td>{{ $pivot->dictation->courses->price }}</td>
+                            <td>$ {{ number_format($pivot->ammount) }}</td>
                             <td class="text-center">{{ \Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y', 'H:i') }}</td>
                             <td>{{ $pivot->payment_method}}</td>
 
@@ -101,7 +101,7 @@
                 "searching": true,
                 "ordering": true,
                 "info": true,
-                "autoWidth": false,
+                "autoWidth": true,
                 "responsive": true,
             });
         });

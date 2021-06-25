@@ -6,31 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePlacesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-           
+            $table->string('name')->unique();
             $table->string('address_street', 20);
             $table->string('address_number', 10);
-            $table->string('city');
+
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('places');

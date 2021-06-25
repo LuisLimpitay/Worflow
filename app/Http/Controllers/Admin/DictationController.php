@@ -20,6 +20,8 @@ class DictationController extends Controller
 
     public function index()
     {
+        /*$dictado = auth()->user()->dictations;
+        dd($dictado);*/
         $dictations = Dictation::published()->get();
         return view('admin.dictations.index', compact('dictations'));
 
@@ -41,19 +43,19 @@ class DictationController extends Controller
 
     public function store(Request $request)
     {
+        //return($request->all());
         $request->validate([
-            'date' => 'required|date|unique:dictations',
-            'time' => 'required|time',
+            'date' => 'required|unique:dictations,date',
+            'time' => 'required',
             'stock' => 'numeric|required|min:5|max:35',
             'course_id' => 'required',
-            'place_id' => 'required',       
+            'place_id' => 'required',
 
         ]);
-        //return($request->all());
-        $dictations = Dictation::create($request->all());
 
+        $dictations = Dictation::create($request->all());
         return redirect()->route('admin.dictations.index', $dictations)
-                            ->with('info', 'Dictado creado con Exito !'); 
+                            ->with('info', 'Dictado creado con Exito !');
     }
 
 
@@ -87,11 +89,11 @@ class DictationController extends Controller
     public function update(Request $request, Dictation $dictation)
     {
         $request->validate([
-            'date' => 'date|unique:dictations,date',
+            'date' => 'required|unique:dictations,date,'.$dictation->id,
             'time' => 'required',
             'stock' => 'numeric|required|min:5|max:35',
             'course_id' => 'required',
-            'place_id' => 'required',       
+            'place_id' => 'required',
 
         ]);
         $dictation->update($request->all());

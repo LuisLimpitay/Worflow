@@ -6,19 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTeachersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('teachers', function (Blueprint $table) {
+
             $table->id();
 
             $table->string('name', 20);
+            $table->string('email')->unique();
             $table->text('about', 100);
-            $table->string('email');
+
 
             $table->timestamps();
         });

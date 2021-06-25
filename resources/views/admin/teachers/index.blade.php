@@ -9,6 +9,7 @@
 @endsection
 
 @section('content_header')
+    <p class="text-xl">Gestor de Instructores</p>
 @endsection
 
 @section('content')
@@ -21,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gestor de Instructores</h3>
+                            <h3 class="card-title text-lg">Instructores | Lista</h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="{{ route('admin.teachers.create') }}"><i
                                         class="fas fa-plus-square"></i></a>
@@ -47,11 +48,11 @@
                                         <td>{{ $teacher->about }}</td>
 
                                         <td>
-                                            <a class="btn btn-primary"
+                                            <a class="btn btn-primary btn-sm"
                                                href="{{ route('admin.teachers.edit', $teacher) }}"><i
                                                     class="fas fa-edit"></i></a>
                                             {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
-                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger']) }}
+                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>
@@ -95,17 +96,34 @@
     </script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if (session('info') == 'Sede eliminada con éxito !')
+    @if (session('info') == 'Instructor eliminado con éxito !')
         <script>
             Swal.fire(
                 'Eliminado!',
-                'Sede eliminada con éxito.',
+                'Instructor eliminado con éxito.',
+                'success'
+            )
+
+        </script>
+        @elseif(session('info') == 'Instructor actualizado con exito !')
+        <script>
+            Swal.fire(
+                'Actualizado!',
+                'Instructor actualizado con éxito.',
                 'success'
             )
 
         </script>
     @endif
-
+    @if(session('info') == 'Instructor creado con Exito !')
+        <script>
+            Swal.fire(
+                'Exito!',
+                'Instructor creado sastifactoriamente.',
+                'success'
+            )
+        </script>
+    @endif
     <script>
         /*lo que hago es seleccionar esa clase $('.form-eliminar')  y le digo que cuando traten de enviar el form
                         haga la siguiente accion .submit(function(e){
@@ -117,7 +135,7 @@
             e.preventDefault();
             //luego le paso el alert
             Swal.fire({
-                title: 'Estas seguro que deseas eliminar el dictado del curso ?',
+                title: 'Estas seguro que deseas eliminar un Instructor ?',
                 text: "No podras revertirlo",
                 icon: 'warning',
                 showCancelButton: true,

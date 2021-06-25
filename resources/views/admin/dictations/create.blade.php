@@ -3,7 +3,7 @@
 @section('title', 'Admin')
 
 @section('content_header')
-    <h1>Formulario de creacion de un dictado</h1>
+    <h1>Nuevo Lugar de Dictado</h1>
 @stop
 
 @section('content')
@@ -92,7 +92,7 @@
     <script type="text/javascript">
         $(function() {
             $("#date").datepicker({
-                minDate: 1,
+                minDate: 10,
                 changeMonth: true,
                 changeYear: true,
                 maxDate: "+5M +5D",

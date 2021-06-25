@@ -22,12 +22,12 @@ class CreateCoursesTable extends Migration
             $table->longText('content');
             $table->string('mode', 12);
             $table->decimal('price', 10,2);
-                        
-            
+
+
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade')
             ->onUpdate('cascade');
-             
+
             $table->timestamps();
         });
     }

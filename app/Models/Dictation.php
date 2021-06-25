@@ -15,7 +15,7 @@ class Dictation extends Model
     //REVISAR ESTO EN LA DOC DE CARBON
     //protected $dates = ['date'];
 
-    
+
     //relaciona mis trablas
     public function scopePublished($query)
     {

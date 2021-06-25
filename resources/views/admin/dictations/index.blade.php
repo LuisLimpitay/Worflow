@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
+@section('content_header')
+    <p class="text-xl">Gestor de Dictados</p>
+@endsection
+
 @section('content')
     <!-- Main content -->
     <section class="content">
@@ -18,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gestor de Dictados</h3>
+                            <h3 class="card-title text-lg">Dictados | Lista</h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="{{ route('admin.dictations.create') }}"><i
                                         class="fas fa-plus-square"></i></a>
@@ -26,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-order" class="table table-striped table-responsive-sm">
+                            <table id="table-place" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
                                     <th>Fecha</th>
                                     <th>Sede</th>
@@ -36,7 +40,7 @@
                                     <th>Cupos</th>
                                     <th>Estado</th>
 
-                                    <th width="80px">Action</th>
+                                    <th width="80px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -47,7 +51,7 @@
                                             <td>{{ $dictation->places->name }}</td>
                                             <td>{{ $dictation->places->address_street }}
                                                 {{ $dictation->places->address_number }}</td>
-                                            <td>{{ $dictation->places->city }}</td>
+                                            <td>{{ $dictation->places->city->name }}</td>
                                             <td>{{ $dictation->time }} </td>
 
                                             <td class="text-center"> {{ $dictation->stock }}</td>
@@ -98,7 +102,7 @@
     <script>
         $(function() {
 
-            $('#table-order').DataTable({
+            $('#table-place').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
@@ -117,6 +121,26 @@
             Swal.fire(
                 'Eliminado!',
                 'El dictado del curso se elimino con éxito.',
+                'success'
+            )
+
+        </script>
+    @elseif (session('info') == 'Dictado actualizado con Exito !')
+        <script>
+            Swal.fire(
+                'Actualizado!',
+                'El dictado del curso se actualizo con éxito..',
+                'success'
+            )
+
+        </script>
+
+    @endif
+    @if(session('info') == 'Dictado creado con Exito !')
+        <script>
+            Swal.fire(
+                'Exito !',
+                'El dictado del curso se creo correctamente.',
                 'success'
             )
 
