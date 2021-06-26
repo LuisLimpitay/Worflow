@@ -20,12 +20,12 @@ class DictationController extends Controller
 
     public function index()
     {
-        /*$dictado = auth()->user()->dictations;
-        dd($dictado);*/
+
         $dictations = Dictation::published()->get();
         return view('admin.dictations.index', compact('dictations'));
 
     }
+
 
     public function create()
     {
@@ -104,7 +104,7 @@ class DictationController extends Controller
 
     public function destroy(Dictation $dictation)
     {
-            //dd($dictation);
+            dd($dictation);
             $dictation->delete();
             //luego de hacer esto va a mi modelo y suma uno al dictation
             return redirect()->route('admin.dictations.index')

@@ -19,7 +19,6 @@ Route::get('/', [HomeController::class, 'index'])->middleware('level')->name('ad
 
 Route::resource('customers', CustomerController::class)->middleware('level')->names('admin.customers');
 Route::resource('planillas' ,SheetController::class)->middleware('level')->names('admin.sheets');
-
 //mando orders como parametros,
 Route::resource('orders', OrderController::class)->parameters(['orders' => 'pivot'])->middleware('level')->names('admin.orders');
 

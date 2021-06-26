@@ -3,8 +3,9 @@
 
     <style>
         .active{
-            color: yellow;
-            background: red;
+            color: lightgray;
+            background: #6366F1;
+
         }
     </style>
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -117,7 +118,7 @@
             @else
                 <div>
                     <a href="{{route('login')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesion</a>
-                    <a href="{{route('register')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Registrarse</a>
+                    <a href="{{route('register')}}" class="text-white bg-green-400 lg:hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Registrarse</a>
 
                 </div>
             @endauth

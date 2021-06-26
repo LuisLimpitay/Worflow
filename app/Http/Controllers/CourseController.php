@@ -35,7 +35,6 @@ class CourseController extends Controller
 
         if (Auth::check()) {
             $dictado = auth()->user()->dictations;
-
             $ids = $dictado->pluck('id');
 
             $dictations = Dictation::with('courses')

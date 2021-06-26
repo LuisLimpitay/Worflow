@@ -13,30 +13,26 @@
 
                 <div class="-mx-3 md:flex mb-6">
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <x-jet-label for="name" /><small class="text-red-500 text-xl font-bold">* </small> Nombre /s
-                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"
-                         />
+                        <x-jet-label for="name" /><small class="text-red-500">* </small> Nombre /s
+                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"/>
 
                     </div>
                     <div class="md:w-1/2 px-3">
-                        <x-jet-label for="last_name" /><small class="text-red-500 text-xl font-bold">* </small> Apellido /s
+                        <x-jet-label for="last_name" /><small class="text-red-500">* </small> Apellido /s
                         <x-jet-input id="last_name" class="block mt-1 w-full" placeholder="Lamonte" type="text" name="last_name"
                             :value="old('last_name')" />
                     </div>
                 </div>
 
                 <div class="mt-4">
-
-                        <x-jet-label for="phone" /><small class="text-red-500 text-xl font-bold">* </small>Telefono Celular
-                        <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
-                          type="number" name="phone"
-                            :value="old('phone')" /><small>Formato: 10 digitos</small><br>
-
+                    <x-jet-label for="phone" /><small class="text-red-500">* </small> Telefono Celular
+                    <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
+                                 pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
+                                 :value="old('phone')" /><small>Ingrese un numero que no conternga el prefijo 0 y 15</small><br>
                 </div>
 
-
                 <div class="mt-4">
-                    <x-jet-label for="expire_license" /><small class="text-red-500 text-xl font-bold">* </small>Vencimiento de Licencia Nacional de Conducir
+                    <x-jet-label for="expire_license" /><small class="text-red-500">* </small>Vencimiento de Licencia Nacional de Conducir
                     <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date" name="expire_license  " :value="old('expire_license')"  />
                 </div>
                 <br>
@@ -44,18 +40,18 @@
 
                 <div class="-mx-3 md:flex mb-6">
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <x-jet-label for="email"/><small class="text-red-500 text-xl font-bold">* </small> Email
+                        <x-jet-label for="email"/><small class="text-red-500">* </small> Email
                         <x-jet-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
                     </div>
                     <div class="md:w-1/2 px-3">
-                        <x-jet-label for="password" /><small class="text-red-500 text-xl font-bold">* </small> Contraseña
+                        <x-jet-label for="password" /><small class="text-red-500">* </small> Contraseña
                         <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
                             autocomplete="new-password" />
                     </div>
                 </div>
 
                 <div class="mt-4">
-                    <x-jet-label for="password_confirmation" /><small class="text-red-500 text-xl font-bold">* </small> Confirmar Contraseña
+                    <x-jet-label for="password_confirmation" /><small class="text-red-500">* </small> Confirmar Contraseña
                     <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
                         name="password_confirmation" autocomplete="new-password" />
                 </div>

@@ -21,7 +21,7 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->longText('content');
             $table->string('mode', 12);
-            $table->decimal('price', 10,2);
+            $table->decimal('price', 8,2);
 
 
             $table->unsignedBigInteger('teacher_id');

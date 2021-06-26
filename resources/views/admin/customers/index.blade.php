@@ -9,8 +9,8 @@
 @endsection
 
 @section('content_header')
-
-@stop
+    <p class="text-xl">Gestion de Clientes</p>
+@endsection
 
 @section('content')
     <!-- Main content -->
@@ -22,7 +22,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Users Managment</h3>
+                            <h3 class="card-title">Clientes | Lista</h3>
                             <div class="card-tools">
                                 <a class="btn btn-success" href="{{route('admin.customers.create')}}"><i
                                     class="fas fa-plus-square"></i></a>

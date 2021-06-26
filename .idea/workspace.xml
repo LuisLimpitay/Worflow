@@ -22,42 +22,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="13.06.21">
+    <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="25.06.21">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/sheets/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DictationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DictationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ListController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlaceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SheetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SheetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EnrollmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Dictation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Dictation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Place.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Place.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_04_30_000000_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_04_30_000000_create_teachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214233_create_places_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214233_create_places_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214700_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214700_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PlaceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PlaceSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customers/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/places/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/places/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/places/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/places/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/places/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/places/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/sheets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sheets/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/customers/enrollments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers/enrollments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/qa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/qa.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +246,7 @@
       <workItem from="1623429192620" duration="66730000" />
       <workItem from="1623680132418" duration="38000" />
       <workItem from="1624592759149" duration="307000" />
-      <workItem from="1624628726404" duration="22059000" />
+      <workItem from="1624628726404" duration="53531000" />
     </task>
     <task id="LOCAL-00001" summary="eliminar orden">
       <created>1623448401499</created>
@@ -286,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623633432189</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="25.06.21">
+      <created>1624656422992</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624656422992</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +305,8 @@
     <MESSAGE value="eliminar orden" />
     <MESSAGE value="12.06.21" />
     <MESSAGE value="13.06.21" />
-    <option name="LAST_COMMIT_MESSAGE" value="13.06.21" />
+    <MESSAGE value="25.06.21" />
+    <option name="LAST_COMMIT_MESSAGE" value="25.06.21" />
   </component>
   <component name="WindowStateProjectService">
     <state x="431" y="184" key="#Notifications" timestamp="1623363544279">
@@ -327,18 +325,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1623680169770" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1623502016737">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1624660075942">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1623502016737" />
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1624660075942" />
     <state x="222" y="0" key="SettingsEditor" timestamp="1623435904978">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="222" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1623435904978" />
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1623633447546">
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1624656426953">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1623633447546" />
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1624656426953" />
     <state x="92" y="92" width="1182" height="544" key="dock-window-1" timestamp="1623498350049">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -347,10 +345,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1622172138337" />
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1624653176494">
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup" timestamp="1624731520533">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1624653176494" />
+    <state x="346" y="49" width="672" height="160" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1624731520533" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -372,28 +370,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>287</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>40</line>
+          <line>38</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>224</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/auth/register.blade.php</url>
-          <line>2</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/courses/checkout.blade.php</url>
-          <line>51</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

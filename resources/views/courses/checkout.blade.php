@@ -28,7 +28,6 @@
         {{-- FIN MIGAS DE PAN --}}
     @endif
 
-
     {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------- --}}
@@ -36,7 +35,6 @@
     {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------- --}}
-
 
     @if (!Auth::check())
 
@@ -69,12 +67,12 @@
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="name" /> Nombre /s
-                                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"
-                                        />
+                                        <x-jet-label for="name" /><small class="text-red-500">* </small> Nombre /s
+                                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban" type="text" name="name" :value="old('name')"/>
+
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="last_name" /> Apellido /s
+                                        <x-jet-label for="last_name" /><small class="text-red-500">* </small> Apellido /s
                                         <x-jet-input id="last_name" class="block mt-1 w-full" placeholder="Lamonte" type="text" name="last_name"
                                                      :value="old('last_name')" />
                                     </div>
@@ -82,16 +80,16 @@
 
                                 <div class="mt-4">
 
-                                    <x-jet-label for="phone" />Telefono Celular
+                                    <x-jet-label for="phone" /><small class="text-red-500">* </small> Telefono Celular
                                     <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
                                                  pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
-                                                 :value="old('phone')" /><small>Formato: 10 digitos</small><br>
+                                                 :value="old('phone')" /><small><i>Ingrese un numero que no conternga el prefijo 0 y 15</i> </small><br>
 
                                 </div>
 
 
                                 <div class="mt-4">
-                                    <x-jet-label for="expire_license" />Vencimiento de Licencia Nacional de Conducir
+                                    <x-jet-label for="expire_license" /><small class="text-red-500">* </small>Vencimiento de Licencia Nacional de Conducir
                                     <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date" name="expire_license  " :value="old('expire_license')"  />
                                 </div>
                                 <br>
@@ -99,18 +97,18 @@
 
                                 <div class="-mx-3 md:flex mb-6">
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="email"/> Email
+                                        <x-jet-label for="email"/><small class="text-red-500">* </small> Email
                                         <x-jet-input id="email" placeholder="example@gmail.com" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
                                     </div>
                                     <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="password" /> Contraseña
+                                        <x-jet-label for="password" /><small class="text-red-500">* </small> Contraseña
                                         <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
                                                      autocomplete="new-password" />
                                     </div>
                                 </div>
 
                                 <div class="mt-4">
-                                    <x-jet-label for="password_confirmation" /> Confirmar Contraseña
+                                    <x-jet-label for="password_confirmation" /><small class="text-red-500">* </small> Confirmar Contraseña
                                     <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
                                                  name="password_confirmation" autocomplete="new-password" />
                                 </div>
@@ -131,7 +129,7 @@
                                         </x-jet-label>
                                     </div>
                                 @endif
-                                <br>
+
                                 <div class="flex items-center justify-end mt-4">
                                     <a class="underline text-sm text-gray-600 hover:text-blue-600" href="{{ route('login') }}">
                                         {{ __('Ya estas registrado ?') }}
@@ -163,8 +161,8 @@
 
                     {{-- CARD DETALLES DE INSCRIPCION --}}
                     <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-                        <div class="container mx-auto">
-                            <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
+                        <div class="container mx-auto"><br>
+                            <h1 class="bg-gray-200 rounded-full px-2 mt-2 py-2 text-2xl font-bold">Detalle de la Inscripción
                             </h1><br>
                             <hr><br>
 
@@ -172,19 +170,15 @@
                             </p>
                             <p class="px-4 py-2"><strong>Fecha: </strong>
                                 {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
-                            <p class="px-4 py-2"><strong>Hora: </strong>{{ $dictation->time }}</p>
-                            <p class="px-4 py-2"><strong>Direccion:
-                                </strong>{{ $dictation->places->address_street }}
-                                {{ $dictation->places->address_number }}</p>
 
-                            <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city }}</p>
+                            <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city->name }}</p>
 
                             <p class="px-4 py-2"><strong>Instructor:
                                 </strong>{{ $dictation->courses->teachers->name }}
                             </p>
                             <br><br>
 
-                            <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
+                            <p class="bg-yellow-500 text-center text-white font-bold py-2 px-4 rounded">
                                 ARS ${{ $dictation->courses->price }}
                             </p><br>
 
@@ -200,7 +194,6 @@
         </div>
 
     @elseif(Auth::check())
-
 
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
@@ -248,13 +241,13 @@
                 </div>
 
                 <div class="w-1/6 align-center items-center align-middle content-center flex">
-                    <div class="w-full bg-gray-400 rounded items-center align-middle align-center flex-1">
-                        <div id="barra" class="bg-green-400 text-xs leading-none py-1 text-center text-gray-400 rounded " style="width: 25%"></div>
+                    <div class="w-full bg-green-400 rounded items-center align-middle align-center flex-1">
+                        <div id="barra" class="bg-green-400 text-xs leading-none py-1 text-center text-gray-400 rounded " style="width: 100%"></div>
                     </div>
                 </div>
 
                 <div class="flex-1">
-                    <div id="circulo" class="w-10 h-10 bg-gray-400 mx-auto rounded-full text-lg text-white flex items-center">
+                    <div id="circulo" class="w-10 h-10 bg-green-400 mx-auto rounded-full text-lg text-white flex items-center">
                         <span class="text-black text-center w-full"><i class="fa fa-check w-full fill-current white">3</i></span>
                     </div>
                 </div>
@@ -287,28 +280,26 @@
             {{-- ************* COL 1 --}}
             <div class="grid grid-cols-1 md:col-span-3 lg:col-span-2">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-
+                    <div class="container mx-auto">
+                    <br>
                     {{-- CARD MEDIO DE PAGO --}}
                     <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-
+                    <br>
                     <form action="{{ route('form', $dictation) }}" method="POST">
                         @csrf
 
                         <hr>
                         <p class="mt-1">Seleccione un metodo de pago por favor para poder completar la transaccion</p>
-                        <p>En el caso de seleccionar Efectivo recuerda que podras descargar la factura en tu perfil >
-                            mis inscripciones</p><br>
+                        <p>En el caso de seleccionar efectivo recuerda que deberas acercarte a Mariano Moreno 1400 - Caleta Olivia.</p><br>
 
                         @if ($errors->any())
 
                             @foreach ($errors->all() as $error)
-
                                 <p class=" text-red-500">* {{ $error, '<br>' }}</p>
                             @endforeach
 
                         @endif
                         {{-- @livewire('check-method')<br> --}}
-                        <br>
 
                         {{-- MEDIO DE PAGO --}}
                         <input type="radio" name="payment_method" value="tarjeta">
@@ -320,24 +311,24 @@
                         <input type="radio" name="payment_method" value="efectivo">
                         <label for="efectivo" class="text-xl">Efectivo</label><br><br>
 
-
-
-                        <div class="flex justify-center">
+                        <div class="flex justify-content-md-start">
                             <button
                                 class="bg-blue-500 pagar form-exit hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                                PAGAR
+                                Confirmar
                             </button>
+
                         </div>
 
                     </form>
                     {{-- FIN CARD MEDIO DE PAGO --}}
-
+                    </div>
                 </div>
             </div>
             {{-- ************* COL 2 --}}
             <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
                     <div class="container mx-auto">
+                        <br>
                         <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
                         </h1><br>
                         <hr><br>
@@ -346,11 +337,11 @@
                         </p>
                         <p class="px-4 py-2"><strong>Fecha: </strong>
                             {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
-                        <p class="px-4 py-2"><strong>Hora: </strong>{{ $dictation->time }}</p>
+                        <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city->name }}</p>
                         <br>
 
-                        <p class="bg-gray-500 text-center text-white font-bold py-2 px-4 rounded">
-                            ARS ${{ $dictation->courses->price }}
+                        <p class="bg-yellow-500 text-center text-white font-bold py-2 px-4 rounded">
+                            ARS ${{number_format($dictation->courses->price, 2)}}
                         </p><br>
 
                         {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}

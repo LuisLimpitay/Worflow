@@ -2,7 +2,6 @@
 <x-app-layout>
 
     <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
         <style>
@@ -30,9 +29,8 @@
                 /*.border-l-2*/
                 border-color: #6574cd;
                 /*.border-indigo*/
-                background-color: #f8fafc;
+
                 /*.bg-gray-100 */
-                color: #6574cd;
                 /*.text-indigo*/
             }
 

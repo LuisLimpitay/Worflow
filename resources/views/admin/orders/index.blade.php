@@ -6,19 +6,24 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
-@section('content_header')
 
-@stop
+@section('content_header')
+    <p class="text-xl">Ordenes de Inscripcion</p>
+@endsection
 
 @section('content')
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="text-right">
+
+                        </div>
                         <div class="card-header">
-                            <h3 class="card-title">Ordenes de Compra</h3>
+                            <h3 class="card-title">Ordenes | Lista</h3>
 
                         </div>
                         <!-- /.card-header -->
@@ -34,8 +39,8 @@
 
                     <th>Fecha del Curso</th>
 
-                    <th>Metodo de Pago</th>
-                    <th>Estado del Pago</th>
+                    <th>Metodo</th>
+                    <th>Estado</th>
                     <th width="80px">Action</th>
 
                 </thead>
@@ -47,7 +52,7 @@
                         <tr>
                             <td>{{ $pivot->id }}</td>
                             <td class="text-center">{{ $pivot->created_at->format('d M Y H:i') }}</td>
-                            <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
+                            <td>{{ $pivot->user->last_name }} , {{ $pivot->user->name }}</td>
                             <td>$ {{ number_format($pivot->ammount) }}</td>
                             <td class="text-center">{{ \Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y', 'H:i') }}</td>
                             <td>{{ $pivot->payment_method}}</td>
@@ -99,7 +104,7 @@
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": true,
+                "ordering": false,
                 "info": true,
                 "autoWidth": true,
                 "responsive": true,
@@ -112,11 +117,11 @@
         <script>
             Swal.fire(
                 'Eliminado!',
-                'La orden de compra se elimino con  exito!.',
+                'La orden de inscripcion se elimino con  exito!.',
                 'success'
             )
         </script>
-        @elseif(session('info') == 'Estado de Pago actualizado')
+        @elseif(session('info') == 'Orden actualizada correctamente !')
         <script>
             Swal.fire(
                 'Actualizado!',

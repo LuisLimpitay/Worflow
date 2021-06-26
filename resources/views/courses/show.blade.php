@@ -161,7 +161,7 @@
                                                             <a href="{{ route('courses.checkout', $dictation) }}"
                                                                class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
                                                                role="button" aria-pressed="true">
-                                                                Seleccionar
+                                                               Elegir Fecha
                                                             </a><br>
                                                         </div>
                                                     </td>

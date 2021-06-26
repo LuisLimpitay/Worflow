@@ -42,23 +42,16 @@
                                     <tr>
                                         <td>{{$dictation->id}}</td>
                                         <td>{{\Carbon\Carbon::parse($dictation->date)->format('d/M/Y')}}</td>
-                                        <td>{{$dictation->places->city}}</td>
+                                        <td>{{$dictation->places->city->name}}</td>
                                         <td>
                                             <h3 class="badge badge-secondary">
-                                                Usuarios <span class="badge badge-light">{{$dictation->users->count()}}</span>
+                                                Clientes <span class="badge badge-light">{{$dictation->users->count()}}</span>
                                             </h3>
                                         </td>
 
-                                        {{-- <td>
-                                            <ul>
-                                                @foreach ($dictation->users as $user)
-                                                    <li>{{$loop->count}}</b></li>
-                                                @endforeach
-                                            </ul>
-                                        </td> --}}
-
                                         <td>
-                                            <a class="btn btn-primary btn-sm" href="{{route('admin.sheets.show', $dictation)}}"{{--  data-toggle="modal" data-target="#exampleModal" --}}>
+                                            <a class="btn btn-primary btn-sm" href="{{route('admin.sheets.show', $dictation)}}"
+                                               data-toggle="modal" data-target="#exampleModal">
                                                 <i class="far fa-eye"></i></a>
 
                                             {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.sheets.destroy', $dictation], 'style' => 'display:inline']) !!}
@@ -107,6 +100,6 @@
         });
     </script>
 
-    {{-- @include('admin.sheets.show') --}}
+    @include('admin.sheets.show')
 
 @stop

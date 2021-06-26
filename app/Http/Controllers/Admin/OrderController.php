@@ -15,7 +15,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $pivots = DictationUser::all();
+        $pivots = DictationUser::orderBy('created_at', 'desc')->get();
         return view('admin.orders.index', compact('pivots'));
     }
 
@@ -29,7 +29,7 @@ class OrderController extends Controller
 
         $pivot->update($request->all());
         return redirect()->route('admin.orders.index', compact('pivot'))
-            ->with('info', 'Estado de Pago actualizado');
+            ->with('info', 'Orden actualizada correctamente !');
     }
 
     public function destroy(DictationUser $pivot)

@@ -1,23 +1,22 @@
 <x-app-layout>
     <br>
+
     <!-- SLIDER ESTATICO -->
     <div class="sliderAx h-auto">
         <div id="slider-1" class="container mx-auto">
-            <div class="bg-cover bg-center text-white py-24 px-10 object-fill"
-                style="background-image: url(https://cemsa-arg.com/panel/assets/images/rooms/3_0.png?1551186123)">
-                <div class="md:w-full">
-                    <p class="text-5xl mb-10 font-bold">#MANEJODEFENSIVO</p>
-
+            <div class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill"
+                 style="background-image: url(https://cemsa-arg.com/panel/assets/images/rooms/3_0.png?1551186123)">
+                <div class="md:w-1/2">
+                    <p class="text-5xl font-bold">Somos #WORKFLOW</p>
+                    <p class="text-3xl mb-10 leading-none">Lideres en Manejo Defensivo</p>
                     <a href="{{ route('courses.index') }}"
-                        class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Ver
+                       class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Ver
                         Cursos</a>
                 </div>
             </div> <!-- container -->
         </div>
     </div>
-    <!-- SLIDER ESTATICO -->
-
-
+    <!-- FIN SLIDER ESTATICO -->
 
 
     {{-- MIGAS DE PAN --}}
@@ -39,7 +38,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
                 <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Seguridad Vial</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <p class="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Capacitaciones
                 </p>
                 <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">

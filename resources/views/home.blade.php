@@ -14,6 +14,9 @@
                 <div class="md:w-1/2">
                     <p class="text-5xl font-bold">Somos #WORKFLOW</p>
                     <p class="text-3xl mb-10 leading-none">Lideres en Manejo Defensivo</p>
+                    <a href="{{ route('courses.index') }}"
+                       class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Ver
+                        Cursos</a>
                 </div>
             </div> <!-- container -->
         </div>
@@ -21,26 +24,24 @@
     <!-- SLIDER ESTATICO -->
 
 
-    <!-- SOBRE NOSOTROS -->
+    <!-- QUIENES SOMOS-->
     <div class="py-12 bg-white">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
-
-                <p class="mt-2 leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <p class="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Quienes Somos
                 </p>
-
-                <p class=" text-xl text-gray-500 lg:mx-auto">
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
                     Somos un equipo interdisciplinario de profesionales dedicados a la salud ocupacional y a la
                     promoción del trabajo seguro; buscando disminuir las condiciones de riesgo y aumentar las conductas
                     seguras del personal de las Empresas y/o Instituciones.
                 </p>
 
             </div>
+
         </div>
     </div>
-    <!-- FIN SOBRE NOSOTROS  -->
+    <!-- FIN DE QUIENES SOMOS  -->
 
 
     <!-- RELLENO -->
@@ -55,63 +56,22 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <div class="max-w-md mx-auto">
-                        <h1 class="text-2xl font-medium tracking-wide text-gray-800 md:text-4xl">
+                        <p class="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                             Objetivos
-                        </h1>
+                        </p>
 
                         <p class="mt-5 text-xl leading-7 text-gray-600">Workflow se propone evaluar y capacitar al
                             personal de las Empresas y/o instituciones de la región, conformándonos como una entidad
                             líder en la prestación de servicios para las diferentes industrias de la region.</p>
                         <p class="mt-5 text-xl leading-7 text-gray-600">
-
-                            Estamos avalados por YPF y la NSC (Consejo Nacional de Seguridad ).
-
+                            Estamos avalados por YPF y la NSC (Consejo Nacional de Seguridad).<br>
+                        </p>
+                        <p class="mt-5 text-xl leading-7 text-gray-600">
+                            Homologados por:
                         </p>
 
-                        {{-- PALOMITAS --}}
-                        {{-- <div class="grid gap-6 mt-8 sm:grid-cols-2">
-                            <div class="flex items-center space-x-6 text-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Prueba Teórica</span>
-                            </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Prueba Práctica 4x4</span>
-                            </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Recursos Materiales</span>
-                            </div>
-                            <div class="flex items-center space-x-6 text-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span>Experiencias de Conducción</span>
-                            </div>
-
-
-
-                        </div> --}}
-                        {{-- FIN PALOMITAS --}}
-                        <br>
                         <div class="text-white">
-                            <p class="text-xs font-medium text-gray-800 md:text-4xl">
-                                Homologados por:
-                            </p>
+
                             <div class="grid sm:grid-cols-2 py-10 md:grid-cols-2 lg:grid-cols-2 gap-1 sm:gap-12 ">
 
                                 <div class="group flex items-center bg-indigo-900 gap-2 px-6">
@@ -153,7 +113,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
                 <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Seguridad Vial</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                <p class="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Nuestros Cursos
                 </p>
                 <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
@@ -185,10 +145,10 @@
                     </p>
                     <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
                     <p class="mt-2 text-gray-500">{{ $course->description }}</p>
-                    <p class="mt-2 text-gray-500"><b>Instructor: </b>{{ $course->teachers->name }}</p><br>
-                    <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">ARS
-                        ${{ number_format($course->price) }}</p>
-                    <hr>
+                    <p class="mt-2 text-gray-500"><b>Instructor: </b>{{ $course->teachers->name }}</p>
+                    <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">
+                        ARS $ {{number_format($course->price, 2)}}</p>
+
                     <div class="flex justify-center">
                         <a href="{{ route('courses.show', $course) }}"
                            class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"

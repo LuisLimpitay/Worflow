@@ -29,7 +29,8 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required|unique:users',
+            'phone' => 'required|numeric|unique:users',
+            'expire_license' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password'
 
