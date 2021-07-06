@@ -15,68 +15,38 @@ use App\Models\Enrollment;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\WebhookController;
+use GuzzleHttp\Middleware;
 
 Route::get('/pruebas', function () {
-
-    /* $fecha= Carbon::now();
-    dd($fecha); */
     /* $a = auth()->user()->dictations(1);
     dd($a); */
-    $h = Carbon::today()->addDays(rand(1,365));
-    dd($h);
 });
 
+//********************  me NOTIFICA  *******************************************************
+Route::post('webhooks', [WebhookController::class, ])->name('courses.payment');
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-
-
-//--------------------------------------------------------------------------------
-// -----------------   Controladores CourseController     -------------------------
-//--------------------------------------------------------------------------------
-// ***********************  CURSOS  **************************************************
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
-
-
-// ***********************  DETALLES del CURSO  *************************************
 Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
-
-
-// ***********************  CHECKOUT -> me genera la orden ********************************************
-Route::get('checkout/{dictation}', [CourseController::class, 'checkout'])->name('courses.checkout');
-//--------------------------------------------------------------------------------
-// -----------------  FIN Controladores CourseController     -------------------------
-//--------------------------------------------------------------------------------
-//******************************  me inserta en mio DB   ************************************->
-//Route::post('payment/{dictation}', [PaymentController:: class, 'payment'])->name('courses.payment');
+Route::get('orden/{dictation}/pagos', [CourseController::class, 'checkout'])->middleware('auth')->name('courses.checkout');
+Route::get('orden/{dictation}/pay', [CourseController::class, 'pay'])->name('courses.pay');
+Route::get('pago/{dictation}/pending', [CourseController::class, 'pending'])->name('courses.pending');
 
 
 
 //******************************  me inserta en mio DB   ************************************->
 Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
 
-
-// ****************************  QA  ******************************************
 Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
-
-
-
-//  ************************  CONTACTO  *****************************************
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
-//  ******* ********* ********** ****** ********* ********* ********** ********** **********
-
-
-
-
-
 
 
 
 
 //  ************************  MIS INSCRIPCIONES  *****************************************
 Route::get('/mis-inscripciones/{user}', [EnrollmentController::class, 'index'])->middleware('auth')->name('customers.enrollments');
-
 Route::get('descargas/{user}', [EnrollmentController::class, 'pdf'])->name('inscripcion');
-//  ************************  CREAR INSCRIPCION  *****************************************
-//Route::resource('xxx', PruebasController::class)->names('enrollments');
+

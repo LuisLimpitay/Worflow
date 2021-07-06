@@ -7,11 +7,7 @@ use Illuminate\Database\Seeder;
 
 class DictationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         Dictation::create([
@@ -59,10 +55,10 @@ class DictationSeeder extends Seeder
 
 
         ]);
-        $dictations = Dictation::all();
+        /* $dictations = Dictation::all();
         foreach($dictations as $dictation){
             $dictation->users()->attach([4,5,6]);
-        }
+        } */
  /*
 
         Dictation::create([

@@ -26,8 +26,8 @@ class TeacherController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'last_name' => 'required',
             'about' => 'required',
-            'email' => 'required|email|unique:teachers,email'
         ]);
         $teacher = Teacher::create($request->all());
 
@@ -51,8 +51,8 @@ class TeacherController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'last_name' => 'required',
             'about' => 'required',
-            'email' => 'required|email|unique:teachers,email,'.$teacher->id,
         ]);
 
         $teacher->update($request->all());

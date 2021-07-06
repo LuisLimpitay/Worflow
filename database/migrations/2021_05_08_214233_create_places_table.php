@@ -13,7 +13,7 @@ class CreatePlacesTable extends Migration
             $table->id();
 
             $table->string('name')->unique();
-            $table->string('address_street', 20);
+            $table->string('address_street', 30);
             $table->string('address_number', 10);
 
             $table->unsignedBigInteger('city_id');
@@ -23,9 +23,9 @@ class CreatePlacesTable extends Migration
         });
     }
 
-
     public function down()
     {
         Schema::dropIfExists('places');
     }
+    
 }

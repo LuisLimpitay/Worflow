@@ -13,20 +13,16 @@ class CreateTeachersTable extends Migration
 
             $table->id();
 
-            $table->string('name', 20);
-            $table->string('email')->unique();
-            $table->text('about', 100);
+            $table->string('name');
+            $table->string('last_name');
+            $table->text('about');
 
 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('teachers');

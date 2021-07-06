@@ -158,8 +158,8 @@
                     <label class="block p-5 leading-normal cursor-pointer" for="tab-single-five">¿Si no asisto al curso me devuelven el dinero?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                         <p class="p-5">
-                            Lamentablemente NO!, cuando se reserva un cupo se tomara como tal cuando se registre el pago, como nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a> asi lo especifican.
-                        <br>De todos modos puedes solicitar el reintegro de tu inscripcion 48 hs antes que se sustancie el curso.</p>
+                            Lamentablemente NO!, cuando se reserva un cupo se tomara como tal cuando se registre el pago, de acuerdo a nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>.
+                       
 
                     </div>
                 </div>

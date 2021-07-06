@@ -27,8 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->enum('level',[1,2])->default(2);
-            // O ES ADMIN
-            // 1 USER
+            // 1 ES ADMIN
+            // 2 USER
 
             $table->rememberToken();
 

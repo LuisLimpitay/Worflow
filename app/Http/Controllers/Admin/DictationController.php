@@ -7,6 +7,7 @@ use App\Models\Dictation;
 use App\Models\Place;
 use App\Models\Course;
 use App\Models\Dictation_User;
+use App\Models\DictationUser;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -58,6 +59,13 @@ class DictationController extends Controller
                             ->with('info', 'Dictado creado con Exito !');
     }
 
+    
+    public function show(Dictation $dictation)
+    {
+        $pivots = DictationUser::where('dictation_id',$dictation->id)->get();
+        //dd($pivot);
+        return view('admin.dictations.show', compact('dictation', 'pivots'));
+    }
 
     // CREE ESTA FUNCION PARA MANDARSELA COMO PARAMETRO A MI CREATE DICTATION
     public function dictation(Dictation $dictations)
@@ -104,7 +112,7 @@ class DictationController extends Controller
 
     public function destroy(Dictation $dictation)
     {
-            dd($dictation);
+            //dd($dictation);
             $dictation->delete();
             //luego de hacer esto va a mi modelo y suma uno al dictation
             return redirect()->route('admin.dictations.index')

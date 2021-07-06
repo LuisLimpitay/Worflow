@@ -18,9 +18,10 @@ class CreateDictationUserTable extends Migration
 
             $table->integer('quantity')->default(1);
             $table->decimal('ammount', 10,2 )->default(7000);
-            $table->enum('payment_method', ['tarjeta', 'transferencia', 'efectivo'])->default('tarjeta');
-            $table->enum('status', ['aprobado', 'pendiente'])->default('aprobado');
-             
+            $table->bigInteger('reference')->nullable();
+            $table->enum('status', ['aprobado', 'pendiente'])->default('aprobado')->nullable();
+
+            
             $table->unsignedBigInteger('dictation_id');
             $table->foreign('dictation_id')->references('id')->on('dictations')
                                                             ->onDelete('cascade')
@@ -31,15 +32,15 @@ class CreateDictationUserTable extends Migration
                                                         ->onDelete('cascade')
                                                         ->onUpdate('cascade');
 
+            $table->unsignedBigInteger('payment_id');
+            $table->foreign('payment_id')->references('id')->on('payments');
+
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('dictation_user');

@@ -15,10 +15,13 @@ class DictationUser extends Model
     protected $fillable = [
         'quantity',
         'ammount',
-        'payment_method',
+        'reference',
         'status',
+
         'dictation_id',
         'user_id',
+        'payment_id',
+
         'created_at',
         'upadte_at'
     ];
@@ -38,13 +41,20 @@ class DictationUser extends Model
         });
     }
 
-
+    //A UNO
     public function dictation(){
         return $this->belongsTo(Dictation::class);
 
     }
+    //A UNO
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    //A UNO
+    public function payment(){
+        return $this->belongsTo(Payment::class);
+
     }
 
 }

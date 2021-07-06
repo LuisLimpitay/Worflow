@@ -33,24 +33,24 @@
                         <div class="card-body">
                             <table id="table-course" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
+                                    <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Descripcion</th>
                                     <th>Instructor</th>
                                     <th>Modalidad</th>
                                     <th>Precio </th>
-                                    <th width="80px">Accion</th>
+                                    <th width="120px">Accion</th>
                                 </thead>
 
                                 <tbody>
                                     @foreach ($courses as $course)
                                         <tr>
+                                            <td> {{ $course->id }} </td>
                                             <td> {{ $course->name }} </td>
-                                            <td> {{ $course->description }} </td>
-                                            <td> {{ $course->teachers->name }}</td>
+                                            <td> {{ $course->teachers->last_name }} , {{ $course->teachers->name }}</td>
                                             <td> {{ $course->mode }}</td>
                                             <td class=""> $ {{ number_format($course->price)  }}</td>
-
                                             <td>
+                                                <a class="btn btn-info btn-sm" href="{{route('admin.courses.show', $course)}}"><i class="far fa-eye"></i></a>
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.courses.edit', $course) }}"><i
                                                         class="fas fa-edit"></i></a>

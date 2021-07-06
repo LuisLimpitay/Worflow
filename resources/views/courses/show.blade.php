@@ -87,7 +87,8 @@
         <div class="grid bg grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
             <div class="container mx-auto col-span-2">
-                <p class="text-4xl px-3 text-red-400">Fechas Disponibles</p><br>
+                <p class="text-4xl px-3 text-red-400">{{$course->name}}</p>
+                <p class="text-xl px-3 ">{{$course->description}}</p>
 
                 <div class="container mx-auto py-2 ">
 

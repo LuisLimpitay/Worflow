@@ -34,7 +34,6 @@
                                 <thead class="thead-dark">
                                 <th>ID</th>
                                 <th>Nombre del Instructor</th>
-                                <th>Email</th>
                                 <th>Sobre el</th>
                                 <th width="80px">Action</th>
                                 </thead>
@@ -43,8 +42,7 @@
                                 @foreach ($teachers as $teacher)
                                     <tr>
                                         <td>{{ $teacher->id }}</td>
-                                        <td>{{ $teacher->name }}</td>
-                                        <td>{{ $teacher->email }}</td>
+                                        <td>{{ $teacher->last_name }} , {{ $teacher->name }}</td>
                                         <td>{{ $teacher->about }}</td>
 
                                         <td>

@@ -19,43 +19,42 @@
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
-            {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
+                    {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
 
-            <div class="form-group">
-                {!! Form::label('name', 'Apellido y Nombre') !!}
-                {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                @error('name')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
-
-            </div>
                     <div class="form-group">
-                        {!! Form::label('email', 'Email') !!}
-                        {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                        @error('email')
-                        <small class="text-danger">{{ $message }}</small>
+                        {!! Form::label('name', 'Apellido y Nombre') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        @error('name')
+                            <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-            <div class="form-group">
-                {!! Form::label('about', 'Acerca de') !!}
-                {!! Form::text('about', null, ['class' => 'form-control']) !!}
-                <small>podra escribir un poco sobre la trayectorio profesional del Instructor</small>
-                @error('about')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
-            </div>
+                    <div class="form-group">
+                        {!! Form::label('last_name', 'Apellido y Nombre') !!}
+                        {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
+                        @error('last_name')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('about', 'Acerca de') !!}
+                        {!! Form::text('about', null, ['class' => 'form-control']) !!}
+                        <small>podra escribir un poco sobre la trayectorio profesional del Instructor</small>
+                        @error('about')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
 
                     <br>
                     <hr>
 
-            {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
-            <a href="{{route('admin.teachers.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
+                    {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
+                    <a href="{{ route('admin.teachers.index') }}" class="btn btn-danger" type="submit">Cancelar</a>
 
-            {!! Form::close() !!}
+                    {!! Form::close() !!}
 
 
-        </div>
-    </div>
+                </div>
+            </div>
         </div>
     </div>
 @stop

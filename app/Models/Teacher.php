@@ -11,10 +11,11 @@ class Teacher extends Model
 
     protected $fillable =[
         'name',
-        'email',
+        'last_name',
         'about'
        
     ];
+
     //Relacion UNO A MUCHOS
     public function courses(){
         return $this->hasOne(Course::class);

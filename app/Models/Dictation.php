@@ -23,7 +23,7 @@ class Dictation extends Model
             ->orderBy('date','desc');
     }
 
-
+ 
     //Relacion A UNO INVERSA
     public function courses(){
         return $this->belongsTo(Course::class, "course_id" , "id" );
@@ -38,7 +38,7 @@ class Dictation extends Model
     public function users(){
         return $this->belongsToMany(User::class, 'dictation_user')
                     ->withTimestamps()
-                    ->withPivot( 'id', 'quantity', 'ammount', 'payment_method', 'status' , 'dictation_id', 'user_id', 'created_at');
+                    ->withPivot( 'id', 'quantity', 'ammount', 'reference', 'payment_id', 'status' , 'dictation_id', 'user_id', 'created_at');
 
     }
 

@@ -14,8 +14,9 @@ class Payment extends Model
     ];
 
     // Relacion UNO A MUCHOS
-    public function enrollments(){
-        return $this->hasMany(Enrollment::class);
+    public function dictationuser(){
+        return $this->hasMany(DictationUser::class);
 
     }
+
 }

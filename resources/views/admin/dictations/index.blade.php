@@ -40,7 +40,7 @@
                                     <th>Cupos</th>
                                     <th>Estado</th>
 
-                                    <th width="80px">Accion</th>
+                                    <th width="120px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -66,6 +66,7 @@
 
 
                                             <td>
+                                                <a class="btn btn-dark btn-sm" href="{{route('admin.dictations.show', $dictation)}}"><i class="far fa-eye"></i></a>
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.dictations.edit', $dictation) }}"><i
                                                         class="fas fa-edit"></i></a>
@@ -107,9 +108,22 @@
                 "lengthChange": true,
                 "searching": true,
                 "ordering": false,
-                "info": false,
+                "info": true,
                 "autoWidth": true,
                 "responsive": true,
+
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por pagina",
+                    "zeroRecords": "No hay registro para mostrar",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "",
+                    "infoFiltered": "(Filtrando de _MAX_ registros)",
+                    'search': "Buscar",
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                }
             });
         });
 

@@ -244,11 +244,6 @@ return [
             'active' => ['admin/customers*']
         ],
 
-        [
-            'text' => 'Planillas',
-            'route'  => 'admin.sheets.index',
-            'icon' => 'fas fa-clipboard fa-fw'
-        ],
 
         [
             'text'        => 'Ordenes',
@@ -262,19 +257,18 @@ return [
         ['header' => 'C R U D'],
 
         [
-            'text' => 'Cursos',
+            'text' => 'Instructor',
+            'route'  => 'admin.teachers.index',
+            'icon' => 'fas fa-user-tie fa-fw',
+            'active' => ['admin/teachers*']
+        ],
+
+        [
+            'text' => 'Curso',
             'route'  => 'admin.courses.index',
             'icon' => 'fas fa-layer-group fa-fw',
             'active' => ['admin/courses*']
         ],
-
-        [
-            'text' => ' Dictados',
-            'route'  => 'admin.dictations.index',
-            'icon' => 'fas fa-align-left fa-fw',
-            'active' => ['admin/dictations*']
-        ],
-
         [
             'text' => 'Sedes',
             'route'  => 'admin.places.index',
@@ -282,11 +276,14 @@ return [
             'active' => ['admin/places*']
         ],
         [
-            'text' => 'Instructores',
-            'route'  => 'admin.teachers.index',
-            'icon' => 'fas fa-user-tie fa-fw',
-            'active' => ['admin/teachers*']
+            'text' => ' Dictados',
+            'route'  => 'admin.dictations.index',
+            'icon' => 'fas fa-align-left fa-fw',
+            'active' => ['admin/dictations*']
         ],
+
+        
+        
         
 
     ],

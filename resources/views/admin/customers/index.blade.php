@@ -50,10 +50,10 @@
                                         <td>{{$customer->expire_license}}</td>
                                         <td>{{$customer->email}}</td>
                                         <td>
-                                            <a class="btn btn-primary" href="{{ route('admin.customers.edit',$customer) }}"><i
+                                            <a class="btn btn-primary btn-sm" href="{{ route('admin.customers.edit',$customer) }}"><i
                                                 class="fas fa-edit"></i></a>
                                             {!! Form::open(['method' => 'DELETE','route' => ['admin.customers.destroy', $customer],'style'=>'display:inline']) !!}
-                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>
@@ -84,10 +84,23 @@
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": true,
+                "ordering": false,
                 "info": true,
                 "autoWidth": true,
                 "responsive": true,
+
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por pagina",
+                    "zeroRecords": "No hay registro para mostrar",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_ paginas",
+                    "infoEmpty": "",
+                    "infoFiltered": "(Filtrando de _MAX_ registros)",
+                    'search': "Buscar",
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                }
             });
         });
     </script>

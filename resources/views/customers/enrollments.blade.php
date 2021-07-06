@@ -12,18 +12,13 @@
             <li class="px-2 text-gray-500">Mis Inscripciones</li>
         </ol>
     </nav>
-
-
-
-
-    {{-- $dictation->pivot->status == 'aprobado' --}}
-    <h1 class="px-3 text-4xl text-center">Tus Inscripciones</h1><br>
-    <hr>
     {{-- FIN MIGAS DE PAN --}}
 
 
-
     {{-- CARD DE MIS INSCRIPCIONES --}}
+    <h1 class="px-3 text-4xl text-center">Tus Inscripciones</h1><br>
+    <hr>
+
     @if ($users->dictations->count())
 
         @foreach ($users->dictations as $dictation)
@@ -75,17 +70,20 @@
 
                     <div class=" text-right px-3 pt-3 py-2 text-white bg-red-400"></div>
                     <h3 class="font-semibold mt-2 text-center text-2xl tracking-wide">Tu pago esta pendiente</h3>
-                    <p class="text-gray-500 container p-4 text-left my-1">
-                    Deberas acercarte a nuestras instalaciones con un maximo de 48 hs antes de la sustanciacion del curso.
-                    </p>
+                    <p class="text-black container p-4 text-left my-1">
+                    Deberas acercarte a alguna sucursal de cobro para realizar el pago. Realizada la transaccion podras ver tu comprobante. <br>
+                    El cajero te solicitara el siguiente numero para realizar el pago. <br>
 
-                    <p class="text-gray-500 container p-4 text-left my-1">Direccion : Mariano Moreno 1400 - Caleta Olivia.
-                        <br>
-                        Telefono : (0297) 4871212
-                        <br>
-                        Horario de Atencion : Lun a Vie de 8:00 a 16:00.
+                        
                     </p>
-
+                    <p class="text-black container p-4 text-left my-1">
+                        Numero de Referencia : <br>
+                        <small class="text-black text-2xl font-bold">{{ $dictation->pivot->reference }}</small>
+                    </p>
+                    <p class="text-black container p-4 text-left my-1"> <i>* Recuerda que deberas realizar el pago 48 hs antes de la fecha : {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</i> </p>
+ 
+                    
+                    <br>
                     <hr>
                     <p class="text-gray-500 text-center p-4 my-1">
                         Somos Workflow, Somos Manejo Defensivo.
@@ -120,6 +118,7 @@
 
     @endif
     </div>
+    {{-- FIN CARD DE MIS INSCRIPCIONES --}}
 
 
 

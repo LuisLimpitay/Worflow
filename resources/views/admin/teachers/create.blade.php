@@ -20,17 +20,17 @@
                     {!! Form::open(['route' => 'admin.teachers.store', 'autocomplete' => 'off']) !!}
 
                     <div class="form-group">
-                        {!! Form::label('name', 'Apellido y Nombre') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Apellido y Nombre']) !!}
-                        @error('name')
+                        {!! Form::label('last_name', 'Apellido') !!}
+                        {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Apellido']) !!}
+                        @error('last_name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('email', 'Email') !!}
-                        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Ej: ejemplo@gmail.com']) !!}
-                        @error('email')
+                        {!! Form::label('name', 'Nombre') !!}
+                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Nombre']) !!}
+                        @error('name')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>

@@ -26,8 +26,8 @@ class CreateDictationsTable extends Migration
 
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');;
+                                        ->onDelete('cascade')
+                                        ->onUpdate('cascade');
 
             $table->timestamps();
         });

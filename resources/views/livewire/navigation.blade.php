@@ -117,7 +117,7 @@
 
             @else
                 <div>
-                    <a href="{{route('login')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesion</a>
+                    <a href="{{route('login')}}" class="text-gray-300  hover:text-white hover:underline px-3 py-2 rounded-md text-sm font-medium">Iniciar Sesion</a>
                     <a href="{{route('register')}}" class="text-white bg-green-400 lg:hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Registrarse</a>
 
                 </div>

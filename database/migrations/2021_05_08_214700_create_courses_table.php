@@ -6,29 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCoursesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name', 20);
+            $table->string('name');
             $table->string('slug');
             $table->text('description');
             $table->longText('content');
-            $table->string('mode', 12);
+            $table->string('mode');
             $table->decimal('price', 8,2);
 
-
             $table->unsignedBigInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade')
-            ->onUpdate('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')
+                                            ->onDelete('cascade')
+                                            ->onUpdate('cascade');
 
             $table->timestamps();
+            
         });
     }
 

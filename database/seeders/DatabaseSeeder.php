@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
         $this->call(PlaceSeeder::class);
         Teacher::factory(1)->create();
         Course::factory(1)->create();
+
         //Dictation::factory(2)->create();
+        $this->call(PaymentSeeder::class);
 
         $this->call(UserSeeder::class);
         $this->call(DictationSeeder::class);

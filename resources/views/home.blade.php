@@ -12,10 +12,10 @@
             <div class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill"
                 style="background-image: url(https://cemsa-arg.com/panel/assets/images/rooms/1_0.png?1551186076)">
                 <div class="md:w-1/2">
-                    <p class="text-5xl font-bold">Somos #WORKFLOW</p>
+                    <p class="text-4xl font-bold">Somos #WORKFLOW</p>
                     <p class="text-3xl mb-10 leading-none">Lideres en Manejo Defensivo</p>
                     <a href="{{ route('courses.index') }}"
-                       class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Ver
+                        class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Ver
                         Cursos</a>
                 </div>
             </div> <!-- container -->
@@ -105,8 +105,8 @@
 
 
     </div>
-
     <!-- FIN RELLENO -->
+
 
     <!-- RELLENO CAPACITACIONES-->
     <div class="py-12 bg-white">
@@ -129,30 +129,32 @@
     </div>
     <!-- FIN RELLENO CAPACITACIONES-->
 
+
     <!-- ************************************************************************************************************-->
     {{-- CARD DE CURSOS --}}
-<!-- ************************************************************************************************************-->
+    <!-- ************************************************************************************************************-->
     <div class="container mx-auto py-8 ">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             @foreach ($courses as $course)
 
-                <div class="container mx-auto flex flex-col max-w-md bg-gray-300  px-8 py-2 rounded-xl space-y-5 items-center">
+                <div
+                    class="container mx-auto flex flex-col max-w-md bg-indigo-200  px-8 py-2 rounded-xl space-y-5 items-center">
 
                     <p class="inline-block px-3 bg-red-500 text-gray-200 rounded-full">
                         Modalidad {{ $course->mode }}
                     </p>
                     <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
-                    <p class="mt-2 text-gray-500">{{ $course->description }}</p>
-                    <p class="mt-2 text-gray-500"><b>Instructor: </b>{{ $course->teachers->name }}</p>
+                    <p class="mt-2  text-black">{{ $course->description }}</p>
+                    <p class="mt-2 text-black"><b>Instructor: </b>{{ $course->teachers->name }}</p><br>
                     <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">
-                        ARS $ {{number_format($course->price, 2)}}</p>
-
+                        ARS $ {{ number_format($course->price, 2) }}</p>
+                    <hr>
                     <div class="flex justify-center">
                         <a href="{{ route('courses.show', $course) }}"
-                           class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
-                           role="button" aria-pressed="true">
+                            class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
+                            role="button" aria-pressed="true">
                             INSCRIBIRME
                         </a>
                     </div>
@@ -166,32 +168,35 @@
     </div>
     <!-- ************************************************************************************************************-->
     {{-- FIN CARD DE CURSOS --}}
-<!-- ************************************************************************************************************-->
-
-
-    <!-- ************************************************************************************************************-->
-    {{-- AVALADOS POR --}}
     <!-- ************************************************************************************************************-->
 
 
-    <!-- ************************************************************************************************************-->
-    {{-- AVALADOS POR --}}
-    <!-- ************************************************************************************************************-->
 
 
     @section('js')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        {@if (session('info') == 'inscripcion exitosa')
+        @if (session('info') == 'inscripcion exitosa tarjeta')
             <script>
                 Swal.fire({
                     icon: 'success',
-                    title: 'Inscripcion Exitosa',
-                    text: 'Somos Workflow, somos Manejo Defensivo',
-                    footer: '<p>Deseas descargar tu comprobante? haz clic  <a href="{{ route('customers.enrollments', auth()->user()->id) }}"> AQUI</a></p>'
+                    text: 'Recuerda asistir el dia del Curso con tu Licencia Nacional de Conducir (Vigente).',
+                    footer: '<p>Deseas descargar tu comprobante? haz click  <a href="{{ route('customers.enrollments', auth()->user()->id) }}"> AQUI</a></p>'
                 })
 
             </script>
         @endif
+        @if(session('info') == 'inscripcion exitosa efectivo')
+            <script>
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Recuerda que deberas realizar el pago como maximo 48 hs antes de la fecha del curso de acuerdo a nuestros terminos del servicio</a>'
+                    footer: '<p>Deseas ver tu numero de referencia ? haz click  <a href="{{ route('customers.enrollments', auth()->user()->id) }}"> AQUI</a></p>'                
+                    })
+
+            </script>
+        @endif
+
     @endsection
+
 </x-app-layout>
