@@ -18,7 +18,7 @@ Route::get('/', [HomeController::class, 'index'])->middleware('level')->name('ad
 
 
 Route::resource('customers', CustomerController::class)->middleware('level')->names('admin.customers');
-Route::resource('planillas' ,SheetController::class)->middleware('level')->names('admin.sheets');
+Route::resource('sheets' , SheetController::class)->middleware('level')->names('admin.sheets');
 //mando orders como parametros,
 Route::resource('orders', OrderController::class)->parameters(['orders' => 'pivot'])->middleware('level')->names('admin.orders');
 
@@ -27,8 +27,7 @@ Route::resource('dictations', DictationController::class)->middleware('level')->
 Route::resource('places', PlaceController::class)->middleware('level')->names('admin.places');
 Route::resource('teachers', TeacherController::class)->middleware('level')->names('admin.teachers');
 
-
-
+Route::get('planilla/{dictation}', [DictationController::class, 'planillapdf'])->name('admin.planilla');
 
 
 //Route::get('/changeStatus', [OrderController::class, 'changeStatus'])->name('changeStatus');

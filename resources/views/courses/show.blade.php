@@ -196,7 +196,7 @@
                         <h1 class="text-4xl pt-4 px-3 text-red-400">Contenido </h1> <br>
                         <p class="px-5 ">{{ $course->content }}</p> <hr><br>
 
-                        <p class="px-5 "><b>Instructor :</b> {{$course->teachers->name}}</p>
+                        <p class="px-5 "><b>Instructor :</b> {{$course->teachers->last_name}} {{$course->teachers->name}}</p>
                         <p class="px-5 ">{{ $course->teachers->about }}</p><hr><br>
 
                         <p class="px-5 "><b>Precio : </b> ARS $ {{ $course->price }}</p>

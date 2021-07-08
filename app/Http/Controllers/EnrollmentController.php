@@ -22,13 +22,12 @@ class EnrollmentController extends Controller
         //dump($inscrito);
         //return view('customers.enrollments', compact ('misinscripciones')) ;
 
-
-        public function pdf(User $user)
+        public function pdf(DictationUser $pivot)
         {
-            $users = User::find($user->id);
+            $detalles = DictationUser::where('id', $pivot->id)->get();
 
             $pdf = App::make('dompdf.wrapper');
-            $pdf->loadView('inscripcion', compact('users'));
+            $pdf->loadView('inscripcion', compact('detalles'));
             return $pdf->stream();
         }
 

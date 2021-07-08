@@ -15,25 +15,32 @@
     @endif
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
                     {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
 
-                    <div class="form-group">
-                        {!! Form::label('name', 'Apellido y Nombre') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        @error('name')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('last_name', 'Apellido y Nombre') !!}
-                        {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
-                        @error('last_name')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('name', 'Apellido') !!}
+                                {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('last_name', 'Nombre') !!}
+                                {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
+                                @error('last_name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('about', 'Acerca de') !!}

@@ -1,67 +1,70 @@
 @extends('adminlte::page')
 
-@section('title', 'Inscripciones')
-
-@section('content_header')
-
-@stop
+@section('title', 'Dictados')
 
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+@endsection
+
+@section('content_header')
+    <p class="text-xl">Planillas de Asistencia</p>
 @endsection
 
 @section('content')
-    <!-- Main content -->
+<!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Lista de Planillas </h3>
+                            <h3 class="card-title text-lg">Planillas | Lista</h3>
                             <div class="card-tools">
-                                <a class="btn btn-success" href="#"><i
+                                <a class="btn btn-success" href="{{ route('admin.dictations.create') }}"><i
                                         class="fas fa-plus-square"></i></a>
                             </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="table-sheet" class="table table-striped table-responsive-lg">
+                            <table id="table-place" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
-                                <th>Id Dictado</th>
-                                <th>Fecha del Curso</th>
-                                <th>Ciudad</th>
-                                <th>N° Inscriptos</th>
-                                <th width="80px">Action</th>
-
+                                    <th>ID</th>
+                                    <th>Fecha</th>
+                                    <th>Ciudad</th>
+                                    <th>Asistentes</th>
+                                    <th>Estado</th>
+                                    <th width="120px">Accion</th>
                                 </thead>
                                 <tbody>
-                                @foreach ($dictations as $dictation)
-                                    <tr>
-                                        <td>{{$dictation->id}}</td>
-                                        <td>{{\Carbon\Carbon::parse($dictation->date)->format('d/M/Y')}}</td>
-                                        <td>{{$dictation->places->city->name}}</td>
-                                        <td>
-                                            <h3 class="badge badge-secondary">
-                                                Clientes <span class="badge badge-light">{{$dictation->users->count()}}</span>
-                                            </h3>
-                                        </td>
-
-                                        <td>
-                                            <a class="btn btn-primary btn-sm" href="{{route('admin.sheets.show', $dictation)}}"
-                                               data-toggle="modal" data-target="#exampleModal">
-                                                <i class="far fa-eye"></i></a>
-
-                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.sheets.destroy', $dictation], 'style' => 'display:inline']) !!}
-                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
-                                            {!! Form::close() !!}
-                                        </td>
-
-
-                                    </tr>
-                                @endforeach
+                                    @foreach ($dictations as $dictation)
+                                        <tr>
+                                            <td>{{$dictation->id}}</td>
+                                            <td> {{\Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}} </td>
+                                            <td>{{ $dictation->places->city->name }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary">
+                                                <span class="badge bg-secondary">{{ $dictation->users->count() }}</span>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                @if ($dictation->status == 'activo')
+                                                    <p class="badge badge-success">Activo</p>
+                                                @else
+                                                    <p class="badge badge-danger"><b>Completo</b></p>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-dark btn-sm" href="{{route('admin.sheets.show', $dictation)}}"><i class="far fa-eye"></i></a>                                         
+                                                <a class="btn btn-primary btn-sm"
+                                                    href="{{ route('admin.sheets.edit', $dictation) }}"><i
+                                                        class="fas fa-edit"></i></a>
+                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.sheets.destroy', $dictation], 'style' => 'display:inline']) !!}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                {!! Form::close() !!}
+                                            </td>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -82,24 +85,95 @@
 
 @stop
 
-
-
 @section('js')
     <script>
-        $(function () {
+        $(function() {
 
-            $('#table-sheet').DataTable({
+            $('#table-place').DataTable({
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": true,
+                "ordering": false,
                 "info": true,
                 "autoWidth": true,
                 "responsive": true,
+
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por pagina",
+                    "zeroRecords": "No hay registro para mostrar",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+                    "infoEmpty": "",
+                    "infoFiltered": "(Filtrando de _MAX_ registros)",
+                    'search': "Buscar",
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                }
             });
         });
-    </script>
 
-    @include('admin.sheets.show')
+    </script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (session('info') == 'Dictado eliminado con Exito !')
+        <script>
+            Swal.fire(
+                'Eliminado!',
+                'El dictado del curso se elimino con éxito.',
+                'success'
+            )
+
+        </script>
+    @elseif (session('info') == 'Dictado actualizado con Exito !')
+        <script>
+            Swal.fire(
+                'Actualizado!',
+                'El dictado del curso se actualizo con éxito..',
+                'success'
+            )
+
+        </script>
+
+    @endif
+    @if(session('info') == 'Dictado creado con Exito !')
+        <script>
+            Swal.fire(
+                'Exito !',
+                'El dictado del curso se creo correctamente.',
+                'success'
+            )
+
+        </script>
+    @endif
+
+    <script>
+        /*lo que hago es seleccionar esa clase $('.form-eliminar')  y le digo que cuando traten de enviar el form
+                    haga la siguiente accion .submit(function(e){
+                        lo primero que se necesita es capturar el evento y lo hace con la letra e
+                        e.preventDefault();
+                    })
+                    y logro detener el envio del form*/
+        $('.form-eliminar').submit(function(e) {
+            e.preventDefault();
+            //luego le paso el alert
+            Swal.fire({
+                title: 'Estas seguro que deseas eliminar el dictado del curso ?',
+                text: "No podras revertirlo",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this
+                .submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
+                }
+            })
+        });
+
+    </script> --}}
 
 @stop

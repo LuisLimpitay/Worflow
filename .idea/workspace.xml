@@ -9,58 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9723fb5-dc2c-4ef8-b38e-ecaca62f7190" name="Default Changelist" comment="25.06.21">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/worflow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/worflow.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FormController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Dictation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Dictation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DictationUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DictationUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CitiesFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EnrollmentFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PaymentFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PlaceFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TeacherFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeacherFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_04_30_000000_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_04_30_000000_create_teachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_07_155723_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_07_155723_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_032348_create_sessions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_032348_create_sessions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214233_create_places_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214233_create_places_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214700_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214700_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_214747_create_dictations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_214747_create_dictations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_08_215134_create_enrollments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_26_204512_create_dictation_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_26_204512_create_dictation_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DictationSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/courses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/teachers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contactanos/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contactanos/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customers/enrollments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers/enrollments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navigation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/qa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/qa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +182,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../store" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -273,6 +222,7 @@
       <workItem from="1624895526755" duration="5193000" />
       <workItem from="1624968634595" duration="9293000" />
       <workItem from="1625509617435" duration="1310000" />
+      <workItem from="1625575865581" duration="726000" />
     </task>
     <task id="LOCAL-00001" summary="eliminar orden">
       <created>1623448401499</created>
@@ -347,10 +297,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1624636154904" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1623680169770">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1625576872041">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1623680169770" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1625576872041" />
     <state x="517" y="287" key="NewPhpFileDialog" timestamp="1624660075942">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -381,7 +331,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/admin/dictations/index.blade.php</url>
-          <line>120</line>
+          <line>134</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

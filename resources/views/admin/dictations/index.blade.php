@@ -4,8 +4,6 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content_header')
@@ -13,13 +11,12 @@
 @endsection
 
 @section('content')
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-
-
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title text-lg">Dictados | Lista</h3>
@@ -32,30 +29,24 @@
                         <div class="card-body">
                             <table id="table-place" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
+                                    <th>ID</th>
                                     <th>Fecha</th>
-                                    <th>Sede</th>
-                                    <th>Direccion</th>
                                     <th>Ciudad</th>
-                                    <th>Hora</th>
+                                    <th>Asistentes</th>
                                     <th>Cupos</th>
                                     <th>Estado</th>
-
                                     <th width="120px">Accion</th>
                                 </thead>
-
                                 <tbody>
                                     @foreach ($dictations as $dictation)
-
                                         <tr>
-                                            <td> {{\Carbon\Carbon::parse($dictation->date)->format('d/m/Y')}} </td>
-                                            <td>{{ $dictation->places->name }}</td>
-                                            <td>{{ $dictation->places->address_street }}
-                                                {{ $dictation->places->address_number }}</td>
+                                            <td>{{ $dictation->id }}</td>
+                                            <td> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }} </td>
                                             <td>{{ $dictation->places->city->name }}</td>
-                                            <td>{{ $dictation->time }} </td>
-
-                                            <td class="text-center"> {{ $dictation->stock }}</td>
-
+                                            <td>
+                                                <span class="badge bg-warning">{{ $dictation->users->count() }}</span>
+                                            </td>
+                                            <td><span class="badge bg-info">{{ $dictation->stock }}</span></td>
                                             <td>
                                                 @if ($dictation->status == 'activo')
                                                     <p class="badge badge-success">Activo</p>
@@ -63,22 +54,23 @@
                                                     <p class="badge badge-danger"><b>Completo</b></p>
                                                 @endif
                                             </td>
-
-
                                             <td>
-                                                <a class="btn btn-dark btn-sm" href="{{route('admin.dictations.show', $dictation)}}"><i class="far fa-eye"></i></a>
-                                                <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('admin.dictations.edit', $dictation) }}"><i
-                                                        class="fas fa-edit"></i></a>
-                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
-                                                {!! Form::close() !!}
+                                                <a class="btn btn-warning btn-sm"
+                                                    href="{{ route('admin.dictations.show', $dictation) }}"><i
+                                                        class="far fa-eye"></i></a>
+                                                @if ($dictation->users->count() < 1)
+                                                    <a class="btn btn-primary btn-sm"
+                                                        href="{{ route('admin.dictations.edit', $dictation) }}"><i
+                                                            class="fas fa-edit"></i></a>
+                                                    {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.dictations.destroy', $dictation], 'style' => 'display:inline']) !!}
+                                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                    {!! Form::close() !!}
+                                                @endif
+
+
                                             </td>
                                         </tr>
-
-
                                     @endforeach
-
                                 </tbody>
                             </table>
                         </div>
@@ -107,7 +99,7 @@
                 "paging": true,
                 "lengthChange": true,
                 "searching": true,
-                "ordering": false,
+                "ordering": true,
                 "info": true,
                 "autoWidth": true,
                 "responsive": true,
@@ -150,7 +142,7 @@
         </script>
 
     @endif
-    @if(session('info') == 'Dictado creado con Exito !')
+    @if (session('info') == 'Dictado creado con Exito !')
         <script>
             Swal.fire(
                 'Exito !',
@@ -163,11 +155,11 @@
 
     <script>
         /*lo que hago es seleccionar esa clase $('.form-eliminar')  y le digo que cuando traten de enviar el form
-                    haga la siguiente accion .submit(function(e){
-                        lo primero que se necesita es capturar el evento y lo hace con la letra e
-                        e.preventDefault();
-                    })
-                    y logro detener el envio del form*/
+                                haga la siguiente accion .submit(function(e){
+                                    lo primero que se necesita es capturar el evento y lo hace con la letra e
+                                    e.preventDefault();
+                                })
+                                y logro detener el envio del form*/
         $('.form-eliminar').submit(function(e) {
             e.preventDefault();
             //luego le paso el alert
@@ -183,7 +175,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     this
-                .submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
+                        .submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
                 }
             })
         });

@@ -3,12 +3,10 @@
 @section('title', 'Inscripciones')
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content_header')
-    <p class="text-xl">Ordenes de Inscripcion</p>
+    <p class="text-xl">Gestion de Inscripciones</p>
 @endsection
 
 @section('content')
@@ -34,9 +32,9 @@
                                     {{-- <th>ID</th> --}}
                                     <th>Fecha </th>
                                     <th>Nº Referencia</th>
-                                    <th>Cliente</th>
-                                    <th>Precio</th>
+                                    <th>Cliente</th>                               
                                     <th>Fecha del Curso</th>
+                                    <th>Total</th>
                                     <th>Metodo</th>
                                     <th>Estado</th>
                                     <th width="80px">Action</th>
@@ -51,12 +49,11 @@
                                             {{-- <td>{{ $pivot->id }}</td> --}}
                                             <td>{{ $pivot->created_at->format('d M Y H:i') }}</td>
                                             <td>{{ $pivot->reference }}</td>
-                                            <td>{{ $pivot->user->last_name }} , {{ $pivot->user->name }}</td>
-                                            <td>$ {{ number_format($pivot->ammount) }}</td>
+                                            <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
                                             <td class="text-center">
                                                 {{ \Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y', 'H:i') }}
                                             </td>
-
+                                            <td>$ {{ number_format($pivot->ammount) }}</td>
                                             <td>{{ $pivot->payment->name }}</td>
 
                                             <td>

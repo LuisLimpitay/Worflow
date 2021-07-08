@@ -59,7 +59,6 @@
                     </div>
 
 
-
                     {!! Form::submit('Actaulizar', ['class' => 'btn btn-success']) !!}
                     <a href="{{ route('admin.customers.index') }}" class="btn btn-danger" type="submit">Cancelar</a>
 

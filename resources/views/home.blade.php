@@ -147,10 +147,11 @@
                     </p>
                     <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
                     <p class="mt-2  text-black">{{ $course->description }}</p>
-                    <p class="mt-2 text-black"><b>Instructor: </b>{{ $course->teachers->name }}</p><br>
+                    <p class="mt-2 text-black"><b>Instructor : </b>{{ $course->teachers->last_name }},
+                        {{ $course->teachers->name }}</p>
                     <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">
                         ARS $ {{ number_format($course->price, 2) }}</p>
-                    <hr>
+
                     <div class="flex justify-center">
                         <a href="{{ route('courses.show', $course) }}"
                             class="btn btn-primary bg-gray-800 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black"
@@ -181,18 +182,15 @@
                 Swal.fire({
                     icon: 'success',
                     text: 'Recuerda asistir el dia del Curso con tu Licencia Nacional de Conducir (Vigente).',
-                    footer: '<p>Deseas descargar tu comprobante? haz click  <a href="{{ route('customers.enrollments', auth()->user()->id) }}"> AQUI</a></p>'
                 })
 
             </script>
-        @endif
-        @if(session('info') == 'inscripcion exitosa efectivo')
+        @elseif(session('info') == 'inscripcion exitosa efectivo')
             <script>
                 Swal.fire({
                     icon: 'warning',
-                    text: 'Recuerda que deberas realizar el pago como maximo 48 hs antes de la fecha del curso de acuerdo a nuestros terminos del servicio</a>'
-                    footer: '<p>Deseas ver tu numero de referencia ? haz click  <a href="{{ route('customers.enrollments', auth()->user()->id) }}"> AQUI</a></p>'                
-                    })
+                    text: 'Recuerda que deberas realizar el pago como maximo 48 hs antes de la fecha del curso.',
+                })
 
             </script>
         @endif

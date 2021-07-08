@@ -48,5 +48,5 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 
 //  ************************  MIS INSCRIPCIONES  *****************************************
 Route::get('/mis-inscripciones/{user}', [EnrollmentController::class, 'index'])->middleware('auth')->name('customers.enrollments');
-Route::get('descargas/{user}', [EnrollmentController::class, 'pdf'])->name('inscripcion');
+Route::get('descargas/{pivot}', [EnrollmentController::class, 'pdf'])->name('inscripcion');
 

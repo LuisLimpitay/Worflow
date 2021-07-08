@@ -12,6 +12,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 use Carbon\Carbon;
 
@@ -21,12 +22,9 @@ class DictationController extends Controller
 
     public function index()
     {
-
         $dictations = Dictation::published()->get();
         return view('admin.dictations.index', compact('dictations'));
-
     }
-
 
     public function create()
     {
@@ -50,8 +48,7 @@ class DictationController extends Controller
             'time' => 'required',
             'stock' => 'numeric|required|min:5|max:35',
             'course_id' => 'required',
-            'place_id' => 'required',
-
+            'place_id' => 'required'
         ]);
 
         $dictations = Dictation::create($request->all());
@@ -62,6 +59,7 @@ class DictationController extends Controller
     
     public function show(Dictation $dictation)
     {
+        //dd($dictation);
         $pivots = DictationUser::where('dictation_id',$dictation->id)->get();
         //dd($pivot);
         return view('admin.dictations.show', compact('dictation', 'pivots'));
@@ -97,7 +95,7 @@ class DictationController extends Controller
     public function update(Request $request, Dictation $dictation)
     {
         $request->validate([
-            'date' => 'required|unique:dictations,date,'.$dictation->id,
+            'date' => 'required|date|unique:dictations,date,'.$dictation->id,
             'time' => 'required',
             'stock' => 'numeric|required|min:5|max:35',
             'course_id' => 'required',
@@ -105,10 +103,10 @@ class DictationController extends Controller
 
         ]);
         $dictation->update($request->all());
+        //dd($dictation);
         return redirect()->route('admin.dictations.index', $dictation)
                             ->with('info', 'Dictado actualizado con Exito !');
     }
-
 
     public function destroy(Dictation $dictation)
     {
@@ -118,6 +116,17 @@ class DictationController extends Controller
             return redirect()->route('admin.dictations.index')
                                 ->with('info', 'Dictado eliminado con Exito !');
     }
+
+    public function planillapdf(Dictation $dictation)
+        {
+            //$detalles = DictationUser::where('id', $pivot->id)->get();
+            $pivots = DictationUser::where('dictation_id',$dictation->id)->get();
+            //dd($pivot);
+            //return view('admin.dictations.show', compact('dictation', 'pivots'));
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadView('admin.planilla', compact('pivots', 'dictation'));
+            return $pdf->stream();
+        }
 
 
 }

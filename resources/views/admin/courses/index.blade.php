@@ -4,8 +4,6 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content_header')
@@ -33,12 +31,12 @@
                         <div class="card-body">
                             <table id="table-course" class="table table-striped table-responsive-sm">
                                 <thead class="thead-dark">
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Nombre</th>
                                     <th>Instructor</th>
                                     <th>Modalidad</th>
                                     <th>Precio </th>
-                                    <th width="120px">Accion</th>
+                                    <th width="80px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -50,13 +48,13 @@
                                             <td> {{ $course->mode }}</td>
                                             <td class=""> $ {{ number_format($course->price)  }}</td>
                                             <td>
+                                                
                                                 <a class="btn btn-info btn-sm" href="{{route('admin.courses.show', $course)}}"><i class="far fa-eye"></i></a>
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.courses.edit', $course) }}"><i
                                                         class="fas fa-edit"></i></a>
-                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.courses.destroy', $course], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
-                                                {!! Form::close() !!}
+                                              
+                                                
                                             </td>
                                         </tr>
                                     @endforeach
@@ -88,9 +86,21 @@
                 "lengthChange": true,
                 "searching": true,
                 "ordering": true,
-                "info": true,
+                "info": false,
                 "autoWidth": true,
                 "responsive": true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por pagina",
+                    "zeroRecords": "No hay registro para mostrar",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_ paginas",
+                    "infoEmpty": "",
+                    "infoFiltered": "(Filtrando de _MAX_ registros)",
+                    'search': "Buscar",
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                }
             });
         });
 

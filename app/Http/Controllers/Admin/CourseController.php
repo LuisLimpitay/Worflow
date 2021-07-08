@@ -53,7 +53,7 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         $teachers = Teacher::pluck('name', 'id');
-        return view('admin.courses.show', compact('course'));
+        return view('admin.courses.show', compact('course','teachers'));
     }
 
 

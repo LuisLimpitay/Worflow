@@ -243,8 +243,6 @@ return [
             'icon' => 'fas fa-users fa-fw',
             'active' => ['admin/customers*']
         ],
-
-
         [
             'text'        => 'Ordenes',
             'route'         => 'admin.orders.index',
@@ -256,6 +254,7 @@ return [
 
         ['header' => 'C R U D'],
 
+       
         [
             'text' => 'Instructor',
             'route'  => 'admin.teachers.index',
@@ -275,12 +274,14 @@ return [
             'icon' => 'fas fa-map-marked-alt fa-fw',
             'active' => ['admin/places*']
         ],
+
         [
             'text' => ' Dictados',
             'route'  => 'admin.dictations.index',
             'icon' => 'fas fa-align-left fa-fw',
             'active' => ['admin/dictations*']
         ],
+        
 
         
         

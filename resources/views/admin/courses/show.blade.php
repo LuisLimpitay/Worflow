@@ -8,66 +8,52 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
-                    <div class="form-group">
-                        {!! Form::label('name', 'Nombre del Curso') !!}
-                        {!! Form::text('name', $course->name, ['class' => 'form-control']) !!}
-                        @error('name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('name', 'Nombre del Curso') !!}
+                                {!! Form::text('name', $course->name, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('mode', 'Modalidad') !!}
+                                {!! Form::text('mode', $course->mode, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
                     </div>
-
-
 
                     <div class="form-group">
                         {!! Form::label('description', 'Descripcion') !!}
                         {!! Form::text('description', $course->description, ['class' => 'form-control']) !!}
-                        @error('description')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('content', 'Contenido') !!}
                         {!! Form::textarea('content', $course->content, ['class' => 'form-control']) !!}
-                        @error('content')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
                     </div>
 
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                {!! Form::label('mode', 'Modalidad') !!}
-                                {!! Form::select('mode', ['presencial' => 'Presencial'], null, ['class' => 'form-control']) !!}
-                                @error('mode')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                {!! Form::label('price', 'Precio') !!}
+                                {!! Form::number('price', $course->price, ['class' => 'form-control']) !!}
                             </div>
-
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                {!! Form::label('price', 'Precio') !!}
-                                {!! Form::number('price', $course->price, ['class' => 'form-control']) !!}
-                                @error('price')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                {!! Form::label('name', 'Instructor') !!}
+                                {!! Form::text('name', $course->teachers->name, ['class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('name', 'Instructor') !!}
-                        {!! Form::text('name', $course->teachers->name, ['class' => 'form-control']) !!}
-                        @error('name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+
 
                     <a href="{{ route('admin.courses.index') }}" class="btn btn-danger" type="submit">Volver</a>
 

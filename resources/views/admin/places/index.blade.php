@@ -4,8 +4,6 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 @endsection
 
 @section('content_header')
@@ -34,7 +32,7 @@
                             <table id="table-place" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                     <th>#</th>
-                                    <th>Nombre de la Sede</th>
+                                    <th>Sede</th>
                                     <th>Direccion</th>
                                     <th>Ciudad</th>
                                     <th width="80px">Action</th>
@@ -49,6 +47,7 @@
                                             <td>{{ $place->city->name }}</td>
 
                                             <td>
+                                                {{-- Mostrar los ICONOS de una Sede la cual no tenga asignado ningun dictado. --}}
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.places.edit', $place) }}"><i
                                                         class="fas fa-edit"></i></a>
@@ -87,9 +86,21 @@
                 "lengthChange": true,
                 "searching": true,
                 "ordering": true,
-                "info": true,
+                "info": false,
                 "autoWidth": false,
                 "responsive": true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por pagina",
+                    "zeroRecords": "No hay registro para mostrar",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_ paginas",
+                    "infoEmpty": "",
+                    "infoFiltered": "(Filtrando de _MAX_ registros)",
+                    'search': "Buscar",
+                    'paginate': {
+                        'next': 'Siguiente',
+                        'previous': 'Anterior'
+                    }
+                }
             });
         });
     </script>
