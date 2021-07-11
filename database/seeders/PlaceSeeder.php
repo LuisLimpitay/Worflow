@@ -23,7 +23,7 @@ class PlaceSeeder extends Seeder
             'name' => 'Centro Integrador Comunitario',
             'address_street' => 'Belgrano',
             'address_number' => '2390',
-            'city_id' => 1,
+            'city_id' => 2,
 
         ]);
     }

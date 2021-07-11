@@ -13,26 +13,31 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-9">
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
                     {!! Form::open(['route' => 'admin.teachers.store', 'autocomplete' => 'off']) !!}
 
-                    <div class="form-group">
-                        {!! Form::label('last_name', 'Apellido') !!}
-                        {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Apellido']) !!}
-                        @error('last_name')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('name', 'Nombre') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Nombre']) !!}
-                        @error('name')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('last_name', 'Apellido') !!}
+                                {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Apellido']) !!}
+                                @error('last_name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {!! Form::label('name', 'Nombre') !!}
+                                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el Nombre']) !!}
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

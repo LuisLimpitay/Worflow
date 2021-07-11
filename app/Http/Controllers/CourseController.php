@@ -120,18 +120,23 @@ class CourseController extends Controller
         return redirect()->route('home')->with('info', 'inscripcion exitosa efectivo');
 
     }
+
+    //Se lo mando a mi blade checkout
     public function checkout(Dictation $dictation)
     {
         $dictations = Dictation::where('id', $dictation->id)->get();
         //dd($dictations);
         return view('courses.checkout', compact('dictations', 'dictation'));
     }
+
     public function qa()
     {
         return view('qa');
     }
+
     public function contact()
     {
         return view('contact');
     }
+    
 }

@@ -8,17 +8,11 @@
 @stop
 
 @section('content')
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{ session('info') }}</strong>
-        </div>
-    @endif
-
+   
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card card-primary card-outline">
                 <div class="card-body">
-
                     {!! Form::model($teacher, ['route' => ['admin.teachers.update', $teacher], 'method' => 'put']) !!}
 
                     <div class="row">

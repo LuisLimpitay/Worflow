@@ -21,8 +21,8 @@ class CreateCoursesTable extends Migration
 
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')->references('id')->on('teachers')
-                                            ->onDelete('cascade')
-                                            ->onUpdate('cascade');
+                                            ->onDelete('setnullable')
+                                            ->onUpdate('setnullable');
 
             $table->timestamps();
             

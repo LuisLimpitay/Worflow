@@ -1,12 +1,13 @@
 @extends('adminlte::page')
 
 @section('title', 'Inscripciones')
+
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 @endsection
 
 @section('content_header')
-    <p class="text-xl">Gestion de Inscripciones</p>
+    <p class="text-xl">Gestion de Ordenes de Compra</p>
 @endsection
 
 @section('content')
@@ -21,7 +22,7 @@
 
                         </div>
                         <div class="card-header">
-                            <h3 class="card-title">Ordenes | Lista</h3>
+                            <h3 class="card-title">Ordenes de Compra | Lista</h3>
 
                         </div>
                         <!-- /.card-header -->
@@ -37,7 +38,7 @@
                                     <th>Total</th>
                                     <th>Metodo</th>
                                     <th>Estado</th>
-                                    <th width="80px">Action</th>
+                                    <th width="80px">Accion</th>
 
                                 </thead>
                                 <tbody>
@@ -112,7 +113,7 @@
                 "language": {
                     "lengthMenu": "Mostrando _MENU_ registros por pagina",
                     "zeroRecords": "No hay registro para mostrar",
-                    "info": "Mostrando la pagina _PAGE_ de _PAGES_ paginas",
+                    "info": "Mostrando la pagina _PAGE_ de _PAGES_",
                     "infoEmpty": "",
                     "infoFiltered": "(Filtrando de _MAX_ registros)",
                     'search': "Buscar",

@@ -35,7 +35,7 @@
                                     <th>Sede</th>
                                     <th>Direccion</th>
                                     <th>Ciudad</th>
-                                    <th width="80px">Action</th>
+                                    <th width="40px">Action</th>
                                 </thead>
 
                                 <tbody>
@@ -51,9 +51,7 @@
                                                 <a class="btn btn-primary btn-sm"
                                                     href="{{ route('admin.places.edit', $place) }}"><i
                                                         class="fas fa-edit"></i></a>
-                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.places.destroy', $place], 'style' => 'display:inline']) !!}
-                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
-                                                {!! Form::close() !!}
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

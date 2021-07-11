@@ -30,9 +30,9 @@
                             <table id="table-place" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                 <th>#</th>
-                                <th>Instructor</th>
+                                <th width="20%">Instructor</th>
                                 <th>Sobre el</th>
-                                <th width="80px">Action</th>
+                                <th width="80px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -46,9 +46,7 @@
                                             <a class="btn btn-primary btn-sm"
                                                href="{{ route('admin.teachers.edit', $teacher) }}"><i
                                                     class="fas fa-edit"></i></a>
-                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
-                                            {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
-                                            {!! Form::close() !!}
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
