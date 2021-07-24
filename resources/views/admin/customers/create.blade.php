@@ -111,7 +111,7 @@
     <script type="text/javascript">
         $(function() {
             $("#date").datepicker({
-                minDate: 10,
+                minDate: 1,
                 changeMonth: true,
                 changeYear: true,
                 maxDate: "+5M +5D",

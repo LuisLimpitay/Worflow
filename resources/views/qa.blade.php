@@ -147,7 +147,7 @@
                     <label class="block p-5 leading-normal cursor-pointer" for="tab-single-four">¿Hay modalidad online?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                         <p class="p-5">
-                            No, el curso en su totalidad es presencial. Podras asistir al mismo en cualquiera de las localidades que se dictan.
+                            No, el curso en su totalidad es presencial. Podra asistir al mismo en cualquiera de las localidades que se dictan.
                         </p>
 
                     </div>
@@ -158,19 +158,28 @@
                     <label class="block p-5 leading-normal cursor-pointer" for="tab-single-five">¿Si no asisto al curso me devuelven el dinero?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                         <p class="p-5">
-                            Lamentablemente NO!, cuando se reserva un cupo se tomara como tal cuando se registre el pago, de acuerdo a nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>.
-                       
+                            Eso esta especificado en nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>.
+
 
                     </div>
                 </div>
 
                 <div class="tab w-full overflow-hidden border-t">
                     <input class="absolute opacity-0" id="tab-single-six" type="radio" name="tabs2">
-                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-six">¿Puedo asistir al curso sin mi Licencia de Conducir?</label>
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-six">¿Puedo asistir al curso sin Licencia de Conducir?</label>
                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                         <p class="p-5">
-                            Lamentablemente NO!, Si podras asistir al curso de manera parcial, puesto que no se te podra evaluar la parte practica y quedara pendiente de acuerdo nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>.
-                        <br>De todos modos puedes solicitar el reintegro de tu inscripcion 48 hs antes que se sustancie el curso.</p>
+                            Lamentablemente no!, deberas tener vigente la Licencia Nacional de Conducir.</p>
+
+                    </div>
+                </div>
+
+                <div class="tab w-full overflow-hidden border-t">
+                    <input class="absolute opacity-0" id="tab-single-seven" type="radio" name="tabs2">
+                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-seven">¿Puede inscribir a otra persona?</label>
+                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                        <p class="p-5">
+                            Lamentablemente no!, la inscripcion es personal.</p>
 
                     </div>
                 </div>
@@ -184,7 +193,7 @@
     {{-- *************************************SEPARADOR****************************************************** --}}
 
     <div class="w-full md:w-3/5 mx-auto p-8">
-        <p class="bg-gray-100 text-2xl fx-2 fy-2">Sobre Inscripciones</p>
+        <p class="bg-gray-100 text-2xl fx-2 fy-2">Inscripciones</p>
         <br>
         <div class="shadow-md">
 
@@ -193,50 +202,51 @@
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">¿Como me inscribo?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
 
-                        <p class="p-5">Deberas dirigirte a la parte superior derecha del sitio e <b>"Iniciar Sesion".</b> </p>
+                        <p class="p-5">Deberas tener una cuenta en nuestro sitio web. Luego seguir con los siguientes pasos</p>
                             <ul class="px-6" >
-                                <li class="px-3">- Ingresar tu correo y contraseña</li>
+                                <li class="px-3">- Iniciar Sesion con tus credenciales</li>
                                 <li class="px-3">- Seleccionar el curso de interes</li>
                                 <li class="px-3">- Elegir una fecha</li>
                                 <li class="px-3">- Realizar el pago</li>
-                            </ul> <br>
+                            </ul>
+                            <p><br>
                 </div>
             </div>
 
             <div class="tab w-full overflow-hidden border-t">
                 <input class="absolute opacity-0" id="tab-multi-two" type="checkbox" name="tabs">
-                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-two">¿Como me registro?</label>
+                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-two">¿Como crear una cuenta?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                     <p class="p-5">Deberas seguir los siguientes pasos:</p>
                         <ul class="px-6">
                             <li class="px-2">- Dirigirte a la parte superior derecha y hacer ckick en <b>"Registrarse".</b> </li>
-                            <li class="px-2">- Deberas tener tu Licencia Nacional de Conducir.</li>
+                            <li class="px-2">- Deberas tener tu Licencia Nacional de Conducir a mano.</li>
 
-                            <li class="px-2">- Completar el formulario con los datos solicitados.</li>
-                            <li class="px-2">- Una vez registrado podras iniciar sesion con tu correo electronico y contraseña.</li>
+                            <li class="px-2">- Completar el formulario con los datos y en el formato solicitado.</li>
+                            <li class="px-2">- Una vez registrado podras iniciar sesion con tus credenciales.</li>
                         </ul><br>
                 </div>
             </div>
 
             <div class="tab w-full overflow-hidden border-t">
                 <input class="absolute opacity-0" id="tab-multi-three" type="checkbox" name="tabs">
-                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-three">¿Como realizar el pago?
+                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-three">¿Medios de Pago Disponibles?
                 </label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                     <p class="p-5">Hay 3 alternativas para poder realizar el pago</p>
                         <ul class="px-6">
-                            <li class="px-2"><b>1- Tarjeta de Credito / Debito :</b>  Deberas ingresar los datos de tu tarjeta credito / debito. Una vez realizada la transaccion podras descargar el comprobante.</li>
-                            <li class="px-2"><b>2- Transferencia Bancaria :</b> Deberas realizar la transferencia al numero de CBU o ALIAS que se proporciona. Luego podras descargar el comprobante</li>
-                            <li class="px-2"><b>3- Efectivo :</b> Al elegir este medio deberas tener en cuenta que deberas abonarlo con un maximo de 48hs antes de la fecha del curso. Caso contario se eliminara tu inscripcion.</li>
+                            <li class="px-2">- Tarjeta de Credito / Debito</li>
+                            <li class="px-2">- Mercado Pago</li>
+                            <li class="px-2">- Efectivo</li>
                         </ul><br>
                 </div>
             </div>
 
             <div class="tab w-full overflow-hidden border-t">
                 <input class="absolute opacity-0" id="tab-multi-four" type="checkbox" name="tabs">
-                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-four">¿Como verifico si me inscribi correctamente?</label>
+                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-four">¿Puedo descargar el comprobante de mi inscripcion?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                    <p class="p-5">Una vez logueado en el sitio, deberas dirigirte a tu perfil en la parte superior derecha y acceder al enlace <b>"Mis Inscripciones".</b> Alli podras visualizar todos los detalles del curso al cual te inscribiste.</p>
+                    <p class="p-5">Una vez logueado en el sitio, deberas dirigirte a tu perfil en la parte superior derecha y acceder al enlace <b>"Mis Inscripciones".</b> Alli podras visualizar tus inscripciones y descargar un comprobante.</p>
 
                 </div>
             </div>
@@ -246,7 +256,7 @@
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-fivesix">¿Puedo realizar el pago el dia del curso?</label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
                     <p class="p-5">
-                        <b>No</b>, puesto que asi lo establece nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>. <br>
+                        No, de acuerdo a nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>. <br>
                     </p>
                 </div>
             </div>
@@ -256,8 +266,8 @@
                 <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-six">¿Puedo cancelar mi inscripción?
                 </label>
                 <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                    <p class="p-5">Por supuesto si ya realizaste el pago, deberas comunicarte con Workflow mediante nuestro formulario de contacto que lo encontraras en la barra de navegacion. Deberas hacerlo con un maximo de 48hs antes de la fecha del curso. De esta forma se te reintegrarara el 100% de lo abonado. <br>
-                        Caso solo se reintegrara el 50% del valor del curso. <br>
+                    <p class="p-5">Si, para ello deberas comunicarte con nosotros
+                     mediante nuestro formulario de contacto o telefonicamente. De acuerdo a nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>. <br>
                         </p>
 
                 </div>

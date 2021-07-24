@@ -20,12 +20,10 @@ class CreateCoursesTable extends Migration
             $table->decimal('price', 8,2);
 
             $table->unsignedBigInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers')
-                                            ->onDelete('setnullable')
-                                            ->onUpdate('setnullable');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
 
             $table->timestamps();
-            
+
         });
     }
 

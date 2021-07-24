@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Dictation;
 use Illuminate\Http\Request;
 use App\Models\Place;
 
@@ -13,7 +14,8 @@ class PlaceController extends Controller
     public function index()
     {
         $places = Place::all();
-        return view('admin.places.index', compact('places'));
+        $dictations = Dictation::published()->get();
+        return view('admin.places.index', compact('places', 'dictations'));
     }
 
     public function create()

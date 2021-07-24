@@ -1,21 +1,11 @@
+<x-app-layout>
 <x-guest-layout>
-
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
 
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-        <br>
-        <hr><br>
-        <h1 class="text-2xl text-center mb-4 text-black font-semibold">Iniciar Sesion</h1>
+        <h1 class="text-2xl text-center mb-8 text-black font-semibold">Iniciar Sesion</h1>
         <hr><br>
 
         <form method="POST" action="{{ route('login') }}">
@@ -24,12 +14,18 @@
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
+                @error('email')
+                <small class="text-red-600">{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Contraseña') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password"
                     autocomplete="current-password" />
+                @error('password')
+                <small class="text-red-600">{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="block mt-4">
@@ -61,9 +57,10 @@
         <hr><br>
         <div class="bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black">
             <a href=" {{ route('register') }}">
-            <p class="text-center font-semibold">Crea una cuenta gratis</p></a>
+            <p class="text-center font-semibold">Registrarse gratis</p></a>
         </div>
 
     </x-jet-authentication-card>
 
 </x-guest-layout>
+</x-app-layout>

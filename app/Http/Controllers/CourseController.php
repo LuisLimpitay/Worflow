@@ -8,6 +8,7 @@ use App\Models\DictationUser;
 use App\Models\Enrollment;
 use App\Models\Payment;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -34,12 +35,14 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         $course_id= $course->id;
+        $hoy = Carbon::now();
         if (Auth::check()) {
             $dictado = auth()->user()->dictations;
             $ids = $dictado->pluck('id');
             $dictations = Dictation::with('courses')
                 ->where('stock', '>', '0')
                 ->where('course_id', $course_id )
+                ->where('date', '>' ,$hoy )
                 ->whereNotIn('id', $ids)
                 ->orderby('date', 'DESC')
                 ->paginate(4);
@@ -47,15 +50,14 @@ class CourseController extends Controller
             $dictations = Dictation::with('courses')
                 ->where('stock' ,'>', 0)
                 ->where('course_id', $course_id )
+                ->where('date', '>' ,$hoy )
                 ->orderby('date', 'DESC')
                 ->paginate(4);
             //dd($dictations);
-
         }
         return view('courses.show', compact('course', 'dictations'));
     }
-
-
+    //PAGO CON TARJETA
     public function pay(Request $request, Dictation $dictation){
 
         $payment_id = $request->get('payment_id');
@@ -74,20 +76,14 @@ class CourseController extends Controller
                     'user_id' => auth()->id()
                 ]);
             $stock = $dictation->stock;
-            $status1 = $dictation->status;
             $affected = DB::table('dictations')
                 ->where('id', $dictation->id)
                 ->update(['stock' => $dictation->stock - 1]);
-            if($stock == 1)
-                $status1 = 'completo';
-            $affected2 = DB::table('dictations')
-                ->where('id', $dictation->id)
-                ->update(['status' => $status1]);
 
         }
         return redirect()->route('home')->with('info', 'inscripcion exitosa tarjeta');
     }
-
+    //PAGO EN EFECTIVO
     public function pending(Request $request, Dictation $dictation){
 
         $payment_id = $request->get('payment_id');
@@ -106,15 +102,9 @@ class CourseController extends Controller
                             'user_id' => auth()->id()
                         ]);
                     $stock = $dictation->stock;
-                    $status1 = $dictation->status;
                     $affected = DB::table('dictations')
                         ->where('id', $dictation->id)
                         ->update(['stock' => $dictation->stock - 1]);
-                    if($stock == 1)
-                        $status1 = 'completo';
-                    $affected2 = DB::table('dictations')
-                        ->where('id', $dictation->id)
-                        ->update(['status' => $status1]);
 
         }
         return redirect()->route('home')->with('info', 'inscripcion exitosa efectivo');
@@ -124,9 +114,9 @@ class CourseController extends Controller
     //Se lo mando a mi blade checkout
     public function checkout(Dictation $dictation)
     {
+        $courses = Course::all();
         $dictations = Dictation::where('id', $dictation->id)->get();
-        //dd($dictations);
-        return view('courses.checkout', compact('dictations', 'dictation'));
+        return view('courses.checkout', compact('dictations', 'dictation', 'courses'));
     }
 
     public function qa()
@@ -138,5 +128,5 @@ class CourseController extends Controller
     {
         return view('contact');
     }
-    
+
 }

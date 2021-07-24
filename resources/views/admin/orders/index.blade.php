@@ -30,15 +30,13 @@
                             <table id="table-order" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
 
-                                    {{-- <th>ID</th> --}}
+                                    <th>ID</th>
                                     <th>Fecha </th>
-                                    <th>Nº Referencia</th>
-                                    <th>Cliente</th>                               
-                                    <th>Fecha del Curso</th>
+                                    <th>Cliente</th>
+                                    <th>Metodo de Pago</th>
                                     <th>Total</th>
-                                    <th>Metodo</th>
                                     <th>Estado</th>
-                                    <th width="80px">Accion</th>
+                                    <th width="120px">Accion</th>
 
                                 </thead>
                                 <tbody>
@@ -47,15 +45,12 @@
                                     @foreach ($pivots as $pivot)
 
                                         <tr>
-                                            {{-- <td>{{ $pivot->id }}</td> --}}
-                                            <td>{{ $pivot->created_at->format('d M Y H:i') }}</td>
-                                            <td>{{ $pivot->reference }}</td>
+                                            <td>{{ $pivot->id }}</td>
+                                            <td>{{ $pivot->created_at->format('d M Y') }}</td>
                                             <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
-                                            <td class="text-center">
-                                                {{ \Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y', 'H:i') }}
-                                            </td>
-                                            <td>$ {{ number_format($pivot->ammount) }}</td>
+
                                             <td>{{ $pivot->payment->name }}</td>
+                                            <td>$ {{ number_format($pivot->ammount) }}</td>
 
                                             <td>
                                                 @if ($pivot->status == 'aprobado')
@@ -66,11 +61,15 @@
                                             </td>
 
                                             <td>
+                                                <a class="btn btn-warning btn-sm"
+                                                   href="{{ route('admin.orders.show', $pivot) }}"><i
+                                                        class="far fa-eye"></i></a>
                                                 @if ($pivot->status == 'pendiente')
                                                     <a class="btn btn-primary btn-sm"
                                                         href="{{ route('admin.orders.edit', $pivot) }}"><i
                                                             class="fas fa-edit"></i></a>
                                                 @endif
+
                                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.orders.destroy', $pivot], 'style' => 'display:inline']) !!}
                                                 {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                                 {!! Form::close() !!}
@@ -161,7 +160,7 @@
             e.preventDefault();
             //luego le paso el alert
             Swal.fire({
-                title: 'Estas seguro que deseas eliminar la orden de inscripcion ?',
+                title: 'Estas seguro que deseas eliminar la orden de compra ?',
                 text: "No podras revertirlo",
                 icon: 'warning',
                 showCancelButton: true,

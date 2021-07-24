@@ -1,8 +1,8 @@
+<x-app-layout>
 <x-guest-layout>
     <div class="bg-black">
         <x-jet-authentication-card>
             <x-slot name="logo"><br>
-                <x-jet-authentication-card-logo />
             </x-slot>
 
             <h1 class="text-2xl mb-4 text-center text-black font-semibold">Formulario de Registro</h1>
@@ -32,9 +32,9 @@
                     </div>
                 </div>
 
-                <div class="mt-4">
-
-                    <x-jet-label for="phone" /><small class="text-red-500">* </small> Telefono Celular
+                <div class="-mx-3 md:flex mb-6">
+                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <x-jet-label for="phone" /><small class="text-red-500">* </small> Telefono Celular
                     <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222" pattern="[0-9]{10}"
                         maxlength="10" type="tel" name="phone" :value="old('phone')" /><small><i>Ingrese un numero que
                             no conternga el prefijo
@@ -43,21 +43,17 @@
                     @error('phone')
                         <small class="text-red-600">{{ $message }}</small>
                     @enderror
-
+                    </div>
+                    <div class="md:w-1/2 px-3">
+                        <x-jet-label for="expire_license" /><small class="text-red-500">*
+                        </small>Venciminiento L.N.C.
+                        <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-08-02" type="date"
+                            name="expire_license  " :value="old('expire_license')" />
+                        @error('expire_license')
+                            <small class="text-red-600">{{ $message }}</small>
+                        @enderror
+                    </div>
                 </div>
-
-
-                <div class="mt-4">
-                    <x-jet-label for="expire_license" /><small class="text-red-500">*
-                    </small>Vencimiento de Licencia Nacional de Conducir
-                    <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30" type="date"
-                        name="expire_license  " :value="old('expire_license')" />
-                    @error('expire_license')
-                        <small class="text-red-600">{{ $message }}</small>
-                    @enderror
-                </div>
-                <br>
-
 
                 <div class="-mx-3 md:flex mb-6">
                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -123,3 +119,5 @@
     </x-jet-authentication-card>
 
 </x-guest-layout>
+    <br>
+</x-app-layout>

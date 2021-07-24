@@ -2,44 +2,40 @@
     <div class="pt-4 bg-gray-100">
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
             <div>
-                <x-jet-authentication-card-logo />
             </div>
 
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
-                <h1>Términos del Servicio</h1>
-                <p>Las prestaciones de nuestros servicios consideran lo siguiente</p>
-                
+            <div class="w-full mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
+                <h2>Términos del Servicio</h2>
+                <p>La reserva de un cupo sera unicamente mediante el pago de la inscripcion. Un requisito importante es tener vigente la Licencia Nacional de Conducir vigente el dia de la sustanciacion del curso, puesto que sino no podra asistir y perdera el monto abonado.
+                    Para asistir al curso debera haber pagado la inscripcion sin excepcion. </p>
+
                 <h2>Formas de Pago</h2>
-                <p>Se podra realizar el pago mediante: </p>
+                <p>Medios de pago disponibles: </p>
                 <ul>
                     <li>Tarjeta de Credito / Debito</li>
-                    <li>Transferencia Bancaria</li>
-                    <li>Efectivo (se podra abonar en un pago facil o rapi pago)</li>
+                    <li>Mercado Pago</li>
+                    <li>Efectivo</li>
                 </ul>
-                <p>La Transferencia Bancaria debera ser a nombre de “Workflow S.R.L.”. CUIT: 30-53772999-0.  Banco Patagonia  S.A.(Cod.  Banco  N°  034).  </p>
-                <p>Cuenta  Corriente  en  Pesos  N°  317-3581-0594/0.  Sucursal  Calle  Tucumán  (Cod. Suc. N° 317). CBU: 0340317200031010594003</p>
-                <p>El pago en efectivo mediante un ente de cobro, se debera realizar como maximo 48 horas antes del dictado del curso. De lo contrario no podra asistir al curso y perdera su vacante.</p>
-                
-                <h2>Asistencia al Curso sin la Licencia Nacional de Conducir</h2>
-                
-                <ul>
-                    <li>
-                        Las personas que asistan al curso en esta excepcion podran realizar solo la parte teorica y una vez presentado una constancia de Licencia en tramite o la Licencia Nacional de Conducir podra realizar la prueba practica.
-                    </li>
-                </ul>
+                <p>El pago en efectivo lo podra realizar en las entidades de cobro como pago facil o rapipago.
+                El mismo debera ser como maximo 24 hs posteriores a su inscripcion. De lo contrario perdera su vacante.
+                </p>
+
+                <h2>Cambios de Fecha</h2>
+                <p>No se aceptan cambios de fechas de asistencia al curso, solo se podra solicitar la cancelacion de su inscripcion de acuerdo a nuestras Politicas de Cancelacion. </p>
 
                 <h2>Politica de Cancelación</h2>
-                
+                <p>En el caso que desee cancelar su participacion, debera comunicarse por cualquiera de nuestros canales de comunicacion.</p>
                 <ul>
-                    <li>En el caso de cancelar su participacion en el curso. Si no realizo la cancelacion 72 horas antes el reintegro sera del 50% abonado.
+                    <li>Si la cancelacion se realiza 72 hs antes de la fecha del curso, se reintengrara en efectivo el 100% de lo abonado.
 
                     </li>
-                    <li>En el caso de realizarlo con mas de 72 horas de anticipacion se le reintegrara el 100% de lo que abono cuando se inscribio.
-                    
+                    <li>Si la cancelacion se realiza dentro de las 72 hs de la sustanciacion del curso se reintegrar en efectivo el 50% de lo abonado sin excepcion en concepto de gastos administrativos.
+
                     </li>
                 </ul>
-            
+
             </div>
         </div>
     </div>
+    <br>
 </x-app-layout>

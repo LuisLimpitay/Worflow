@@ -16,7 +16,7 @@
         <div class="bg-gray-100">
             <div class="container mx-auto flex flex-col md:flex-row">
                 <div class="flex flex-col w-full lg:w-1/3 p-8">
-                    <p class="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Déjenos tu consulta!</p>
+                    <p class="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Déjenos su consulta!</p>
                     <p class="text-sm md:text-base leading-snug text-black text-opacity-100">
                         Por favor proporcionenos su valiosa opinion o consultas, nos contactaremos a la
                         brevedad.
@@ -32,17 +32,9 @@
                                     <div class="flex-auto p-5 lg:p-10">
                                         <h4 class="text-2xl mb-4 text-black font-semibold">Formulario de Contacto</h4>
 
-                                        {{-- @if ($errors->any())
-
-                                            @foreach ($errors->all() as $error)
-                                                <p><small class=" text-red-500">* {{ $error, '<br>' }}</small></p>
-                                            @endforeach
-
-                                        @endif --}}
                                         <form action="{{ route('contactanos.store') }}" method="POST">
 
                                             @csrf
-
                                             <div class="mb-6">
                                                 <label for="name"
                                                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Apellido
@@ -60,7 +52,7 @@
                                                 <label for="email"
                                                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
                                                 <input type="text" name="email" id="email" value="{{ old('email') }}"
-                                                    placeholder="algo@gmail.com"
+                                                    placeholder="ejemplo@gmail.com"
                                                     class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500" />
                                                     @error('email')
                                                     <small class="text-red-600">{{ $message }}</small>
@@ -87,7 +79,6 @@
                                             </div>
 
                                         </form>
-
 
                                     </div>
                                 </div>
@@ -148,5 +139,17 @@
         })
 
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('info') == 'mensaje enviado')
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Mensaje enviado con exito',
+                    showConfirmButton: false,
+                    timer: 2500
+                    })
+            </script>
+    @endif
 
 </x-app-layout>

@@ -40,7 +40,7 @@ class CustomerController extends Controller
 
         $customers = User::create($input);
         return redirect()->route('admin.customers.index', $customers)
-                            ->with('info', 'Dictado creado con Exito !');
+                            ->with('info', 'cliente creado');
     }
 
     // ************************************************************************
@@ -72,7 +72,7 @@ class CustomerController extends Controller
         }*/
         $customer->update($input);
         return redirect()->route('admin.customers.index')
-                            ->with('info', 'Dictado creado con Exito !');
+                            ->with('info', 'cliente actualizado');
     }
 
 
@@ -81,6 +81,6 @@ class CustomerController extends Controller
             //dd($customer);
             $customer->delete();
             return redirect()->route('admin.customers.index', compact('customer'))
-                            ->with('info', 'Dictado eliminado con Exito !');
+                            ->with('info', 'Cliente eliminado');
     }
 }

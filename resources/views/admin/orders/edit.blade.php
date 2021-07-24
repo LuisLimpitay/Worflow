@@ -28,7 +28,7 @@
                         {!! Form::label('status', 'Estado del Pago') !!}
                         {!! Form::select('status', ['pendiente' => 'pendiente','aprobado' => 'aprobado'], null, ['class' => 'form-control' ]) !!}
                     </div>
-
+<br><br><br>
                     {!! Form::submit('Actualizar', ['class' => 'btn btn-success']) !!}
                     <a href="{{ route('admin.orders.index') }}" class="btn btn-danger" type="submit">Cancelar</a>
 

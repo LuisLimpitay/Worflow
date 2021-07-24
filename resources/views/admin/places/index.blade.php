@@ -47,11 +47,14 @@
                                             <td>{{ $place->city->name }}</td>
 
                                             <td>
-                                                {{-- Mostrar los ICONOS de una Sede la cual no tenga asignado ningun dictado. --}}
-                                                <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('admin.places.edit', $place) }}"><i
-                                                        class="fas fa-edit"></i></a>
-                                                
+                                                @if (!$place->dictations()->count())                                                    <a class="btn btn-primary btn-sm"
+                                                       href="{{ route('admin.places.edit', $place) }}"><i
+                                                            class="fas fa-edit"></i>
+                                                    </a>
+                                                    {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.places.destroy', $place], 'style' => 'display:inline']) !!}
+                                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                    {!! Form::close() !!}
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

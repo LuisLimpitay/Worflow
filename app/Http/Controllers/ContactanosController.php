@@ -23,8 +23,8 @@ class ContactanosController extends Controller
 
         $email = new ContactanosMailable($request->all());
 
-        Mail::to('luchinaje@gmail.com')->send($email);
-        return redirect()->route('contactanos.index')->with('info','Mensaje Enviado con EXITO!');
+        Mail::to('admin@workflow.com')->send($email);
+        return redirect()->route('contactanos.index')->with('info','mensaje enviado');
     }
 
 }

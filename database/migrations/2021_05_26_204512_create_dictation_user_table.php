@@ -21,16 +21,12 @@ class CreateDictationUserTable extends Migration
             $table->bigInteger('reference')->nullable();
             $table->enum('status', ['aprobado', 'pendiente'])->default('aprobado')->nullable();
 
-            
+
             $table->unsignedBigInteger('dictation_id');
-            $table->foreign('dictation_id')->references('id')->on('dictations')
-                                                            ->onDelete('cascade')
-                                                            ->onUpdate('cascade');
+            $table->foreign('dictation_id')->references('id')->on('dictations');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')
-                                                        ->onDelete('cascade')
-                                                        ->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->unsignedBigInteger('payment_id');
             $table->foreign('payment_id')->references('id')->on('payments');

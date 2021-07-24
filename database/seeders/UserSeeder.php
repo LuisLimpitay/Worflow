@@ -19,13 +19,10 @@ class UserSeeder extends Seeder
                 'expire_license' => '2023-07-25',
                 'phone' => '3885789456',
 
-
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('55555555'),
                 'level' => '1'
-            ]);
-
-        
+            ]); 
 
         User::create([
             'name' => 'Ruben',
@@ -60,10 +57,7 @@ class UserSeeder extends Seeder
             'level' => '2'
         ]);
 
-
-        User::factory(16)->create();
-
-        
+        User::factory(1)->create();     
         
     }
 }

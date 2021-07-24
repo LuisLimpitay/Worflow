@@ -1,7 +1,5 @@
 <x-app-layout>
-
     <br>
-
     <!-- SLIDER ESTATICO -->
     <div class="sliderAx h-auto">
         <div id="slider-1" class="container mx-auto">
@@ -40,7 +38,7 @@
                 <p class="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     Capacitaciones
                 </p>
-                <p class="mt-4 max-w-2xl text-xl text-black lg:mx-auto">
+                <p class="mt-4 max-w-2xl text-justify text-xl text-black lg:mx-auto">
                     Nos dedicamos a la investigación, diseño y desarrollo de programas de capacitación teórico-práctico
                     en Manejo Defensivo.
 
@@ -70,7 +68,7 @@
                         Modalidad {{ $course->mode }}
                     </p>
                     <p class="mt-2 text-xl font-bold text-gray-800">{{ $course->name }}</p>
-                    <p class="mt-2  text-black">{{ $course->description }}</p>
+                    <p class="mt-2 text-justify  text-black">{{ $course->description }}</p>
                     <p class="mt-2 text-black"><b>Instructor : </b>{{ $course->teachers->last_name }},
                         {{ $course->teachers->name }}</p>
                     <p class="inline-block px-3 py-2 bg-yellow-300 font-bold text-black rounded-full">

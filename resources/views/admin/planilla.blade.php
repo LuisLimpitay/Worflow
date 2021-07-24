@@ -44,7 +44,7 @@
         </tbody><hr>
       </table>
 
-      <b></b><hr><br><br>
+      <b></b><hr>
       <footer>
           <p align="right"><b>Instructor : </b>{{$dictation->courses->teachers->last_name}}, {{$dictation->courses->teachers->name}}</p>
       </footer>

@@ -28,16 +28,20 @@ Route::post('webhooks', [WebhookController::class, ])->name('courses.payment');
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
+
 Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
+
 Route::get('orden/{dictation}/pagos', [CourseController::class, 'checkout'])->middleware('auth')->name('courses.checkout');
-Route::get('orden/{dictation}/pay', [CourseController::class, 'pay'])->name('courses.pay');
-Route::get('pago/{dictation}/pending', [CourseController::class, 'pending'])->name('courses.pending');
+
+Route::get('orden/{dictation}/pay', [CourseController::class, 'pay'])->middleware('auth')->name('courses.pay');
+Route::get('pago/{dictation}/pending', [CourseController::class, 'pending'])->middleware('auth')->name('courses.pending');
 
 
 
 //******************************  me inserta en mio DB   ************************************->
-Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
+//Route::post('form/{dictation}', [FormController::class, 'store'])->name('form');
 
 Route::get('preguntas-frecuentes', [CourseController::class, 'qa'])->name('qa');
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
@@ -48,5 +52,5 @@ Route::post('contactanos', [ContactanosController::class, 'store'])->name('conta
 
 //  ************************  MIS INSCRIPCIONES  *****************************************
 Route::get('/mis-inscripciones/{user}', [EnrollmentController::class, 'index'])->middleware('auth')->name('customers.enrollments');
-Route::get('descargas/{pivot}', [EnrollmentController::class, 'pdf'])->name('inscripcion');
+Route::get('descargas/{pivot}', [EnrollmentController::class, 'pdf'])->middleware('auth')->name('inscripcion');
 

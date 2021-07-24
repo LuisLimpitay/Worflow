@@ -36,7 +36,7 @@
                                     <th>Instructor</th>
                                     <th>Modalidad</th>
                                     <th>Precio </th>
-                                    <th width="80px">Accion</th>
+                                    <th width="120px">Accion</th>
                                 </thead>
 
                                 <tbody>
@@ -48,13 +48,20 @@
                                             <td> {{ $course->mode }}</td>
                                             <td class=""> $ {{ number_format($course->price)  }}</td>
                                             <td>
-                                                
-                                                <a class="btn btn-info btn-sm" href="{{route('admin.courses.show', $course)}}"><i class="far fa-eye"></i></a>
-                                                <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('admin.courses.edit', $course) }}"><i
-                                                        class="fas fa-edit"></i></a>
-                                              
-                                                
+
+
+                                                <a class="btn btn-warning btn-sm" href="{{route('admin.courses.show', $course)}}"><i class="far fa-eye"></i></a>
+                                                    <a class="btn btn-primary btn-sm"
+                                                       href="{{ route('admin.courses.edit', $course) }}"><i
+                                                            class="fas fa-edit"></i>
+                                                    </a>
+                                                @if (!$course->dictations()->count())
+
+                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.courses.destroy', $course], 'style' => 'display:inline']) !!}
+                                                    {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                    {!! Form::close() !!}
+                                                    @endif
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -107,17 +114,34 @@
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if (session('info') == 'Dictado eliminado con Exito !')
+    @if (session('info') == 'Curso eliminado con exito !')
         <script>
             Swal.fire(
                 'Eliminado!',
-                'El dictado del curso se elimino con éxito.',
+                'Curso eliminado sastifactoriamente.',
+                'success'
+            )
+
+        </script>
+    @elseif(session('info') == 'Curso actualizado con exito !')
+        <script>
+            Swal.fire(
+                'Actualizado!',
+                'Curso actualizado sastifactoriamente.',
                 'success'
             )
 
         </script>
     @endif
-
+    @if(session('info') == 'Curso creado con exito !')
+        <script>
+            Swal.fire(
+                'Exito!',
+                'Curso creado sastifactoriamente.',
+                'success'
+            )
+        </script>
+    @endif
     <script>
         /*lo que hago es seleccionar esa clase $('.form-eliminar')  y le digo que cuando traten de enviar el form
                     haga la siguiente accion .submit(function(e){

@@ -13,7 +13,7 @@
         </div>
     @endif
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-body">
 

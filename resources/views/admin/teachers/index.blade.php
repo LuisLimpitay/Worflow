@@ -43,10 +43,15 @@
                                         <td>{{ $teacher->about }}</td>
 
                                         <td>
-                                            <a class="btn btn-primary btn-sm"
-                                               href="{{ route('admin.teachers.edit', $teacher) }}"><i
-                                                    class="fas fa-edit"></i></a>
-                                            
+                                            @if (!$teacher->courses()->count())
+                                                <a class="btn btn-primary btn-sm"
+                                                   href="{{ route('admin.teachers.edit', $teacher) }}"><i
+                                                        class="fas fa-edit"></i>
+                                                </a>
+                                                {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
+                                                {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
+                                                {!! Form::close() !!}
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

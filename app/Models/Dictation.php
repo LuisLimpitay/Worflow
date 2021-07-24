@@ -13,7 +13,7 @@ class Dictation extends Model
 
     protected $table = 'dictations';
     //REVISAR ESTO EN LA DOC DE CARBON
-    //protected $dates = ['date'];
+    protected $dates = ['date'];
 
 
     //relaciona mis trablas
@@ -41,7 +41,6 @@ class Dictation extends Model
                     ->withPivot( 'id', 'quantity', 'ammount', 'reference', 'payment_id', 'status' , 'dictation_id', 'user_id', 'created_at');
 
     }
-
 
 
 }

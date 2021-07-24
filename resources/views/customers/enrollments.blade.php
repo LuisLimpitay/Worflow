@@ -38,7 +38,7 @@
 
                             <div class=" text-right text-xs px-2 pt-2 py-2 text-white bg-green-600">
                                 <p>Fecha de Inscripcion :
-                                    {{ \Carbon\Carbon::parse($dictation->created_at)->format('d M Y') }}
+                                    {{ \Carbon\Carbon::parse($dictation->pivot->created_at)->format('d M Y') }}
                                 </p>
                                 <a class="hover:underline" href="{{ route('inscripcion', $dictation->pivot->id) }}"
                                     target="_blank">Descargar Comprobante</a>
@@ -73,14 +73,15 @@
 
                             <div class=" text-right text-xs px-24 pt-2 py-2 text-white bg-red-400">
                                 <p>Fecha de Inscripcion :
-                                    {{ \Carbon\Carbon::parse($dictation->created_at)->format('d M Y') }}
+                                    {{ \Carbon\Carbon::parse($dictation->pivot->created_at)->format('d M Y') }}
                                 </p>
-                                
+
                             </div>
                             <h3 class="font-semibold mt-2 text-center text-2xl tracking-wide">Tu pago esta pendiente
                             </h3>
                             <p class="text-black container p-4 text-left my-1">
-                                El cajero te solicitara el siguiente numero para realizar el pago.
+                                Fecha del Curso : {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
+
                             </p>
                             <p class="text-black container p-4 text-left my-1">
                                 Numero de Referencia : <br>
@@ -88,8 +89,8 @@
                                     class="text-black text-2xl font-bold">{{ $dictation->pivot->reference }}</small>
                             </p>
                             <p class="text-black container p-4 text-left my-1"> <i>* Recuerda que deberas realizar el
-                                    pago 48 hs antes de la fecha :
-                                    {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</i> </p>
+                                    pago en las proximas 24 hs.
+                            </p>
 
                         </div>
                     @endif

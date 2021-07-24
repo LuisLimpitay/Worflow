@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Dictation;
 use App\Models\Place;
 use App\Models\Course;
-use App\Models\Dictation_User;
 use App\Models\DictationUser;
 use App\Models\Teacher;
 use App\Models\User;
@@ -46,17 +45,15 @@ class DictationController extends Controller
         $request->validate([
             'date' => 'required|unique:dictations,date',
             'time' => 'required',
-            'stock' => 'numeric|required|min:5|max:35',
+            'stock' => 'numeric|required|min:1|max:35',
             'course_id' => 'required',
             'place_id' => 'required'
         ]);
-
         $dictations = Dictation::create($request->all());
         return redirect()->route('admin.dictations.index', $dictations)
                             ->with('info', 'Dictado creado con Exito !');
     }
 
-    
     public function show(Dictation $dictation)
     {
         //dd($dictation);
@@ -97,14 +94,14 @@ class DictationController extends Controller
         $request->validate([
             'date' => 'required|date|unique:dictations,date,'.$dictation->id,
             'time' => 'required',
-            'stock' => 'numeric|required|min:5|max:35',
+            'stock' => 'numeric|required|min:1|max:35',
             'course_id' => 'required',
             'place_id' => 'required',
-
         ]);
+        //dd($request->all());
         $dictation->update($request->all());
         //dd($dictation);
-        return redirect()->route('admin.dictations.index', $dictation)
+        return redirect()->route('admin.dictations.index')
                             ->with('info', 'Dictado actualizado con Exito !');
     }
 

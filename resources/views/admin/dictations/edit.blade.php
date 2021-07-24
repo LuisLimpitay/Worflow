@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('date', 'Fecha') !!}
-                                {!! Form::text('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
+                                {!! Form::date('date', null, ['class' => 'form-control', 'id' => 'date']) !!}
                                 @error('date')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -39,7 +39,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('stock', 'Cupos') !!}
-                                {!! Form::number('stock', null, ['class' => 'form-control', 'readonly']) !!}
+                                {!! Form::number('stock', null, ['class' => 'form-control']) !!}
+                                @error('stock')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -51,8 +54,9 @@
                         </div>
                     </div>
 
+
                     <div class="form-group">
-                        {!! Form::label('place_id', 'Ciudad') !!}
+                        {!! Form::label('place_id', 'Sede') !!}
                         {!! Form::select('place_id', $places, null, ['class' => 'form-control']) !!}
 
                     </div>
@@ -69,15 +73,7 @@
 @stop
 
 @section('js')
-    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        Swal.fire(
-            'Atención!',
-            'Solo podras editar la fecha y hora del dictado del curso',
-            'warning'
-        )
 
-    </script> --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -89,8 +85,6 @@
                 minDate: 1,
                 changeMonth: true,
                 changeYear: true,
-
-                maxDate: "+5M +5D",
                 dateFormat: "yy-mm-dd"
 
             });

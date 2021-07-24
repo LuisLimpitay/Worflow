@@ -248,13 +248,13 @@ return [
             'route'         => 'admin.orders.index',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
             'active' => ['admin/orders*']
-            
+
         ],
 
 
         ['header' => 'C R U D'],
 
-       
+
         [
             'text' => 'Instructor',
             'route'  => 'admin.teachers.index',
@@ -281,11 +281,11 @@ return [
             'icon' => 'fas fa-align-left fa-fw',
             'active' => ['admin/dictations*']
         ],
-        
 
-        
-        
-        
+
+
+
+
 
     ],
 

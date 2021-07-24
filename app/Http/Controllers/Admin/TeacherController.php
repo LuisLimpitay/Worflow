@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dictation;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 
@@ -12,7 +13,9 @@ class TeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::all();
-        return view('admin.teachers.index', compact('teachers'));
+        $dictations = Dictation::published()->get();
+
+        return view('admin.teachers.index', compact('teachers', 'dictations'));
     }
 
 

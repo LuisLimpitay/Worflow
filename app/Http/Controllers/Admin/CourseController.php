@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Dictation;
 use App\Models\Place;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -15,8 +16,10 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::with(['teachers'])->get();
+        $dictations = Dictation::published()->get();
+
         //dump($courses);
-        return view ('admin.courses.index', compact ('courses'));
+        return view ('admin.courses.index', compact ('courses', 'dictations'));
     }
 
 
@@ -35,7 +38,7 @@ class CourseController extends Controller
     {
         //dump($request);
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:courses,name',
             'slug' => '',
             'description' => 'required',
             'content' => 'required',
@@ -46,7 +49,7 @@ class CourseController extends Controller
         ]);
         $courses = Course::create($request->all());
         return redirect()->route('admin.courses.index', $courses)
-                            ->with('info', 'Curso agregado con exito !!!');
+                            ->with('info', 'Curso creado con exito !');
     }
 
 
@@ -81,13 +84,14 @@ class CourseController extends Controller
         ]);
 
         $course->update($request->all());
-        return redirect()->route('admin.courses.index', $course)->with('info', 'Curso actualizado con exito !!!');
+        return redirect()->route('admin.courses.index', $course)->with('info', 'Curso actualizado con exito !');
     }
 
     public function destroy(Course $course)
     {
+
         $course->delete();
-        return redirect()->route('admin.courses.index')->with('info', 'Curso eliminado con exito !!!');;
+        return redirect()->route('admin.courses.index')->with('info', 'Curso eliminado con exito !');;
     }
 }
 

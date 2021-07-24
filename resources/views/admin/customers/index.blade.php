@@ -50,7 +50,7 @@
                                         <td>
                                             <a class="btn btn-primary btn-sm" href="{{ route('admin.customers.edit',$customer) }}"><i
                                                 class="fas fa-edit"></i></a>
-                                            {!! Form::open(['method' => 'DELETE','route' => ['admin.customers.destroy', $customer],'style'=>'display:inline']) !!}
+                                            {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.customers.destroy', $customer],'style'=>'display:inline']) !!}
                                             {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm'] )  }}
                                             {!! Form::close() !!}
                                         </td>
@@ -100,6 +100,57 @@
                     }
                 }
             });
+        });
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        @if (session('info') == 'cliente creado')
+            <script>
+                Swal.fire(
+                    'Exito!',
+                    'Cliente creado correctamente',
+                    'success'
+                )
+            </script>
+        @endif
+
+        @if (session('info') == 'Cliente eliminado')
+            <script>
+                Swal.fire(
+                    'Exito!',
+                    'Cliente eliminado correctamente',
+                    'success'
+                )
+            </script>
+        @elseif (session('info') == 'cliente actualizado')
+            <script>
+                Swal.fire(
+                    'Exito!',
+                    'Cliente actualizado correctamente',
+                    'success'
+                )
+            </script>
+        @endif
+
+    <script>
+        $('.form-eliminar').submit(function(e) {
+            e.preventDefault();
+            //luego le paso el alert
+            Swal.fire({
+                title: 'Estas seguro que deseas eliminar un cliente?',
+                text: "No podras revertirlo",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this
+                        .submit(); //luego en mi controlador pongo msj de sesion y luego lo reciboantes del alert
+                }
+            })
         });
     </script>
 @stop

@@ -17,21 +17,21 @@
         $item->unit_price = $dictation->courses->price;
 
         // Me redireccionaria de acuerdo al estado del pago
-        $preference->back_urls = array(
-        "success" => route('courses.pay', $dictation),
-        "failure" => "http://www.tu-sitio/failure",
-        "pending" => route('courses.pending', $dictation)
-        );
+        $preference->back_urls = [
+            'success' => route('courses.pay', $dictation),
+            'failure' => '',
+            'pending' => route('courses.pending', $dictation),
+        ];
         // con esto redirecciona a la pagina automaticamente
-        $preference->auto_return = "approved";
+        $preference->auto_return = 'approved';
 
-        $preference->items = array($item);
+        $preference->items = [$item];
         $preference->save();
     @endphp
 
     @if (!Auth::check())
         {{-- MIGAS DE PAN --}}
-         <nav>
+        <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
 
                 <li class="px-2"><a href="{{ route('home') }}" class="no-underline text-indigo">Inicio</a></li>
@@ -40,13 +40,11 @@
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
                 </li>
                 <li>/</li>
-                <li class="px-2"><a href="#" class="no-underline text-indigo">Detalles</a>
-                </li>
-                <li>/</li>
+                @foreach($courses as $course)
+                    <p>{{$course->id}}</p>
+                @endforeach
 
-
-                <li class="px-2 text-gray-500">Formulario de Registro</li>
-
+                <li>
             </ol>
         </nav>
         {{-- FIN MIGAS DE PAN --}}
@@ -62,200 +60,31 @@
 
     @if (!Auth::check())
 
-        <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
+        <br>
+        <!-- component -->
+        <main class="w-full flex justify-center">
+            <div class="flex flex-col md:w-2/5 p-4 mt-2 space-y-5 rounded-xl border border-black bg-white shadow-md">
+                <h3 class="text-grey-dark text-2xl px-6 text-center mb-4">
+                    ¡Hola! Para inscribirte, ingresá a tu cuenta</h3>
 
-            {{-- COL 1 --}}
-            <div class="grid grid-cols-1 md:col-span-2 lg:col-span-2">
-
-                <div class="container mx-auto shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2"><br>
-
-                    {{-- FORMULARIO DE REGISTRO SI NO ESTA LOGUEADO --}}
-                    <div class="bg-black">
-                        <x-jet-authentication-card>
-                            <x-slot name="logo">
-                                <div class="-m-2 text-center">
-                                    <div
-                                        class="inline-flex items-center bg-white leading-none text-pink-600 rounded-full p-2 shadow text-teal text-sm">
-                                        <span
-                                            class="inline-flex bg-pink-600 text-white rounded-full h-12 px-3 justify-center items-center">Atencion
-                                        </span>
-                                        <p class="inline-flex text-lg font-bold px-2">Deberas CREAR una cuenta para poder inscribirte a un curso.</p>
-                                    </div>
-                                </div>
-                            </x-slot>
-                            <h1 class="bg-gray-200 rounded-full px-2 mt-2 py-2 text-2xl font-bold">Formulario de
-                                Registro</h1>
-                            <br>
-                            <hr><br>
-
-                            {{-- <x-jet-validation-errors /> --}}
-                            <form method="POST" autocomplete="off" action="{{ route('register') }}">
-                                @csrf
-
-                                <div class="-mx-3 md:flex mb-6">
-                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="name" /><small class="text-red-500">* </small> Nombre /s
-                                        <x-jet-input id="name" class="block mt-1 w-full" placeholder="Estaban"
-                                            type="text" name="name" :value="old('name')" />
-                                        @error('name')
-                                            <small class="text-red-600">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="last_name" /><small class="text-red-500">* </small> Apellido
-                                        /s
-                                        <x-jet-input id="last_name" class="block mt-1 w-full" placeholder="Lamonte"
-                                            type="text" name="last_name" :value="old('last_name')" />
-                                        @error('last_name')
-                                            <small class="text-red-600">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="mt-4">
-
-                                    <x-jet-label for="phone" /><small class="text-red-500">* </small> Telefono Celular
-                                    <x-jet-input id="phone" class="block mt-1 w-full" placeholder="Ej: 297111222"
-                                        pattern="[0-9]{10}" maxlength="10" type="tel" name="phone"
-                                        :value="old('phone')" /><small><i>Ingrese un numero que no conternga el prefijo
-                                            0 y 15</i> </small>
-                                    <br>
-                                    @error('phone')
-                                        <small class="text-red-600">{{ $message }}</small>
-                                    @enderror
-
-                                </div>
-
-
-                                <div class="mt-4">
-                                    <x-jet-label for="expire_license" /><small class="text-red-500">*
-                                    </small>Vencimiento de Licencia Nacional de Conducir
-                                    <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-07-30"
-                                        type="date" name="expire_license  " :value="old('expire_license')" />
-                                    @error('expire_license')
-                                        <small class="text-red-600">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <br>
-
-
-                                <div class="-mx-3 md:flex mb-6">
-                                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <x-jet-label for="email" /><small class="text-red-500">* </small> Email
-                                        <x-jet-input id="email" placeholder="example@gmail.com"
-                                            class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
-                                        @error('email')
-                                            <small class="text-red-600">{{ $message }}</small>
-                                        @enderror
-
-                                    </div>
-                                    <div class="md:w-1/2 px-3">
-                                        <x-jet-label for="password" /><small class="text-red-500">* </small> Contraseña
-                                        <x-jet-input id="password" class="block mt-1 w-full" type="password"
-                                            name="password" autocomplete="new-password" />
-                                        @error('password')
-                                            <small class="text-red-600">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="mt-4">
-                                    <x-jet-label for="password_confirmation" /><small class="text-red-500">* </small>
-                                    Confirmar Contraseña
-                                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                                        name="password_confirmation" autocomplete="new-password" />
-                                </div>
-
-                                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                    <div class="mt-4">
-                                        <x-jet-label for="terms">
-                                            <div class="flex items-center">
-                                                <x-jet-checkbox name="terms" id="terms" />
-
-                                                <div class="ml-2">
-                                                    {!! __('Acepto los :terms_of_service y :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
-]) !!}
-                                                </div>
-                                            </div>
-                                        </x-jet-label>
-                                    </div>
-                                @endif
-
-                                <div class="flex items-center justify-end mt-4">
-                                    <a class="underline text-sm text-gray-600 hover:text-blue-600"
-                                        href="{{ route('login') }}">
-                                        {{ __('Ya estas registrado ?') }}
-                                    </a>
-
-                                    <a class="inline-flex items-center ml-2 px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-                                        type="submit" href="{{ route('home') }}">
-                                        cancelar
-                                    </a>
-                                    <x-jet-button class="ml-2">
-                                        {{ __('Registrarme') }}
-                                    </x-jet-button>
-
-
-                                </div>
-                            </form>
-                    </div>
-                    </x-jet-authentication-card>
-                    {{-- FORMULARIO DE REGISTRO --}}
-
-                </div>
+                <a href="{{ route('register') }}"><button
+                        class="bg-green-400 text-white px-3 py-2 rounded w-full mt-4">Soy nuevo</button></a>
+                <a href="{{ route('login') }}"><button
+                        class="hover:bg-gray-100 text-blue-600 font-bold px-3 py-2 rounded w-full mt-4">Ya tengo una
+                        cuenta</button></a>
 
             </div>
-
-            {{-- COL 2 --}}
-            <div class="grid grid-cols-1 md:col-span-2 lg:col-span-1">
-
-                <div class="container mx-auto shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2"><br>
-
-                    {{-- CARD DETALLES DE INSCRIPCION --}}
-                    <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-                        <div class="container mx-auto"><br>
-                            <h1 class="bg-gray-200 rounded-full px-2 mt-2 py-2 text-2xl font-bold">Detalle de la
-                                Inscripción
-                            </h1><br>
-                            <hr><br>
-
-                            <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{ $dictation->courses->name }}
-                            </p>
-                            <p class="px-4 py-2"><strong>Fecha: </strong>
-                                {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
-
-                            <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city->name }}</p>
-
-                            <p class="px-4 py-2"><strong>Instructor:
-                                </strong>{{ $dictation->courses->teachers->name }}
-                            </p>
-                            <br><br>
-
-                            <p class="bg-yellow-500 text-center text-white font-bold py-2 px-4 rounded">
-                                ARS ${{ $dictation->courses->price }}
-                            </p><br>
-
-                            {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+        </main>
 
 
-            {{-- //-------------------------------------------------------------------------------------------------------------
+
+        {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------- --}}
 
-        @elseif(Auth::check())
+    @elseif(Auth::check())
 
-        {{--MIGAS DE PAN--}}
+        {{-- MIGAS DE PAN --}}
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
 
@@ -266,21 +95,28 @@
                 </li>
                 <li>/</li>
 
-                <li class="px-2"><a href="#" class="no-underline text-indigo">Dictados</a>
-                </li>
+                @foreach($courses as $course)
+
+                    <li class="px-2"><a href="{{route('courses.show', $course)}}" class="no-underline text-indigo">Manejo Defensivo</a>
+                    </li>
+                @endforeach
                 <li>/</li>
 
-                <li class="px-2 text-gray-500">Medios de Pago</li>
+                <li class="px-2 text-gray-500">Pago</li>
 
             </ol>
         </nav>
-        {{--FIN MIGAS DE PAN--}}
-
+        {{-- FIN MIGAS DE PAN --}}
 
         {{-- PROCESO DE INSCRIPCION --}}
         <div class="max-w-xl mx-auto my-4 border-b-2 pb-4">
             <div class="flex pb-3">
                 <div class="flex-1">
+                    <div class="w-10 h-10 mx-auto rounded-full text-lg text-white flex items-center">
+                    <span class="text-black text-center w-full"><a href="{{route('courses.show', $course)}}"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+</svg></a> </span>
+                    </div>
                 </div>
 
                 <div class="flex-1">
@@ -327,135 +163,113 @@
 
             <div class="flex text-xs content-center text-center">
 
-
-                <div class="w-1/3">
+                <div class="w-1/2">
                     Seleccionar Fecha
                 </div>
 
-                <div class="w-1/3">
-                    Medio de Pago
+                <div class="w-1/2">
+                    Realizar Pago
                 </div>
 
-                <div class="w-1/3">
-                    Confirmar Pago
+                <div class="w-1/2">
+                    Finalizar
                 </div>
             </div>
         </div>
         {{-- FIN PROCESO DE INSCRIPCION --}}
 
 
-        {{-- //---------------------------------------- GRID -----------------------------------------------------------------------}}
-        {{-- //---------------------------------------- GRID -----------------------------------------------------------------------}}
+        {{-- //---------------------------------------- GRID --------------------------------------------------------------------- --}}
+        {{-- //---------------------------------------- GRID --------------------------------------------------------------------- --}}
 
-        <div class="grid grid-cols-1 md:col-span-2 lg:grid-cols-3 px-3 py-3 pt-3 gap-4 container mx-auto  ">
 
-            {{-- ************* COL 1 --}}
-            {{--<div class="grid grid-cols-1 md:col-span-3 lg:col-span-2">
+
+        <div class="container mx-auto px-4 sm:px-8">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 overflow-x-auto">
                 <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-                    <div class="container mx-auto">
-                        <br>
-                        --}}{{-- CARD MEDIO DE PAGO --}}{{--
-                        <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Seleccionar Medio de Pago</h1>
-                        <br>
-                        <div class="cho-container">
-                        </div>
-                        --}}{{--<form action="{{ route('form', $dictation) }}" method="POST">
-                            @csrf
+                    <h1 class="rounded-full px-2 py-2 text-center text-2xl font-bold">Detalles de Inscripción</h1><br><hr>
 
-                            <hr>
-                            <p class="mt-1">Seleccione un metodo de pago por favor para poder completar la transaccion
-                            </p>
-                            <p>En el caso de seleccionar efectivo recuerda que deberas acercarte a Mariano Moreno 1400 -
-                                Caleta Olivia.</p><br>
+                    <div class="container mx-auto px-4 sm:px-8">
+                        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                        <table class="min-w-full leading-normal">
+                            <thead>
+                            <tr>
+                                
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300  font-bold text-black uppercase tracking-wider">
+                                    Curso
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300  font-bold text-black uppercase tracking-wider">
+                                    Fecha
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300 font-bold text-black uppercase tracking-wider">
+                                    Ciudad
+                                </th>
 
-                            @if ($errors->any())
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300  font-bold text-black uppercase tracking-wider">
+                                    Total
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->courses->name }}
+                                </td>
 
-                                @foreach ($errors->all() as $error)
-                                    <p class=" text-red-500">* {{ $error, '<br>' }}</p>
-                                @endforeach
+                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->date->format('d / m / Y') }}
+                                </td>
+                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->places->city->name }}
+                                </td>
 
-                            @endif
-                            --}}{{----}}{{-- @livewire('check-method')<br> --}}{{----}}{{--
-
-                            --}}{{----}}{{-- MEDIO DE PAGO --}}{{----}}{{----}}{{----}}{{--
-                            <input type="radio" name="payment_method" value="tarjeta">
-                            <label for="tarjeta" class="text-xl">Tarjeta de Debito / Credito</label><br>
-
-                            <input type="radio" name="payment_method" value="transferencia">
-                            <label for="transferencia" class="text-xl">Transferencia Bancaria</label><br>
-
-                            <input type="radio" name="payment_method" value="efectivo">
-                            <label for="efectivo" class="text-xl">Efectivo</label><br><br>--}}{{----}}{{--
-
-                            <div class="flex justify-content-md-start">
-                                --}}{{----}}{{--<button
-                                    class="bg-blue-500 pagar form-exit hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                                    Confirmar
-                                </button>--}}{{----}}{{--
+                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">ARS $ {{ number_format($dictation->courses->price, 2) }}
+                                </td>
+                            </tbody>
+                        </table>
 
                             </div>
+                            <div class=" mt-4 text-right cho-container">
 
-                        </form>--}}{{--
-                        --}}{{-- FIN CARD MEDIO DE PAGO --}}{{--
-                    </div>
-                </div>
-            </div>--}}
-
-
-            {{-- ************* COL 2 --}}
-            <div class="grid grid-cols-1 md:col-span-3 lg:col-span-1">
-                <div class="bg-white shadow-md rounded px-4  pb-8 mb-4 flex flex-col my-2">
-                    <div class="container mx-auto">
-                        <br>
-                        <h1 class="bg-gray-200 rounded-full px-2 py-2 text-2xl font-bold">Detalle de la Inscripción
-                        </h1><br>
-                        <hr><br>
-
-                        <p class="px-4 py-2 text-lg"><strong>Curso: </strong> {{ $dictation->courses->name }}
-                        </p>
-                        <p class="px-4 py-2"><strong>Fecha: </strong>
-                            {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
-                        <p class="px-4 py-2"><strong>Ciudad: </strong>{{ $dictation->places->city->name }}</p>
-                        <br>
-
-                        <p class="bg-yellow-500 text-center text-white font-bold py-2 px-4 rounded">
-                            TOTAL : ARS ${{ number_format($dictation->courses->price, 2) }}
-                        </p><br>
-                        <div class="cho-container">
+                            </div>
                         </div>
-                        {{--<div class="cho-container">
-                        </div>--}}
-                        {{-- <p class="px-4 py-2"><strong>Clienta: </strong>{{$userName}}{{$usersLastName}}</p> --}}
+                    </div>
 
                     </div>
                 </div>
             </div>
-
-        @endif
         </div>
-        {{-- //---------------------------------------- FIN  GRID -----------------------------------------------------------------------}}
-        {{-- //---------------------------------------- FIN  GRID -----------------------------------------------------------------------}}
 
 
-        {{--// SDK MercadoPago.js V2--}}
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
 
-        <script>
-            // Agrega credenciales de SDK
-            const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
-                locale: 'es-AR'
-            });
+    @endif
 
-            // Inicializa el checkout
-            mp.checkout({
-                preference: {
-                    id: '{{$preference->id}}'
-                },
-                render: {
-                    container: '.cho-container', // Indica dónde se mostrará el botón de pago
-                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
-                }
-            });
-        </script>
+    {{-- //---------------------------------------- FIN  GRID --------------------------------------------------------------------- --}}
+    {{-- //---------------------------------------- FIN  GRID --------------------------------------------------------------------- --}}
+
+
+    {{-- // SDK MercadoPago.js V2 --}}
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <script>
+        // Agrega credenciales de SDK
+        const mp = new MercadoPago("{{ config('services.mercadopago.key') }}", {
+            locale: 'es-AR'
+        });
+
+        // Inicializa el checkout
+        mp.checkout({
+            preference: {
+                id: '{{ $preference->id }}'
+            },
+            render: {
+                container: '.cho-container', // Indica dónde se mostrará el botón de pago
+                label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+            }
+        });
+
+    </script>
 
 </x-app-layout>

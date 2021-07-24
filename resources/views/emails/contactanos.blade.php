@@ -13,7 +13,7 @@
      
     <p><strong>De: {{$contacto['name']}}</strong></p>
     
-    <p><strong>Correo: {{$contacto['email']}}</strong></p>
+    <p><strong>Email: {{$contacto['email']}}</strong></p>
 
     <p><strong>Mensaje: {{$contacto['mensaje']}}</strong></p>
 

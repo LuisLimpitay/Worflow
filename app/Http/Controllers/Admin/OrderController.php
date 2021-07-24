@@ -24,6 +24,9 @@ class OrderController extends Controller
         $dictations = Dictation::pluck('date', 'id');
         return view('admin.orders.edit', compact('pivot', 'dictations'));
     }
+    public function show(DictationUser $pivot){
+        return view('admin.orders.show', compact('pivot'));
+    }
 
     public function  update(Request $request, DictationUser $pivot){
 

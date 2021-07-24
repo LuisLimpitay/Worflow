@@ -34,7 +34,9 @@
                                     <th>Ciudad</th>
                                     <th>Asistentes</th>
                                     <th>Cupos</th>
+{{--
                                     <th>Estado</th>
+--}}
                                     <th width="120px">Accion</th>
                                 </thead>
                                 <tbody>
@@ -46,19 +48,21 @@
                                             <td>
                                                 <span class="badge bg-warning">{{ $dictation->users->count() }}</span>
                                             </td>
-                                            <td><span class="badge bg-info">{{ $dictation->stock }}</span></td>
-                                            <td>
+                                            <td><span class="badge bg-info text-center">{{ $dictation->stock }}</span></td>
+                                            {{--<td>
                                                 @if ($dictation->status == 'activo')
                                                     <p class="badge badge-success">Activo</p>
+                                                @elseif ($dictation->status == 'finalizado')
+                                                    <p class="badge badge-danger"><b>Finalizado</b></p>
                                                 @else
                                                     <p class="badge badge-danger"><b>Completo</b></p>
                                                 @endif
-                                            </td>
+                                            </td>--}}
                                             <td>
                                                 <a class="btn btn-warning btn-sm"
                                                     href="{{ route('admin.dictations.show', $dictation) }}"><i
                                                         class="far fa-eye"></i></a>
-                                                @if ($dictation->users->count() < 1)
+                                                @if (!$dictation->users->count())
                                                     <a class="btn btn-primary btn-sm"
                                                         href="{{ route('admin.dictations.edit', $dictation) }}"><i
                                                             class="fas fa-edit"></i></a>
@@ -66,7 +70,6 @@
                                                     {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                                     {!! Form::close() !!}
                                                 @endif
-
 
                                             </td>
                                         </tr>
@@ -165,7 +168,7 @@
             //luego le paso el alert
             Swal.fire({
                 title: 'Estas seguro que deseas eliminar el dictado del curso ?',
-                text: "No podras revertirlo",
+                text: "Se eliminaran todas las ordenes de compra relacionadas.",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
