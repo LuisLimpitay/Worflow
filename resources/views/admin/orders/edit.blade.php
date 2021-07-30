@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inscripciones')
+@section('title', 'Ordenes')
 
 @section('content_header')
     <h1>Actualizacion Estado del Pago</h1>

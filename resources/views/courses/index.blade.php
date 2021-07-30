@@ -41,12 +41,8 @@
                 <p class="mt-4 max-w-2xl text-justify text-xl text-black lg:mx-auto">
                     Nos dedicamos a la investigación, diseño y desarrollo de programas de capacitación teórico-práctico
                     en Manejo Defensivo.
-
                 </p>
-
             </div>
-
-
         </div>
     </div>
     <!-- FIN DEL RELLENO  -->

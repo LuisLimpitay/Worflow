@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card card-primary card-outline">
                 <div class="card-body">
 
@@ -41,8 +41,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                {!! Form::label('price', 'Precio') !!}
-                                {!! Form::number('price', $course->price, ['class' => 'form-control']) !!}
+                                {!! Form::label('price', 'Precio ARS $') !!}
+                                {!! Form::text('price', number_format($course->price), ['class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">

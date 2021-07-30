@@ -36,8 +36,8 @@ class User extends Authenticatable
     ];
     protected $table = 'users';
 
-    //  
-    //protected $dates = ['expire_license'];
+    //
+    protected $dates = ['expire_license'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -78,5 +78,15 @@ class User extends Authenticatable
 
     }
 
+    public function adminlte_image() {
+        return 'https://i.picsum.photos/id/613/300/300.jpg?hmac=iAlBg400TaxoC7sUHVjQQVaMZ9im8E314SrksFFgfYU';
+    }
+    public function adminlte_desc(){
+        return 'Administrador';
+    }
+
+    public function adminlte_profile_url(){
+        return view('');
+    }
 
 }

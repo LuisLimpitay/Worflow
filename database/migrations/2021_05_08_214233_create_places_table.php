@@ -16,8 +16,7 @@ class CreatePlacesTable extends Migration
             $table->string('address_street', 30);
             $table->string('address_number', 10);
 
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreignId('city_id')->constrained();
 
             $table->timestamps();
         });
@@ -27,5 +26,5 @@ class CreatePlacesTable extends Migration
     {
         Schema::dropIfExists('places');
     }
-    
+
 }

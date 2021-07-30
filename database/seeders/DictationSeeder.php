@@ -12,23 +12,17 @@ class DictationSeeder extends Seeder
     {
 
         Dictation::create([
-            'date' => '2021-07-23',
-            'time' => '09:00',
-            'stock' => 1,
-            'course_id' => 1,
-            'place_id' => 1
-        ]);
-        Dictation::create([
-            'date' => '2021-07-22',
+            'date' => '2021-08-02',
             'time' => '09:00',
             'stock' => 3,
             'course_id' => 1,
             'place_id' => 1
         ]);
+
         Dictation::create([
-            'date' => '2021-08-12',
+            'date' => '2021-08-03',
             'time' => '09:00',
-            'stock' => 25,
+            'stock' => 1,
             'course_id' => 1,
             'place_id' => 1
         ]);
@@ -40,11 +34,16 @@ class DictationSeeder extends Seeder
             'place_id' => 2
         ]);
 
+        Dictation::create([
+            'date' => '2021-08-26',
+            'time' => '09:00',
+            'stock' => 30,
+            'course_id' => 1,
+            'place_id' => 1
+        ]);
 
-        $dictations = Dictation::all();
-        foreach($dictations as $dictation){
-            $dictation->users()->attach(['1',4,5,6]);
-        }
+
+
  /*
 
         Dictation::create([

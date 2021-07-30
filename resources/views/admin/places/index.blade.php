@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Ciudades')
+@section('title', 'Sedes')
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -13,8 +13,7 @@
 @section('content')
 
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+
             <div class="row">
                 <div class="col-12">
 
@@ -32,7 +31,7 @@
                             <table id="table-place" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
                                     <th>#</th>
-                                    <th>Sede</th>
+                                    <th>Nombre</th>
                                     <th>Direccion</th>
                                     <th>Ciudad</th>
                                     <th width="40px">Action</th>
@@ -68,14 +67,6 @@
                 <!-- /.card -->
             </div>
             <!-- /.col -->
-        </div>
-        <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-
-
 
 @stop
 

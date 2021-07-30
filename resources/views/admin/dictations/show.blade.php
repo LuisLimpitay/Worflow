@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dictado')
+@section('title', 'Dictados')
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -12,24 +12,14 @@
         <div class="col-md-4">
             <div class="card card-primary card-outline">
                 <div class="card-body">
-                    <h3>Detalles del Dictado</h3>
+                    <h3>Detalles del Dictado</h3><br>
                     <div>
+                        <p><b>Fecha : {{ \Carbon\Carbon::parse($dictation->date)->format('d/ m/ Y') }} </b> </p>
                         <p><b>Curso :</b> {{ $dictation->courses->name }}</p>
-                    </div>
-
-                    <div>
-                        <p><b>Fecha :</b> {{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}</p>
-                    </div>
-
-                    <div>
                         <p><b>Ciudad :</b> {{ $dictation->places->city->name }}</p>
-                    </div>
-                    <div>
                         <p><b>Cupos Disponibles :</b> <span class="badge bg-success">{{ $dictation->stock }}</span></p>
-                    </div>
-                    <div>
+                        </div>
                         <p><b>Asistentes</b> : <span class="badge bg-secondary">{{ $dictation->users->count() }}</span></p>
-                    </div>
                     <div>
 
                 </div>
@@ -53,7 +43,8 @@
                             <table id="table-dictation" class="table table-responsive-sm">
                                 <thead class="thead-dark">
                                     <th>Nombre</th>
-                                    <th>Telefono</th>
+                                    <th>Email</th>
+
                                     <th>Venc L.N.C.</th>
                                     <th>Pago</th>
 
@@ -63,8 +54,7 @@
                                     @foreach ($pivots as $pivot)
                                         <tr>
                                             <td> {{ $pivot->user->last_name }}, {{ $pivot->user->name }} </td>
-                                            <td>{{ $pivot->user->phone }}</td>
-
+                                            <td>{{ $pivot->user->email }}</td>
                                             <td> {{ \Carbon\Carbon::parse($pivot->user->expire_license)->format('d/m/Y') }} </td>
                                             <td>
                                                 @if ($pivot->status == 'aprobado')

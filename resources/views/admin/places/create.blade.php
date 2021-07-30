@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin')
+@section('title', 'Sedes')
 
 @section('content_header')
     <h1>Agregar Lugares de Dictado</h1>
@@ -61,7 +61,7 @@
 
                 <br>
                 <hr>
-                {!! Form::submit('Crear', ['class' => 'btn btn-success']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
                 <a href="{{route('admin.places.index')}}" class="btn btn-danger" type="submit">Cancelar</a>
 
             {!! Form::close() !!}

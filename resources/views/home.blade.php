@@ -44,6 +44,7 @@
     <!-- FIN DE QUIENES SOMOS  -->
 
 
+   
     <!-- RELLENO -->
     <div class="bg-gray-100">
 
@@ -60,7 +61,7 @@
                             Objetivos
                         </p>
 
-                        <p class="mt-5 text-xl text-justify leading-7 text-gray-600">Workflow se propone evaluar y capacitar al
+                        <p class="mt-5 text-xl leading-7 text-gray-600">Workflow se propone evaluar y capacitar al
                             personal de las Empresas y/o instituciones de la región, conformándonos como una entidad
                             líder en la prestación de servicios para las diferentes industrias de la region.</p>
                         <p class="mt-5 text-xl leading-7 text-gray-600">
@@ -171,6 +172,7 @@
     {{-- FIN CARD DE CURSOS --}}
     <!-- ************************************************************************************************************-->
 
+
     @section('js')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -186,7 +188,7 @@
             <script>
                 Swal.fire({
                     icon: 'warning',
-                    text: 'Recuerda que deberas realizar el pago como maximo 48 hs antes de la fecha del curso.',
+                    text: 'Recuerda que deberas realizar el pago en las siguientes 24 hs.',
                 })
 
             </script>

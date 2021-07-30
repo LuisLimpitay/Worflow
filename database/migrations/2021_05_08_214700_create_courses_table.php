@@ -17,10 +17,9 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->longText('content');
             $table->string('mode');
-            $table->decimal('price', 8,2);
+            $table->float('price', 8,2);
 
-            $table->unsignedBigInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreignId('teacher_id')->constrained();
 
             $table->timestamps();
 

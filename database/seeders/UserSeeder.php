@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('55555555'),
                 'level' => '1'
-            ]); 
+            ]);
 
         User::create([
             'name' => 'Ruben',
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             'level' => '2'
         ]);
 
-        User::factory(1)->create();     
-        
+        User::factory(50)->create();
+
     }
 }

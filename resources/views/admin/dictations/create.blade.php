@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin')
+@section('title', 'Dictados')
 
 @section('content_header')
-    <h1>Nuevo Lugar de Dictado</h1>
+    <h1>Nuevo Dictado</h1>
 @stop
 
 @section('content')
@@ -68,7 +68,8 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-
+                    <br>
+                    <hr>
 
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
                     <a href="{{ route('admin.dictations.index') }}" class="btn btn-danger" type="submit">Cancelar</a>

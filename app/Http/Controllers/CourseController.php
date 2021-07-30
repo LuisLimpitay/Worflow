@@ -37,8 +37,11 @@ class CourseController extends Controller
         $course_id= $course->id;
         $hoy = Carbon::now();
         if (Auth::check()) {
+            // no mostrar nada si el usuario se inscribio a X fecha mostrar recien una vez que pase la X fecha
             $dictado = auth()->user()->dictations;
+            //dd($dictado);
             $ids = $dictado->pluck('id');
+
             $dictations = Dictation::with('courses')
                 ->where('stock', '>', '0')
                 ->where('course_id', $course_id )
@@ -115,6 +118,7 @@ class CourseController extends Controller
     public function checkout(Dictation $dictation)
     {
         $courses = Course::all();
+
         $dictations = Dictation::where('id', $dictation->id)->get();
         return view('courses.checkout', compact('dictations', 'dictation', 'courses'));
     }

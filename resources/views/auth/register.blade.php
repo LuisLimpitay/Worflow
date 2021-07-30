@@ -47,7 +47,7 @@
                     <div class="md:w-1/2 px-3">
                         <x-jet-label for="expire_license" /><small class="text-red-500">*
                         </small>Venciminiento L.N.C.
-                        <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-08-02" type="date"
+                        <x-jet-input id="expire_license" class="block mt-1 w-full" min="2021-08-03" type="date"
                             name="expire_license  " :value="old('expire_license')" />
                         @error('expire_license')
                             <small class="text-red-600">{{ $message }}</small>
@@ -90,11 +90,14 @@
 
                                 <div class="ml-2">
                                     {!! __('Acepto los :terms_of_service y :privacy_policy', [
-    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
-    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
-]) !!}
+                                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terminos del Servicio') . '</a>',
+                                        'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Politica de Privacidad') . '</a>',
+                                    ]) !!}
                                 </div>
                             </div>
+                            @error('terms')
+                            <small class="text-red-600">{{ $message }}</small>
+                            @enderror
                         </x-jet-label>
                     </div>
                 @endif

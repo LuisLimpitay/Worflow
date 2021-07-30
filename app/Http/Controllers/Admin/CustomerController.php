@@ -27,8 +27,8 @@ class CustomerController extends Controller
     {
         //return $request->all();
         $request->validate([
-            'name' => 'required',
-            'last_name' => 'required',
+            'name' => 'required|string',
+            'last_name' => 'required|string',
             'phone' => 'required|numeric|unique:users',
             'expire_license' => 'required',
             'email' => 'required|email|unique:users,email',

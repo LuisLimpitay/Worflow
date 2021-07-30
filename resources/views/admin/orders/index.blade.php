@@ -1,20 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'Inscripciones')
+@section('title', 'Ordenes')
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 @endsection
 
 @section('content_header')
-    <p class="text-xl">Gestion de Ordenes de Compra</p>
+    <p class="text-xl">Gestion de Ordenes</p>
 @endsection
 
 @section('content')
 
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -27,14 +26,16 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+
                             <table id="table-order" class="table table-striped table-responsive-lg">
                                 <thead class="thead-dark">
 
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Fecha </th>
                                     <th>Cliente</th>
-                                    <th>Metodo de Pago</th>
-                                    <th>Total</th>
+                                    <th>Email</th>
+                                    <th>Forma de Pago</th>
+
                                     <th>Estado</th>
                                     <th width="120px">Accion</th>
 
@@ -46,12 +47,11 @@
 
                                         <tr>
                                             <td>{{ $pivot->id }}</td>
-                                            <td>{{ $pivot->created_at->format('d M Y') }}</td>
+                                            <td>{{$pivot->created_at->format('d/m/Y')}}</td>
+
                                             <td>{{ $pivot->user->last_name }}, {{ $pivot->user->name }}</td>
-
+                                            <td>{{$pivot->user->email }}</td>
                                             <td>{{ $pivot->payment->name }}</td>
-                                            <td>$ {{ number_format($pivot->ammount) }}</td>
-
                                             <td>
                                                 @if ($pivot->status == 'aprobado')
                                                     <p class="badge badge-success ">Aprobado</p>
@@ -87,12 +87,7 @@
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+
 @stop
 
 

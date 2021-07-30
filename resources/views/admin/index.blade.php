@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Inscripciones')
+@section('title', 'Administrador')
 
 @section('content')
     <!-- Main content -->
@@ -8,7 +8,6 @@
         <div class="container-fluid">
 
             <!-- Small Box (Stat card) -->
-            <h5 class="mb-2 mt-4">Small Box</h5>
             <div class="row">
                 <div class="col-lg-4 col-6">
                     <!-- small card -->
@@ -74,13 +73,7 @@
     <!-- /.content -->
 
     <!-- /.content-wrapper -->
-    <footer class="">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0
-        </div>
-    </footer>
+
 @endsection
 
 @section('js')

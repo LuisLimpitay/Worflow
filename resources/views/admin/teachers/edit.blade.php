@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin')
+@section('title', 'Instructores')
 
 
 @section('content_header')
@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-   
+
     <div class="row">
         <div class="col-md-9">
             <div class="card card-primary card-outline">
@@ -24,7 +24,7 @@
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-                            
+
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">

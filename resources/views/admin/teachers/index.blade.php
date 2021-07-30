@@ -12,8 +12,7 @@
 
 @section('content')
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+
             <div class="row">
                 <div class="col-12">
 
@@ -43,11 +42,12 @@
                                         <td>{{ $teacher->about }}</td>
 
                                         <td>
-                                            @if (!$teacher->courses()->count())
+
                                                 <a class="btn btn-primary btn-sm"
                                                    href="{{ route('admin.teachers.edit', $teacher) }}"><i
                                                         class="fas fa-edit"></i>
                                                 </a>
+                                            @if (!$teacher->courses()->count())
                                                 {!! Form::open(['method' => 'DELETE', 'class' => 'form-eliminar', 'route' => ['admin.teachers.destroy', $teacher], 'style' => 'display:inline']) !!}
                                                 {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm']) }}
                                                 {!! Form::close() !!}
@@ -65,14 +65,6 @@
                 <!-- /.card -->
             </div>
             <!-- /.col -->
-        </div>
-        <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-
-
 
 @stop
 
@@ -130,7 +122,8 @@
             Swal.fire(
                 'Exito!',
                 'Instructor creado sastifactoriamente.',
-                'success'
+                'success',
+
             )
         </script>
     @endif

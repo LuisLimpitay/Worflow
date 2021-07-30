@@ -204,7 +204,7 @@
 
                         <p class="p-5">Deberas tener una cuenta en nuestro sitio web. Luego seguir con los siguientes pasos</p>
                             <ul class="px-6" >
-                                <li class="px-3">- Iniciar Sesion con tus credenciales</li>
+                                <li class="px-3">- Deberas Iniciar Sesion con tu email y contraseña.</li>
                                 <li class="px-3">- Seleccionar el curso de interes</li>
                                 <li class="px-3">- Elegir una fecha</li>
                                 <li class="px-3">- Realizar el pago</li>
@@ -223,7 +223,7 @@
                             <li class="px-2">- Deberas tener tu Licencia Nacional de Conducir a mano.</li>
 
                             <li class="px-2">- Completar el formulario con los datos y en el formato solicitado.</li>
-                            <li class="px-2">- Una vez registrado podras iniciar sesion con tus credenciales.</li>
+                            <li class="px-2">- Una vez registrado podras iniciar sesion con tu email y contraseña.</li>
                         </ul><br>
                 </div>
             </div>
@@ -269,6 +269,18 @@
                     <p class="p-5">Si, para ello deberas comunicarte con nosotros
                      mediante nuestro formulario de contacto o telefonicamente. De acuerdo a nuestros <a class="text-black font-bold" href="{{route('terms.show')}}">terminos del servicio</a>. <br>
                         </p>
+
+                </div>
+            </div>
+
+            <div class="tab w-full overflow-hidden border-t">
+                <input class="absolute opacity-0" id="tab-multi-seven" type="checkbox" name="tabs">
+                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-seven">¿Que puedo hacer si olvide mi contraseña?
+                </label>
+                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+                    <p class="p-5">Para ello deberas hacer click en olvide la contraseña e ingresar tu email. Luego tendras que abrir tu correo electronico y hacer click en resetear contraseña, ahi te redireccionara a un formulario para establecer una nueva contraseña.
+
+                    </p>
 
                 </div>
             </div>

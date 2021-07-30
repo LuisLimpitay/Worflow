@@ -13,7 +13,7 @@ class Dictation extends Model
 
     protected $table = 'dictations';
     //REVISAR ESTO EN LA DOC DE CARBON
-    protected $dates = ['date'];
+   // protected $dates = ['date'];
 
 
     //relaciona mis trablas
@@ -23,7 +23,7 @@ class Dictation extends Model
             ->orderBy('date','desc');
     }
 
- 
+
     //Relacion A UNO INVERSA
     public function courses(){
         return $this->belongsTo(Course::class, "course_id" , "id" );

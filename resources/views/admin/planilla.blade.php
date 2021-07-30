@@ -10,13 +10,14 @@
 </head>
 <body>
     <h3 align="center">Planilla de Asistencia Workflow</h3><hr>
-    <p><b>Fecha : </b> {{ \Carbon\Carbon::parse($dictation->date)->format('d M Y') }} </p>
+    <p><b>Fecha : </b> {{ \Carbon\Carbon::parse($dictation->date)->format('d / m / Y') }} </p>
     <p><b>Ciudad : </b>{{$dictation->places->city->name}}</p>
     <p><b>Asistentes : </b>{{$dictation->users->count()}}</p>
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Nombre</th>
+              
             <th scope="col">Telefono</th>
             <th scope="col">Venc L.N.C.</th>
             <th scope="col">Estado del pago</th>
@@ -40,7 +41,7 @@
                 </td>
 
             </tr>
-        @endforeach          
+        @endforeach
         </tbody><hr>
       </table>
 

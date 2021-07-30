@@ -3,14 +3,14 @@
         <div class="container mx-auto col-span-2">
             <div class="container mx-auto">
                 <h1 class="px-3 text-4xl text-center">Tus Inscripciones</h1><br><br>
-           
+
                 <table class="container mx-auto table-auto">
                     <thead class="justify-between">
                         <tr class="bg-gray-800">
 
                             <th class="px-8 py-2">
                                 <span class="text-gray-300">Fecha Inscripcion</span>
-                            </th>                           
+                            </th>
                             <th class="px-8 py-2">
                                 <span class="text-gray-300">Fecha del Curso</span>
                             </th>
@@ -38,46 +38,22 @@
 
                     <tbody class="bg-gray-200">
 
-                        
+
                         {{-- CON MI $user ACCEDO A LOS DATOS DEL DICTADO DONDE ESTA INSCRIPTO EL NEGRO --}}
 
                             <tr class="bg-white border-4 border-gray-200">
 
                                 <td class="text-black px-8 py-2">
-                                    {{ \Carbon\Carbon::parse($fila->created_at)->format('d/m/Y')}}    
+                                    {{ \Carbon\Carbon::parse($fila->created_at)->format('d/m/Y')}}
                                 </td>
-
-                                {{-- <td class="text-black px-8 py-2">
-                                    {{ \Carbon\Carbon::parse($user->date)->format('d/m/Y')}}    
-                                </td>
-                                <td class="text-black px-8 py-2">
-                                    {{$user->time}}    
-                                </td>
-                                <td class="text-black px-3 py-2">
-                                    {{$user->places->city}}    
-                                </td>
-                                <td class="text-black px-4 py-2">
-                                    {{$user->places->address_street}} {{$user->places->address_number}}    
-                                </td>
-                                <td class="text-black px-4 py-2">
-                                    ${{$user->pivot->ammount}}    
-                                </td>
-                                <td class="text-black px-8 py-2">
-                                    {{$user->pivot->status}}    
-                                </td>
-                                
-                                <td>
-                                    <a href="{{route('customers.pdf')}}">Descargar</a>
-
-                                </td> --}}
 
                             </tr>
 
 
                     </tbody>
                 </table>
-                                        
-                
+
+
             </div>
         </div>
     </div>

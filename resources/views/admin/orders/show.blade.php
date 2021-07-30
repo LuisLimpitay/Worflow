@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dictado')
+@section('title', 'Ordenes')
 
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -19,10 +19,16 @@
                         <p><b>Numero de orden : </b> {{ $pivot->id }}</p>
                         <p><b>Fecha de inscripcion : </b> {{ \Carbon\Carbon::parse($pivot->created_at)->format('d/m/Y') }}  <b> Hora : </b> {{ \Carbon\Carbon::parse($pivot->created_at)->format('H:i') }} </p>
                         <p><b>Cliente : </b> {{ $pivot->user->last_name }}, {{ $pivot->user->name }}</p>
+                        <p><b>Celular : </b> {{ $pivot->user->phone }}</p>
                         <p><b>Fecha del Curso : </b> {{\Carbon\Carbon::parse($pivot->dictation->date)->format('d/m/Y') }}</p>
-                        <p><b>Nro referencia : </b> {{ $pivot->reference }}</p>
+                        <p><b>Estado del Pago : </b> {{ $pivot->reference }}</p>
+
                         <p><b>Metodo de Pago : </b> {{ $pivot->payment->name }}</p>
-                        <p><b>Estado del Pago : </b> {{ $pivot->status }}</p>
+                        <p><b>Estado del Pago : </b> @if ($pivot->status == 'aprobado')
+                                <span class="badge badge-success ">Aprobado</span>
+                            @else
+                                <span class="badge badge-danger"><b>Pendiente</b></>
+                            @endif</p>
                         <p><b>Cupos : </b> {{ $pivot->quantity }}</p>
 
                     </div>

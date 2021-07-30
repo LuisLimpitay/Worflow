@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Inscripciones')
+@section('title', 'Clientes
+')
 
 @section('content_header')
     <h1 xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">Clientes</h1>
@@ -114,7 +115,7 @@
                 minDate: 1,
                 changeMonth: true,
                 changeYear: true,
-                maxDate: "+5M +5D",
+
                 dateFormat: "yy-mm-dd"
 
             });

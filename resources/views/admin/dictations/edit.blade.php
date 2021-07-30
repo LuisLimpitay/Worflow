@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin')
+@section('title', 'Dictados')
 
 @section('content_header')
     <h1>Editar Dictado</h1>

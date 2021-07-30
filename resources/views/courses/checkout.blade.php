@@ -29,8 +29,8 @@
         $preference->save();
     @endphp
 
-    @if (!Auth::check())
-        {{-- MIGAS DE PAN --}}
+    {{--@if (!Auth::check())
+        --}}{{-- MIGAS DE PAN --}}{{--
         <nav>
             <ol class="list-reset py-4 pl-4 rounded flex bg-grey-light text-grey">
 
@@ -47,8 +47,8 @@
                 <li>
             </ol>
         </nav>
-        {{-- FIN MIGAS DE PAN --}}
-    @endif
+        --}}{{-- FIN MIGAS DE PAN --}}{{--
+    @endif--}}
 
     {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
@@ -59,7 +59,6 @@
 //---------------------------------------------------------------------------------------------------------- --}}
 
     @if (!Auth::check())
-
         <br>
         <!-- component -->
         <main class="w-full flex justify-center">
@@ -76,8 +75,6 @@
             </div>
         </main>
 
-
-
         {{-- //-------------------------------------------------------------------------------------------------------------
 // -----------------  *******************************   //////////////////////////////////// --------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------- --}}
@@ -90,20 +87,15 @@
 
                 <li class="px-2"><a href="{{ route('home') }}" class="no-underline text-indigo">Inicio</a></li>
                 <li>/</li>
-
                 <li class="px-2"><a href="{{ route('courses.index') }}" class="no-underline text-indigo">Cursos</a>
                 </li>
                 <li>/</li>
-
                 @foreach($courses as $course)
-
                     <li class="px-2"><a href="{{route('courses.show', $course)}}" class="no-underline text-indigo">Manejo Defensivo</a>
                     </li>
                 @endforeach
                 <li>/</li>
-
                 <li class="px-2 text-gray-500">Pago</li>
-
             </ol>
         </nav>
         {{-- FIN MIGAS DE PAN --}}
@@ -178,11 +170,8 @@
         </div>
         {{-- FIN PROCESO DE INSCRIPCION --}}
 
-
         {{-- //---------------------------------------- GRID --------------------------------------------------------------------- --}}
         {{-- //---------------------------------------- GRID --------------------------------------------------------------------- --}}
-
-
 
         <div class="container mx-auto px-4 sm:px-8">
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 overflow-x-auto">
@@ -190,12 +179,12 @@
                     <h1 class="rounded-full px-2 py-2 text-center text-2xl font-bold">Detalles de Inscripción</h1><br><hr>
 
                     <div class="container mx-auto px-4 sm:px-8">
+
                         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                             <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal">
                             <thead>
                             <tr>
-                                
                                 <th
                                     class="px-5 py-3 border-b-2 border-gray-500 bg-gray-300  font-bold text-black uppercase tracking-wider">
                                     Curso
@@ -220,7 +209,7 @@
                                 <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->courses->name }}
                                 </td>
 
-                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->date->format('d / m / Y') }}
+                                <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ \Carbon\Carbon::parse($dictation->date)->format('d/m/Y') }}
                                 </td>
                                 <td class="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">{{ $dictation->places->city->name }}
                                 </td>
@@ -241,8 +230,6 @@
                 </div>
             </div>
         </div>
-
-
 
     @endif
 

@@ -57,7 +57,7 @@
         <hr><br>
         <div class="bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black">
             <a href=" {{ route('register') }}">
-            <p class="text-center font-semibold">Registrarse gratis</p></a>
+                <p class="text-center font-semibold">Registrarse</p></a>
         </div>
 
     </x-jet-authentication-card>

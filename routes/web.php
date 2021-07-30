@@ -26,7 +26,6 @@ Route::get('/pruebas', function () {
 //********************  me NOTIFICA  *******************************************************
 Route::post('webhooks', [WebhookController::class, ])->name('courses.payment');
 
-
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
@@ -34,7 +33,6 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
 
 Route::get('orden/{dictation}/pagos', [CourseController::class, 'checkout'])->middleware('auth')->name('courses.checkout');
-
 Route::get('orden/{dictation}/pay', [CourseController::class, 'pay'])->middleware('auth')->name('courses.pay');
 Route::get('pago/{dictation}/pending', [CourseController::class, 'pending'])->middleware('auth')->name('courses.pending');
 

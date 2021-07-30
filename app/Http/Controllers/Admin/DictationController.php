@@ -122,7 +122,7 @@ class DictationController extends Controller
             //return view('admin.dictations.show', compact('dictation', 'pivots'));
             $pdf = App::make('dompdf.wrapper');
             $pdf->loadView('admin.planilla', compact('pivots', 'dictation'));
-            return $pdf->stream();
+            return $pdf->download();
         }
 
 
