@@ -17,6 +17,9 @@ use PhpParser\Node\Scalar\MagicConst\Dir;
 
 class CourseController extends Controller
 {
+    //aca hago el pago
+    //uso las credenciales del checkout de MP
+    
     public function home()
     {
         $courses = Course::all();

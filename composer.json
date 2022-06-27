@@ -19,7 +19,7 @@
         "laravelcollective/html": "^6.2",
         "livewire/livewire": "^2.0",
         "mercadopago/dx-php": "^2.3",
-        "nesbot/carbon": "^2.47"
+        "nesbot/carbon": "^2.58"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -12,7 +12,7 @@ class DictationSeeder extends Seeder
     {
 
         Dictation::create([
-            'date' => '2021-08-02',
+            'date' => '2022-07-02',
             'time' => '09:00',
             'stock' => 3,
             'course_id' => 1,
@@ -20,14 +20,14 @@ class DictationSeeder extends Seeder
         ]);
 
         Dictation::create([
-            'date' => '2021-08-03',
+            'date' => '2022-07-03',
             'time' => '09:00',
             'stock' => 1,
             'course_id' => 1,
             'place_id' => 1
         ]);
         Dictation::create([
-            'date' => '2021-08-19',
+            'date' => '2022-07-19',
             'time' => '09:00',
             'stock' => 30,
             'course_id' => 1,
@@ -35,7 +35,7 @@ class DictationSeeder extends Seeder
         ]);
 
         Dictation::create([
-            'date' => '2021-08-26',
+            'date' => '2022-08-26',
             'time' => '09:00',
             'stock' => 30,
             'course_id' => 1,
